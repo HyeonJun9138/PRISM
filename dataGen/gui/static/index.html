@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRISM dataGen</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+  <span class="brand">PRISM <small>dataGen &middot; 2D traffic simulator</small></span>
+  <span class="chip" id="chipSim">no sim</span>
+  <span class="chip" id="chipStream">stream: idle</span>
+  <span class="chip" id="chipBridge">bridge: ?</span>
+  <span class="spacer"></span>
+  <span class="chip" id="chipFps">-- fps</span>
+  <button id="btnHelp" title="Keyboard help (?)">?</button>
+</header>
+
+<main>
+
+  <!-- ============================ LEFT: CONFIG ========================= -->
+  <aside id="config">
+
+    <div class="section" id="secSource">
+      <h2>Scenario source</h2>
+      <div class="body">
+        <div class="row">
+          <label for="presetSel">Preset</label>
+          <select id="presetSel"></select>
+        </div>
+        <div class="btnrow">
+          <button id="btnLoadPreset">Load preset</button>
+          <button id="btnLoadDefaults">Defaults</button>
+        </div>
+        <div class="btnrow">
+          <button id="btnNewSim" class="primary">New simulation</button>
+        </div>
+        <p class="hint" id="cfgProblems"></p>
+      </div>
+    </div>
+
+    <div class="section" id="secCfg">
+      <h2>Configuration</h2>
+      <div class="body"><div id="cfgForm"></div></div>
+    </div>
+
+    <div class="section" id="secView">
+      <h2>View</h2>
+      <div class="body">
+        <div class="toggles" id="layerToggles">
+          <button data-layer="gt"      class="on">GT (G)</button>
+          <button data-layer="obs"     class="on">OBS (O)</button>
+          <button data-layer="ell"     class="on">1&sigma; ellipse (E)</button>
+          <button data-layer="fan">Fan (F)</button>
+          <button data-layer="trails"  class="on">Trails</button>
+          <button data-layer="rings"   class="on">Rings</button>
+          <button data-layer="grid"    class="on">Grid</button>
+          <button data-layer="context" class="on">Context</button>
+          <button data-layer="labels">Labels</button>
+        </div>
+        <div class="btnrow">
+          <button id="btnFollow">Ownship-centred</button>
+          <button id="btnHeadingUp">Heading-up</button>
+          <button id="btnFit">Fit view</button>
+        </div>
+        <div class="row">
+          <label for="trailLen">Trail length [s]</label>
+          <input type="number" id="trailLen" value="20" min="0" max="600" step="1">
+        </div>
+        <p class="hint">Drag to pan, wheel to zoom, click an agent to select.</p>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ============================== CANVAS ============================= -->
+  <div id="stage">
+    <canvas id="view"></canvas>
+    <div id="legend"></div>
+    <div id="help">
+      <div class="card">
+        <h3>Keyboard</h3>
+        <dl>
+          <dt>space</dt><dd>play / pause</dd>
+          <dt>&larr; &rarr;</dt><dd>step one logged step (0.5 s)</dd>
+          <dt>&uarr; &darr;</dt><dd>playback speed</dd>
+          <dt>R</dt><dd>reset the simulation to t = 0</dd>
+          <dt>G</dt><dd>toggle ground-truth layer</dd>
+          <dt>O</dt><dd>toggle observation layer</dd>
+          <dt>E</dt><dd>toggle 1&sigma; covariance ellipses</dd>
+          <dt>F</dt><dd>toggle the branch-rollout fan</dd>
+          <dt>C</dt><dd>toggle ownship-centred view</dd>
+          <dt>H</dt><dd>toggle heading-up view</dd>
+          <dt>0</dt><dd>fit the view to the world</dd>
+          <dt>?</dt><dd>this overlay</dd>
+        </dl>
+        <p class="hint">
+          The fan shows N branch rollouts from the current state with only the
+          decision streams re-seeded (doc 3.3). If the branches do not spread,
+          the dataset is not multimodal and a constant-velocity extrapolator
+          will win &mdash; check the Diagnostics tab.
+        </p>
+        <div class="btnrow"><button id="btnHelpClose">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================== RIGHT: INSPECTOR ====================== -->
+  <aside id="inspector">
+
+    <div class="section">
+      <h2>Ownship</h2>
+      <div class="body"><dl class="kv" id="kvOwn"></dl></div>
+    </div>
+
+    <div class="section">
+      <h2>Selected agent</h2>
+      <div class="body">
+        <dl class="kv" id="kvSel"></dl>
+        <p class="hint" id="selHint">Click an agent on the canvas.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Environment</h2>
+      <div class="body"><dl class="kv" id="kvEnv"></dl></div>
+    </div>
+
+    <div class="section collapsed">
+      <h2>Subsystem bridge</h2>
+      <div class="body"><dl class="kv" id="kvBridge"></dl>
+        <p class="hint">Modules written in parallel with the GUI. A missing
+        module disables only the features that need it.</p>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<!-- ================================ TABS =============================== -->
+<div id="tabs">
+  <button data-tab="live" class="active">Live</button>
+  <button data-tab="batch">Batch</button>
+  <button data-tab="replay">Replay</button>
+  <button data-tab="diag">Diagnostics</button>
+  <span class="spacer"></span>
+  <span class="note" id="tabNote"></span>
+</div>
+
+<div id="drawer">
+
+  <!-- ------------------------------- LIVE ---------------------------- -->
+  <div class="panel active" id="panel-live">
+    <div class="cols c3">
+      <div>
+        <div class="btnrow">
+          <button id="btnPlay" class="primary">Play</button>
+          <button id="btnStepB">&#9664;</button>
+          <button id="btnStepF">&#9654;</button>
+          <button id="btnReset">Reset</button>
+        </div>
+        <div class="row">
+          <label for="speedSel">Speed &times;</label>
+          <select id="speedSel">
+            <option>0.25</option><option>0.5</option>
+            <option selected>1</option><option>2</option>
+            <option>4</option><option>8</option><option>20</option>
+          </select>
+        </div>
+        <dl class="kv" id="kvSim"></dl>
+      </div>
+      <div>
+        <div class="row">
+          <label for="fanN">Branches</label>
+          <input type="number" id="fanN" value="16" min="1" max="200" step="1">
+        </div>
+        <div class="row">
+          <label for="fanH">Horizon [s]</label>
+          <input type="number" id="fanH" value="15" min="0.5" max="120" step="0.5">
+        </div>
+        <div class="btnrow">
+          <button id="btnFan" class="primary">Compute rollout fan</button>
+          <button id="btnFanClear">Clear</button>
+        </div>
+        <p class="hint" id="fanHint">
+          Re-seeds only <span class="mono">mode_decision</span> /
+          <span class="mono">branch_choice</span>; wind, placement and sensor
+          noise replay identically.
+        </p>
+      </div>
+      <div>
+        <div class="tablewrap" style="max-height:170px">
+          <table id="tblAgents">
+            <thead><tr>
+              <th class="l">id</th><th class="l">type</th><th class="l">intent</th>
+              <th class="l">mode</th><th>v</th><th>rng</th><th>tcpa</th>
+              <th>cpa</th><th>trk</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ------------------------------- BATCH --------------------------- -->
+  <div class="panel" id="panel-batch">
+    <div class="cols c2">
+      <div>
+        <div class="row">
+          <label for="genPreset">Preset</label>
+          <select id="genPreset"></select>
+        </div>
+        <div class="row">
+          <label for="genN">Episodes</label>
+          <input type="number" id="genN" value="20" min="1" max="200000" step="1">
+        </div>
+        <div class="row">
+          <label for="genTag">Run tag</label>
+          <input type="text" id="genTag" value="train">
+        </div>
+        <div class="row">
+          <label for="genSeed">Base seed</label>
+          <input type="number" id="genSeed" value="0" min="0" step="1">
+        </div>
+        <div class="btnrow">
+          <button id="btnGen" class="primary">Generate</button>
+          <button id="btnGenCancel" class="danger" disabled>Cancel</button>
+          <button id="btnGenUseCfg">Use left config</button>
+        </div>
+        <div class="bar" style="margin-top:8px"><i id="genBar"></i></div>
+        <dl class="kv" id="kvJob" style="margin-top:6px"></dl>
+        <div id="genPathWrap" style="display:none;margin-top:6px">
+          <input class="pathout" id="genPath" readonly>
+          <p class="hint">Run directory (click to select).</p>
+        </div>
+      </div>
+      <div>
+        <pre class="log" id="genLog">no job started</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ------------------------------- REPLAY -------------------------- -->
+  <div class="panel" id="panel-replay">
+    <div class="cols c2">
+      <div>
+        <div class="row">
+          <label for="runSel">Run</label>
+          <select id="runSel"></select>
+        </div>
+        <div class="btnrow">
+          <button id="btnRunsRefresh">Refresh runs</button>
+          <button id="btnRunIndex" class="primary">Open index</button>
+        </div>
+        <div class="row">
+          <label for="repIdx">Episode</label>
+          <input type="number" id="repIdx" value="0" min="0" step="1">
+        </div>
+        <div class="btnrow">
+          <button id="btnRepLoad" class="primary">Load episode</button>
+          <button id="btnRepPlay">Play</button>
+        </div>
+        <div class="row">
+          <label for="repScrub">Time</label>
+          <input type="range" id="repScrub" min="0" max="0" value="0" step="1">
+        </div>
+        <dl class="kv" id="kvReplay"></dl>
+      </div>
+      <div>
+        <div class="tablewrap">
+          <table id="tblRuns">
+            <thead><tr>
+              <th data-k="episode_index">ep</th>
+              <th data-k="n_agents">n</th>
+              <th data-k="density">dens</th>
+              <th data-k="wind_speed">wind</th>
+              <th data-k="cpa_min">cpa</th>
+              <th data-k="tcpa_first">tcpa</th>
+              <th data-k="min_separation_m">minsep</th>
+              <th data-k="risk_level" class="l">risk</th>
+              <th data-k="geometry_names" class="l">geom</th>
+              <th data-k="nmac_occurred">nmac</th>
+              <th data-k="dwc_violated">dwc</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="hint">Click a header to sort, a row to load that episode.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------------------- DIAGNOSTICS ------------------------ -->
+  <div class="panel" id="panel-diag">
+    <div class="cols c2">
+      <div>
+        <div class="row">
+          <label for="diagRun">Run</label>
+          <select id="diagRun"></select>
+        </div>
+        <div class="btnrow">
+          <button id="btnDiag" class="primary">Run CV baseline</button>
+        </div>
+        <p style="margin:10px 0"><span class="verdict NO_DATA" id="diagVerdict">--</span></p>
+        <dl class="kv" id="kvDiag"></dl>
+        <p class="hint" id="diagNote"></p>
+      </div>
+      <div>
+        <canvas class="chart" id="diagHist" height="150"></canvas>
+        <canvas class="chart" id="diagBreak" height="118" style="margin-top:6px"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="status">
+  <span id="statusMsg">starting&hellip;</span>
+  <span class="spacer"></span>
+  <span id="statusView"></span>
+</div>
+
+<script src="/render.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

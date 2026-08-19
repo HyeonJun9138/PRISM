@@ -1,0 +1,7 @@
+# Python 3.10 (tested on 3.10.9)
+# Core simulation and evaluation
+numpy>=1.24
+# Prediction model (CUDA build recommended; CPU works for inference)
+torch>=2.1
+# Figure generation (optional)
+matplotlib>=3.7

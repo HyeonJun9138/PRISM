@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRISM Model Training</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">PRISM <span>model training</span></div>
+  <div id="env-chip" class="chip">env...</div>
+  <div class="spacer"></div>
+  <select id="job-select" title="job history"></select>
+  <button id="btn-refresh-jobs" class="ghost" title="refresh job list">&#8635;</button>
+</header>
+
+<main>
+  <aside id="left">
+    <section class="card">
+      <h2>1. 학습 데이터</h2>
+      <div class="hint">%PRISM_ROOT%\Logs 아래 런을 역할별로 지정</div>
+      <div id="runs-table"></div>
+      <button id="btn-rescan" class="ghost">폴더 다시 스캔</button>
+    </section>
+
+    <section class="card">
+      <h2>2. 학습 설정</h2>
+      <div id="config-form"></div>
+      <details><summary>시드 스윕 (논문용 평균±표준편차)</summary>
+        <label class="row"><span>seeds (쉼표구분)</span>
+          <input id="seed-sweep" type="text" placeholder="예: 0,1,2,3,4"></label>
+        <div class="hint">입력 시 시드별 잡이 순차 큐로 돌아갑니다.</div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>3. 실행</h2>
+      <div class="btnrow">
+        <button id="btn-start" class="primary">학습 시작</button>
+        <button id="btn-stop" class="warn" disabled>중단 (정리 후 최종모델)</button>
+      </div>
+      <div class="btnrow">
+        <button id="btn-force" class="danger ghost" disabled>강제 중단</button>
+        <button id="btn-eval" class="ghost" disabled>평가 리포트 생성</button>
+      </div>
+      <div id="resume-box"></div>
+    </section>
+  </aside>
+
+  <section id="center">
+    <section class="card" id="progress-card">
+      <div id="status-line"><span class="badge idle" id="status-badge">idle</span>
+        <span id="progress-text">대기 중</span></div>
+      <div class="bar"><div id="progress-bar"></div></div>
+      <div id="stat-strip">
+        <div class="stat"><label>epoch</label><span id="st-epoch">-</span></div>
+        <div class="stat"><label>ETA</label><span id="st-eta">-</span></div>
+        <div class="stat"><label>samples/s</label><span id="st-sps">-</span></div>
+        <div class="stat"><label>GPU mem</label><span id="st-gpu">-</span></div>
+        <div class="stat"><label>best</label><span id="st-best">-</span></div>
+      </div>
+    </section>
+
+    <div id="charts">
+      <section class="card chart-card"><h3>Loss (train)</h3><canvas id="ch-loss"></canvas></section>
+      <section class="card chart-card"><h3>Val: minADE / minFDE (m)</h3><canvas id="ch-val"></canvas></section>
+      <section class="card chart-card"><h3>Val: NLL</h3><canvas id="ch-nll"></canvas></section>
+      <section class="card chart-card"><h3>Calibration: coverage@90 (목표 0.90)</h3><canvas id="ch-cov"></canvas></section>
+      <section class="card chart-card"><h3>Mode usage (갈래 활용, collapse 감시)</h3><canvas id="ch-mode"></canvas></section>
+      <section class="card chart-card"><h3>LR / throughput</h3><canvas id="ch-lr"></canvas></section>
+    </div>
+
+    <section class="card" id="ckpt-card">
+      <h3>체크포인트</h3>
+      <div id="ckpt-table"></div>
+    </section>
+
+    <section class="card" id="log-card">
+      <h3>로그</h3>
+      <pre id="log-view"></pre>
+    </section>
+  </section>
+</main>
+
+<div id="toast"></div>
+<script src="/charts.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+ "model": "D:/PRISM/Logs/Models/20260813_170429_full5x_s4/final/model_final.pt",
+ "T": 1.665,
+ "cal_runs": [
+  "D:/PRISM/Logs/Dataset\\20260813_124053_test_ood_cal_a",
+  "D:/PRISM/Logs/Dataset\\20260813_124054_test_ood_cal_b",
+  "D:/PRISM/Logs/Dataset\\20260813_124054_test_ood_cal_c"
+ ],
+ "t0_stride": 4,
+ "n_cal": 129938,
+ "n_test": 520079,
+ "before": {
+  "NLL": 2.2919,
+  "cov50_5s": 0.3666,
+  "cov70_5s": 0.5412,
+  "cov90_5s": 0.7354,
+  "cov50_10s": 0.3642,
+  "cov70_10s": 0.5361,
+  "cov90_10s": 0.7299,
+  "cov50_15s": 0.3938,
+  "cov70_15s": 0.5659,
+  "cov90_15s": 0.7561
+ },
+ "after": {
+  "NLL": 1.8581,
+  "cov50_5s": 0.543,
+  "cov70_5s": 0.73,
+  "cov90_5s": 0.8914,
+  "cov50_10s": 0.5318,
+  "cov70_10s": 0.7226,
+  "cov90_10s": 0.8879,
+  "cov50_15s": 0.568,
+  "cov70_15s": 0.7507,
+  "cov90_15s": 0.9073
+ }
+}

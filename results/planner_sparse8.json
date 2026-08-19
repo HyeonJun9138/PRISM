@@ -1,0 +1,92 @@
+{
+ "summary": {
+  "cv": {
+   "episodes": 250,
+   "sim_hours": 6.25,
+   "nmac_total": 36,
+   "nmac_avoidable_total": 35,
+   "nmac_avoidable_per_hour": 5.6,
+   "episodes_with_avoidable_nmac": 0.132,
+   "min_sep_median": 445.0,
+   "min_sep_p5": 34.3,
+   "nmac_duration_mean_s": 0.62,
+   "lowc_fraction_mean": 0.481,
+   "abs_omega_mean": 0.48,
+   "abs_omega_p95_mean": 1.22,
+   "v_std_mean": 1.1,
+   "plan_ms_mean": 110.2,
+   "plan_ms_p95_mean": 131.0,
+   "infer_ms_mean": null
+  },
+  "model": {
+   "episodes": 250,
+   "sim_hours": 6.25,
+   "nmac_total": 42,
+   "nmac_avoidable_total": 41,
+   "nmac_avoidable_per_hour": 6.56,
+   "episodes_with_avoidable_nmac": 0.148,
+   "min_sep_median": 451.1,
+   "min_sep_p5": 41.3,
+   "nmac_duration_mean_s": 0.73,
+   "lowc_fraction_mean": 0.471,
+   "abs_omega_mean": 0.5,
+   "abs_omega_p95_mean": 1.29,
+   "v_std_mean": 1.17,
+   "plan_ms_mean": 132.8,
+   "plan_ms_p95_mean": 165.6,
+   "infer_ms_mean": 10.7
+  },
+  "none": {
+   "episodes": 250,
+   "sim_hours": 6.25,
+   "nmac_total": 44,
+   "nmac_avoidable_total": 43,
+   "nmac_avoidable_per_hour": 6.88,
+   "episodes_with_avoidable_nmac": 0.152,
+   "min_sep_median": 472.4,
+   "min_sep_p5": 22.2,
+   "nmac_duration_mean_s": 0.77,
+   "lowc_fraction_mean": 0.466,
+   "abs_omega_mean": 0.54,
+   "abs_omega_p95_mean": 1.39,
+   "v_std_mean": 1.61,
+   "plan_ms_mean": 106.4,
+   "plan_ms_p95_mean": 125.3,
+   "infer_ms_mean": null
+  }
+ },
+ "paired": {
+  "model_vs_none": {
+   "nmac_avoidable": {
+    "n": 250,
+    "win": 5,
+    "tie": 242,
+    "lose": 3,
+    "mean_delta": -0.01
+   },
+   "min_sep": {
+    "n": 250,
+    "win": 92,
+    "tie": 51,
+    "lose": 107,
+    "mean_delta": -6.12
+   }
+  },
+  "model_vs_cv": {
+   "nmac_avoidable": {
+    "n": 250,
+    "win": 3,
+    "tie": 238,
+    "lose": 9,
+    "mean_delta": 0.02
+   },
+   "min_sep": {
+    "n": 250,
+    "win": 126,
+    "tie": 37,
+    "lose": 87,
+    "mean_delta": 1.74
+   }
+  }
+ }
+}

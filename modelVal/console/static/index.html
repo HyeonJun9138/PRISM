@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRISM Validation Console</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">PRISM <span>validation console</span></div>
+  <select id="model-select" title="Logs/Models 아래 학습 산출물"></select>
+  <button id="btn-load" class="primary">모델 불러오기</button>
+  <div id="model-chip" class="chip">모델 없음</div>
+  <div class="spacer"></div>
+  <select id="preset-select" title="트래픽 프리셋 (콘솔 전용 — 데이터셋 프리셋과 별개)">
+    <option value="test_ood" selected>test_ood (끝판왕: 새·GA·잔해·미확인)</option>
+    <option value="train">train 분포 (드론·고정익·eVTOL)</option>
+    <option value="ood_long">OOD 마라톤 — 10분 세션</option>
+    <option value="real_sparse">현실 밀도 — 성긴 교통 · 5분</option>
+    <option value="hell">지옥 — 밀도 3배 · 설계조우 8</option>
+    <option value="hell_birds">새 떼 지옥 — 조류·잔해 러시</option>
+  </select>
+  <select id="speed-select" title="배속">
+    <option value="0.5">0.5x</option>
+    <option value="1" selected>1x</option>
+    <option value="2">2x</option>
+    <option value="4">4x</option>
+  </select>
+  <select id="pilot-select" title="오너십 조종 주체">
+    <option value="manual" selected>🕹 수동 조종</option>
+    <option value="planner">🤖 Frenet 플래너</option>
+  </select>
+  <select id="risk-select" title="플래너 위험 소스 (실험 비교군)" disabled>
+    <option value="none" selected>위험: 예측 없음</option>
+    <option value="cv">위험: CV 외삽</option>
+    <option value="model">위험: PRISM 예측</option>
+  </select>
+  <button id="btn-play" class="primary">▶ Play</button>
+  <button id="btn-reset" class="ghost">새 시나리오</button>
+</header>
+
+<main>
+  <section class="pane" id="pane-flight">
+    <div class="pane-title">비행 뷰 — <span class="hint">←→ 선회 · ↑↓ 가감속 · Space 급감속 · G/O/P 레이어 · C 후보경로</span></div>
+    <canvas id="cv-flight"></canvas>
+    <div id="hud"></div>
+    <div id="alert-banner"></div>
+  </section>
+  <section class="pane" id="pane-risk">
+    <div class="pane-title">위험맵 (BEV · 자기중심 · 기수 위) — <span class="hint">타원 번짐 = 모델 불확실성 σ</span></div>
+    <canvas id="cv-risk"></canvas>
+    <div id="risk-legend">
+      <span><i style="background:#e5604c"></i>0–5초</span>
+      <span><i style="background:#e8b45a"></i>5–10초</span>
+      <span><i style="background:#4da3ff"></i>10–15초</span>
+    </div>
+  </section>
+</main>
+
+<footer id="metrics">
+  <div class="tile"><label>추론 지연</label><span id="m-lat">-</span><small id="m-latmax"></small></div>
+  <div class="tile"><label>예측 트랙</label><span id="m-tracks">-</span></div>
+  <div class="tile"><label>오차@5초</label><span id="m-err5">-</span><small id="m-n5"></small></div>
+  <div class="tile"><label>오차@15초</label><span id="m-err15">-</span><small id="m-n15"></small></div>
+  <div class="tile"><label>cov90@15초</label><span id="m-cov">-</span><small>목표 0.90</small></div>
+  <div class="tile"><label>현재 분리거리</label><span id="m-sep">-</span><small id="m-minsep"></small></div>
+  <div class="tile warn-tile"><label>NMAC</label><span id="m-nmac">0</span><small>152m 침범 횟수</small></div>
+  <div class="tile"><label>플래너</label><span id="m-plan">수동</span><small id="m-plansub"></small></div>
+  <div class="tile"><label>시뮬레이션</label><span id="m-time">-</span><small id="m-scenario"></small></div>
+</footer>
+
+<div id="toast"></div>
+<script src="/flight.js"></script>
+<script src="/riskmap.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Datasets and run artifacts - regenerate with dataGen (see README)
+Logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
