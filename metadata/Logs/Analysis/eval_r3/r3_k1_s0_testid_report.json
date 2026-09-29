@@ -1,0 +1,555 @@
+{
+  "model": "C:/PRISM/Logs/Models/20260926_192121_r3_k1_s0/final/model_final.pt",
+  "eval_runs": [
+    "C:/PRISM/Logs/Dataset/20260813_023139_test_id_full5x"
+  ],
+  "n_samples": 170076,
+  "overall": {
+    "minADE": 72.56179312930264,
+    "minFDE": 145.5116427442272,
+    "NLL": 1.1281991638068845,
+    "type_acc": 0.9078176815084927,
+    "mode_entropy": 0.0,
+    "pi_0": 1.0,
+    "use_0": 1.0,
+    "cov50_5s": 0.5555339965592317,
+    "cov70_5s": 0.7292092946710697,
+    "cov90_5s": 0.8816587878220079,
+    "cov50_10s": 0.5874667795531688,
+    "cov70_10s": 0.749118041351829,
+    "cov90_10s": 0.8853336155572988,
+    "cov50_15s": 0.594163785601731,
+    "cov70_15s": 0.7534866765586219,
+    "cov90_15s": 0.8864801618072107,
+    "top1ADE": 72.56179311794077,
+    "top1FDE": 145.51164297255227,
+    "meanADE": 72.56179311794077,
+    "meanFDE": 145.51164297255227,
+    "trajNLL": 1.1281991665283744,
+    "trajNLL_total": 33.8459749936822,
+    "ES": 351.23573301524755,
+    "H_pi": 0.0,
+    "branch_sep_15s": 0.0,
+    "n_distinct": 1.0
+  },
+  "reliability": [
+    {
+      "nominal": 0.5,
+      "horizon_s": 5,
+      "empirical": 0.5555339965592317
+    },
+    {
+      "nominal": 0.5,
+      "horizon_s": 10,
+      "empirical": 0.5874667795531688
+    },
+    {
+      "nominal": 0.5,
+      "horizon_s": 15,
+      "empirical": 0.594163785601731
+    },
+    {
+      "nominal": 0.7,
+      "horizon_s": 5,
+      "empirical": 0.7292092946710697
+    },
+    {
+      "nominal": 0.7,
+      "horizon_s": 10,
+      "empirical": 0.749118041351829
+    },
+    {
+      "nominal": 0.7,
+      "horizon_s": 15,
+      "empirical": 0.7534866765586219
+    },
+    {
+      "nominal": 0.9,
+      "horizon_s": 5,
+      "empirical": 0.8816587878220079
+    },
+    {
+      "nominal": 0.9,
+      "horizon_s": 10,
+      "empirical": 0.8853336155572988
+    },
+    {
+      "nominal": 0.9,
+      "horizon_s": 15,
+      "empirical": 0.8864801618072107
+    }
+  ],
+  "by_type": {
+    "Multirotor": {
+      "minADE": 51.161991119384766,
+      "minFDE": 91.52261352539062,
+      "n": 70612
+    },
+    "FixedWingUAS": {
+      "minADE": 96.8242416381836,
+      "minFDE": 204.5027313232422,
+      "n": 59900
+    },
+    "eVTOL": {
+      "minADE": 74.02177429199219,
+      "minFDE": 152.5561065673828,
+      "n": 39564
+    }
+  },
+  "by_intent": {
+    "CorridorTransit": {
+      "minADE": 62.588043212890625,
+      "n": 67818
+    },
+    "DeliveryWP": {
+      "minADE": 80.61329650878906,
+      "n": 59396
+    },
+    "LoiterHover": {
+      "minADE": 77.18529510498047,
+      "n": 42862
+    }
+  },
+  "latency_ms": {
+    "batch1_ms": 6.333,
+    "batch16_ms": 6.158
+  },
+  "index_rule": "current",
+  "feature_rule": "current",
+  "index_rule_override": null,
+  "data_cfg": {
+    "max_agents": 10,
+    "t0_stride": 4,
+    "min_obs": 3,
+    "min_future_valid": 27,
+    "val_fraction": 0.1,
+    "max_samples_per_epoch": 0,
+    "track_rule": "current"
+  },
+  "run_dirs": [
+    "C:/PRISM/Logs/Dataset/20260813_023139_test_id_full5x"
+  ],
+  "model_sha256": "9195d99bb6fcfd7a334ddc91bfc35d64c72b0d5d2f80d285b66441d8c8cb1386",
+  "n_index": 170076,
+  "complete": true,
+  "code_fp": {
+    "sha256": "7cdc1d63d908567f0a56159598a85d936f4c7cbc6da8f79c17487815d26a0a18",
+    "n_files": 61,
+    "n_bytes": 687800,
+    "roots": [
+      "modelTraining",
+      "modelVal",
+      "baselines"
+    ],
+    "per_root": {
+      "modelTraining": "57e516f7e8b6e7aed65716d5fd4607831c7864ca8216fd4d98ad4ab1d1f2da7d",
+      "modelVal": "d75f44720d797a49b25a809477448b4a38d4935beaeff66bdddda718ccbe53c4",
+      "baselines": "dd7bcb9751da553fa5761348ffd8e374b7bf8c7e2e2d055657d1738aa4388be9"
+    },
+    "definition": "sha256 over sorted relpath + NUL + bytes of every .py under the roots, __pycache__ excluded"
+  },
+  "mc_seed": 20260925,
+  "es_seed": 20260926,
+  "batch_size": 256,
+  "strata": {
+    "all": {
+      "n": 170076,
+      "minADE": 72.56179311794077,
+      "minFDE": 145.51164297255227,
+      "NLL": 1.1281991665283744,
+      "top1ADE": 72.56179311794077,
+      "top1FDE": 145.51164297255227,
+      "meanADE": 72.56179311794077,
+      "meanFDE": 145.51164297255227,
+      "trajNLL": 1.1281991665283744,
+      "trajNLL_total": 33.8459749936822,
+      "ES": 351.23573301524755,
+      "H_pi": 0.0,
+      "branch_sep_15s": 0.0,
+      "n_distinct": 1.0,
+      "n_valid": 30.0,
+      "type_acc": 0.907817681507091,
+      "mode_entropy": -0.0,
+      "pi_0": 1.0,
+      "use_0": 1.0,
+      "n_distinct_frac": {
+        "1": 1.0
+      },
+      "cov50_5s": 0.555533996566241,
+      "cov50_10s": 0.5874667795573744,
+      "cov50_15s": 0.594163785601731,
+      "cov70_5s": 0.729209294668266,
+      "cov70_10s": 0.7491180413462217,
+      "cov70_15s": 0.7534866765446036,
+      "cov90_5s": 0.8816587878360262,
+      "cov90_10s": 0.8853336155601026,
+      "cov90_15s": 0.8864801618100143
+    },
+    "reacq": {
+      "0": {
+        "n": 135417,
+        "minADE": 62.0690962475136,
+        "minFDE": 128.84991795168366,
+        "NLL": 0.8557372859798505,
+        "top1ADE": 62.0690962475136,
+        "top1FDE": 128.84991795168366,
+        "meanADE": 62.0690962475136,
+        "meanFDE": 128.84991795168366,
+        "trajNLL": 0.8557372859798505,
+        "trajNLL_total": 25.67211857295719,
+        "ES": 305.20673796604456,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9427989100334522,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5613106183123242,
+        "cov50_10s": 0.5964686856155431,
+        "cov50_15s": 0.6034692837679169,
+        "cov70_5s": 0.7333569640443962,
+        "cov70_10s": 0.7556289092211466,
+        "cov70_15s": 0.7594024383939978,
+        "cov90_5s": 0.8816839835471174,
+        "cov90_10s": 0.8850292060819542,
+        "cov90_15s": 0.8860925880797832
+      },
+      "1": {
+        "n": 34659,
+        "minADE": 113.55805764094018,
+        "minFDE": 210.61106353145362,
+        "NLL": 2.192741434863855,
+        "top1ADE": 113.55805764094018,
+        "top1FDE": 210.61106353145362,
+        "meanADE": 113.55805764094018,
+        "meanFDE": 210.61106353145362,
+        "trajNLL": 2.192741434863855,
+        "trajNLL_total": 65.7822430604273,
+        "ES": 531.0767100364518,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.771141694797888,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5329640208892351,
+        "cov50_10s": 0.552295219135001,
+        "cov50_15s": 0.557806053261779,
+        "cov70_5s": 0.7130038373871145,
+        "cov70_10s": 0.7236792752243285,
+        "cov70_15s": 0.7303730632736086,
+        "cov90_5s": 0.881560345076315,
+        "cov90_10s": 0.8865229810438847,
+        "cov90_15s": 0.8879944603133385
+      }
+    },
+    "type": {
+      "Multirotor": {
+        "n": 70612,
+        "minADE": 51.161986271318604,
+        "minFDE": 91.52261534155723,
+        "NLL": 0.6824796646880891,
+        "top1ADE": 51.161986271318604,
+        "top1FDE": 91.52261534155723,
+        "meanADE": 51.161986271318604,
+        "meanFDE": 91.52261534155723,
+        "trajNLL": 0.6824796646880891,
+        "trajNLL_total": 20.474389933316843,
+        "ES": 240.65653649639532,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9738571347646292,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5834135840933552,
+        "cov50_10s": 0.5999688438225798,
+        "cov50_15s": 0.5983543873562567,
+        "cov70_5s": 0.7509205234237807,
+        "cov70_10s": 0.7585113011952642,
+        "cov70_15s": 0.7606072622217187,
+        "cov90_5s": 0.8935166827168187,
+        "cov90_10s": 0.8948054155101116,
+        "cov90_15s": 0.9001869370645216
+      },
+      "FixedWingUAS": {
+        "n": 59900,
+        "minADE": 96.8242335790346,
+        "minFDE": 204.5027360738717,
+        "NLL": 1.7019736527734517,
+        "top1ADE": 96.8242335790346,
+        "top1FDE": 204.5027360738717,
+        "meanADE": 96.8242335790346,
+        "meanFDE": 204.5027360738717,
+        "trajNLL": 1.7019736527734517,
+        "trajNLL_total": 51.05920958187823,
+        "ES": 476.9326932288729,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9138397328881469,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5381969949916527,
+        "cov50_10s": 0.5805342237061769,
+        "cov50_15s": 0.5905843071786311,
+        "cov70_5s": 0.7138230383973289,
+        "cov70_10s": 0.7457762938230384,
+        "cov70_15s": 0.7494991652754591,
+        "cov90_5s": 0.8707679465776293,
+        "cov90_10s": 0.8774123539232054,
+        "cov90_15s": 0.8750584307178632
+      },
+      "eVTOL": {
+        "n": 39564,
+        "minADE": 74.02178142635661,
+        "minFDE": 152.5560960690741,
+        "NLL": 1.0550026681426206,
+        "top1ADE": 74.02178142635661,
+        "top1FDE": 152.5560960690741,
+        "meanADE": 74.02178142635661,
+        "meanFDE": 152.5560960690741,
+        "trajNLL": 1.0550026681426206,
+        "trajNLL_total": 31.650080050035864,
+        "ES": 358.28684786190195,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.7808361136386615,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5320240622788394,
+        "cov50_10s": 0.5756495804266505,
+        "cov50_15s": 0.5921039328682641,
+        "cov70_5s": 0.7137549287230815,
+        "cov70_10s": 0.7374127995147104,
+        "cov70_15s": 0.7468152866242038,
+        "cov90_5s": 0.876984126984127,
+        "cov90_10s": 0.8804215953897483,
+        "cov90_15s": 0.8793094732585178
+      }
+    },
+    "intent": {
+      "CorridorTransit": {
+        "n": 67818,
+        "minADE": 62.58804092528795,
+        "minFDE": 122.56906187661508,
+        "NLL": 0.8560979909473896,
+        "top1ADE": 62.58804092528795,
+        "top1FDE": 122.56906187661508,
+        "meanADE": 62.58804092528795,
+        "meanFDE": 122.56906187661508,
+        "trajNLL": 0.8560979909473896,
+        "trajNLL_total": 25.682939728266327,
+        "ES": 302.92043947786107,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9377893774514141,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.6192308826565218,
+        "cov50_10s": 0.6664749771447108,
+        "cov50_15s": 0.6776666961573623,
+        "cov70_5s": 0.7950101742900115,
+        "cov70_10s": 0.8262260756731251,
+        "cov70_15s": 0.8370049249461795,
+        "cov90_5s": 0.9281311746144092,
+        "cov90_10s": 0.9383791913651243,
+        "cov90_15s": 0.9418738388038573
+      },
+      "DeliveryWP": {
+        "n": 59396,
+        "minADE": 80.61330486543332,
+        "minFDE": 161.50778529139487,
+        "NLL": 1.418772078315906,
+        "top1ADE": 80.61330486543332,
+        "top1FDE": 161.50778529139487,
+        "meanADE": 80.61330486543332,
+        "meanFDE": 161.50778529139487,
+        "trajNLL": 1.418772078315906,
+        "trajNLL_total": 42.56316233907768,
+        "ES": 386.3535743011787,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9327059061216244,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.46388645700047143,
+        "cov50_10s": 0.4826082564482457,
+        "cov50_15s": 0.49132938244999663,
+        "cov70_5s": 0.6450434372685029,
+        "cov70_10s": 0.6590174422520035,
+        "cov70_15s": 0.6641019597279278,
+        "cov90_5s": 0.8349888881406156,
+        "cov90_10s": 0.8364536332412957,
+        "cov90_15s": 0.8394673041955687
+      },
+      "LoiterHover": {
+        "n": 42862,
+        "minADE": 77.18529025870093,
+        "minFDE": 159.6456800122213,
+        "NLL": 1.1560674147906802,
+        "top1ADE": 77.18529025870093,
+        "top1FDE": 159.6456800122213,
+        "meanADE": 77.18529025870093,
+        "meanFDE": 159.6456800122213,
+        "trajNLL": 1.1560674147906802,
+        "trajNLL_total": 34.68202244977066,
+        "ES": 379.0176208436108,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.8259063972749755,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5817507349167095,
+        "cov50_10s": 0.6077644533619523,
+        "cov50_15s": 0.6045448182539312,
+        "cov70_5s": 0.7417292706826559,
+        "cov70_10s": 0.7519714432364332,
+        "cov70_15s": 0.7452055433717512,
+        "cov90_5s": 0.8728010825439784,
+        "cov90_10s": 0.8691381643413747,
+        "cov90_15s": 0.8639820820307031
+      }
+    },
+    "avoid": {
+      "inactive": {
+        "n": 88210,
+        "minADE": 68.22871361467224,
+        "minFDE": 133.74588122490846,
+        "NLL": 1.0783625002822483,
+        "top1ADE": 68.22871361467224,
+        "top1FDE": 133.74588122490846,
+        "meanADE": 68.22871361467224,
+        "meanFDE": 133.74588122490846,
+        "trajNLL": 1.0783625002822483,
+        "trajNLL_total": 32.35087500533716,
+        "ES": 328.96869355843813,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9277179458111325,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5804897403922458,
+        "cov50_10s": 0.6069833352227638,
+        "cov50_15s": 0.6059176964063031,
+        "cov70_5s": 0.7465593470128103,
+        "cov70_10s": 0.7623058610134905,
+        "cov70_15s": 0.7623852170955674,
+        "cov90_5s": 0.8889354948418546,
+        "cov90_10s": 0.8911688017231606,
+        "cov90_15s": 0.8920190454596985
+      },
+      "active": {
+        "n": 81866,
+        "minADE": 77.23065373142276,
+        "minFDE": 158.189162867987,
+        "NLL": 1.181897800021775,
+        "top1ADE": 77.23065373142276,
+        "top1FDE": 158.189162867987,
+        "meanADE": 77.23065373142276,
+        "meanFDE": 158.189162867987,
+        "trajNLL": 1.181897800021775,
+        "trajNLL_total": 35.45693399951998,
+        "ES": 375.22830075381006,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.8863752962157673,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.5286443700681601,
+        "cov50_10s": 0.566437837441673,
+        "cov50_15s": 0.5814990350084284,
+        "cov70_5s": 0.7105147436054039,
+        "cov70_10s": 0.7349082647252828,
+        "cov70_15s": 0.7438985659492341,
+        "cov90_5s": 0.8738181907018787,
+        "cov90_10s": 0.8790462463049373,
+        "cov90_15s": 0.8805120562871033
+      }
+    }
+  },
+  "avoid_labels": {
+    "labels_dir": "C:/PRISM/Logs/Analysis/reaction_labels",
+    "n_episodes": 900,
+    "n_episodes_missing": 0,
+    "missing_examples": [],
+    "n_samples_unknown": 0,
+    "n_samples_active": 81866,
+    "n_samples_inactive": 88210
+  },
+  "metric_definitions": {
+    "minADE/minFDE": "m; best of K branch means (min over branches of the valid-step mean error / error at the last valid step)",
+    "NLL": "per-step MARGINAL mixture NLL: mean over valid steps of -log sum_k pi_k N(y_t; mu_kt, Sigma_kt) (branches re-mixed at every step), then mean over samples; density per (POS_SCALE m)^2 = per (100 m)^2 (add 2 ln 100 = 9.2103 per step for per m^2)",
+    "top1ADE/top1FDE": "m; branch with the highest pi",
+    "meanADE/meanFDE": "m; mixture mean sum_k pi_k mu_kt",
+    "trajNLL": "trajectory NLL, one branch shared over the horizon: -log sum_k pi_k prod_{t valid} N(y_t; mu_kt, Sigma_kt), divided by the number of valid steps (as l_mix); same units as NLL; steps independent within a branch",
+    "trajNLL_total": "the same, not divided (per-sample total)",
+    "ES": "m; energy score of the concatenated valid-step trajectory, M=64 draws (k ~ pi, independent per-step Gaussians given k), unbiased pair term, dedicated generator seed 20260926",
+    "H_pi": "nats; branch entropy -sum pi ln pi",
+    "branch_sep_15s": "m; mean pairwise distance between branch means at 15 s (0 for K=1)",
+    "n_distinct": "branches with pi > 0.05 whose 15 s mean is more than 2.0 sigma_iso (of the higher-weight branch; sigma_iso = sqrt((sx^2+sy^2)/2)) from every higher-weight branch's 15 s mean",
+    "covP_Hs": "MC-HPD coverage (128 draws/sample from a dedicated generator seeded 20260925; pre-round-1 reports used the unseeded global RNG); 'overall' averages per-batch fractions weighted by batch size (legacy), 'strata' pool inside/valid over the stratum",
+    "mode_entropy": "normalised entropy of the winner (argmin ADE) histogram; 'overall' = batch-weighted mean of per-batch values (legacy), 'strata' = pooled histogram",
+    "reacq": "0 = history window holds only detections of the track open at t0; 1 = it also holds detections of an earlier, closed track of the same object (reacquired); 2 = no open track at t0 (slot eligibility only); -1 = no track ids stored",
+    "avoid": "1 = the target's reaction layer is active at any logged step t0+1..t0+30 (labels/<run>/<episode>.npz: reaction_active [T,N]); 0 = never active; -1 = no label file for the episode"
+  },
+  "created": "2026-09-26 21:14:17",
+  "wall_s": 112.3,
+  "per_sample_path": "C:/PRISM/Logs/Analysis/eval_r3/r3_k1_s0_testid_persample.npz"
+}

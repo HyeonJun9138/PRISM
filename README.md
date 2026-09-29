@@ -1,161 +1,125 @@
-# PRISM
+# PRISM — paper revision v3.0
 
-**Probabilistic Risk Intelligence for Safe Mission planning**
+**Probabilistic Risk Intelligence for Safe Mission Planning**
 
-PRISM is a framework for handling *non-cooperative* traffic in low-altitude
-airspace - birds, drones without remote identification, light aircraft without
-ADS-B, drifting debris. From short, noisy observation tracks it predicts a
-**branching probabilistic future** (K = 3 Gaussian mixture modes with per-mode
-probabilities), verifies that those probabilities are **calibrated**, converts
-them into a **time-indexed risk field**, and hands that field to a planner:
+PRISM connects observation-only, multi-branch forecasts of non-cooperative
+air traffic to a fixed risk-aware planner. Forecast centers enter candidate
+feasibility checks; uncertainty-dependent risk scores rank feasible paths.
+The same interface handles different object types, including types not
+represented in training.
 
-```
-observed tracks -> branching futures -> time-indexed risk -> risk-aware planning
-```
+![PRISM overview](paper/figures/figure_01.png)
 
-![PRISM concept](docs/concept.png)
+This curated release accompanies manuscript v3.0. It covers **2D horizontal
+motion in simulation**, not a validated operational collision-avoidance
+system. The contribution is the prediction-to-planning interface and its
+evaluation, not a new Transformer architecture. Predictive coverage, spatial
+risk scores and collision probabilities are different quantities.
 
-This repository contains the simulator, the predictor, the baselines, the live
-validation console, and the experiment harness used in the paper.
+- Branch: **`PRISM-revision-version`**
+- Frozen release: **[PRISM-revision-v3.0](https://github.com/HyeonJun9138/PRISM/releases/tag/PRISM-revision-v3.0)**
+- Revised headline checkpoint: **`20260926_141629_r3_k3_s1`** (current tracks).
+- The earlier `full5x_s4` model is only an **oracle-association audit**.
 
----
+## Contents
 
-## Repository layout
+| Directory | Purpose |
+| --- | --- |
+| `dataGen/` | 2D simulator, sensor model, branching rollouts and tests |
+| `modelTraining/` | PRISM, training, prediction metrics and ablations |
+| `baselines/` | Observed CV, true-state CV oracle and corrected IMM |
+| `modelVal/` | Forecast adapter, Frenet planner, paired experiments and tests |
+| `results/` | Selected reference results used by the revised manuscript |
+| `metadata/` | Evaluation reports, model configurations, training histories and dataset manifests |
+| `paper/` | Exact final figures, plotting sources and recorded explanatory scene |
+| `reproduction/` | Numerical tables and supporting analysis |
+| `tools/reproduce.py` | Isolated workspace and checksum-verified asset installation |
+| `release_assets/MANIFEST.json` | Asset names, sizes and file checksums |
 
-| Path | What it is |
-|---|---|
-| `dataGen/` | 2-D low-altitude traffic simulator and dataset generator. Seven platform classes, semi-Markov maneuvering, a stochastic reaction layer, a range-bearing sensor model, designed encounters, and **branching rollouts** (the same past re-simulated N times to obtain the true conditional future distribution). Browser GUI on port 8770. |
-| `modelTraining/` | The PRISM predictor: a target-centric Transformer that consumes 13 observation-only features and emits a K-mode Gaussian mixture over a 15 s horizon at 0.5 s resolution, plus mode probabilities and an auxiliary type head. Training, evaluation and reporting. GUI on port 8790. |
-| `modelVal/` | Pilot-in-the-loop validation console (GUI on port 8810) plus `planner/` (Frenet-frame lattice planner with pluggable risk sources) and `experiments/` (headless batch harness, recalibration, rollout scoring, case replay). |
-| `baselines/` | Constant-velocity (observation-based and ground-truth-based) and IMM filter baselines, evaluated on the identical sample set. |
-| `models/full5x_s4/` | **Shipped example model** - the headline checkpoint from the paper (6.1 MB) with its training config, training curve, and both evaluation reports. |
-| `results/` | Reference result files, so the numbers in the paper can be checked without rerunning anything. |
-
-## Install
-
-```bash
-git clone https://github.com/HyeonJun9138/PRISM.git
-cd PRISM
-pip install -r requirements.txt
-```
-
-Tested with Python 3.10.9, PyTorch 2.5.1 (CUDA 12.1), NumPy 2.2.6 on a single
-RTX 3080. Inference runs on CPU as well.
-
-All artifacts are written under `$PRISM_ROOT`, which **defaults to the
-repository root**. Point it elsewhere if you want:
-
-```bash
-export PRISM_ROOT=/data/prism      # Windows: set PRISM_ROOT=D:\data\prism
-```
+Large checkpoints and datasets are Release downloads, not normal Git files.
+Manuscripts, response letters, private review notes, temporary figures, debug
+runs and ongoing 3D work are excluded. The earlier public history remains intact.
 
 ## Quick start
 
-Every package is a standalone CLI; run it from its own directory.
+Python 3.10; validated dependencies: NumPy 2.2.6, PyTorch 2.5.1,
+Matplotlib 3.10.5. Install a suitable CUDA PyTorch build separately if needed.
 
-```bash
-# 1. Verify the install (no data needed)
-cd dataGen        && python main.py selftest
-cd ../modelTraining && python main.py selftest
-cd ../baselines   && python main.py selftest
+```sh
+git clone --branch PRISM-revision-version https://github.com/HyeonJun9138/PRISM.git
+cd PRISM
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
 ```
 
-```bash
-# 2. Generate a small dataset (writes to $PRISM_ROOT/Logs/Dataset/<run_id>)
+No dataset is needed to inspect the reference results or final figures.
+See the [paper-to-code map](docs/PAPER_MAP.md),
+[reproduction guide](docs/REPRODUCTION.md) and
+[provenance note](docs/PROVENANCE.md).
+
+### Component tests
+
+Each subsystem has its own module namespace; run its entry point from that
+subsystem's directory.
+
+```sh
 cd dataGen
-python main.py generate --preset train --episodes 100 --tag demo
-python main.py generate --preset test_ood --episodes 50 --tag demo --rollouts 60
-python main.py diagnose --run $PRISM_ROOT/Logs/Dataset/<run_id>   # CV difficulty gate
+python main.py selftest
+cd ../modelTraining
+python main.py selftest
+cd ../baselines
+python main.py selftest
+cd ../modelVal
+python tests/test_r3_planner.py
+python tests/test_r3_eval.py
+python -m unittest tests.test_main
+cd ..
 ```
 
-```bash
-# 3. Train and evaluate
-cd modelTraining
-python main.py train --train-run <train_run_dir> --val-run <val_run_dir> --tag mymodel
-python main.py evaluate --job <job_id> --run <test_run_dir>
+Dataset-dependent tests skip if their datasets are absent. To include them,
+run the workspace copy after installing `evaluation-data`.
+
+### Reproduce in a separate workspace
+
+```sh
+python tools/reproduce.py prepare
 ```
 
-```bash
-# 4. Fly the shipped model in the live console (browser opens on :8810)
-cd modelVal
-python main.py gui
+Download the desired ZIP assets from the tagged Release into `downloads/`.
+The following commands install the inputs needed by the numerical figures
+and tables without modifying the reference files:
+
+```sh
+python tools/reproduce.py install --bundle models --bundle closed-loop --bundle evaluation-data --bundle prediction-evaluation
+python tools/reproduce.py verify --bundle models --bundle closed-loop
+python tools/reproduce.py tables
+python tools/reproduce.py figures
 ```
 
-In the console, pick a model, switch the ownship between manual and the Frenet
-planner, and swap the planner's risk source between *none*, *CV extrapolation*
-and the *PRISM mixture* - the scenario restarts on the same seed so the arms
-are directly comparable.
+Outputs are under `outputs/reproduction/`. Training data is a separate,
+optional download. The installer verifies every member and refuses to
+overwrite a different local file. Only load PyTorch checkpoints and NumPy
+object arrays from a trusted source; checksums identify the release bytes
+but do not make arbitrary serialized code safe.
 
-## Reproducing the paper's experiments
+## Reading the findings
 
-```bash
-cd modelVal
+PRISM reduces position error relative to observed CV and corrected IMM,
+with similar performance to the matched Transformer-MDN comparator. The
+closed-loop benefits concern severe close encounters under specified
+conditions; they do **not** establish a significant reduction in all 152.4 m
+encounters. Extra maneuvering, OOD calibration transfer and simulator limits
+remain part of the reported findings.
 
-# Closed-loop planner utility: one process per arm, episodes are index-matched
-python -m experiments.batch --arm none  --episodes 600 --out $PRISM_ROOT/Logs/Planner/run1
-python -m experiments.batch --arm cv    --episodes 600 --out $PRISM_ROOT/Logs/Planner/run1
-python -m experiments.batch --arm model --episodes 600 --out $PRISM_ROOT/Logs/Planner/run1
-python -m experiments.aggregate --dir $PRISM_ROOT/Logs/Planner/run1
+Figure 12 separates the selected 13 s plan from subsequent flight under
+repeated replanning. Traffic omitted from its display was still used by the
+planner. Figure 6 is a conceptual schematic, not a measured episode.
 
-# Traffic density is a flag (paper uses 100 / 40 / 8 aircraft per km^2)
-python -m experiments.batch --arm model --episodes 300 --out <dir> --density 40
+## Version and license
 
-# Calibration against branching-rollout true distributions
-python -m experiments.rollout_score --run <rollout_run_dir> [--T 1.665]
+Use **PRISM-revision-v3.0** when citing this release. Git creates a commit
+hash automatically. `85a4033b7df0bb81` is a historical training-source
+fingerprint, **not a Git commit**; see the provenance note.
 
-# Post-hoc temperature recalibration (fits T on a held-out calibration set)
-python -m experiments.recalibrate
-
-# Replay a single paired episode for the case-study figure
-python -m experiments.replay_case --index 244 --threat 22
-```
-
-Baselines:
-
-```bash
-cd baselines
-python main.py all --run <test_run_dir>     # CV-obs, CV-gt and IMM in one pass
-```
-
-## The shipped model
-
-`models/full5x_s4/model_final.pt` is the checkpoint reported in the paper
-(1,519,980 parameters, K = 3, 15 s horizon). Selected numbers, all reproducible
-from the files in `models/` and `results/`:
-
-| Metric | In-distribution | Out-of-distribution |
-|---|---|---|
-| minADE | 47.1 m | 65.2 m |
-| minFDE | 86.8 m | 117.6 m |
-| Mixture NLL | 1.060 | 2.292 |
-| Empirical 90% coverage @ 15 s | **0.901** | 0.758 -> **0.907** after recalibration |
-
-Across six independently trained seeds the headline metrics are seed-invariant
-at the reported precision (minADE 47.17 +/- 0.06 m, 90% coverage 0.900 +/- 0.001).
-Single-target inference takes 4.6 ms on an idle RTX 3080.
-
-## Data availability
-
-The datasets used in the paper total roughly 2.2 GB and are therefore **not**
-stored in this repository. They are **bit-exactly reproducible** from the
-generation pipeline and the seeds recorded in each run manifest: the same
-`(preset, episode index)` always regenerates the same episode, and the
-reproducibility contract is checked by `dataGen`'s test suite.
-
-## Citation
-
-Paper under review; citation information will be added on acceptance.
-
-```bibtex
-@article{prism2026,
-  title  = {PRISM: Calibrated Probabilistic Trajectory Prediction of
-            Non-Cooperative Aerial Objects in Low-Altitude Airspace},
-  author = {Hyunjun and Lee, Jae-Woo},
-  year   = {2026},
-  note   = {Manuscript under review}
-}
-```
-
-## License
-
-Released under the MIT License - see [LICENSE](LICENSE).
+The existing [MIT license](LICENSE) is retained. This is research software,
+not operational aviation safety assurance.

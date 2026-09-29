@@ -54,8 +54,18 @@ def compute_losses(out: dict, batch: dict, loss_cfg: dict,
       "mse"           -- point-estimate baseline (doc 8.2): squared error on
                          mu only; sigma/rho/pi receive NO gradient. Use with
                          n_modes=1 and best_metric val/minADE.
+      "mdn"           -- standard mixture-density training, the learned
+                         multimodal comparator of review round 1 (R3 major
+                         7, AeroCast-style Transformer-MDN): the full-mixture
+                         NLL alone at weight 1 from the first step, with no
+                         winner-takes-all term, no branch cross-entropy and
+                         no late ramp. Same inputs, K, data and budget as the
+                         "nll" recipe, so the two differ only in training.
     """
     y, y_valid = batch["y"], batch["y_valid"]                 # [B,30,2],[B,30]
+    variant = str(loss_cfg.get("variant", "nll"))
+    if variant not in ("nll", "mse", "mdn"):
+        raise ValueError(f"unknown loss variant {variant!r}")
 
     if str(loss_cfg.get("variant", "nll")) == "mse":
         err2 = ((out["mu"].float() - y.float().unsqueeze(1)) ** 2).sum(-1)
@@ -84,6 +94,14 @@ def compute_losses(out: dict, batch: dict, loss_cfg: dict,
     l_mix = (-torch.logsumexp(log_pi - sum_nll, dim=1) / n_valid).mean()
 
     l_type = F.cross_entropy(out["type_logits"].float(), batch["type_label"])
+
+    if variant == "mdn":
+        total = l_mix + float(loss_cfg.get("w_type", 0.2)) * l_type
+        return total, {"loss": float(total.detach()),
+                       "loss_traj": float(l_traj.detach()),   # monitor only
+                       "loss_mode": float(l_mode.detach()),   # monitor only
+                       "loss_type": float(l_type.detach()),
+                       "loss_mix": float(l_mix.detach()), "w_mix": 1.0}
 
     total = (l_traj
              + float(loss_cfg.get("w_mode", 1.0)) * l_mode

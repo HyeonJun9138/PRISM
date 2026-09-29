@@ -17,7 +17,7 @@ import numpy as np
 import torch
 
 from common.constants import HIST_STEPS, POS_SCALE, PRED_STEPS
-from data.dataset import build_sample
+from data.dataset import build_sample, index_track_rule, window_detections
 from model.network import build_model
 
 #: Data/artifact root. Override with the PRISM_ROOT environment variable;
@@ -79,6 +79,7 @@ class LivePredictor:
                 "K": int(model_cfg.get("n_modes", 3)),
                 "d_model": int(model_cfg.get("d_model", 0)),
                 "device": str(self.device),
+                "track_rule": index_track_rule(data_cfg),
                 "loaded_at": time.strftime("%H:%M:%S"),
             }
         return dict(self.info)
@@ -94,11 +95,13 @@ class LivePredictor:
 
         Returns {agent_slot: {mu_w [K,30,2] world-metres, sigma [K,30,2] m,
                               rho [K,30], pi [K], type_probs [C]}}.
-        Eligibility mirrors training (>= min_obs detections in the window).
+        Eligibility mirrors training exactly: >= min_obs usable detections in
+        the window under the checkpoint's own track rule (current-track for
+        models trained after 2026-09-26, slot for legacy ones).
         """
         if self.model is None or t0 < HIST_STEPS - 1:
             return {}
-        det = ep_dict["obs_detected"][t0 - HIST_STEPS + 1: t0 + 1]   # [H,N]
+        det = window_detections(ep_dict, t0, index_track_rule(self.data_cfg))
         n_det = det.sum(axis=0)
         min_obs = max(2, int(self.data_cfg.get("min_obs", 3)))
         targets = [a for a in range(det.shape[1])

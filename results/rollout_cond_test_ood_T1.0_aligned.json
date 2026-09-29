@@ -1,0 +1,711 @@
+{
+ "run": "D:/PRISM/Logs/Dataset/20260814_101541_test_ood_rollout_eval",
+ "model": "D:/PRISM/Logs/Models/20260813_170429_full5x_s4/final/model_final.pt",
+ "T": 1.0,
+ "n_groups": 3600,
+ "n_scored": 2512,
+ "conditional_coverage": {
+  "5s": {
+   "nom50": {
+    "median": 0.067,
+    "q25": 0.0,
+    "q75": 1.0,
+    "mean": 0.38
+   },
+   "nom70": {
+    "median": 0.75,
+    "q25": 0.0,
+    "q75": 1.0,
+    "mean": 0.553
+   },
+   "nom90": {
+    "median": 1.0,
+    "q25": 0.483,
+    "q75": 1.0,
+    "mean": 0.741
+   }
+  },
+  "10s": {
+   "nom50": {
+    "median": 0.2,
+    "q25": 0.0,
+    "q75": 0.867,
+    "mean": 0.384
+   },
+   "nom70": {
+    "median": 0.608,
+    "q25": 0.1,
+    "q75": 1.0,
+    "mean": 0.554
+   },
+   "nom90": {
+    "median": 0.983,
+    "q25": 0.5,
+    "q75": 1.0,
+    "mean": 0.737
+   }
+  },
+  "15s": {
+   "nom50": {
+    "median": 0.3,
+    "q25": 0.033,
+    "q75": 0.833,
+    "mean": 0.419
+   },
+   "nom70": {
+    "median": 0.667,
+    "q25": 0.2,
+    "q75": 1.0,
+    "mean": 0.584
+   },
+   "nom90": {
+    "median": 0.967,
+    "q25": 0.583,
+    "q75": 1.0,
+    "mean": 0.765
+   }
+  }
+ },
+ "pit_hist_15s": [
+  0.233,
+  0.0969,
+  0.0849,
+  0.0854,
+  0.0791,
+  0.0862,
+  0.0857,
+  0.0862,
+  0.0813,
+  0.0813
+ ],
+ "alignment": "timestamp",
+ "branch_time_s": 30.0,
+ "origin_step": 60,
+ "t0_index": 59,
+ "t0_time_s": 30.0,
+ "model_step0_time_s": 30.5,
+ "rollout_step0_time_s": 30.5,
+ "model_minus_rollout_time_s": 0.0,
+ "time_convention": "logged index i is t = (i+1)*LOG_DT; rollout step k is branch_time + (k+1)*LOG_DT; model step k is t[t0] + (k+1)*LOG_DT",
+ "reference_note": "state-conditioned diagnostic: every branch shares the full simulator state at the fork (hidden manoeuvre mode, intent and reaction state frozen) and re-seeds only future decision/sensor/wind streams; the predictor conditions on observations only",
+ "eligibility": {
+  "index_track_rule": "slot",
+  "feature_track_rule": "slot",
+  "min_obs": 3,
+  "min_valid_futures_per_horizon": 8,
+  "skips": {
+   "no_full_history": 0,
+   "gt_invalid_at_t0": 0,
+   "too_few_detections": 1088
+  }
+ },
+ "branches_per_group": [
+  60
+ ],
+ "n_episode_files": 100,
+ "n_episodes_scored": 100,
+ "n_valid_futures": {
+  "5s": {
+   "n_groups": 2512,
+   "n_scored_at_horizon": 2512,
+   "n_skipped_lt_min": 0,
+   "min": 60,
+   "q05": 60.0,
+   "q25": 60.0,
+   "median": 60.0,
+   "q75": 60.0,
+   "max": 60,
+   "mean": 60.0,
+   "counts": {
+    "60": 2512
+   }
+  },
+  "10s": {
+   "n_groups": 2512,
+   "n_scored_at_horizon": 2512,
+   "n_skipped_lt_min": 0,
+   "min": 60,
+   "q05": 60.0,
+   "q25": 60.0,
+   "median": 60.0,
+   "q75": 60.0,
+   "max": 60,
+   "mean": 60.0,
+   "counts": {
+    "60": 2512
+   }
+  },
+  "15s": {
+   "n_groups": 2512,
+   "n_scored_at_horizon": 2512,
+   "n_skipped_lt_min": 0,
+   "min": 60,
+   "q05": 60.0,
+   "q25": 60.0,
+   "median": 60.0,
+   "q75": 60.0,
+   "max": 60,
+   "mean": 60.0,
+   "counts": {
+    "60": 2512
+   }
+  }
+ },
+ "pit_hist": {
+  "5s": [
+   0.2564,
+   0.1006,
+   0.0881,
+   0.0864,
+   0.0865,
+   0.0819,
+   0.0903,
+   0.0749,
+   0.074,
+   0.061
+  ],
+  "10s": [
+   0.2618,
+   0.0943,
+   0.0881,
+   0.0854,
+   0.0856,
+   0.085,
+   0.0823,
+   0.0804,
+   0.0706,
+   0.0664
+  ],
+  "15s": [
+   0.233,
+   0.0969,
+   0.0849,
+   0.0854,
+   0.0791,
+   0.0862,
+   0.0857,
+   0.0862,
+   0.0813,
+   0.0813
+  ]
+ },
+ "hpd_mc": {
+  "draws_per_group_step": 256,
+  "normal_draws": "torch.Generator seeded 11 (as released)",
+  "component_draws": "torch.Generator seeded 12 (released: unseeded torch default generator)",
+  "threshold": "torch.quantile of MC log-densities at 1 - nominal"
+ },
+ "bootstrap": {
+  "B": 2000,
+  "seed": 20260926,
+  "interval": "percentile 2.5 / 97.5",
+  "group": {
+   "unit": "rollout group (episode, origin step, target slot)",
+   "n_units": 2512,
+   "conditional_coverage": {
+    "5s": {
+     "nom50": {
+      "n_groups": 2512,
+      "mean": 0.3803,
+      "mean_ci95": [
+       0.3631,
+       0.3972
+      ],
+      "median": 0.0667,
+      "median_ci95": [
+       0.05,
+       0.1
+      ]
+     },
+     "nom70": {
+      "n_groups": 2512,
+      "mean": 0.5526,
+      "mean_ci95": [
+       0.5353,
+       0.5696
+      ],
+      "median": 0.75,
+      "median_ci95": [
+       0.6667,
+       0.8167
+      ]
+     },
+     "nom90": {
+      "n_groups": 2512,
+      "mean": 0.7415,
+      "mean_ci95": [
+       0.7257,
+       0.7566
+      ],
+      "median": 1.0,
+      "median_ci95": [
+       1.0,
+       1.0
+      ]
+     }
+    },
+    "10s": {
+     "nom50": {
+      "n_groups": 2512,
+      "mean": 0.3837,
+      "mean_ci95": [
+       0.3676,
+       0.3993
+      ],
+      "median": 0.2,
+      "median_ci95": [
+       0.1667,
+       0.2167
+      ]
+     },
+     "nom70": {
+      "n_groups": 2512,
+      "mean": 0.5538,
+      "mean_ci95": [
+       0.5373,
+       0.5697
+      ],
+      "median": 0.6083,
+      "median_ci95": [
+       0.5667,
+       0.65
+      ]
+     },
+     "nom90": {
+      "n_groups": 2512,
+      "mean": 0.7365,
+      "mean_ci95": [
+       0.7223,
+       0.7507
+      ],
+      "median": 0.9833,
+      "median_ci95": [
+       0.95,
+       0.9833
+      ]
+     }
+    },
+    "15s": {
+     "nom50": {
+      "n_groups": 2512,
+      "mean": 0.4193,
+      "mean_ci95": [
+       0.4032,
+       0.4344
+      ],
+      "median": 0.3,
+      "median_ci95": [
+       0.2667,
+       0.3333
+      ]
+     },
+     "nom70": {
+      "n_groups": 2512,
+      "mean": 0.5838,
+      "mean_ci95": [
+       0.5688,
+       0.5985
+      ],
+      "median": 0.6667,
+      "median_ci95": [
+       0.6333,
+       0.7
+      ]
+     },
+     "nom90": {
+      "n_groups": 2512,
+      "mean": 0.7654,
+      "mean_ci95": [
+       0.7525,
+       0.7781
+      ],
+      "median": 0.9667,
+      "median_ci95": [
+       0.95,
+       0.9667
+      ]
+     }
+    }
+   },
+   "pit_hist": {
+    "5s": {
+     "hist": [
+      0.2564,
+      0.1006,
+      0.0881,
+      0.0864,
+      0.0865,
+      0.0819,
+      0.0903,
+      0.0749,
+      0.074,
+      0.061
+     ],
+     "ci95_lo": [
+      0.2411,
+      0.092,
+      0.0795,
+      0.0784,
+      0.0784,
+      0.0739,
+      0.0813,
+      0.0665,
+      0.0656,
+      0.0526
+     ],
+     "ci95_hi": [
+      0.2721,
+      0.1097,
+      0.0965,
+      0.0944,
+      0.0946,
+      0.091,
+      0.0995,
+      0.0837,
+      0.0831,
+      0.0695
+     ],
+     "n_values": 150720
+    },
+    "10s": {
+     "hist": [
+      0.2618,
+      0.0943,
+      0.0881,
+      0.0854,
+      0.0856,
+      0.085,
+      0.0823,
+      0.0804,
+      0.0706,
+      0.0664
+     ],
+     "ci95_lo": [
+      0.2477,
+      0.0876,
+      0.0813,
+      0.079,
+      0.0788,
+      0.0779,
+      0.0748,
+      0.0726,
+      0.0631,
+      0.058
+     ],
+     "ci95_hi": [
+      0.276,
+      0.1011,
+      0.0952,
+      0.092,
+      0.093,
+      0.0924,
+      0.0894,
+      0.0888,
+      0.0781,
+      0.0747
+     ],
+     "n_values": 150720
+    },
+    "15s": {
+     "hist": [
+      0.233,
+      0.0969,
+      0.0849,
+      0.0854,
+      0.0791,
+      0.0862,
+      0.0857,
+      0.0862,
+      0.0813,
+      0.0813
+     ],
+     "ci95_lo": [
+      0.2207,
+      0.0906,
+      0.0791,
+      0.0796,
+      0.0736,
+      0.0804,
+      0.0789,
+      0.079,
+      0.0741,
+      0.0731
+     ],
+     "ci95_hi": [
+      0.2461,
+      0.1034,
+      0.0911,
+      0.0916,
+      0.0848,
+      0.0926,
+      0.093,
+      0.0934,
+      0.0886,
+      0.0896
+     ],
+     "n_values": 150720
+    }
+   }
+  },
+  "episode_cluster": {
+   "unit": "episode (all groups of an episode share the same branch realisations, so they are not independent)",
+   "n_units": 100,
+   "conditional_coverage": {
+    "5s": {
+     "nom50": {
+      "n_groups": 2512,
+      "mean": 0.3803,
+      "mean_ci95": [
+       0.3618,
+       0.3983
+      ],
+      "median": 0.0667,
+      "median_ci95": [
+       0.0333,
+       0.1
+      ]
+     },
+     "nom70": {
+      "n_groups": 2512,
+      "mean": 0.5526,
+      "mean_ci95": [
+       0.5354,
+       0.5697
+      ],
+      "median": 0.75,
+      "median_ci95": [
+       0.6667,
+       0.8167
+      ]
+     },
+     "nom90": {
+      "n_groups": 2512,
+      "mean": 0.7415,
+      "mean_ci95": [
+       0.726,
+       0.7562
+      ],
+      "median": 1.0,
+      "median_ci95": [
+       1.0,
+       1.0
+      ]
+     }
+    },
+    "10s": {
+     "nom50": {
+      "n_groups": 2512,
+      "mean": 0.3837,
+      "mean_ci95": [
+       0.3673,
+       0.4003
+      ],
+      "median": 0.2,
+      "median_ci95": [
+       0.1667,
+       0.2167
+      ]
+     },
+     "nom70": {
+      "n_groups": 2512,
+      "mean": 0.5538,
+      "mean_ci95": [
+       0.538,
+       0.5697
+      ],
+      "median": 0.6083,
+      "median_ci95": [
+       0.5667,
+       0.65
+      ]
+     },
+     "nom90": {
+      "n_groups": 2512,
+      "mean": 0.7365,
+      "mean_ci95": [
+       0.7232,
+       0.7501
+      ],
+      "median": 0.9833,
+      "median_ci95": [
+       0.9667,
+       0.9833
+      ]
+     }
+    },
+    "15s": {
+     "nom50": {
+      "n_groups": 2512,
+      "mean": 0.4193,
+      "mean_ci95": [
+       0.4053,
+       0.4337
+      ],
+      "median": 0.3,
+      "median_ci95": [
+       0.2667,
+       0.3333
+      ]
+     },
+     "nom70": {
+      "n_groups": 2512,
+      "mean": 0.5838,
+      "mean_ci95": [
+       0.5702,
+       0.5975
+      ],
+      "median": 0.6667,
+      "median_ci95": [
+       0.6417,
+       0.7
+      ]
+     },
+     "nom90": {
+      "n_groups": 2512,
+      "mean": 0.7654,
+      "mean_ci95": [
+       0.7533,
+       0.7766
+      ],
+      "median": 0.9667,
+      "median_ci95": [
+       0.95,
+       0.9667
+      ]
+     }
+    }
+   },
+   "pit_hist": {
+    "5s": {
+     "hist": [
+      0.2564,
+      0.1006,
+      0.0881,
+      0.0864,
+      0.0865,
+      0.0819,
+      0.0903,
+      0.0749,
+      0.074,
+      0.061
+     ],
+     "ci95_lo": [
+      0.2415,
+      0.0913,
+      0.0801,
+      0.0785,
+      0.0787,
+      0.0739,
+      0.0807,
+      0.0667,
+      0.0655,
+      0.0538
+     ],
+     "ci95_hi": [
+      0.2716,
+      0.1104,
+      0.096,
+      0.0944,
+      0.0945,
+      0.0905,
+      0.0993,
+      0.0831,
+      0.0828,
+      0.0687
+     ],
+     "n_values": 150720
+    },
+    "10s": {
+     "hist": [
+      0.2618,
+      0.0943,
+      0.0881,
+      0.0854,
+      0.0856,
+      0.085,
+      0.0823,
+      0.0804,
+      0.0706,
+      0.0664
+     ],
+     "ci95_lo": [
+      0.2483,
+      0.0879,
+      0.0808,
+      0.0795,
+      0.0786,
+      0.0786,
+      0.0751,
+      0.0734,
+      0.0628,
+      0.0589
+     ],
+     "ci95_hi": [
+      0.2751,
+      0.1006,
+      0.0958,
+      0.0915,
+      0.093,
+      0.0914,
+      0.0898,
+      0.0877,
+      0.0789,
+      0.0748
+     ],
+     "n_values": 150720
+    },
+    "15s": {
+     "hist": [
+      0.233,
+      0.0969,
+      0.0849,
+      0.0854,
+      0.0791,
+      0.0862,
+      0.0857,
+      0.0862,
+      0.0813,
+      0.0813
+     ],
+     "ci95_lo": [
+      0.2221,
+      0.0904,
+      0.0791,
+      0.0802,
+      0.0744,
+      0.0801,
+      0.0789,
+      0.0783,
+      0.0742,
+      0.0727
+     ],
+     "ci95_hi": [
+      0.2451,
+      0.1034,
+      0.0912,
+      0.0906,
+      0.0842,
+      0.0925,
+      0.0926,
+      0.0942,
+      0.0885,
+      0.0901
+     ],
+     "n_values": 150720
+    }
+   }
+  }
+ },
+ "wall_s": {
+  "forward": 19.9,
+  "mc": 10.0
+ },
+ "source": {
+  "script": "D:/PRISM/modelVal/experiments/rollout_score.py",
+  "script_sha256": "82e24b495850aa10f4f63bfacaaba18a21c3f5f223f6d1463a6a7d1d151a4892",
+  "dataset_py_sha256": "590365051fcfaca06770f08604973409741e5c4cbbfb22631e0f2b243f7ee1f3",
+  "groups_sidecar": "D:/PRISM/Paper/rebuttal/r3/rollout_cond_test_ood_T1.0_aligned_groups.jsonl",
+  "torch": "2.5.1+cu121",
+  "device": "cuda"
+ }
+}

@@ -106,7 +106,7 @@ function renderRunsTable() {
     </tr>`).join("");
   $("runs-table").innerHTML = S.runs.length
     ? `<table class="mini"><tr><th>run</th><th class="c-eps">eps</th><th class="c-preset">preset</th><th class="c-role">역할</th></tr>${rows}</table>`
-    : `<div class="hint">D:\\PRISM\\Logs 에 런이 없습니다. dataGen으로 먼저 생성하세요.</div>`;
+    : `<div class="hint">%PRISM_ROOT%\\Logs 에 런이 없습니다. dataGen으로 먼저 생성하세요.</div>`;
   document.querySelectorAll(".role-sel").forEach(sel =>
     sel.addEventListener("change", () => { S.roles[sel.dataset.path] = sel.value; }));
 }

@@ -1,0 +1,309 @@
+{
+ "pred.ID.gap_closure_pct": {
+  "value": 92.56,
+  "formula": "100 (cv_obs - prism) / (cv_obs - cv_gt)",
+  "inputs": {
+   "cv_obs": 122.53329111379745,
+   "cv_gt": 39.98633891209074,
+   "prism_6seed_mean": 46.12790589245218
+  },
+  "note": "share of the minADE gap between CV from detections and CV from the true state that PRISM closes"
+ },
+ "pred.ID.vs_imm_pct": {
+  "value": 50.08,
+  "formula": "100 (1 - prism/imm)",
+  "inputs": {
+   "prism": 46.12790589245218,
+   "imm_gapfix": 92.40392529877813
+  },
+  "note": "minADE reduction against the corrected, re-tuned IMM on the same samples"
+ },
+ "pred.OOD.gap_closure_pct": {
+  "value": 86.161,
+  "formula": "100 (cv_obs - prism) / (cv_obs - cv_gt)",
+  "inputs": {
+   "cv_obs": 131.26623170117105,
+   "cv_gt": 52.924756931492674,
+   "prism_6seed_mean": 63.76610949315863
+  },
+  "note": "share of the minADE gap between CV from detections and CV from the true state that PRISM closes"
+ },
+ "pred.OOD.vs_imm_pct": {
+  "value": 39.625,
+  "formula": "100 (1 - prism/imm)",
+  "inputs": {
+   "prism": 63.76610949315863,
+   "imm_gapfix": 105.61617827660152
+  },
+  "note": "minADE reduction against the corrected, re-tuned IMM on the same samples"
+ },
+ "pred.ID.vs_k1_pct": {
+  "value": 36.416,
+  "formula": "100 (1 - k3_seed0/k1_seed0)",
+  "inputs": {
+   "k3_seed0": 46.13734724844676,
+   "k1_seed0": 72.56179312930264
+  },
+  "note": "value of the three-branch output over a single-branch model of the same size and recipe"
+ },
+ "pred.ID.class_cov90_min": {
+  "value": 0.891,
+  "formula": "min over trained classes",
+  "inputs": {
+   "Multirotor": 0.9062907154591288,
+   "FixedWingUAS": 0.8996327212020033,
+   "eVTOL": 0.8909109291274896
+  },
+  "note": "per-class 90 % coverage at 15 s, lowest class"
+ },
+ "pred.ID.class_cov90_max": {
+  "value": 0.906,
+  "formula": "max over trained classes",
+  "inputs": {
+   "Multirotor": 0.9062907154591288,
+   "FixedWingUAS": 0.8996327212020033,
+   "eVTOL": 0.8909109291274896
+  },
+  "note": "per-class 90 % coverage at 15 s, highest class"
+ },
+ "planner.sparse.severe_fewer_vs_cv_pct": {
+  "value": 16.667,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.2,
+   "ratio_ci": [
+    0.8333,
+    1.7778
+   ],
+   "sign_p": 0.507812
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.sparse.severe_fewer_vs_static_pct": {
+  "value": 40.001,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.6667,
+   "ratio_ci": [
+    1.1429,
+    2.6667
+   ],
+   "sign_p": 0.021271
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.sparse.tb45_less_vs_cv_pct": {
+  "value": -1.341,
+  "formula": "100 (1 - prism/cv)",
+  "inputs": {
+   "cv_s_per_h": 2.983,
+   "prism_s_per_h": 3.023
+  },
+  "note": "percent less time per exposure hour below 45 m with PRISM than with CV"
+ },
+ "planner.sparse.p5_gain_vs_cv_pct": {
+  "value": 17.986,
+  "formula": "100 (prism/cv - 1)",
+  "inputs": {
+   "cv_p5_m": 36.64,
+   "prism_p5_m": 43.23
+  },
+  "note": "percent higher 5th percentile of episode minimum separation with PRISM (paired CI of the difference is in the ledger)"
+ },
+ "planner.ood40.severe_fewer_vs_cv_pct": {
+  "value": 19.84,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.2475,
+   "ratio_ci": [
+    1.0174,
+    1.5443
+   ],
+   "sign_p": 0.035324
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.ood40.severe_fewer_vs_static_pct": {
+  "value": 39.522,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.6535,
+   "ratio_ci": [
+    1.3571,
+    2.0337
+   ],
+   "sign_p": 0.0
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.ood40.tb45_less_vs_cv_pct": {
+  "value": 26.236,
+  "formula": "100 (1 - prism/cv)",
+  "inputs": {
+   "cv_s_per_h": 14.259,
+   "prism_s_per_h": 10.518
+  },
+  "note": "percent less time per exposure hour below 45 m with PRISM than with CV"
+ },
+ "planner.ood40.p5_gain_vs_cv_pct": {
+  "value": 61.321,
+  "formula": "100 (prism/cv - 1)",
+  "inputs": {
+   "cv_p5_m": 10.6,
+   "prism_p5_m": 17.1
+  },
+  "note": "percent higher 5th percentile of episode minimum separation with PRISM (paired CI of the difference is in the ledger)"
+ },
+ "planner.ood100.severe_fewer_vs_cv_pct": {
+  "value": 8.975,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.0986,
+   "ratio_ci": [
+    0.825,
+    1.459
+   ],
+   "sign_p": 0.450548
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.ood100.severe_fewer_vs_static_pct": {
+  "value": 30.391,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.4366,
+   "ratio_ci": [
+    1.1233,
+    1.8462
+   ],
+   "sign_p": 0.001824
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.ood100.tb45_less_vs_cv_pct": {
+  "value": 17.41,
+  "formula": "100 (1 - prism/cv)",
+  "inputs": {
+   "cv_s_per_h": 16.559,
+   "prism_s_per_h": 13.676
+  },
+  "note": "percent less time per exposure hour below 45 m with PRISM than with CV"
+ },
+ "planner.ood100.p5_gain_vs_cv_pct": {
+  "value": 1.364,
+  "formula": "100 (prism/cv - 1)",
+  "inputs": {
+   "cv_p5_m": 13.2,
+   "prism_p5_m": 13.38
+  },
+  "note": "percent higher 5th percentile of episode minimum separation with PRISM (paired CI of the difference is in the ledger)"
+ },
+ "planner.id40.severe_fewer_vs_cv_pct": {
+  "value": 36.765,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.5814,
+   "ratio_ci": [
+    1.2321,
+    2.0909
+   ],
+   "sign_p": 0.001089
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.id40.severe_fewer_vs_static_pct": {
+  "value": 37.683,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.6047,
+   "ratio_ci": [
+    1.2642,
+    2.0909
+   ],
+   "sign_p": 0.000222
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.id40.tb45_less_vs_cv_pct": {
+  "value": 34.843,
+  "formula": "100 (1 - prism/cv)",
+  "inputs": {
+   "cv_s_per_h": 12.717,
+   "prism_s_per_h": 8.286
+  },
+  "note": "percent less time per exposure hour below 45 m with PRISM than with CV"
+ },
+ "planner.id40.p5_gain_vs_cv_pct": {
+  "value": 64.165,
+  "formula": "100 (prism/cv - 1)",
+  "inputs": {
+   "cv_p5_m": 19.59,
+   "prism_p5_m": 32.16
+  },
+  "note": "percent higher 5th percentile of episode minimum separation with PRISM (paired CI of the difference is in the ledger)"
+ },
+ "planner.id24.severe_fewer_vs_cv_pct": {
+  "value": 28.765,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.4038,
+   "ratio_ci": [
+    1.0615,
+    1.8788
+   ],
+   "sign_p": 0.013934
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.id24.severe_fewer_vs_static_pct": {
+  "value": 40.909,
+  "formula": "100 (1 - 1/ratio)",
+  "inputs": {
+   "ratio_est": 1.6923,
+   "ratio_ci": [
+    1.3654,
+    2.1628
+   ],
+   "sign_p": 6e-06
+  },
+  "note": "percent fewer severe (< 45 m) encounters per hour with PRISM; CI and p from the ledger"
+ },
+ "planner.id24.tb45_less_vs_cv_pct": {
+  "value": 35.214,
+  "formula": "100 (1 - prism/cv)",
+  "inputs": {
+   "cv_s_per_h": 12.583,
+   "prism_s_per_h": 8.152
+  },
+  "note": "percent less time per exposure hour below 45 m with PRISM than with CV"
+ },
+ "planner.id24.p5_gain_vs_cv_pct": {
+  "value": 40.348,
+  "formula": "100 (prism/cv - 1)",
+  "inputs": {
+   "cv_p5_m": 21.29,
+   "prism_p5_m": 29.88
+  },
+  "note": "percent higher 5th percentile of episode minimum separation with PRISM (paired CI of the difference is in the ledger)"
+ },
+ "planner.prism_deadline_kept_pct": {
+  "value": 99.99,
+  "formula": "100 (1 - misses/cycles)",
+  "inputs": {
+   "misses": 31,
+   "cycles": 322200
+  },
+  "note": "share of PRISM replanning cycles that met the 0.5 s deadline on shared runner hardware"
+ },
+ "recal.cov90_15s_gain": {
+  "value": 0.156,
+  "formula": "after - before",
+  "inputs": {
+   "before": 0.7579,
+   "after": 0.9139,
+   "T": 1.695,
+   "n_test": 299679
+  },
+  "note": "gain in 90 % coverage at 15 s on the held-out OOD episodes 300-1199"
+ }
+}

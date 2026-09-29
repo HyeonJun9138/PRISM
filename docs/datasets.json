@@ -1,0 +1,33 @@
+{
+  "datasets": [
+    "20260812_202611_train_full",
+    "20260812_203525_valid_full",
+    "20260813_023137_train_full5x_a",
+    "20260813_023138_train_full5x_b",
+    "20260813_023138_train_full5x_c",
+    "20260813_023138_train_full5x_d",
+    "20260813_023139_test_id_full5x",
+    "20260813_023139_test_ood_full5x_a",
+    "20260813_023139_test_ood_full5x_b",
+    "20260813_023139_valid_full5x",
+    "20260813_124053_test_ood_cal_a",
+    "20260813_124054_test_ood_cal_b",
+    "20260813_124054_test_ood_cal_c",
+    "20260814_101540_test_id_rollout_eval",
+    "20260814_101541_test_ood_rollout_eval",
+    "20260907_194445_ood_all_rebut",
+    "20260907_194445_ood_control_rebut",
+    "20260907_194445_ood_density_rebut",
+    "20260907_194445_ood_intent_rebut",
+    "20260907_194445_ood_platform_rebut",
+    "20260907_194445_ood_wind_rebut",
+    "20260907_200707_sens_baseline_rebut",
+    "20260907_200707_sens_dwell_hi_rebut",
+    "20260907_200707_sens_dwell_lo_rebut",
+    "20260907_200707_sens_notice_hi_rebut",
+    "20260907_200707_sens_notice_lo_rebut",
+    "20260907_200707_sens_sensor_2x_rebut",
+    "20260926_155613_test_ood_rollout_heldout",
+    "20260926_160253_test_id_rollout_heldout"
+  ]
+}

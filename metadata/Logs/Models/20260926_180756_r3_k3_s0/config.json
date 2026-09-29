@@ -1,0 +1,67 @@
+{
+  "config": {
+    "tag": "r3_k3_s0",
+    "seed": 0,
+    "data": {
+      "max_agents": 10,
+      "t0_stride": 4,
+      "min_obs": 3,
+      "min_future_valid": 27,
+      "val_fraction": 0.1,
+      "max_samples_per_epoch": 0,
+      "track_rule": "current"
+    },
+    "model": {
+      "d_model": 160,
+      "n_modes": 3,
+      "temporal_layers": 3,
+      "agent_layers": 2,
+      "n_heads": 8,
+      "d_ff": 384,
+      "dropout": 0.1,
+      "cumulative_mu": true
+    },
+    "optim": {
+      "batch_size": 256,
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "epochs": 26,
+      "warmup_steps": 1500,
+      "grad_clip": 1.0,
+      "amp": "bf16",
+      "num_workers": 8,
+      "val_every": 1,
+      "early_stop_patience": 0,
+      "val_max_samples": 40000
+    },
+    "loss": {
+      "w_mode": 1.0,
+      "w_type": 0.2,
+      "w_mixture_max": 0.5,
+      "mixture_ramp_start": 0.65
+    },
+    "checkpoint": {
+      "every_epochs": 1,
+      "keep_last": 6,
+      "best_metric": "val/NLL"
+    },
+    "r3": {
+      "snapshot_fp": "85a4033b7df0bb8153d3cc13516ae29a0f54b4c0460c8d92b7e7f66de0090863",
+      "created": "2026-09-26",
+      "decision": "DECISIONS.md D6",
+      "num_workers_note": "4 -> 8 for jobs started after 2026-09-26 16:35 (loader throughput under CPU contention); data order and math unchanged: the sampler runs in the main process and build_sample is deterministic"
+    }
+  },
+  "roster": {
+    "train": [
+      "C:/PRISM/Logs/Dataset/20260813_023137_train_full5x_a",
+      "C:/PRISM/Logs/Dataset/20260813_023138_train_full5x_b",
+      "C:/PRISM/Logs/Dataset/20260813_023138_train_full5x_c",
+      "C:/PRISM/Logs/Dataset/20260813_023138_train_full5x_d"
+    ],
+    "val": [
+      "C:/PRISM/Logs/Dataset/20260813_023139_valid_full5x"
+    ]
+  },
+  "resume_from": null
+}

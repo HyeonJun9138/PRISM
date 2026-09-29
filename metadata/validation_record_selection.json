@@ -1,0 +1,124 @@
+{
+  "rule": "Retain every split=val JSONL record, verbatim; omit per-batch training telemetry.",
+  "files": [
+    {
+      "file": "metadata/Logs/Models/20260813_170429_full5x_s4/metrics.jsonl",
+      "source_sha256": "2be27694951fdd8f2cebfeffc2fc29e6481a3dce3db2c1c855c537a8295e08ec",
+      "published_sha256": "4712149bb98553aca206b843143b638883f8169f6908feaf90cdb11c44289b3a",
+      "retained_rows": 26,
+      "source_rows": 7627
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_141629_r3_k3_s1/metrics.jsonl",
+      "source_sha256": "220540abede543f6ba4a2e18381ec96dcfaabc34c376a9f10321fd8dd232b523",
+      "published_sha256": "65d72c46e8265839fbb077f563f24ba342f608f022fe3cba6a1a2e922d38c8e2",
+      "retained_rows": 26,
+      "source_rows": 5967
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_141631_r3_mdn_s0/metrics.jsonl",
+      "source_sha256": "45eb21b2cba136efffb8c866be95cb3a9911ce9d5ab948191cdd7f586176697f",
+      "published_sha256": "d284af5486aec34bb7db25b42b59c0a38df8c69e8dfbce3740d134e20e7d4862",
+      "retained_rows": 26,
+      "source_rows": 5966
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_155952_r3_k3_s2/metrics.jsonl",
+      "source_sha256": "352fe827b5183954755a1b36a9c99b7588672d7fbf0e1216f5ca3651fec82b54",
+      "published_sha256": "958cc34b1e14732472f920d45b02e468300ace238a7a0b6fa0d299f324514227",
+      "retained_rows": 26,
+      "source_rows": 5966
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_180756_r3_k3_s0/metrics.jsonl",
+      "source_sha256": "efa43c55f691fab1ee71f1cad2a25ed9c8017accb98b2ebea87f697c72d9866c",
+      "published_sha256": "91ed3e36137ce0d1cefaa2adc1a6658442e7c87459ef8af63360ae69b2dd7265",
+      "retained_rows": 26,
+      "source_rows": 5969
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_181259_r3_noneigh_s0/metrics.jsonl",
+      "source_sha256": "21589dc386fe927898c95708de78fd8b0e4d3e3aa55add4582fffe3e039d7ca8",
+      "published_sha256": "30fc59238043288fc2d367908c66a990f45737440dbb2e235d0d2ab91e555c61",
+      "retained_rows": 26,
+      "source_rows": 5968
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_192121_r3_k1_s0/metrics.jsonl",
+      "source_sha256": "18633afcf0b366b4a11a85dca3918f5e5b7ffb5b86f7f150d314cd767c53151b",
+      "published_sha256": "80e456e0318b453bf8b969ba8c105d243badde647b80d6e8bab3229e9bdc3fbb",
+      "retained_rows": 26,
+      "source_rows": 5963
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_192538_r3_k3_s3/metrics.jsonl",
+      "source_sha256": "91f970438738787608c2b336880616326da2274afb97b94f9c6702a55f13a55c",
+      "published_sha256": "5135c30dcd0b734bca1677bb2edf630d3ba4c7d1fe743d5a9a1c752042dc74f2",
+      "retained_rows": 26,
+      "source_rows": 5968
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_203840_r3_k3_s4/metrics.jsonl",
+      "source_sha256": "a2fbb1489dadfd0e0c910e77dcdbaa684825118194c16c5e01eff765cacc6c50",
+      "published_sha256": "cb1de098379f3df8b9f84fd68c0aca0de38e3231ce78d82967fe9eaf4f63000c",
+      "retained_rows": 26,
+      "source_rows": 5968
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_211905_r3_notype_s0/metrics.jsonl",
+      "source_sha256": "f4ab26c4fbc20ca64e93bd430d1a6211b84e08c6e27b3c61b564ce6717b6af62",
+      "published_sha256": "e25915fcdbf26cfdff70f448399a95b5104ffb1893aeff6180ba040d7f4fc6d3",
+      "retained_rows": 26,
+      "source_rows": 5967
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_214942_r3_k3_s6/metrics.jsonl",
+      "source_sha256": "f1656df411c3e2befe8a217656d0335c2edd8a6a2dde4392f0e882b18419874e",
+      "published_sha256": "d5114dc63d98673c5e0a1e358f71aeb17a82dd2a30cd9897bd5837321af28094",
+      "retained_rows": 26,
+      "source_rows": 5970
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_230624_r3_k3_s5/metrics.jsonl",
+      "source_sha256": "ee517d953892b8e61894b37b580f8225853de86a769ae9fdc5bd1447797bcdf8",
+      "published_sha256": "eafefea24b79f09cd807747046ca3ef0fb9af11cd197e0031aefe9845afdb8e3",
+      "retained_rows": 26,
+      "source_rows": 5968
+    },
+    {
+      "file": "metadata/Logs/Models/20260926_231702_r3_pointnet_s0/metrics.jsonl",
+      "source_sha256": "a836401cbacd149bccb86482d7d75ef93163ebbcaf83ef026ff40589d4af75ed",
+      "published_sha256": "999144508248760ef3fe05b8ca00665bd088d81fe91da047fc9aae3ebfe49933",
+      "retained_rows": 25,
+      "source_rows": 5956
+    },
+    {
+      "file": "metadata/Logs/Models/20260927_002146_r3_1x_s0/metrics.jsonl",
+      "source_sha256": "838ef0d9f8a35a87f5fa94dbb73a3a18c64c33bd6a58536937597ba09815b20a",
+      "published_sha256": "63eb401a14458e584ed5c2596444be99b57191196c3e55b23614d159790bc800",
+      "retained_rows": 43,
+      "source_rows": 2175
+    },
+    {
+      "file": "metadata/Logs/Models/20260927_005347_r3_mdn_s1/metrics.jsonl",
+      "source_sha256": "51c752d84893dd27649f246d8e91e24bbfb39a10fae51bb7987b02587d35f57e",
+      "published_sha256": "0ac26e533bca6de181439cd9e6eaa6bfed9f8bd535b1f650ef4fb0db10c6b7c9",
+      "retained_rows": 26,
+      "source_rows": 5969
+    },
+    {
+      "file": "metadata/Logs/Models/20260927_011708_resume_net_s0/metrics.jsonl",
+      "source_sha256": "9bc386037c6566b55f1149b58fc950bf9ce2191bd86894a31e7d17a27a867b74",
+      "published_sha256": "27c75a1710880f82d9714f6e92cc70b08923a96512cb4a335c73f87409539d71",
+      "retained_rows": 1,
+      "source_rows": 230
+    },
+    {
+      "file": "metadata/Logs/Models/20260927_022930_r3_mdn_s2/metrics.jsonl",
+      "source_sha256": "07cb380f50f59f3bc054593d141f810dc082c17284bd11fffdc272a17c1c94a9",
+      "published_sha256": "7a54c7d19d88d958820bb46946d18bf254037ae5669fec429c916212178cf0b2",
+      "retained_rows": 26,
+      "source_rows": 5970
+    }
+  ]
+}

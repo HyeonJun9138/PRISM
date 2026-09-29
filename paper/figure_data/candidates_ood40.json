@@ -1,0 +1,7578 @@
+{
+ "generated_utc": "2026-09-27T04:11:39+00:00",
+ "condition": "ood40",
+ "condition_desc": "nominal-load OOD condition (preset test_ood, density setting 40 per km²)",
+ "batch_dir": "D:/PRISM/Logs/Planner/r3_ood40",
+ "n_episodes": 600,
+ "rule_file": "D:/PRISM/Paper/figures_r3/case_rule_r3.txt",
+ "rule_sha256": "6d8927f810d4fa94ea8d681f076649fcc1981cae0a1a7523c01012c13866f939",
+ "pool_rule": {
+  "a_segment_min_sep_below_m": 45.0,
+  "a_segment_unavoidable_new": false,
+  "c_has_no_segment_with_slot": true
+ },
+ "pool_size": 43,
+ "pool": [
+  {
+   "index": 13,
+   "seed": 310013,
+   "n_agents": 24,
+   "slot": 5,
+   "t_min_a": 32.4,
+   "min_sep_a": 35.8,
+   "gt_type": 3,
+   "gt_intent": 4,
+   "track_id_a": 20,
+   "lead_track_s_a": 22.95,
+   "t_entry_a": 30.95,
+   "t_exit_a": 33.85,
+   "n_qualifying_segments_a": 1,
+   "type_name": "eVTOL",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 35.8,
+    "cv": 70.7,
+    "model": 426.1
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 555,
+    "model": 499
+   }
+  },
+  {
+   "index": 17,
+   "seed": 310017,
+   "n_agents": 24,
+   "slot": 10,
+   "t_min_a": 32.75,
+   "min_sep_a": 5.8,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 0,
+   "lead_track_s_a": 29.95,
+   "t_entry_a": 30.45,
+   "t_exit_a": 35.95,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 5.8,
+    "cv": 75.1,
+    "model": 72.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 407,
+    "model": 351
+   }
+  },
+  {
+   "index": 25,
+   "seed": 310025,
+   "n_agents": 24,
+   "slot": 2,
+   "t_min_a": 88.5,
+   "min_sep_a": 19.2,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 75,
+   "lead_track_s_a": 34.95,
+   "t_entry_a": 84.95,
+   "t_exit_a": 90.0,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 19.2,
+    "cv": 50.8,
+    "model": 66.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 535,
+    "model": 512
+   }
+  },
+  {
+   "index": 58,
+   "seed": 310058,
+   "n_agents": 24,
+   "slot": 19,
+   "t_min_a": 43.4,
+   "min_sep_a": 4.8,
+   "gt_type": 6,
+   "gt_intent": 0,
+   "track_id_a": 19,
+   "lead_track_s_a": 21.4,
+   "t_entry_a": 41.9,
+   "t_exit_a": 44.9,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Unknown",
+   "intent_name": "CorridorTransit",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 4.8,
+    "cv": 4.1,
+    "model": 137.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 435,
+    "model": 399
+   }
+  },
+  {
+   "index": 88,
+   "seed": 310088,
+   "n_agents": 24,
+   "slot": 3,
+   "t_min_a": 58.6,
+   "min_sep_a": 26.2,
+   "gt_type": 2,
+   "gt_intent": 4,
+   "track_id_a": 0,
+   "lead_track_s_a": 52.7,
+   "t_entry_a": 53.2,
+   "t_exit_a": 62.85,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": 74.8,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 26.2,
+    "cv": 74.8,
+    "model": 371.1
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 524,
+    "model": 444
+   }
+  },
+  {
+   "index": 94,
+   "seed": 310094,
+   "n_agents": 24,
+   "slot": 6,
+   "t_min_a": 44.3,
+   "min_sep_a": 5.0,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 9,
+   "lead_track_s_a": 39.25,
+   "t_entry_a": 42.25,
+   "t_exit_a": 46.4,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 5.0,
+    "cv": 181.3,
+    "model": 181.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 493,
+    "model": 413
+   }
+  },
+  {
+   "index": 103,
+   "seed": 310103,
+   "n_agents": 24,
+   "slot": 1,
+   "t_min_a": 50.0,
+   "min_sep_a": 26.4,
+   "gt_type": 1,
+   "gt_intent": 3,
+   "track_id_a": 24,
+   "lead_track_s_a": 34.6,
+   "t_entry_a": 47.6,
+   "t_exit_a": 52.35,
+   "n_qualifying_segments_a": 3,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 26.4,
+    "cv": 44.5,
+    "model": 34.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 534,
+    "model": 511
+   }
+  },
+  {
+   "index": 111,
+   "seed": 310111,
+   "n_agents": 24,
+   "slot": 20,
+   "t_min_a": 85.0,
+   "min_sep_a": 1.2,
+   "gt_type": 2,
+   "gt_intent": 3,
+   "track_id_a": 54,
+   "lead_track_s_a": 56.65,
+   "t_entry_a": 83.15,
+   "t_exit_a": 86.8,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 1.2,
+    "cv": 35.5,
+    "model": 41.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 517,
+    "model": 434
+   }
+  },
+  {
+   "index": 116,
+   "seed": 310116,
+   "n_agents": 24,
+   "slot": 1,
+   "t_min_a": 50.8,
+   "min_sep_a": 30.1,
+   "gt_type": 1,
+   "gt_intent": 3,
+   "track_id_a": 34,
+   "lead_track_s_a": 30.45,
+   "t_entry_a": 48.45,
+   "t_exit_a": 53.1,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 30.1,
+    "cv": 33.8,
+    "model": 55.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 484,
+    "model": 453
+   }
+  },
+  {
+   "index": 151,
+   "seed": 310151,
+   "n_agents": 24,
+   "slot": 20,
+   "t_min_a": 36.0,
+   "min_sep_a": 29.3,
+   "gt_type": 1,
+   "gt_intent": 4,
+   "track_id_a": 18,
+   "lead_track_s_a": 28.85,
+   "t_entry_a": 33.85,
+   "t_exit_a": 38.15,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Multirotor",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 29.3,
+    "cv": 237.9,
+    "model": 231.1
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 474,
+    "model": 458
+   }
+  },
+  {
+   "index": 159,
+   "seed": 310159,
+   "n_agents": 24,
+   "slot": 2,
+   "t_min_a": 20.85,
+   "min_sep_a": 26.9,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 4,
+   "lead_track_s_a": 17.9,
+   "t_entry_a": 18.4,
+   "t_exit_a": 23.4,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 26.9,
+    "cv": 50.6,
+    "model": 50.6
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 453,
+    "model": 411
+   }
+  },
+  {
+   "index": 170,
+   "seed": 310170,
+   "n_agents": 24,
+   "slot": 17,
+   "t_min_a": 40.6,
+   "min_sep_a": 20.7,
+   "gt_type": 4,
+   "gt_intent": 2,
+   "track_id_a": 29,
+   "lead_track_s_a": 24.05,
+   "t_entry_a": 38.55,
+   "t_exit_a": 42.9,
+   "n_qualifying_segments_a": 1,
+   "type_name": "General aviation",
+   "intent_name": "LoiterHover",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 20.7,
+    "cv": 154.2,
+    "model": 176.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 417,
+    "model": 398
+   }
+  },
+  {
+   "index": 182,
+   "seed": 310182,
+   "n_agents": 24,
+   "slot": 9,
+   "t_min_a": 46.05,
+   "min_sep_a": 40.6,
+   "gt_type": 0,
+   "gt_intent": 3,
+   "track_id_a": 5,
+   "lead_track_s_a": 43.05,
+   "t_entry_a": 43.55,
+   "t_exit_a": 48.45,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "b_min_row": 91.6,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 40.6,
+    "cv": 10.6,
+    "model": 107.1
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 526,
+    "model": 492
+   }
+  },
+  {
+   "index": 183,
+   "seed": 310183,
+   "n_agents": 24,
+   "slot": 10,
+   "t_min_a": 44.95,
+   "min_sep_a": 15.6,
+   "gt_type": 3,
+   "gt_intent": 0,
+   "track_id_a": 51,
+   "lead_track_s_a": 20.0,
+   "t_entry_a": 43.5,
+   "t_exit_a": 46.45,
+   "n_qualifying_segments_a": 2,
+   "type_name": "eVTOL",
+   "intent_name": "CorridorTransit",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 15.6,
+    "cv": 36.1,
+    "model": 36.1
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 531,
+    "model": 490
+   }
+  },
+  {
+   "index": 185,
+   "seed": 310185,
+   "n_agents": 24,
+   "slot": 20,
+   "t_min_a": 34.05,
+   "min_sep_a": 13.9,
+   "gt_type": 0,
+   "gt_intent": 3,
+   "track_id_a": 7,
+   "lead_track_s_a": 31.5,
+   "t_entry_a": 32.0,
+   "t_exit_a": 36.05,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 13.9,
+    "cv": 46.5,
+    "model": 45.2
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 438,
+    "model": 377
+   }
+  },
+  {
+   "index": 199,
+   "seed": 310199,
+   "n_agents": 24,
+   "slot": 10,
+   "t_min_a": 84.75,
+   "min_sep_a": 34.1,
+   "gt_type": 1,
+   "gt_intent": 3,
+   "track_id_a": 81,
+   "lead_track_s_a": 33.2,
+   "t_entry_a": 82.2,
+   "t_exit_a": 87.65,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 34.1,
+    "cv": 118.5,
+    "model": 120.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 457,
+    "model": 419
+   }
+  },
+  {
+   "index": 221,
+   "seed": 310221,
+   "n_agents": 24,
+   "slot": 5,
+   "t_min_a": 85.85,
+   "min_sep_a": 8.5,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 62,
+   "lead_track_s_a": 34.5,
+   "t_entry_a": 83.5,
+   "t_exit_a": 88.05,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 8.5,
+    "cv": 262.8,
+    "model": 265.2
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 271,
+    "model": 253
+   }
+  },
+  {
+   "index": 234,
+   "seed": 310234,
+   "n_agents": 24,
+   "slot": 18,
+   "t_min_a": 56.6,
+   "min_sep_a": 44.8,
+   "gt_type": 2,
+   "gt_intent": 3,
+   "track_id_a": 55,
+   "lead_track_s_a": 19.85,
+   "t_entry_a": 54.85,
+   "t_exit_a": 58.35,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "b_min_row": 46.8,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 44.8,
+    "cv": 46.8,
+    "model": 237.4
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 397,
+    "model": 357
+   }
+  },
+  {
+   "index": 235,
+   "seed": 310235,
+   "n_agents": 24,
+   "slot": 12,
+   "t_min_a": 76.25,
+   "min_sep_a": 2.0,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 78,
+   "lead_track_s_a": 43.6,
+   "t_entry_a": 74.1,
+   "t_exit_a": 78.45,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 2.0,
+    "cv": 29.2,
+    "model": 30.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 567,
+    "model": 492
+   }
+  },
+  {
+   "index": 311,
+   "seed": 310311,
+   "n_agents": 24,
+   "slot": 20,
+   "t_min_a": 41.3,
+   "min_sep_a": 28.2,
+   "gt_type": 6,
+   "gt_intent": 4,
+   "track_id_a": 34,
+   "lead_track_s_a": 19.25,
+   "t_entry_a": 39.75,
+   "t_exit_a": 42.85,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Unknown",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": 148.5,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 28.2,
+    "cv": 40.9,
+    "model": 21.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 312,
+   "seed": 310312,
+   "n_agents": 24,
+   "slot": 22,
+   "t_min_a": 78.65,
+   "min_sep_a": 41.0,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 73,
+   "lead_track_s_a": 32.2,
+   "t_entry_a": 76.7,
+   "t_exit_a": 80.65,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 41.0,
+    "cv": 34.4,
+    "model": 29.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 315,
+   "seed": 310315,
+   "n_agents": 24,
+   "slot": 13,
+   "t_min_a": 66.95,
+   "min_sep_a": 5.9,
+   "gt_type": 0,
+   "gt_intent": 3,
+   "track_id_a": 56,
+   "lead_track_s_a": 25.0,
+   "t_entry_a": 64.0,
+   "t_exit_a": 69.4,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 5.9,
+    "cv": 186.4,
+    "model": 112.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 318,
+   "seed": 310318,
+   "n_agents": 24,
+   "slot": 5,
+   "t_min_a": 68.35,
+   "min_sep_a": 13.2,
+   "gt_type": 1,
+   "gt_intent": 3,
+   "track_id_a": 18,
+   "lead_track_s_a": 53.6,
+   "t_entry_a": 64.6,
+   "t_exit_a": 71.85,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 13.2,
+    "cv": 132.9,
+    "model": 132.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 319,
+   "seed": 310319,
+   "n_agents": 24,
+   "slot": 2,
+   "t_min_a": 32.95,
+   "min_sep_a": 11.2,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 1,
+   "lead_track_s_a": 29.35,
+   "t_entry_a": 29.85,
+   "t_exit_a": 35.95,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": 27.2,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 11.2,
+    "cv": 3.1,
+    "model": 37.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 350,
+   "seed": 310350,
+   "n_agents": 24,
+   "slot": 0,
+   "t_min_a": 46.35,
+   "min_sep_a": 22.2,
+   "gt_type": 1,
+   "gt_intent": 0,
+   "track_id_a": 16,
+   "lead_track_s_a": 37.85,
+   "t_entry_a": 43.35,
+   "t_exit_a": 49.35,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Multirotor",
+   "intent_name": "CorridorTransit",
+   "b_min_row": 115.8,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 22.2,
+    "cv": 51.0,
+    "model": 173.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 371,
+   "seed": 310371,
+   "n_agents": 24,
+   "slot": 0,
+   "t_min_a": 57.1,
+   "min_sep_a": 18.9,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 23,
+   "lead_track_s_a": 41.15,
+   "t_entry_a": 53.15,
+   "t_exit_a": 60.0,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": 69.4,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 18.9,
+    "cv": 24.2,
+    "model": 250.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 375,
+   "seed": 310375,
+   "n_agents": 24,
+   "slot": 5,
+   "t_min_a": 38.9,
+   "min_sep_a": 18.2,
+   "gt_type": 2,
+   "gt_intent": 0,
+   "track_id_a": 9,
+   "lead_track_s_a": 28.65,
+   "t_entry_a": 37.15,
+   "t_exit_a": 40.6,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 18.2,
+    "cv": 137.7,
+    "model": 230.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 409,
+   "seed": 310409,
+   "n_agents": 24,
+   "slot": 0,
+   "t_min_a": 44.05,
+   "min_sep_a": 26.1,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 1,
+   "lead_track_s_a": 38.25,
+   "t_entry_a": 38.75,
+   "t_exit_a": 48.05,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 26.1,
+    "cv": 127.2,
+    "model": 86.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 418,
+   "seed": 310418,
+   "n_agents": 24,
+   "slot": 10,
+   "t_min_a": 86.45,
+   "min_sep_a": 42.9,
+   "gt_type": 1,
+   "gt_intent": 0,
+   "track_id_a": 46,
+   "lead_track_s_a": 34.75,
+   "t_entry_a": 83.75,
+   "t_exit_a": 89.1,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Multirotor",
+   "intent_name": "CorridorTransit",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 42.9,
+    "cv": 36.1,
+    "model": 80.5
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 422,
+   "seed": 310422,
+   "n_agents": 24,
+   "slot": 21,
+   "t_min_a": 75.9,
+   "min_sep_a": 11.5,
+   "gt_type": 0,
+   "gt_intent": 2,
+   "track_id_a": 48,
+   "lead_track_s_a": 42.45,
+   "t_entry_a": 73.45,
+   "t_exit_a": 80.0,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "LoiterHover",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 11.5,
+    "cv": 80.6,
+    "model": 80.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 434,
+   "seed": 310434,
+   "n_agents": 24,
+   "slot": 15,
+   "t_min_a": 78.05,
+   "min_sep_a": 3.1,
+   "gt_type": 0,
+   "gt_intent": 4,
+   "track_id_a": 60,
+   "lead_track_s_a": 43.45,
+   "t_entry_a": 75.45,
+   "t_exit_a": 80.95,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 3.1,
+    "cv": 86.5,
+    "model": 111.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 435,
+   "seed": 310435,
+   "n_agents": 24,
+   "slot": 8,
+   "t_min_a": 46.95,
+   "min_sep_a": 11.6,
+   "gt_type": 1,
+   "gt_intent": 4,
+   "track_id_a": 10,
+   "lead_track_s_a": 38.65,
+   "t_entry_a": 43.65,
+   "t_exit_a": 50.6,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Multirotor",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": 76.7,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 11.6,
+    "cv": 76.7,
+    "model": 217.4
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 446,
+   "seed": 310446,
+   "n_agents": 24,
+   "slot": 14,
+   "t_min_a": 62.7,
+   "min_sep_a": 44.5,
+   "gt_type": 2,
+   "gt_intent": 3,
+   "track_id_a": 21,
+   "lead_track_s_a": 41.35,
+   "t_entry_a": 58.85,
+   "t_exit_a": 66.85,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 44.5,
+    "cv": 208.7,
+    "model": 187.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 456,
+   "seed": 310456,
+   "n_agents": 24,
+   "slot": 4,
+   "t_min_a": 70.25,
+   "min_sep_a": 33.8,
+   "gt_type": 2,
+   "gt_intent": 3,
+   "track_id_a": 79,
+   "lead_track_s_a": 28.2,
+   "t_entry_a": 68.2,
+   "t_exit_a": 72.1,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 33.8,
+    "cv": 210.2,
+    "model": 210.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 459,
+   "seed": 310459,
+   "n_agents": 24,
+   "slot": 2,
+   "t_min_a": 56.05,
+   "min_sep_a": 10.2,
+   "gt_type": 0,
+   "gt_intent": 3,
+   "track_id_a": 34,
+   "lead_track_s_a": 39.1,
+   "t_entry_a": 53.6,
+   "t_exit_a": 58.7,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 10.2,
+    "cv": 192.6,
+    "model": 41.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 471,
+   "seed": 310471,
+   "n_agents": 24,
+   "slot": 12,
+   "t_min_a": 90.0,
+   "min_sep_a": 42.2,
+   "gt_type": 0,
+   "gt_intent": 2,
+   "track_id_a": 57,
+   "lead_track_s_a": 42.75,
+   "t_entry_a": 86.25,
+   "t_exit_a": 90.0,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Bird",
+   "intent_name": "LoiterHover",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 42.2,
+    "cv": 92.3,
+    "model": 119.6
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 508,
+   "seed": 310508,
+   "n_agents": 24,
+   "slot": 12,
+   "t_min_a": 89.45,
+   "min_sep_a": 8.3,
+   "gt_type": 1,
+   "gt_intent": 3,
+   "track_id_a": 58,
+   "lead_track_s_a": 44.75,
+   "t_entry_a": 86.75,
+   "t_exit_a": 90.0,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 8.3,
+    "cv": 1.4,
+    "model": 69.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 522,
+   "seed": 310522,
+   "n_agents": 24,
+   "slot": 18,
+   "t_min_a": 58.45,
+   "min_sep_a": 12.6,
+   "gt_type": 6,
+   "gt_intent": 0,
+   "track_id_a": 28,
+   "lead_track_s_a": 40.0,
+   "t_entry_a": 56.0,
+   "t_exit_a": 60.9,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Unknown",
+   "intent_name": "CorridorTransit",
+   "b_min_row": 60.5,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 12.6,
+    "cv": 60.5,
+    "model": 133.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 540,
+   "seed": 310540,
+   "n_agents": 24,
+   "slot": 20,
+   "t_min_a": 75.55,
+   "min_sep_a": 23.8,
+   "gt_type": 6,
+   "gt_intent": 4,
+   "track_id_a": 51,
+   "lead_track_s_a": 44.4,
+   "t_entry_a": 73.4,
+   "t_exit_a": 77.75,
+   "n_qualifying_segments_a": 2,
+   "type_name": "Unknown",
+   "intent_name": "ReactiveAvoid",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 23.8,
+    "cv": 37.7,
+    "model": 0.5
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 542,
+   "seed": 310542,
+   "n_agents": 24,
+   "slot": 3,
+   "t_min_a": 70.8,
+   "min_sep_a": 4.5,
+   "gt_type": 6,
+   "gt_intent": 2,
+   "track_id_a": 73,
+   "lead_track_s_a": 35.85,
+   "t_entry_a": 68.85,
+   "t_exit_a": 72.7,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Unknown",
+   "intent_name": "LoiterHover",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 4.5,
+    "cv": 255.8,
+    "model": 208.5
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 553,
+   "seed": 310553,
+   "n_agents": 24,
+   "slot": 5,
+   "t_min_a": 40.15,
+   "min_sep_a": 12.1,
+   "gt_type": 2,
+   "gt_intent": 2,
+   "track_id_a": 19,
+   "lead_track_s_a": 27.15,
+   "t_entry_a": 38.15,
+   "t_exit_a": 42.05,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "LoiterHover",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 12.1,
+    "cv": 159.2,
+    "model": 65.8
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 562,
+   "seed": 310562,
+   "n_agents": 24,
+   "slot": 7,
+   "t_min_a": 48.4,
+   "min_sep_a": 8.6,
+   "gt_type": 2,
+   "gt_intent": 3,
+   "track_id_a": 34,
+   "lead_track_s_a": 26.8,
+   "t_entry_a": 46.3,
+   "t_exit_a": 51.05,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 8.6,
+    "cv": 11.3,
+    "model": 80.4
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  },
+  {
+   "index": 595,
+   "seed": 310595,
+   "n_agents": 24,
+   "slot": 1,
+   "t_min_a": 53.75,
+   "min_sep_a": 27.9,
+   "gt_type": 2,
+   "gt_intent": 3,
+   "track_id_a": 9,
+   "lead_track_s_a": 45.95,
+   "t_entry_a": 51.45,
+   "t_exit_a": 56.15,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "b_min_row": 78.7,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 27.9,
+    "cv": 78.7,
+    "model": 72.1
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": null,
+    "model": null
+   }
+  }
+ ],
+ "row_files": {
+  "none": {
+   "file": "D:/PRISM/Logs/Planner/r3_ood40/none.jsonl",
+   "sha256": "af4a5456a67aa7dd965e29c7f2084db9eaff7c95037f83ba7618dde5db07139f"
+  },
+  "cv": {
+   "file": "D:/PRISM/Logs/Planner/r3_ood40/cv.jsonl",
+   "sha256": "35af6fa93c3e31562225ce7dc93ddbf7d0a403a86f83d300ce64205e90aef7ff"
+  },
+  "model": {
+   "file": "D:/PRISM/Logs/Planner/r3_ood40/model.jsonl",
+   "sha256": "5ebe879ef57195f698bb9f912ab1ed65859dede3251110d21a765f45dafbf7a6"
+  }
+ },
+ "replay_utc": "2026-09-27T04:38:39+00:00",
+ "replays": [
+  {
+   "index": 13,
+   "slot": 5,
+   "type_name": "eVTOL",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 3,
+   "gt_intent": 4,
+   "t_min_a": 32.4,
+   "a_min_row": 35.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0013",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 35.8,
+   "a_t_rec": 32.4,
+   "c_min_rec": 514.94,
+   "c_t_rec": 31.3,
+   "c_episode_min_rec": 426.11,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 25.2,
+    "model": 44.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 32.4,
+    "first_rule_t": null,
+    "first_rule_d_change": null,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 16.8,
+    "max_any_t": 10.0,
+    "max_any_d_change": 16.8,
+    "chosen_t": 10.0,
+    "chosen_d_change": 16.8,
+    "chosen_eligible": true,
+    "why": "fallback_max_change_eligible"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 32.4,
+    "n_frames_checked": 64,
+    "n_frames_alive_both": 64,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 470.0,
+    "crit_max_dev_t_s": 32.0,
+    "crit_first_gt_1m_20hz_s": 13.3,
+    "any_agent_first_gt_1m_2hz_s": 12.5,
+    "any_agent_first_gt_1m_slots": [
+     9
+    ],
+    "own_div_at_t_min_m": 4.29,
+    "own_div_max_before_t_min_m": 5.64,
+    "own_first_gt_1m_20hz_s": 14.2
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 17,
+   "slot": 10,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 32.75,
+   "a_min_row": 5.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0017",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 5.79,
+   "a_t_rec": 32.75,
+   "c_min_rec": 153.04,
+   "c_t_rec": 33.15,
+   "c_episode_min_rec": 72.0,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 24.5,
+    "model": 41.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 32.75,
+    "first_rule_t": 19.0,
+    "first_rule_d_change": 95.7,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.5,
+    "max_any_t": 4.0,
+    "max_any_d_change": 152.8,
+    "chosen_t": 19.0,
+    "chosen_d_change": 95.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 32.75,
+    "n_frames_checked": 65,
+    "n_frames_alive_both": 65,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 128.92,
+    "crit_max_dev_t_s": 32.5,
+    "crit_first_gt_1m_20hz_s": 25.15,
+    "any_agent_first_gt_1m_2hz_s": 25.5,
+    "any_agent_first_gt_1m_slots": [
+     10
+    ],
+    "own_div_at_t_min_m": 13.84,
+    "own_div_max_before_t_min_m": 31.49,
+    "own_first_gt_1m_20hz_s": 20.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 25,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 88.5,
+   "a_min_row": 19.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0025",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 19.24,
+   "a_t_rec": 88.5,
+   "c_min_rec": 595.01,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 66.01,
+   "c_episode_min_slot": 17,
+   "wall_s": {
+    "none": 25.0,
+    "model": 42.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 88.5,
+    "first_rule_t": 58.0,
+    "first_rule_d_change": 141.50000000000003,
+    "max_elig_t": 45.5,
+    "max_elig_d_change": 0.7000000000000028,
+    "max_any_t": 23.0,
+    "max_any_d_change": 270.5,
+    "chosen_t": 58.0,
+    "chosen_d_change": 141.50000000000003,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 88.5,
+    "n_frames_checked": 177,
+    "n_frames_alive_both": 177,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 547.28,
+    "crit_max_dev_t_s": 84.5,
+    "crit_first_gt_1m_20hz_s": 50.7,
+    "any_agent_first_gt_1m_2hz_s": 48.5,
+    "any_agent_first_gt_1m_slots": [
+     7,
+     10
+    ],
+    "own_div_at_t_min_m": 98.76,
+    "own_div_max_before_t_min_m": 98.76,
+    "own_first_gt_1m_20hz_s": 15.7
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 58,
+   "slot": 19,
+   "type_name": "Unknown",
+   "intent_name": "CorridorTransit",
+   "gt_type": 6,
+   "gt_intent": 0,
+   "t_min_a": 43.4,
+   "a_min_row": 4.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0058",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 4.8,
+   "a_t_rec": 43.4,
+   "c_min_rec": 279.45,
+   "c_t_rec": 45.7,
+   "c_episode_min_rec": 137.73,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 24.9,
+    "model": 42.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 43.4,
+    "first_rule_t": 24.5,
+    "first_rule_d_change": 65.20000000000002,
+    "max_elig_t": 22.5,
+    "max_elig_d_change": 0.5,
+    "max_any_t": 10.0,
+    "max_any_d_change": 159.8,
+    "chosen_t": 24.5,
+    "chosen_d_change": 65.20000000000002,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 43.4,
+    "n_frames_checked": 86,
+    "n_frames_alive_both": 86,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 304.62,
+    "crit_max_dev_t_s": 43.0,
+    "crit_first_gt_1m_20hz_s": 26.15,
+    "any_agent_first_gt_1m_2hz_s": 19.0,
+    "any_agent_first_gt_1m_slots": [
+     6,
+     9
+    ],
+    "own_div_at_t_min_m": 9.62,
+    "own_div_max_before_t_min_m": 12.9,
+    "own_first_gt_1m_20hz_s": 13.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 88,
+   "slot": 3,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 2,
+   "gt_intent": 4,
+   "t_min_a": 58.6,
+   "a_min_row": 26.2,
+   "b_min_row": 74.8,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0088",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.16,
+   "a_t_rec": 58.6,
+   "c_min_rec": 371.07,
+   "c_t_rec": 36.95,
+   "c_episode_min_rec": 371.07,
+   "c_episode_min_slot": 3,
+   "wall_s": {
+    "none": 25.8,
+    "model": 42.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 58.6,
+    "first_rule_t": 35.0,
+    "first_rule_d_change": 83.0,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.5,
+    "max_any_t": 1.5,
+    "max_any_d_change": 1.4000000000000057,
+    "chosen_t": 35.0,
+    "chosen_d_change": 83.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 58.6,
+    "n_frames_checked": 117,
+    "n_frames_alive_both": 117,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 919.89,
+    "crit_max_dev_t_s": 58.5,
+    "crit_first_gt_1m_20hz_s": 26.95,
+    "any_agent_first_gt_1m_2hz_s": 23.5,
+    "any_agent_first_gt_1m_slots": [
+     23
+    ],
+    "own_div_at_t_min_m": 154.04,
+    "own_div_max_before_t_min_m": 154.05,
+    "own_first_gt_1m_20hz_s": 19.9
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 94,
+   "slot": 6,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 44.3,
+   "a_min_row": 5.0,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0094",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 5.03,
+   "a_t_rec": 44.3,
+   "c_min_rec": 223.24,
+   "c_t_rec": 51.15,
+   "c_episode_min_rec": 181.04,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 24.6,
+    "model": 41.5
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 44.3,
+    "first_rule_t": 11.0,
+    "first_rule_d_change": 121.4,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 22.1,
+    "max_any_t": 8.5,
+    "max_any_d_change": 121.9,
+    "chosen_t": 11.0,
+    "chosen_d_change": 121.4,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 44.3,
+    "n_frames_checked": 88,
+    "n_frames_alive_both": 88,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 283.73,
+    "crit_max_dev_t_s": 44.0,
+    "crit_first_gt_1m_20hz_s": 34.7,
+    "any_agent_first_gt_1m_2hz_s": 32.5,
+    "any_agent_first_gt_1m_slots": [
+     4,
+     7,
+     11
+    ],
+    "own_div_at_t_min_m": 67.42,
+    "own_div_max_before_t_min_m": 67.42,
+    "own_first_gt_1m_20hz_s": 12.15
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 103,
+   "slot": 1,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 50.0,
+   "a_min_row": 26.4,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0103",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.38,
+   "a_t_rec": 50.0,
+   "c_min_rec": 253.31,
+   "c_t_rec": 55.25,
+   "c_episode_min_rec": 34.75,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 24.5,
+    "model": 41.9
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 50.0,
+    "first_rule_t": 20.5,
+    "first_rule_d_change": 404.7,
+    "max_elig_t": 10.5,
+    "max_elig_d_change": 0.7000000000000028,
+    "max_any_t": 3.5,
+    "max_any_d_change": 6.0,
+    "chosen_t": 20.5,
+    "chosen_d_change": 404.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 50.0,
+    "n_frames_checked": 100,
+    "n_frames_alive_both": 100,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 358.86,
+    "crit_max_dev_t_s": 50.0,
+    "crit_first_gt_1m_20hz_s": 22.5,
+    "any_agent_first_gt_1m_2hz_s": 22.5,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     8,
+     12,
+     18
+    ],
+    "own_div_at_t_min_m": 84.48,
+    "own_div_max_before_t_min_m": 84.48,
+    "own_first_gt_1m_20hz_s": 14.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 111,
+   "slot": 20,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 85.0,
+   "a_min_row": 1.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0111",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 1.22,
+   "a_t_rec": 85.0,
+   "c_min_rec": 247.24,
+   "c_t_rec": 77.15,
+   "c_episode_min_rec": 41.69,
+   "c_episode_min_slot": 4,
+   "wall_s": {
+    "none": 22.5,
+    "model": 44.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 85.0,
+    "first_rule_t": 20.0,
+    "first_rule_d_change": 110.0,
+    "max_elig_t": 17.5,
+    "max_elig_d_change": 0.4000000000000057,
+    "max_any_t": 1.5,
+    "max_any_d_change": 1.6000000000000085,
+    "chosen_t": 20.0,
+    "chosen_d_change": 110.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 85.0,
+    "n_frames_checked": 170,
+    "n_frames_alive_both": 170,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 734.37,
+    "crit_max_dev_t_s": 83.0,
+    "crit_first_gt_1m_20hz_s": 27.8,
+    "any_agent_first_gt_1m_2hz_s": 26.0,
+    "any_agent_first_gt_1m_slots": [
+     8
+    ],
+    "own_div_at_t_min_m": 74.98,
+    "own_div_max_before_t_min_m": 300.37,
+    "own_first_gt_1m_20hz_s": 21.65
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 116,
+   "slot": 1,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 50.8,
+   "a_min_row": 30.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0116",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 30.05,
+   "a_t_rec": 50.8,
+   "c_min_rec": 397.02,
+   "c_t_rec": 50.0,
+   "c_episode_min_rec": 55.92,
+   "c_episode_min_slot": 10,
+   "wall_s": {
+    "none": 24.7,
+    "model": 49.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 50.8,
+    "first_rule_t": 30.0,
+    "first_rule_d_change": 58.900000000000006,
+    "max_elig_t": 28.0,
+    "max_elig_d_change": 9.600000000000001,
+    "max_any_t": 10.5,
+    "max_any_d_change": 127.9,
+    "chosen_t": 30.0,
+    "chosen_d_change": 58.900000000000006,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 50.8,
+    "n_frames_checked": 101,
+    "n_frames_alive_both": 101,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 252.68,
+    "crit_max_dev_t_s": 50.5,
+    "crit_first_gt_1m_20hz_s": 23.0,
+    "any_agent_first_gt_1m_2hz_s": 22.0,
+    "any_agent_first_gt_1m_slots": [
+     7,
+     11,
+     17,
+     21
+    ],
+    "own_div_at_t_min_m": 110.73,
+    "own_div_max_before_t_min_m": 113.37,
+    "own_first_gt_1m_20hz_s": 12.25
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 151,
+   "slot": 20,
+   "type_name": "Multirotor",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 1,
+   "gt_intent": 4,
+   "t_min_a": 36.0,
+   "a_min_row": 29.3,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0151",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 29.32,
+   "a_t_rec": 36.0,
+   "c_min_rec": 255.01,
+   "c_t_rec": 40.6,
+   "c_episode_min_rec": 231.11,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 28.1,
+    "model": 49.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 36.0,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 92.30000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 1.0,
+    "max_any_d_change": 1.6000000000000085,
+    "chosen_t": 10.0,
+    "chosen_d_change": 92.30000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 36.0,
+    "n_frames_checked": 72,
+    "n_frames_alive_both": 72,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 298.7,
+    "crit_max_dev_t_s": 36.0,
+    "crit_first_gt_1m_20hz_s": 16.5,
+    "any_agent_first_gt_1m_2hz_s": 16.0,
+    "any_agent_first_gt_1m_slots": [
+     9
+    ],
+    "own_div_at_t_min_m": 88.81,
+    "own_div_max_before_t_min_m": 89.91,
+    "own_first_gt_1m_20hz_s": 11.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 159,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 20.85,
+   "a_min_row": 26.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0159",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.93,
+   "a_t_rec": 20.85,
+   "c_min_rec": 183.24,
+   "c_t_rec": 20.1,
+   "c_episode_min_rec": 50.61,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 29.0,
+    "model": 44.4
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 20.85,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 95.80000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 2.5,
+    "max_any_d_change": 98.80000000000001,
+    "chosen_t": 10.0,
+    "chosen_d_change": 95.80000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 20.85,
+    "n_frames_checked": 41,
+    "n_frames_alive_both": 41,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 42.67,
+    "crit_max_dev_t_s": 20.5,
+    "crit_first_gt_1m_20hz_s": 17.0,
+    "any_agent_first_gt_1m_2hz_s": 16.5,
+    "any_agent_first_gt_1m_slots": [
+     6,
+     12
+    ],
+    "own_div_at_t_min_m": 169.37,
+    "own_div_max_before_t_min_m": 169.37,
+    "own_first_gt_1m_20hz_s": 11.15
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 170,
+   "slot": 17,
+   "type_name": "General aviation",
+   "intent_name": "LoiterHover",
+   "gt_type": 4,
+   "gt_intent": 2,
+   "t_min_a": 40.6,
+   "a_min_row": 20.7,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0170",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 20.74,
+   "a_t_rec": 40.6,
+   "c_min_rec": 176.94,
+   "c_t_rec": 39.2,
+   "c_episode_min_rec": 176.94,
+   "c_episode_min_slot": 17,
+   "wall_s": {
+    "none": 27.7,
+    "model": 43.7
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 40.6,
+    "first_rule_t": 33.0,
+    "first_rule_d_change": 119.69999999999999,
+    "max_elig_t": 32.0,
+    "max_elig_d_change": 17.200000000000003,
+    "max_any_t": 32.0,
+    "max_any_d_change": 17.200000000000003,
+    "chosen_t": 33.0,
+    "chosen_d_change": 119.69999999999999,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 40.6,
+    "n_frames_checked": 81,
+    "n_frames_alive_both": 81,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 156.01,
+    "crit_max_dev_t_s": 40.5,
+    "crit_first_gt_1m_20hz_s": 24.5,
+    "any_agent_first_gt_1m_2hz_s": 21.5,
+    "any_agent_first_gt_1m_slots": [
+     4,
+     20
+    ],
+    "own_div_at_t_min_m": 85.13,
+    "own_div_max_before_t_min_m": 85.13,
+    "own_first_gt_1m_20hz_s": 16.3
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 182,
+   "slot": 9,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 46.05,
+   "a_min_row": 40.6,
+   "b_min_row": 91.6,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0182",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 40.56,
+   "a_t_rec": 46.05,
+   "c_min_rec": 270.05,
+   "c_t_rec": 44.45,
+   "c_episode_min_rec": 107.13,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 24.4,
+    "model": 42.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 46.05,
+    "first_rule_t": 11.0,
+    "first_rule_d_change": 85.0,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 0.5,
+    "max_any_d_change": 0.0,
+    "chosen_t": 11.0,
+    "chosen_d_change": 85.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 46.05,
+    "n_frames_checked": 92,
+    "n_frames_alive_both": 92,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 222.64,
+    "crit_max_dev_t_s": 43.5,
+    "crit_first_gt_1m_20hz_s": 31.5,
+    "any_agent_first_gt_1m_2hz_s": 30.5,
+    "any_agent_first_gt_1m_slots": [
+     18
+    ],
+    "own_div_at_t_min_m": 148.05,
+    "own_div_max_before_t_min_m": 148.05,
+    "own_first_gt_1m_20hz_s": 14.45
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 183,
+   "slot": 10,
+   "type_name": "eVTOL",
+   "intent_name": "CorridorTransit",
+   "gt_type": 3,
+   "gt_intent": 0,
+   "t_min_a": 44.95,
+   "a_min_row": 15.6,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0183",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 15.6,
+   "a_t_rec": 44.95,
+   "c_min_rec": 218.76,
+   "c_t_rec": 45.85,
+   "c_episode_min_rec": 36.11,
+   "c_episode_min_slot": 17,
+   "wall_s": {
+    "none": 24.9,
+    "model": 43.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 44.95,
+    "first_rule_t": 25.5,
+    "first_rule_d_change": 118.7,
+    "max_elig_t": 25.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 2.0,
+    "max_any_d_change": 295.5,
+    "chosen_t": 25.5,
+    "chosen_d_change": 118.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 44.95,
+    "n_frames_checked": 89,
+    "n_frames_alive_both": 89,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 10.9,
+    "crit_max_dev_t_s": 38.0,
+    "crit_first_gt_1m_20hz_s": 25.8,
+    "any_agent_first_gt_1m_2hz_s": 19.5,
+    "any_agent_first_gt_1m_slots": [
+     14,
+     19
+    ],
+    "own_div_at_t_min_m": 227.08,
+    "own_div_max_before_t_min_m": 227.08,
+    "own_first_gt_1m_20hz_s": 16.4
+   },
+   "status": "survivor"
+  },
+  {
+   "index": 185,
+   "slot": 20,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 34.05,
+   "a_min_row": 13.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0185",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 13.92,
+   "a_t_rec": 34.05,
+   "c_min_rec": 207.83,
+   "c_t_rec": 32.8,
+   "c_episode_min_rec": 45.17,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 25.9,
+    "model": 40.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 34.05,
+    "first_rule_t": 10.5,
+    "first_rule_d_change": 32.099999999999994,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.29999999999998295,
+    "max_any_t": 1.0,
+    "max_any_d_change": 2.0,
+    "chosen_t": 10.5,
+    "chosen_d_change": 32.099999999999994,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 34.05,
+    "n_frames_checked": 68,
+    "n_frames_alive_both": 68,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 185.62,
+    "crit_max_dev_t_s": 34.0,
+    "crit_first_gt_1m_20hz_s": 21.2,
+    "any_agent_first_gt_1m_2hz_s": 20.5,
+    "any_agent_first_gt_1m_slots": [
+     18
+    ],
+    "own_div_at_t_min_m": 53.2,
+    "own_div_max_before_t_min_m": 53.2,
+    "own_first_gt_1m_20hz_s": 13.35
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 199,
+   "slot": 10,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 84.75,
+   "a_min_row": 34.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0199",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 34.1,
+   "a_t_rec": 84.75,
+   "c_min_rec": 253.86,
+   "c_t_rec": 82.6,
+   "c_episode_min_rec": 120.72,
+   "c_episode_min_slot": 5,
+   "wall_s": {
+    "none": 25.5,
+    "model": 42.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 84.75,
+    "first_rule_t": 50.0,
+    "first_rule_d_change": 94.60000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 44.0,
+    "max_any_d_change": 272.3,
+    "chosen_t": 50.0,
+    "chosen_d_change": 94.60000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 84.75,
+    "n_frames_checked": 169,
+    "n_frames_alive_both": 169,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 423.99,
+    "crit_max_dev_t_s": 78.0,
+    "crit_first_gt_1m_20hz_s": 32.65,
+    "any_agent_first_gt_1m_2hz_s": 30.0,
+    "any_agent_first_gt_1m_slots": [
+     23
+    ],
+    "own_div_at_t_min_m": 158.99,
+    "own_div_max_before_t_min_m": 177.87,
+    "own_first_gt_1m_20hz_s": 22.3
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 221,
+   "slot": 5,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 85.85,
+   "a_min_row": 8.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0221",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 8.47,
+   "a_t_rec": 85.85,
+   "c_min_rec": 271.6,
+   "c_t_rec": 84.1,
+   "c_episode_min_rec": 265.18,
+   "c_episode_min_slot": 18,
+   "wall_s": {
+    "none": 25.6,
+    "model": 39.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 85.85,
+    "first_rule_t": 44.0,
+    "first_rule_d_change": 33.0,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 21.0,
+    "max_any_d_change": 43.900000000000006,
+    "chosen_t": 44.0,
+    "chosen_d_change": 33.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 85.85,
+    "n_frames_checked": 171,
+    "n_frames_alive_both": 171,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 323.32,
+    "crit_max_dev_t_s": 67.5,
+    "crit_first_gt_1m_20hz_s": 46.5,
+    "any_agent_first_gt_1m_2hz_s": 45.0,
+    "any_agent_first_gt_1m_slots": [
+     8,
+     16
+    ],
+    "own_div_at_t_min_m": 46.0,
+    "own_div_max_before_t_min_m": 57.58,
+    "own_first_gt_1m_20hz_s": 16.35
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 234,
+   "slot": 18,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 56.6,
+   "a_min_row": 44.8,
+   "b_min_row": 46.8,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0234",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 44.78,
+   "a_t_rec": 56.6,
+   "c_min_rec": 379.07,
+   "c_t_rec": 65.8,
+   "c_episode_min_rec": 237.39,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 25.6,
+    "model": 41.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 56.6,
+    "first_rule_t": 28.0,
+    "first_rule_d_change": 40.3,
+    "max_elig_t": 19.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 10.0,
+    "max_any_d_change": 109.5,
+    "chosen_t": 28.0,
+    "chosen_d_change": 40.3,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 56.6,
+    "n_frames_checked": 113,
+    "n_frames_alive_both": 113,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 515.84,
+    "crit_max_dev_t_s": 56.5,
+    "crit_first_gt_1m_20hz_s": 22.3,
+    "any_agent_first_gt_1m_2hz_s": 20.0,
+    "any_agent_first_gt_1m_slots": [
+     2,
+     20
+    ],
+    "own_div_at_t_min_m": 118.48,
+    "own_div_max_before_t_min_m": 118.48,
+    "own_first_gt_1m_20hz_s": 12.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 235,
+   "slot": 12,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 76.25,
+   "a_min_row": 2.0,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0235",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 2.04,
+   "a_t_rec": 76.25,
+   "c_min_rec": 547.49,
+   "c_t_rec": 80.6,
+   "c_episode_min_rec": 30.75,
+   "c_episode_min_slot": 7,
+   "wall_s": {
+    "none": 27.0,
+    "model": 44.4
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 76.25,
+    "first_rule_t": 50.5,
+    "first_rule_d_change": 61.7,
+    "max_elig_t": 49.0,
+    "max_elig_d_change": 25.500000000000007,
+    "max_any_t": 13.5,
+    "max_any_d_change": 185.20000000000002,
+    "chosen_t": 50.5,
+    "chosen_d_change": 61.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 76.25,
+    "n_frames_checked": 152,
+    "n_frames_alive_both": 152,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 456.87,
+    "crit_max_dev_t_s": 69.5,
+    "crit_first_gt_1m_20hz_s": 41.75,
+    "any_agent_first_gt_1m_2hz_s": 41.5,
+    "any_agent_first_gt_1m_slots": [
+     14
+    ],
+    "own_div_at_t_min_m": 274.13,
+    "own_div_max_before_t_min_m": 280.1,
+    "own_first_gt_1m_20hz_s": 15.2
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 311,
+   "slot": 20,
+   "type_name": "Unknown",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 6,
+   "gt_intent": 4,
+   "t_min_a": 41.3,
+   "a_min_row": 28.2,
+   "b_min_row": 148.5,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0311",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 28.17,
+   "a_t_rec": 41.3,
+   "c_min_rec": 323.68,
+   "c_t_rec": 40.2,
+   "c_episode_min_rec": 21.67,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 25.7,
+    "model": 36.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 41.3,
+    "first_rule_t": 22.5,
+    "first_rule_d_change": 101.1,
+    "max_elig_t": 22.0,
+    "max_elig_d_change": 1.0,
+    "max_any_t": 17.5,
+    "max_any_d_change": 101.1,
+    "chosen_t": 22.5,
+    "chosen_d_change": 101.1,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 41.3,
+    "n_frames_checked": 82,
+    "n_frames_alive_both": 82,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 385.51,
+    "crit_max_dev_t_s": 41.0,
+    "crit_first_gt_1m_20hz_s": 25.65,
+    "any_agent_first_gt_1m_2hz_s": 24.0,
+    "any_agent_first_gt_1m_slots": [
+     22
+    ],
+    "own_div_at_t_min_m": 85.52,
+    "own_div_max_before_t_min_m": 109.98,
+    "own_first_gt_1m_20hz_s": 13.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 312,
+   "slot": 22,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 78.65,
+   "a_min_row": 41.0,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0312",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 40.98,
+   "a_t_rec": 78.65,
+   "c_min_rec": 319.05,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 29.92,
+   "c_episode_min_slot": 3,
+   "wall_s": {
+    "none": 21.4,
+    "model": 44.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 78.65,
+    "first_rule_t": 41.0,
+    "first_rule_d_change": 57.90000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 13.5,
+    "max_any_d_change": 289.4,
+    "chosen_t": 41.0,
+    "chosen_d_change": 57.90000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 78.65,
+    "n_frames_checked": 157,
+    "n_frames_alive_both": 157,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 490.77,
+    "crit_max_dev_t_s": 78.5,
+    "crit_first_gt_1m_20hz_s": 13.25,
+    "any_agent_first_gt_1m_2hz_s": 13.5,
+    "any_agent_first_gt_1m_slots": [
+     22
+    ],
+    "own_div_at_t_min_m": 406.34,
+    "own_div_max_before_t_min_m": 406.34,
+    "own_first_gt_1m_20hz_s": 12.4
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 315,
+   "slot": 13,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 66.95,
+   "a_min_row": 5.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0315",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 5.93,
+   "a_t_rec": 66.95,
+   "c_min_rec": 481.69,
+   "c_t_rec": 66.5,
+   "c_episode_min_rec": 111.99,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 26.5,
+    "model": 46.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 66.95,
+    "first_rule_t": 55.0,
+    "first_rule_d_change": 53.0,
+    "max_elig_t": 54.0,
+    "max_elig_d_change": 27.700000000000003,
+    "max_any_t": 18.5,
+    "max_any_d_change": 164.60000000000002,
+    "chosen_t": 55.0,
+    "chosen_d_change": 53.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 66.95,
+    "n_frames_checked": 133,
+    "n_frames_alive_both": 133,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 518.43,
+    "crit_max_dev_t_s": 66.5,
+    "crit_first_gt_1m_20hz_s": 16.8,
+    "any_agent_first_gt_1m_2hz_s": 16.5,
+    "any_agent_first_gt_1m_slots": [
+     12
+    ],
+    "own_div_at_t_min_m": 68.61,
+    "own_div_max_before_t_min_m": 68.61,
+    "own_first_gt_1m_20hz_s": 11.95
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 318,
+   "slot": 5,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 68.35,
+   "a_min_row": 13.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0318",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 13.24,
+   "a_t_rec": 68.35,
+   "c_min_rec": 219.27,
+   "c_t_rec": 57.95,
+   "c_episode_min_rec": 132.89,
+   "c_episode_min_slot": 20,
+   "wall_s": {
+    "none": 25.8,
+    "model": 47.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 68.35,
+    "first_rule_t": 14.0,
+    "first_rule_d_change": 78.5,
+    "max_elig_t": 12.0,
+    "max_elig_d_change": 23.80000000000001,
+    "max_any_t": 9.5,
+    "max_any_d_change": 201.10000000000002,
+    "chosen_t": 14.0,
+    "chosen_d_change": 78.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 68.35,
+    "n_frames_checked": 136,
+    "n_frames_alive_both": 136,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 142.98,
+    "crit_max_dev_t_s": 68.0,
+    "crit_first_gt_1m_20hz_s": 42.3,
+    "any_agent_first_gt_1m_2hz_s": 41.5,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     7,
+     16
+    ],
+    "own_div_at_t_min_m": 530.51,
+    "own_div_max_before_t_min_m": 530.51,
+    "own_first_gt_1m_20hz_s": 12.65
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 319,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 32.95,
+   "a_min_row": 11.2,
+   "b_min_row": 27.2,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0319",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 11.22,
+   "a_t_rec": 32.95,
+   "c_min_rec": 221.83,
+   "c_t_rec": 34.2,
+   "c_episode_min_rec": 37.65,
+   "c_episode_min_slot": 15,
+   "wall_s": {
+    "none": 27.7,
+    "model": 47.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 32.95,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 45.2,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 5.0,
+    "max_any_d_change": 3.0999999999999996,
+    "chosen_t": 10.0,
+    "chosen_d_change": 45.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 32.95,
+    "n_frames_checked": 65,
+    "n_frames_alive_both": 65,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 29.34,
+    "crit_max_dev_t_s": 29.5,
+    "crit_first_gt_1m_20hz_s": 15.1,
+    "any_agent_first_gt_1m_2hz_s": 14.0,
+    "any_agent_first_gt_1m_slots": [
+     0,
+     18,
+     23
+    ],
+    "own_div_at_t_min_m": 233.42,
+    "own_div_max_before_t_min_m": 233.42,
+    "own_first_gt_1m_20hz_s": 11.1
+   },
+   "status": "survivor"
+  },
+  {
+   "index": 350,
+   "slot": 0,
+   "type_name": "Multirotor",
+   "intent_name": "CorridorTransit",
+   "gt_type": 1,
+   "gt_intent": 0,
+   "t_min_a": 46.35,
+   "a_min_row": 22.2,
+   "b_min_row": 115.8,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0350",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 22.24,
+   "a_t_rec": 46.35,
+   "c_min_rec": 173.74,
+   "c_t_rec": 42.45,
+   "c_episode_min_rec": 173.74,
+   "c_episode_min_slot": 0,
+   "wall_s": {
+    "none": 26.9,
+    "model": 46.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 46.35,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 55.7,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 3.5,
+    "max_any_d_change": 15.100000000000001,
+    "chosen_t": 10.0,
+    "chosen_d_change": 55.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 46.35,
+    "n_frames_checked": 92,
+    "n_frames_alive_both": 92,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 296.14,
+    "crit_max_dev_t_s": 46.0,
+    "crit_first_gt_1m_20hz_s": 31.95,
+    "any_agent_first_gt_1m_2hz_s": 32.0,
+    "any_agent_first_gt_1m_slots": [
+     0
+    ],
+    "own_div_at_t_min_m": 50.61,
+    "own_div_max_before_t_min_m": 51.42,
+    "own_first_gt_1m_20hz_s": 12.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 371,
+   "slot": 0,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 57.1,
+   "a_min_row": 18.9,
+   "b_min_row": 69.4,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0371",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 18.89,
+   "a_t_rec": 57.1,
+   "c_min_rec": 421.73,
+   "c_t_rec": 51.05,
+   "c_episode_min_rec": 250.88,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 30.5,
+    "model": 49.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 57.1,
+    "first_rule_t": 13.5,
+    "first_rule_d_change": 37.5,
+    "max_elig_t": 13.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 10.0,
+    "max_any_d_change": 63.2,
+    "chosen_t": 13.5,
+    "chosen_d_change": 37.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 57.1,
+    "n_frames_checked": 114,
+    "n_frames_alive_both": 114,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 467.12,
+    "crit_max_dev_t_s": 51.0,
+    "crit_first_gt_1m_20hz_s": 19.55,
+    "any_agent_first_gt_1m_2hz_s": 17.5,
+    "any_agent_first_gt_1m_slots": [
+     2,
+     9
+    ],
+    "own_div_at_t_min_m": 15.03,
+    "own_div_max_before_t_min_m": 15.79,
+    "own_first_gt_1m_20hz_s": 12.2
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 375,
+   "slot": 5,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "gt_type": 2,
+   "gt_intent": 0,
+   "t_min_a": 38.9,
+   "a_min_row": 18.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0375",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 18.25,
+   "a_t_rec": 38.9,
+   "c_min_rec": 230.89,
+   "c_t_rec": 38.75,
+   "c_episode_min_rec": 230.89,
+   "c_episode_min_slot": 5,
+   "wall_s": {
+    "none": 28.2,
+    "model": 45.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 38.9,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 40.300000000000004,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 6.5,
+    "max_any_d_change": 107.5,
+    "chosen_t": 10.0,
+    "chosen_d_change": 40.300000000000004,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 38.9,
+    "n_frames_checked": 77,
+    "n_frames_alive_both": 77,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 124.38,
+    "crit_max_dev_t_s": 38.5,
+    "crit_first_gt_1m_20hz_s": 32.7,
+    "any_agent_first_gt_1m_2hz_s": 30.0,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     3,
+     16,
+     17
+    ],
+    "own_div_at_t_min_m": 90.94,
+    "own_div_max_before_t_min_m": 90.94,
+    "own_first_gt_1m_20hz_s": 11.9
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 409,
+   "slot": 0,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 44.05,
+   "a_min_row": 26.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0409",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.14,
+   "a_t_rec": 44.05,
+   "c_min_rec": 195.35,
+   "c_t_rec": 48.15,
+   "c_episode_min_rec": 85.97,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 26.2,
+    "model": 45.9
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 44.05,
+    "first_rule_t": null,
+    "first_rule_d_change": null,
+    "max_elig_t": 13.5,
+    "max_elig_d_change": 29.5,
+    "max_any_t": 13.5,
+    "max_any_d_change": 29.5,
+    "chosen_t": 13.5,
+    "chosen_d_change": 29.5,
+    "chosen_eligible": true,
+    "why": "fallback_max_change_eligible"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 44.05,
+    "n_frames_checked": 88,
+    "n_frames_alive_both": 88,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 356.87,
+    "crit_max_dev_t_s": 42.0,
+    "crit_first_gt_1m_20hz_s": 28.8,
+    "any_agent_first_gt_1m_2hz_s": 28.5,
+    "any_agent_first_gt_1m_slots": [
+     14,
+     21
+    ],
+    "own_div_at_t_min_m": 83.66,
+    "own_div_max_before_t_min_m": 83.66,
+    "own_first_gt_1m_20hz_s": 14.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 418,
+   "slot": 10,
+   "type_name": "Multirotor",
+   "intent_name": "CorridorTransit",
+   "gt_type": 1,
+   "gt_intent": 0,
+   "t_min_a": 86.45,
+   "a_min_row": 42.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0418",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 42.95,
+   "a_t_rec": 86.45,
+   "c_min_rec": 249.42,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 80.5,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 27.4,
+    "model": 41.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 86.45,
+    "first_rule_t": 56.0,
+    "first_rule_d_change": 122.00000000000001,
+    "max_elig_t": 54.0,
+    "max_elig_d_change": 0.10000000000000009,
+    "max_any_t": 10.0,
+    "max_any_d_change": 17.8,
+    "chosen_t": 56.0,
+    "chosen_d_change": 122.00000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 86.45,
+    "n_frames_checked": 172,
+    "n_frames_alive_both": 172,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 225.99,
+    "crit_max_dev_t_s": 64.5,
+    "crit_first_gt_1m_20hz_s": 23.2,
+    "any_agent_first_gt_1m_2hz_s": 17.0,
+    "any_agent_first_gt_1m_slots": [
+     17
+    ],
+    "own_div_at_t_min_m": 227.51,
+    "own_div_max_before_t_min_m": 227.51,
+    "own_first_gt_1m_20hz_s": 11.65
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 422,
+   "slot": 21,
+   "type_name": "Bird",
+   "intent_name": "LoiterHover",
+   "gt_type": 0,
+   "gt_intent": 2,
+   "t_min_a": 75.9,
+   "a_min_row": 11.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0422",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 11.49,
+   "a_t_rec": 75.9,
+   "c_min_rec": 320.49,
+   "c_t_rec": 76.05,
+   "c_episode_min_rec": 80.0,
+   "c_episode_min_slot": 6,
+   "wall_s": {
+    "none": 25.1,
+    "model": 41.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 75.9,
+    "first_rule_t": 48.0,
+    "first_rule_d_change": 206.5,
+    "max_elig_t": 34.0,
+    "max_elig_d_change": 23.1,
+    "max_any_t": 11.0,
+    "max_any_d_change": 145.4,
+    "chosen_t": 48.0,
+    "chosen_d_change": 206.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 75.9,
+    "n_frames_checked": 151,
+    "n_frames_alive_both": 151,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 350.07,
+    "crit_max_dev_t_s": 47.5,
+    "crit_first_gt_1m_20hz_s": 16.35,
+    "any_agent_first_gt_1m_2hz_s": 16.0,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     2,
+     11,
+     16
+    ],
+    "own_div_at_t_min_m": 133.27,
+    "own_div_max_before_t_min_m": 136.28,
+    "own_first_gt_1m_20hz_s": 12.4
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 434,
+   "slot": 15,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 78.05,
+   "a_min_row": 3.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0434",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 3.07,
+   "a_t_rec": 78.05,
+   "c_min_rec": 480.69,
+   "c_t_rec": 78.45,
+   "c_episode_min_rec": 111.67,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 26.5,
+    "model": 42.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 78.05,
+    "first_rule_t": 33.0,
+    "first_rule_d_change": 115.7,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 27.0,
+    "max_any_d_change": 432.7,
+    "chosen_t": 33.0,
+    "chosen_d_change": 115.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 78.05,
+    "n_frames_checked": 156,
+    "n_frames_alive_both": 156,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 384.8,
+    "crit_max_dev_t_s": 60.5,
+    "crit_first_gt_1m_20hz_s": 26.1,
+    "any_agent_first_gt_1m_2hz_s": 26.5,
+    "any_agent_first_gt_1m_slots": [
+     6,
+     11,
+     15
+    ],
+    "own_div_at_t_min_m": 497.15,
+    "own_div_max_before_t_min_m": 501.04,
+    "own_first_gt_1m_20hz_s": 13.25
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 435,
+   "slot": 8,
+   "type_name": "Multirotor",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 1,
+   "gt_intent": 4,
+   "t_min_a": 46.95,
+   "a_min_row": 11.6,
+   "b_min_row": 76.7,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0435",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 11.63,
+   "a_t_rec": 46.95,
+   "c_min_rec": 274.66,
+   "c_t_rec": 46.25,
+   "c_episode_min_rec": 217.42,
+   "c_episode_min_slot": 10,
+   "wall_s": {
+    "none": 25.3,
+    "model": 42.4
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 46.95,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 97.5,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 1.0,
+    "max_any_d_change": 7.799999999999997,
+    "chosen_t": 10.0,
+    "chosen_d_change": 97.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 46.95,
+    "n_frames_checked": 93,
+    "n_frames_alive_both": 93,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 305.03,
+    "crit_max_dev_t_s": 46.5,
+    "crit_first_gt_1m_20hz_s": 13.25,
+    "any_agent_first_gt_1m_2hz_s": 13.5,
+    "any_agent_first_gt_1m_slots": [
+     8
+    ],
+    "own_div_at_t_min_m": 25.36,
+    "own_div_max_before_t_min_m": 25.36,
+    "own_first_gt_1m_20hz_s": 11.75
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 446,
+   "slot": 14,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 62.7,
+   "a_min_row": 44.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0446",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 44.46,
+   "a_t_rec": 62.7,
+   "c_min_rec": 232.38,
+   "c_t_rec": 63.3,
+   "c_episode_min_rec": 187.92,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 26.9,
+    "model": 41.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 62.7,
+    "first_rule_t": 20.0,
+    "first_rule_d_change": 43.7,
+    "max_elig_t": 13.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 12.0,
+    "max_any_d_change": 219.60000000000002,
+    "chosen_t": 20.0,
+    "chosen_d_change": 43.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 62.7,
+    "n_frames_checked": 125,
+    "n_frames_alive_both": 125,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 186.58,
+    "crit_max_dev_t_s": 59.0,
+    "crit_first_gt_1m_20hz_s": 42.8,
+    "any_agent_first_gt_1m_2hz_s": 41.0,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 146.02,
+    "own_div_max_before_t_min_m": 146.02,
+    "own_first_gt_1m_20hz_s": 12.7
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 456,
+   "slot": 4,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 70.25,
+   "a_min_row": 33.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0456",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 33.76,
+   "a_t_rec": 70.25,
+   "c_min_rec": 231.79,
+   "c_t_rec": 72.25,
+   "c_episode_min_rec": 209.96,
+   "c_episode_min_slot": 6,
+   "wall_s": {
+    "none": 25.6,
+    "model": 41.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 70.25,
+    "first_rule_t": 42.0,
+    "first_rule_d_change": 187.5,
+    "max_elig_t": 41.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 23.5,
+    "max_any_d_change": 154.3,
+    "chosen_t": 42.0,
+    "chosen_d_change": 187.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 70.25,
+    "n_frames_checked": 140,
+    "n_frames_alive_both": 140,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 280.96,
+    "crit_max_dev_t_s": 70.0,
+    "crit_first_gt_1m_20hz_s": 52.5,
+    "any_agent_first_gt_1m_2hz_s": 43.0,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     21
+    ],
+    "own_div_at_t_min_m": 355.44,
+    "own_div_max_before_t_min_m": 355.44,
+    "own_first_gt_1m_20hz_s": 18.95
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 459,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 56.05,
+   "a_min_row": 10.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0459",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 10.17,
+   "a_t_rec": 56.05,
+   "c_min_rec": 195.74,
+   "c_t_rec": 43.05,
+   "c_episode_min_rec": 41.88,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 25.1,
+    "model": 42.7
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 56.05,
+    "first_rule_t": 21.0,
+    "first_rule_d_change": 30.3,
+    "max_elig_t": 14.0,
+    "max_elig_d_change": 15.3,
+    "max_any_t": 10.0,
+    "max_any_d_change": 111.60000000000001,
+    "chosen_t": 21.0,
+    "chosen_d_change": 30.3,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 56.05,
+    "n_frames_checked": 112,
+    "n_frames_alive_both": 112,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 783.34,
+    "crit_max_dev_t_s": 53.5,
+    "crit_first_gt_1m_20hz_s": 12.05,
+    "any_agent_first_gt_1m_2hz_s": 12.0,
+    "any_agent_first_gt_1m_slots": [
+     5,
+     22
+    ],
+    "own_div_at_t_min_m": 140.04,
+    "own_div_max_before_t_min_m": 140.05,
+    "own_first_gt_1m_20hz_s": 11.7
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 471,
+   "slot": 12,
+   "type_name": "Bird",
+   "intent_name": "LoiterHover",
+   "gt_type": 0,
+   "gt_intent": 2,
+   "t_min_a": 90.0,
+   "a_min_row": 42.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0471",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 42.22,
+   "a_t_rec": 90.0,
+   "c_min_rec": 202.19,
+   "c_t_rec": 84.65,
+   "c_episode_min_rec": 119.63,
+   "c_episode_min_slot": 0,
+   "wall_s": {
+    "none": 27.2,
+    "model": 37.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 90.0,
+    "first_rule_t": 54.5,
+    "first_rule_d_change": 238.2,
+    "max_elig_t": 39.0,
+    "max_elig_d_change": 13.0,
+    "max_any_t": 13.5,
+    "max_any_d_change": 256.1,
+    "chosen_t": 54.5,
+    "chosen_d_change": 238.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 90.0,
+    "n_frames_checked": 180,
+    "n_frames_alive_both": 180,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 429.11,
+    "crit_max_dev_t_s": 90.0,
+    "crit_first_gt_1m_20hz_s": 28.85,
+    "any_agent_first_gt_1m_2hz_s": 25.0,
+    "any_agent_first_gt_1m_slots": [
+     0,
+     1,
+     16,
+     22,
+     23
+    ],
+    "own_div_at_t_min_m": 54.42,
+    "own_div_max_before_t_min_m": 182.1,
+    "own_first_gt_1m_20hz_s": 12.45
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 508,
+   "slot": 12,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 89.45,
+   "a_min_row": 8.3,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0508",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 8.32,
+   "a_t_rec": 89.45,
+   "c_min_rec": 336.24,
+   "c_t_rec": 78.65,
+   "c_episode_min_rec": 69.86,
+   "c_episode_min_slot": 23,
+   "wall_s": {
+    "none": 25.1,
+    "model": 36.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 89.45,
+    "first_rule_t": 41.0,
+    "first_rule_d_change": 35.400000000000006,
+    "max_elig_t": 40.5,
+    "max_elig_d_change": 1.1999999999999993,
+    "max_any_t": 11.5,
+    "max_any_d_change": 53.4,
+    "chosen_t": 41.0,
+    "chosen_d_change": 35.400000000000006,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 89.45,
+    "n_frames_checked": 178,
+    "n_frames_alive_both": 178,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 875.92,
+    "crit_max_dev_t_s": 89.0,
+    "crit_first_gt_1m_20hz_s": 16.6,
+    "any_agent_first_gt_1m_2hz_s": 16.0,
+    "any_agent_first_gt_1m_slots": [
+     0,
+     9,
+     21
+    ],
+    "own_div_at_t_min_m": 263.8,
+    "own_div_max_before_t_min_m": 263.8,
+    "own_first_gt_1m_20hz_s": 12.75
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 522,
+   "slot": 18,
+   "type_name": "Unknown",
+   "intent_name": "CorridorTransit",
+   "gt_type": 6,
+   "gt_intent": 0,
+   "t_min_a": 58.45,
+   "a_min_row": 12.6,
+   "b_min_row": 60.5,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0522",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 12.6,
+   "a_t_rec": 58.45,
+   "c_min_rec": 389.93,
+   "c_t_rec": 55.25,
+   "c_episode_min_rec": 133.93,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 20.6,
+    "model": 44.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 58.45,
+    "first_rule_t": 18.0,
+    "first_rule_d_change": 64.8,
+    "max_elig_t": 14.5,
+    "max_elig_d_change": 24.900000000000002,
+    "max_any_t": 10.0,
+    "max_any_d_change": 93.6,
+    "chosen_t": 18.0,
+    "chosen_d_change": 64.8,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 58.45,
+    "n_frames_checked": 116,
+    "n_frames_alive_both": 116,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 313.84,
+    "crit_max_dev_t_s": 58.0,
+    "crit_first_gt_1m_20hz_s": 47.35,
+    "any_agent_first_gt_1m_2hz_s": 45.5,
+    "any_agent_first_gt_1m_slots": [
+     8,
+     13,
+     15,
+     22,
+     23
+    ],
+    "own_div_at_t_min_m": 124.17,
+    "own_div_max_before_t_min_m": 144.31,
+    "own_first_gt_1m_20hz_s": 12.0
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 540,
+   "slot": 20,
+   "type_name": "Unknown",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 6,
+   "gt_intent": 4,
+   "t_min_a": 75.55,
+   "a_min_row": 23.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0540",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 23.83,
+   "a_t_rec": 75.55,
+   "c_min_rec": 1103.16,
+   "c_t_rec": 57.35,
+   "c_episode_min_rec": 0.47,
+   "c_episode_min_slot": 7,
+   "wall_s": {
+    "none": 26.4,
+    "model": 46.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 75.55,
+    "first_rule_t": 54.5,
+    "first_rule_d_change": 344.30000000000007,
+    "max_elig_t": 52.0,
+    "max_elig_d_change": 16.5,
+    "max_any_t": 6.5,
+    "max_any_d_change": 172.20000000000002,
+    "chosen_t": 54.5,
+    "chosen_d_change": 344.30000000000007,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 75.55,
+    "n_frames_checked": 151,
+    "n_frames_alive_both": 151,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 1278.57,
+    "crit_max_dev_t_s": 75.5,
+    "crit_first_gt_1m_20hz_s": 14.35,
+    "any_agent_first_gt_1m_2hz_s": 14.5,
+    "any_agent_first_gt_1m_slots": [
+     20
+    ],
+    "own_div_at_t_min_m": 67.86,
+    "own_div_max_before_t_min_m": 104.71,
+    "own_first_gt_1m_20hz_s": 16.3
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 542,
+   "slot": 3,
+   "type_name": "Unknown",
+   "intent_name": "LoiterHover",
+   "gt_type": 6,
+   "gt_intent": 2,
+   "t_min_a": 70.8,
+   "a_min_row": 4.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0542",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 4.54,
+   "a_t_rec": 70.8,
+   "c_min_rec": 729.2,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 208.53,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 28.0,
+    "model": 43.5
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 70.8,
+    "first_rule_t": 37.0,
+    "first_rule_d_change": 128.10000000000002,
+    "max_elig_t": 25.5,
+    "max_elig_d_change": 0.3000000000000007,
+    "max_any_t": 21.0,
+    "max_any_d_change": 29.5,
+    "chosen_t": 37.0,
+    "chosen_d_change": 128.10000000000002,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 70.8,
+    "n_frames_checked": 141,
+    "n_frames_alive_both": 141,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 1703.54,
+    "crit_max_dev_t_s": 70.5,
+    "crit_first_gt_1m_20hz_s": 25.0,
+    "any_agent_first_gt_1m_2hz_s": 24.0,
+    "any_agent_first_gt_1m_slots": [
+     23
+    ],
+    "own_div_at_t_min_m": 68.74,
+    "own_div_max_before_t_min_m": 68.81,
+    "own_first_gt_1m_20hz_s": 14.4
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 553,
+   "slot": 5,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "LoiterHover",
+   "gt_type": 2,
+   "gt_intent": 2,
+   "t_min_a": 40.15,
+   "a_min_row": 12.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0553",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 12.15,
+   "a_t_rec": 40.15,
+   "c_min_rec": 410.86,
+   "c_t_rec": 37.15,
+   "c_episode_min_rec": 65.84,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 26.2,
+    "model": 44.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 40.15,
+    "first_rule_t": 13.0,
+    "first_rule_d_change": 45.1,
+    "max_elig_t": 12.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 10.0,
+    "max_any_d_change": 75.2,
+    "chosen_t": 13.0,
+    "chosen_d_change": 45.1,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 40.15,
+    "n_frames_checked": 80,
+    "n_frames_alive_both": 80,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 554.12,
+    "crit_max_dev_t_s": 40.0,
+    "crit_first_gt_1m_20hz_s": 18.6,
+    "any_agent_first_gt_1m_2hz_s": 15.0,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 113.62,
+    "own_div_max_before_t_min_m": 115.96,
+    "own_first_gt_1m_20hz_s": 12.25
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 562,
+   "slot": 7,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 48.4,
+   "a_min_row": 8.6,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0562",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 8.58,
+   "a_t_rec": 48.4,
+   "c_min_rec": 273.47,
+   "c_t_rec": 50.75,
+   "c_episode_min_rec": 80.35,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 27.3,
+    "model": 44.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 48.4,
+    "first_rule_t": 23.0,
+    "first_rule_d_change": 63.0,
+    "max_elig_t": 22.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 20.0,
+    "max_any_d_change": 70.0,
+    "chosen_t": 23.0,
+    "chosen_d_change": 63.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 48.4,
+    "n_frames_checked": 96,
+    "n_frames_alive_both": 96,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 203.68,
+    "crit_max_dev_t_s": 48.0,
+    "crit_first_gt_1m_20hz_s": 31.35,
+    "any_agent_first_gt_1m_2hz_s": 14.0,
+    "any_agent_first_gt_1m_slots": [
+     18
+    ],
+    "own_div_at_t_min_m": 178.71,
+    "own_div_max_before_t_min_m": 178.71,
+    "own_first_gt_1m_20hz_s": 12.35
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 595,
+   "slot": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 53.75,
+   "a_min_row": 27.9,
+   "b_min_row": 78.7,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0595",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 27.89,
+   "a_t_rec": 53.75,
+   "c_min_rec": 240.62,
+   "c_t_rec": 52.5,
+   "c_episode_min_rec": 72.07,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 25.9,
+    "model": 37.5
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 53.75,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 47.0,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 5.0,
+    "max_any_d_change": 42.400000000000006,
+    "chosen_t": 10.0,
+    "chosen_d_change": 47.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 53.75,
+    "n_frames_checked": 107,
+    "n_frames_alive_both": 107,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 0.0,
+    "crit_max_dev_t_s": 0.5,
+    "crit_first_gt_1m_20hz_s": null,
+    "any_agent_first_gt_1m_2hz_s": null,
+    "any_agent_first_gt_1m_slots": [],
+    "own_div_at_t_min_m": 228.84,
+    "own_div_max_before_t_min_m": 228.84,
+    "own_first_gt_1m_20hz_s": 13.85
+   },
+   "status": "survivor"
+  }
+ ],
+ "survivors": [
+  {
+   "index": 183,
+   "slot": 10,
+   "type_name": "eVTOL",
+   "intent_name": "CorridorTransit",
+   "gt_type": 3,
+   "gt_intent": 0,
+   "t_min_a": 44.95,
+   "a_min_row": 15.6,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0183",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 15.6,
+   "a_t_rec": 44.95,
+   "c_min_rec": 218.76,
+   "c_t_rec": 45.85,
+   "c_episode_min_rec": 36.11,
+   "c_episode_min_slot": 17,
+   "wall_s": {
+    "none": 24.9,
+    "model": 43.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 44.95,
+    "first_rule_t": 25.5,
+    "first_rule_d_change": 118.7,
+    "max_elig_t": 25.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 2.0,
+    "max_any_d_change": 295.5,
+    "chosen_t": 25.5,
+    "chosen_d_change": 118.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 44.95,
+    "n_frames_checked": 89,
+    "n_frames_alive_both": 89,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 10.9,
+    "crit_max_dev_t_s": 38.0,
+    "crit_first_gt_1m_20hz_s": 25.8,
+    "any_agent_first_gt_1m_2hz_s": 19.5,
+    "any_agent_first_gt_1m_slots": [
+     14,
+     19
+    ],
+    "own_div_at_t_min_m": 227.08,
+    "own_div_max_before_t_min_m": 227.08,
+    "own_first_gt_1m_20hz_s": 16.4
+   },
+   "status": "survivor"
+  },
+  {
+   "index": 319,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 32.95,
+   "a_min_row": 11.2,
+   "b_min_row": 27.2,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0319",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 11.22,
+   "a_t_rec": 32.95,
+   "c_min_rec": 221.83,
+   "c_t_rec": 34.2,
+   "c_episode_min_rec": 37.65,
+   "c_episode_min_slot": 15,
+   "wall_s": {
+    "none": 27.7,
+    "model": 47.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 32.95,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 45.2,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 5.0,
+    "max_any_d_change": 3.0999999999999996,
+    "chosen_t": 10.0,
+    "chosen_d_change": 45.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 32.95,
+    "n_frames_checked": 65,
+    "n_frames_alive_both": 65,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 29.34,
+    "crit_max_dev_t_s": 29.5,
+    "crit_first_gt_1m_20hz_s": 15.1,
+    "any_agent_first_gt_1m_2hz_s": 14.0,
+    "any_agent_first_gt_1m_slots": [
+     0,
+     18,
+     23
+    ],
+    "own_div_at_t_min_m": 233.42,
+    "own_div_max_before_t_min_m": 233.42,
+    "own_first_gt_1m_20hz_s": 11.1
+   },
+   "status": "survivor"
+  },
+  {
+   "index": 595,
+   "slot": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 53.75,
+   "a_min_row": 27.9,
+   "b_min_row": 78.7,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0595",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 27.89,
+   "a_t_rec": 53.75,
+   "c_min_rec": 240.62,
+   "c_t_rec": 52.5,
+   "c_episode_min_rec": 72.07,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 25.9,
+    "model": 37.5
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 53.75,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 47.0,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 5.0,
+    "max_any_d_change": 42.400000000000006,
+    "chosen_t": 10.0,
+    "chosen_d_change": 47.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 53.75,
+    "n_frames_checked": 107,
+    "n_frames_alive_both": 107,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 0.0,
+    "crit_max_dev_t_s": 0.5,
+    "crit_first_gt_1m_20hz_s": null,
+    "any_agent_first_gt_1m_2hz_s": null,
+    "any_agent_first_gt_1m_slots": [],
+    "own_div_at_t_min_m": 228.84,
+    "own_div_max_before_t_min_m": 228.84,
+    "own_first_gt_1m_20hz_s": 13.85
+   },
+   "status": "survivor"
+  }
+ ],
+ "dropped": [
+  {
+   "index": 13,
+   "slot": 5,
+   "type_name": "eVTOL",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 3,
+   "gt_intent": 4,
+   "t_min_a": 32.4,
+   "a_min_row": 35.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0013",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 35.8,
+   "a_t_rec": 32.4,
+   "c_min_rec": 514.94,
+   "c_t_rec": 31.3,
+   "c_episode_min_rec": 426.11,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 25.2,
+    "model": 44.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 32.4,
+    "first_rule_t": null,
+    "first_rule_d_change": null,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 16.8,
+    "max_any_t": 10.0,
+    "max_any_d_change": 16.8,
+    "chosen_t": 10.0,
+    "chosen_d_change": 16.8,
+    "chosen_eligible": true,
+    "why": "fallback_max_change_eligible"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 32.4,
+    "n_frames_checked": 64,
+    "n_frames_alive_both": 64,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 470.0,
+    "crit_max_dev_t_s": 32.0,
+    "crit_first_gt_1m_20hz_s": 13.3,
+    "any_agent_first_gt_1m_2hz_s": 12.5,
+    "any_agent_first_gt_1m_slots": [
+     9
+    ],
+    "own_div_at_t_min_m": 4.29,
+    "own_div_max_before_t_min_m": 5.64,
+    "own_first_gt_1m_20hz_s": 14.2
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 17,
+   "slot": 10,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 32.75,
+   "a_min_row": 5.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0017",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 5.79,
+   "a_t_rec": 32.75,
+   "c_min_rec": 153.04,
+   "c_t_rec": 33.15,
+   "c_episode_min_rec": 72.0,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 24.5,
+    "model": 41.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 32.75,
+    "first_rule_t": 19.0,
+    "first_rule_d_change": 95.7,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.5,
+    "max_any_t": 4.0,
+    "max_any_d_change": 152.8,
+    "chosen_t": 19.0,
+    "chosen_d_change": 95.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 32.75,
+    "n_frames_checked": 65,
+    "n_frames_alive_both": 65,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 128.92,
+    "crit_max_dev_t_s": 32.5,
+    "crit_first_gt_1m_20hz_s": 25.15,
+    "any_agent_first_gt_1m_2hz_s": 25.5,
+    "any_agent_first_gt_1m_slots": [
+     10
+    ],
+    "own_div_at_t_min_m": 13.84,
+    "own_div_max_before_t_min_m": 31.49,
+    "own_first_gt_1m_20hz_s": 20.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 25,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 88.5,
+   "a_min_row": 19.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0025",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 19.24,
+   "a_t_rec": 88.5,
+   "c_min_rec": 595.01,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 66.01,
+   "c_episode_min_slot": 17,
+   "wall_s": {
+    "none": 25.0,
+    "model": 42.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 88.5,
+    "first_rule_t": 58.0,
+    "first_rule_d_change": 141.50000000000003,
+    "max_elig_t": 45.5,
+    "max_elig_d_change": 0.7000000000000028,
+    "max_any_t": 23.0,
+    "max_any_d_change": 270.5,
+    "chosen_t": 58.0,
+    "chosen_d_change": 141.50000000000003,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 88.5,
+    "n_frames_checked": 177,
+    "n_frames_alive_both": 177,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 547.28,
+    "crit_max_dev_t_s": 84.5,
+    "crit_first_gt_1m_20hz_s": 50.7,
+    "any_agent_first_gt_1m_2hz_s": 48.5,
+    "any_agent_first_gt_1m_slots": [
+     7,
+     10
+    ],
+    "own_div_at_t_min_m": 98.76,
+    "own_div_max_before_t_min_m": 98.76,
+    "own_first_gt_1m_20hz_s": 15.7
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 58,
+   "slot": 19,
+   "type_name": "Unknown",
+   "intent_name": "CorridorTransit",
+   "gt_type": 6,
+   "gt_intent": 0,
+   "t_min_a": 43.4,
+   "a_min_row": 4.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0058",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 4.8,
+   "a_t_rec": 43.4,
+   "c_min_rec": 279.45,
+   "c_t_rec": 45.7,
+   "c_episode_min_rec": 137.73,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 24.9,
+    "model": 42.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 43.4,
+    "first_rule_t": 24.5,
+    "first_rule_d_change": 65.20000000000002,
+    "max_elig_t": 22.5,
+    "max_elig_d_change": 0.5,
+    "max_any_t": 10.0,
+    "max_any_d_change": 159.8,
+    "chosen_t": 24.5,
+    "chosen_d_change": 65.20000000000002,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 43.4,
+    "n_frames_checked": 86,
+    "n_frames_alive_both": 86,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 304.62,
+    "crit_max_dev_t_s": 43.0,
+    "crit_first_gt_1m_20hz_s": 26.15,
+    "any_agent_first_gt_1m_2hz_s": 19.0,
+    "any_agent_first_gt_1m_slots": [
+     6,
+     9
+    ],
+    "own_div_at_t_min_m": 9.62,
+    "own_div_max_before_t_min_m": 12.9,
+    "own_first_gt_1m_20hz_s": 13.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 88,
+   "slot": 3,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 2,
+   "gt_intent": 4,
+   "t_min_a": 58.6,
+   "a_min_row": 26.2,
+   "b_min_row": 74.8,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0088",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.16,
+   "a_t_rec": 58.6,
+   "c_min_rec": 371.07,
+   "c_t_rec": 36.95,
+   "c_episode_min_rec": 371.07,
+   "c_episode_min_slot": 3,
+   "wall_s": {
+    "none": 25.8,
+    "model": 42.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 58.6,
+    "first_rule_t": 35.0,
+    "first_rule_d_change": 83.0,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.5,
+    "max_any_t": 1.5,
+    "max_any_d_change": 1.4000000000000057,
+    "chosen_t": 35.0,
+    "chosen_d_change": 83.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 58.6,
+    "n_frames_checked": 117,
+    "n_frames_alive_both": 117,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 919.89,
+    "crit_max_dev_t_s": 58.5,
+    "crit_first_gt_1m_20hz_s": 26.95,
+    "any_agent_first_gt_1m_2hz_s": 23.5,
+    "any_agent_first_gt_1m_slots": [
+     23
+    ],
+    "own_div_at_t_min_m": 154.04,
+    "own_div_max_before_t_min_m": 154.05,
+    "own_first_gt_1m_20hz_s": 19.9
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 94,
+   "slot": 6,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 44.3,
+   "a_min_row": 5.0,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0094",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 5.03,
+   "a_t_rec": 44.3,
+   "c_min_rec": 223.24,
+   "c_t_rec": 51.15,
+   "c_episode_min_rec": 181.04,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 24.6,
+    "model": 41.5
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 44.3,
+    "first_rule_t": 11.0,
+    "first_rule_d_change": 121.4,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 22.1,
+    "max_any_t": 8.5,
+    "max_any_d_change": 121.9,
+    "chosen_t": 11.0,
+    "chosen_d_change": 121.4,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 44.3,
+    "n_frames_checked": 88,
+    "n_frames_alive_both": 88,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 283.73,
+    "crit_max_dev_t_s": 44.0,
+    "crit_first_gt_1m_20hz_s": 34.7,
+    "any_agent_first_gt_1m_2hz_s": 32.5,
+    "any_agent_first_gt_1m_slots": [
+     4,
+     7,
+     11
+    ],
+    "own_div_at_t_min_m": 67.42,
+    "own_div_max_before_t_min_m": 67.42,
+    "own_first_gt_1m_20hz_s": 12.15
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 103,
+   "slot": 1,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 50.0,
+   "a_min_row": 26.4,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0103",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.38,
+   "a_t_rec": 50.0,
+   "c_min_rec": 253.31,
+   "c_t_rec": 55.25,
+   "c_episode_min_rec": 34.75,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 24.5,
+    "model": 41.9
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 50.0,
+    "first_rule_t": 20.5,
+    "first_rule_d_change": 404.7,
+    "max_elig_t": 10.5,
+    "max_elig_d_change": 0.7000000000000028,
+    "max_any_t": 3.5,
+    "max_any_d_change": 6.0,
+    "chosen_t": 20.5,
+    "chosen_d_change": 404.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 50.0,
+    "n_frames_checked": 100,
+    "n_frames_alive_both": 100,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 358.86,
+    "crit_max_dev_t_s": 50.0,
+    "crit_first_gt_1m_20hz_s": 22.5,
+    "any_agent_first_gt_1m_2hz_s": 22.5,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     8,
+     12,
+     18
+    ],
+    "own_div_at_t_min_m": 84.48,
+    "own_div_max_before_t_min_m": 84.48,
+    "own_first_gt_1m_20hz_s": 14.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 111,
+   "slot": 20,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 85.0,
+   "a_min_row": 1.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0111",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 1.22,
+   "a_t_rec": 85.0,
+   "c_min_rec": 247.24,
+   "c_t_rec": 77.15,
+   "c_episode_min_rec": 41.69,
+   "c_episode_min_slot": 4,
+   "wall_s": {
+    "none": 22.5,
+    "model": 44.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 85.0,
+    "first_rule_t": 20.0,
+    "first_rule_d_change": 110.0,
+    "max_elig_t": 17.5,
+    "max_elig_d_change": 0.4000000000000057,
+    "max_any_t": 1.5,
+    "max_any_d_change": 1.6000000000000085,
+    "chosen_t": 20.0,
+    "chosen_d_change": 110.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 85.0,
+    "n_frames_checked": 170,
+    "n_frames_alive_both": 170,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 734.37,
+    "crit_max_dev_t_s": 83.0,
+    "crit_first_gt_1m_20hz_s": 27.8,
+    "any_agent_first_gt_1m_2hz_s": 26.0,
+    "any_agent_first_gt_1m_slots": [
+     8
+    ],
+    "own_div_at_t_min_m": 74.98,
+    "own_div_max_before_t_min_m": 300.37,
+    "own_first_gt_1m_20hz_s": 21.65
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 116,
+   "slot": 1,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 50.8,
+   "a_min_row": 30.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0116",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 30.05,
+   "a_t_rec": 50.8,
+   "c_min_rec": 397.02,
+   "c_t_rec": 50.0,
+   "c_episode_min_rec": 55.92,
+   "c_episode_min_slot": 10,
+   "wall_s": {
+    "none": 24.7,
+    "model": 49.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 50.8,
+    "first_rule_t": 30.0,
+    "first_rule_d_change": 58.900000000000006,
+    "max_elig_t": 28.0,
+    "max_elig_d_change": 9.600000000000001,
+    "max_any_t": 10.5,
+    "max_any_d_change": 127.9,
+    "chosen_t": 30.0,
+    "chosen_d_change": 58.900000000000006,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 50.8,
+    "n_frames_checked": 101,
+    "n_frames_alive_both": 101,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 252.68,
+    "crit_max_dev_t_s": 50.5,
+    "crit_first_gt_1m_20hz_s": 23.0,
+    "any_agent_first_gt_1m_2hz_s": 22.0,
+    "any_agent_first_gt_1m_slots": [
+     7,
+     11,
+     17,
+     21
+    ],
+    "own_div_at_t_min_m": 110.73,
+    "own_div_max_before_t_min_m": 113.37,
+    "own_first_gt_1m_20hz_s": 12.25
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 151,
+   "slot": 20,
+   "type_name": "Multirotor",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 1,
+   "gt_intent": 4,
+   "t_min_a": 36.0,
+   "a_min_row": 29.3,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0151",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 29.32,
+   "a_t_rec": 36.0,
+   "c_min_rec": 255.01,
+   "c_t_rec": 40.6,
+   "c_episode_min_rec": 231.11,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 28.1,
+    "model": 49.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 36.0,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 92.30000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 1.0,
+    "max_any_d_change": 1.6000000000000085,
+    "chosen_t": 10.0,
+    "chosen_d_change": 92.30000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 36.0,
+    "n_frames_checked": 72,
+    "n_frames_alive_both": 72,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 298.7,
+    "crit_max_dev_t_s": 36.0,
+    "crit_first_gt_1m_20hz_s": 16.5,
+    "any_agent_first_gt_1m_2hz_s": 16.0,
+    "any_agent_first_gt_1m_slots": [
+     9
+    ],
+    "own_div_at_t_min_m": 88.81,
+    "own_div_max_before_t_min_m": 89.91,
+    "own_first_gt_1m_20hz_s": 11.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 159,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 20.85,
+   "a_min_row": 26.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0159",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.93,
+   "a_t_rec": 20.85,
+   "c_min_rec": 183.24,
+   "c_t_rec": 20.1,
+   "c_episode_min_rec": 50.61,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 29.0,
+    "model": 44.4
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 20.85,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 95.80000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 2.5,
+    "max_any_d_change": 98.80000000000001,
+    "chosen_t": 10.0,
+    "chosen_d_change": 95.80000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 20.85,
+    "n_frames_checked": 41,
+    "n_frames_alive_both": 41,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 42.67,
+    "crit_max_dev_t_s": 20.5,
+    "crit_first_gt_1m_20hz_s": 17.0,
+    "any_agent_first_gt_1m_2hz_s": 16.5,
+    "any_agent_first_gt_1m_slots": [
+     6,
+     12
+    ],
+    "own_div_at_t_min_m": 169.37,
+    "own_div_max_before_t_min_m": 169.37,
+    "own_first_gt_1m_20hz_s": 11.15
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 170,
+   "slot": 17,
+   "type_name": "General aviation",
+   "intent_name": "LoiterHover",
+   "gt_type": 4,
+   "gt_intent": 2,
+   "t_min_a": 40.6,
+   "a_min_row": 20.7,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0170",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 20.74,
+   "a_t_rec": 40.6,
+   "c_min_rec": 176.94,
+   "c_t_rec": 39.2,
+   "c_episode_min_rec": 176.94,
+   "c_episode_min_slot": 17,
+   "wall_s": {
+    "none": 27.7,
+    "model": 43.7
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 40.6,
+    "first_rule_t": 33.0,
+    "first_rule_d_change": 119.69999999999999,
+    "max_elig_t": 32.0,
+    "max_elig_d_change": 17.200000000000003,
+    "max_any_t": 32.0,
+    "max_any_d_change": 17.200000000000003,
+    "chosen_t": 33.0,
+    "chosen_d_change": 119.69999999999999,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 40.6,
+    "n_frames_checked": 81,
+    "n_frames_alive_both": 81,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 156.01,
+    "crit_max_dev_t_s": 40.5,
+    "crit_first_gt_1m_20hz_s": 24.5,
+    "any_agent_first_gt_1m_2hz_s": 21.5,
+    "any_agent_first_gt_1m_slots": [
+     4,
+     20
+    ],
+    "own_div_at_t_min_m": 85.13,
+    "own_div_max_before_t_min_m": 85.13,
+    "own_first_gt_1m_20hz_s": 16.3
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 182,
+   "slot": 9,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 46.05,
+   "a_min_row": 40.6,
+   "b_min_row": 91.6,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0182",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 40.56,
+   "a_t_rec": 46.05,
+   "c_min_rec": 270.05,
+   "c_t_rec": 44.45,
+   "c_episode_min_rec": 107.13,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 24.4,
+    "model": 42.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 46.05,
+    "first_rule_t": 11.0,
+    "first_rule_d_change": 85.0,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 0.5,
+    "max_any_d_change": 0.0,
+    "chosen_t": 11.0,
+    "chosen_d_change": 85.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 46.05,
+    "n_frames_checked": 92,
+    "n_frames_alive_both": 92,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 222.64,
+    "crit_max_dev_t_s": 43.5,
+    "crit_first_gt_1m_20hz_s": 31.5,
+    "any_agent_first_gt_1m_2hz_s": 30.5,
+    "any_agent_first_gt_1m_slots": [
+     18
+    ],
+    "own_div_at_t_min_m": 148.05,
+    "own_div_max_before_t_min_m": 148.05,
+    "own_first_gt_1m_20hz_s": 14.45
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 185,
+   "slot": 20,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 34.05,
+   "a_min_row": 13.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0185",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 13.92,
+   "a_t_rec": 34.05,
+   "c_min_rec": 207.83,
+   "c_t_rec": 32.8,
+   "c_episode_min_rec": 45.17,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 25.9,
+    "model": 40.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 34.05,
+    "first_rule_t": 10.5,
+    "first_rule_d_change": 32.099999999999994,
+    "max_elig_t": 10.0,
+    "max_elig_d_change": 0.29999999999998295,
+    "max_any_t": 1.0,
+    "max_any_d_change": 2.0,
+    "chosen_t": 10.5,
+    "chosen_d_change": 32.099999999999994,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 34.05,
+    "n_frames_checked": 68,
+    "n_frames_alive_both": 68,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 185.62,
+    "crit_max_dev_t_s": 34.0,
+    "crit_first_gt_1m_20hz_s": 21.2,
+    "any_agent_first_gt_1m_2hz_s": 20.5,
+    "any_agent_first_gt_1m_slots": [
+     18
+    ],
+    "own_div_at_t_min_m": 53.2,
+    "own_div_max_before_t_min_m": 53.2,
+    "own_first_gt_1m_20hz_s": 13.35
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 199,
+   "slot": 10,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 84.75,
+   "a_min_row": 34.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0199",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 34.1,
+   "a_t_rec": 84.75,
+   "c_min_rec": 253.86,
+   "c_t_rec": 82.6,
+   "c_episode_min_rec": 120.72,
+   "c_episode_min_slot": 5,
+   "wall_s": {
+    "none": 25.5,
+    "model": 42.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 84.75,
+    "first_rule_t": 50.0,
+    "first_rule_d_change": 94.60000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 44.0,
+    "max_any_d_change": 272.3,
+    "chosen_t": 50.0,
+    "chosen_d_change": 94.60000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 84.75,
+    "n_frames_checked": 169,
+    "n_frames_alive_both": 169,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 423.99,
+    "crit_max_dev_t_s": 78.0,
+    "crit_first_gt_1m_20hz_s": 32.65,
+    "any_agent_first_gt_1m_2hz_s": 30.0,
+    "any_agent_first_gt_1m_slots": [
+     23
+    ],
+    "own_div_at_t_min_m": 158.99,
+    "own_div_max_before_t_min_m": 177.87,
+    "own_first_gt_1m_20hz_s": 22.3
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 221,
+   "slot": 5,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 85.85,
+   "a_min_row": 8.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0221",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 8.47,
+   "a_t_rec": 85.85,
+   "c_min_rec": 271.6,
+   "c_t_rec": 84.1,
+   "c_episode_min_rec": 265.18,
+   "c_episode_min_slot": 18,
+   "wall_s": {
+    "none": 25.6,
+    "model": 39.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 85.85,
+    "first_rule_t": 44.0,
+    "first_rule_d_change": 33.0,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 21.0,
+    "max_any_d_change": 43.900000000000006,
+    "chosen_t": 44.0,
+    "chosen_d_change": 33.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 85.85,
+    "n_frames_checked": 171,
+    "n_frames_alive_both": 171,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 323.32,
+    "crit_max_dev_t_s": 67.5,
+    "crit_first_gt_1m_20hz_s": 46.5,
+    "any_agent_first_gt_1m_2hz_s": 45.0,
+    "any_agent_first_gt_1m_slots": [
+     8,
+     16
+    ],
+    "own_div_at_t_min_m": 46.0,
+    "own_div_max_before_t_min_m": 57.58,
+    "own_first_gt_1m_20hz_s": 16.35
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 234,
+   "slot": 18,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 56.6,
+   "a_min_row": 44.8,
+   "b_min_row": 46.8,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0234",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 44.78,
+   "a_t_rec": 56.6,
+   "c_min_rec": 379.07,
+   "c_t_rec": 65.8,
+   "c_episode_min_rec": 237.39,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 25.6,
+    "model": 41.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 56.6,
+    "first_rule_t": 28.0,
+    "first_rule_d_change": 40.3,
+    "max_elig_t": 19.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 10.0,
+    "max_any_d_change": 109.5,
+    "chosen_t": 28.0,
+    "chosen_d_change": 40.3,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 56.6,
+    "n_frames_checked": 113,
+    "n_frames_alive_both": 113,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 515.84,
+    "crit_max_dev_t_s": 56.5,
+    "crit_first_gt_1m_20hz_s": 22.3,
+    "any_agent_first_gt_1m_2hz_s": 20.0,
+    "any_agent_first_gt_1m_slots": [
+     2,
+     20
+    ],
+    "own_div_at_t_min_m": 118.48,
+    "own_div_max_before_t_min_m": 118.48,
+    "own_first_gt_1m_20hz_s": 12.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 235,
+   "slot": 12,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 76.25,
+   "a_min_row": 2.0,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0235",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 2.04,
+   "a_t_rec": 76.25,
+   "c_min_rec": 547.49,
+   "c_t_rec": 80.6,
+   "c_episode_min_rec": 30.75,
+   "c_episode_min_slot": 7,
+   "wall_s": {
+    "none": 27.0,
+    "model": 44.4
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 76.25,
+    "first_rule_t": 50.5,
+    "first_rule_d_change": 61.7,
+    "max_elig_t": 49.0,
+    "max_elig_d_change": 25.500000000000007,
+    "max_any_t": 13.5,
+    "max_any_d_change": 185.20000000000002,
+    "chosen_t": 50.5,
+    "chosen_d_change": 61.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 76.25,
+    "n_frames_checked": 152,
+    "n_frames_alive_both": 152,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 456.87,
+    "crit_max_dev_t_s": 69.5,
+    "crit_first_gt_1m_20hz_s": 41.75,
+    "any_agent_first_gt_1m_2hz_s": 41.5,
+    "any_agent_first_gt_1m_slots": [
+     14
+    ],
+    "own_div_at_t_min_m": 274.13,
+    "own_div_max_before_t_min_m": 280.1,
+    "own_first_gt_1m_20hz_s": 15.2
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 311,
+   "slot": 20,
+   "type_name": "Unknown",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 6,
+   "gt_intent": 4,
+   "t_min_a": 41.3,
+   "a_min_row": 28.2,
+   "b_min_row": 148.5,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0311",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 28.17,
+   "a_t_rec": 41.3,
+   "c_min_rec": 323.68,
+   "c_t_rec": 40.2,
+   "c_episode_min_rec": 21.67,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 25.7,
+    "model": 36.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 41.3,
+    "first_rule_t": 22.5,
+    "first_rule_d_change": 101.1,
+    "max_elig_t": 22.0,
+    "max_elig_d_change": 1.0,
+    "max_any_t": 17.5,
+    "max_any_d_change": 101.1,
+    "chosen_t": 22.5,
+    "chosen_d_change": 101.1,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 41.3,
+    "n_frames_checked": 82,
+    "n_frames_alive_both": 82,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 385.51,
+    "crit_max_dev_t_s": 41.0,
+    "crit_first_gt_1m_20hz_s": 25.65,
+    "any_agent_first_gt_1m_2hz_s": 24.0,
+    "any_agent_first_gt_1m_slots": [
+     22
+    ],
+    "own_div_at_t_min_m": 85.52,
+    "own_div_max_before_t_min_m": 109.98,
+    "own_first_gt_1m_20hz_s": 13.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 312,
+   "slot": 22,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 78.65,
+   "a_min_row": 41.0,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0312",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 40.98,
+   "a_t_rec": 78.65,
+   "c_min_rec": 319.05,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 29.92,
+   "c_episode_min_slot": 3,
+   "wall_s": {
+    "none": 21.4,
+    "model": 44.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 78.65,
+    "first_rule_t": 41.0,
+    "first_rule_d_change": 57.90000000000001,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 13.5,
+    "max_any_d_change": 289.4,
+    "chosen_t": 41.0,
+    "chosen_d_change": 57.90000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 78.65,
+    "n_frames_checked": 157,
+    "n_frames_alive_both": 157,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 490.77,
+    "crit_max_dev_t_s": 78.5,
+    "crit_first_gt_1m_20hz_s": 13.25,
+    "any_agent_first_gt_1m_2hz_s": 13.5,
+    "any_agent_first_gt_1m_slots": [
+     22
+    ],
+    "own_div_at_t_min_m": 406.34,
+    "own_div_max_before_t_min_m": 406.34,
+    "own_first_gt_1m_20hz_s": 12.4
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 315,
+   "slot": 13,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 66.95,
+   "a_min_row": 5.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0315",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 5.93,
+   "a_t_rec": 66.95,
+   "c_min_rec": 481.69,
+   "c_t_rec": 66.5,
+   "c_episode_min_rec": 111.99,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 26.5,
+    "model": 46.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 66.95,
+    "first_rule_t": 55.0,
+    "first_rule_d_change": 53.0,
+    "max_elig_t": 54.0,
+    "max_elig_d_change": 27.700000000000003,
+    "max_any_t": 18.5,
+    "max_any_d_change": 164.60000000000002,
+    "chosen_t": 55.0,
+    "chosen_d_change": 53.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 66.95,
+    "n_frames_checked": 133,
+    "n_frames_alive_both": 133,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 518.43,
+    "crit_max_dev_t_s": 66.5,
+    "crit_first_gt_1m_20hz_s": 16.8,
+    "any_agent_first_gt_1m_2hz_s": 16.5,
+    "any_agent_first_gt_1m_slots": [
+     12
+    ],
+    "own_div_at_t_min_m": 68.61,
+    "own_div_max_before_t_min_m": 68.61,
+    "own_first_gt_1m_20hz_s": 11.95
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 318,
+   "slot": 5,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 68.35,
+   "a_min_row": 13.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0318",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 13.24,
+   "a_t_rec": 68.35,
+   "c_min_rec": 219.27,
+   "c_t_rec": 57.95,
+   "c_episode_min_rec": 132.89,
+   "c_episode_min_slot": 20,
+   "wall_s": {
+    "none": 25.8,
+    "model": 47.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 68.35,
+    "first_rule_t": 14.0,
+    "first_rule_d_change": 78.5,
+    "max_elig_t": 12.0,
+    "max_elig_d_change": 23.80000000000001,
+    "max_any_t": 9.5,
+    "max_any_d_change": 201.10000000000002,
+    "chosen_t": 14.0,
+    "chosen_d_change": 78.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 68.35,
+    "n_frames_checked": 136,
+    "n_frames_alive_both": 136,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 142.98,
+    "crit_max_dev_t_s": 68.0,
+    "crit_first_gt_1m_20hz_s": 42.3,
+    "any_agent_first_gt_1m_2hz_s": 41.5,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     7,
+     16
+    ],
+    "own_div_at_t_min_m": 530.51,
+    "own_div_max_before_t_min_m": 530.51,
+    "own_first_gt_1m_20hz_s": 12.65
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 350,
+   "slot": 0,
+   "type_name": "Multirotor",
+   "intent_name": "CorridorTransit",
+   "gt_type": 1,
+   "gt_intent": 0,
+   "t_min_a": 46.35,
+   "a_min_row": 22.2,
+   "b_min_row": 115.8,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0350",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 22.24,
+   "a_t_rec": 46.35,
+   "c_min_rec": 173.74,
+   "c_t_rec": 42.45,
+   "c_episode_min_rec": 173.74,
+   "c_episode_min_slot": 0,
+   "wall_s": {
+    "none": 26.9,
+    "model": 46.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 46.35,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 55.7,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 3.5,
+    "max_any_d_change": 15.100000000000001,
+    "chosen_t": 10.0,
+    "chosen_d_change": 55.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 46.35,
+    "n_frames_checked": 92,
+    "n_frames_alive_both": 92,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 296.14,
+    "crit_max_dev_t_s": 46.0,
+    "crit_first_gt_1m_20hz_s": 31.95,
+    "any_agent_first_gt_1m_2hz_s": 32.0,
+    "any_agent_first_gt_1m_slots": [
+     0
+    ],
+    "own_div_at_t_min_m": 50.61,
+    "own_div_max_before_t_min_m": 51.42,
+    "own_first_gt_1m_20hz_s": 12.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 371,
+   "slot": 0,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 57.1,
+   "a_min_row": 18.9,
+   "b_min_row": 69.4,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0371",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 18.89,
+   "a_t_rec": 57.1,
+   "c_min_rec": 421.73,
+   "c_t_rec": 51.05,
+   "c_episode_min_rec": 250.88,
+   "c_episode_min_slot": 19,
+   "wall_s": {
+    "none": 30.5,
+    "model": 49.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 57.1,
+    "first_rule_t": 13.5,
+    "first_rule_d_change": 37.5,
+    "max_elig_t": 13.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 10.0,
+    "max_any_d_change": 63.2,
+    "chosen_t": 13.5,
+    "chosen_d_change": 37.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 57.1,
+    "n_frames_checked": 114,
+    "n_frames_alive_both": 114,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 467.12,
+    "crit_max_dev_t_s": 51.0,
+    "crit_first_gt_1m_20hz_s": 19.55,
+    "any_agent_first_gt_1m_2hz_s": 17.5,
+    "any_agent_first_gt_1m_slots": [
+     2,
+     9
+    ],
+    "own_div_at_t_min_m": 15.03,
+    "own_div_max_before_t_min_m": 15.79,
+    "own_first_gt_1m_20hz_s": 12.2
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 375,
+   "slot": 5,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "gt_type": 2,
+   "gt_intent": 0,
+   "t_min_a": 38.9,
+   "a_min_row": 18.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0375",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 18.25,
+   "a_t_rec": 38.9,
+   "c_min_rec": 230.89,
+   "c_t_rec": 38.75,
+   "c_episode_min_rec": 230.89,
+   "c_episode_min_slot": 5,
+   "wall_s": {
+    "none": 28.2,
+    "model": 45.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 38.9,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 40.300000000000004,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 6.5,
+    "max_any_d_change": 107.5,
+    "chosen_t": 10.0,
+    "chosen_d_change": 40.300000000000004,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 38.9,
+    "n_frames_checked": 77,
+    "n_frames_alive_both": 77,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 124.38,
+    "crit_max_dev_t_s": 38.5,
+    "crit_first_gt_1m_20hz_s": 32.7,
+    "any_agent_first_gt_1m_2hz_s": 30.0,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     3,
+     16,
+     17
+    ],
+    "own_div_at_t_min_m": 90.94,
+    "own_div_max_before_t_min_m": 90.94,
+    "own_first_gt_1m_20hz_s": 11.9
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 409,
+   "slot": 0,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 44.05,
+   "a_min_row": 26.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0409",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 26.14,
+   "a_t_rec": 44.05,
+   "c_min_rec": 195.35,
+   "c_t_rec": 48.15,
+   "c_episode_min_rec": 85.97,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 26.2,
+    "model": 45.9
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 44.05,
+    "first_rule_t": null,
+    "first_rule_d_change": null,
+    "max_elig_t": 13.5,
+    "max_elig_d_change": 29.5,
+    "max_any_t": 13.5,
+    "max_any_d_change": 29.5,
+    "chosen_t": 13.5,
+    "chosen_d_change": 29.5,
+    "chosen_eligible": true,
+    "why": "fallback_max_change_eligible"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 44.05,
+    "n_frames_checked": 88,
+    "n_frames_alive_both": 88,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 356.87,
+    "crit_max_dev_t_s": 42.0,
+    "crit_first_gt_1m_20hz_s": 28.8,
+    "any_agent_first_gt_1m_2hz_s": 28.5,
+    "any_agent_first_gt_1m_slots": [
+     14,
+     21
+    ],
+    "own_div_at_t_min_m": 83.66,
+    "own_div_max_before_t_min_m": 83.66,
+    "own_first_gt_1m_20hz_s": 14.8
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 418,
+   "slot": 10,
+   "type_name": "Multirotor",
+   "intent_name": "CorridorTransit",
+   "gt_type": 1,
+   "gt_intent": 0,
+   "t_min_a": 86.45,
+   "a_min_row": 42.9,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0418",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 42.95,
+   "a_t_rec": 86.45,
+   "c_min_rec": 249.42,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 80.5,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 27.4,
+    "model": 41.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 86.45,
+    "first_rule_t": 56.0,
+    "first_rule_d_change": 122.00000000000001,
+    "max_elig_t": 54.0,
+    "max_elig_d_change": 0.10000000000000009,
+    "max_any_t": 10.0,
+    "max_any_d_change": 17.8,
+    "chosen_t": 56.0,
+    "chosen_d_change": 122.00000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 86.45,
+    "n_frames_checked": 172,
+    "n_frames_alive_both": 172,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 225.99,
+    "crit_max_dev_t_s": 64.5,
+    "crit_first_gt_1m_20hz_s": 23.2,
+    "any_agent_first_gt_1m_2hz_s": 17.0,
+    "any_agent_first_gt_1m_slots": [
+     17
+    ],
+    "own_div_at_t_min_m": 227.51,
+    "own_div_max_before_t_min_m": 227.51,
+    "own_first_gt_1m_20hz_s": 11.65
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 422,
+   "slot": 21,
+   "type_name": "Bird",
+   "intent_name": "LoiterHover",
+   "gt_type": 0,
+   "gt_intent": 2,
+   "t_min_a": 75.9,
+   "a_min_row": 11.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0422",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 11.49,
+   "a_t_rec": 75.9,
+   "c_min_rec": 320.49,
+   "c_t_rec": 76.05,
+   "c_episode_min_rec": 80.0,
+   "c_episode_min_slot": 6,
+   "wall_s": {
+    "none": 25.1,
+    "model": 41.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 75.9,
+    "first_rule_t": 48.0,
+    "first_rule_d_change": 206.5,
+    "max_elig_t": 34.0,
+    "max_elig_d_change": 23.1,
+    "max_any_t": 11.0,
+    "max_any_d_change": 145.4,
+    "chosen_t": 48.0,
+    "chosen_d_change": 206.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 75.9,
+    "n_frames_checked": 151,
+    "n_frames_alive_both": 151,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 350.07,
+    "crit_max_dev_t_s": 47.5,
+    "crit_first_gt_1m_20hz_s": 16.35,
+    "any_agent_first_gt_1m_2hz_s": 16.0,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     2,
+     11,
+     16
+    ],
+    "own_div_at_t_min_m": 133.27,
+    "own_div_max_before_t_min_m": 136.28,
+    "own_first_gt_1m_20hz_s": 12.4
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 434,
+   "slot": 15,
+   "type_name": "Bird",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 0,
+   "gt_intent": 4,
+   "t_min_a": 78.05,
+   "a_min_row": 3.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0434",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 3.07,
+   "a_t_rec": 78.05,
+   "c_min_rec": 480.69,
+   "c_t_rec": 78.45,
+   "c_episode_min_rec": 111.67,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 26.5,
+    "model": 42.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 78.05,
+    "first_rule_t": 33.0,
+    "first_rule_d_change": 115.7,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 27.0,
+    "max_any_d_change": 432.7,
+    "chosen_t": 33.0,
+    "chosen_d_change": 115.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 78.05,
+    "n_frames_checked": 156,
+    "n_frames_alive_both": 156,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 384.8,
+    "crit_max_dev_t_s": 60.5,
+    "crit_first_gt_1m_20hz_s": 26.1,
+    "any_agent_first_gt_1m_2hz_s": 26.5,
+    "any_agent_first_gt_1m_slots": [
+     6,
+     11,
+     15
+    ],
+    "own_div_at_t_min_m": 497.15,
+    "own_div_max_before_t_min_m": 501.04,
+    "own_first_gt_1m_20hz_s": 13.25
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 435,
+   "slot": 8,
+   "type_name": "Multirotor",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 1,
+   "gt_intent": 4,
+   "t_min_a": 46.95,
+   "a_min_row": 11.6,
+   "b_min_row": 76.7,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0435",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 11.63,
+   "a_t_rec": 46.95,
+   "c_min_rec": 274.66,
+   "c_t_rec": 46.25,
+   "c_episode_min_rec": 217.42,
+   "c_episode_min_slot": 10,
+   "wall_s": {
+    "none": 25.3,
+    "model": 42.4
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 46.95,
+    "first_rule_t": 10.0,
+    "first_rule_d_change": 97.5,
+    "max_elig_t": null,
+    "max_elig_d_change": null,
+    "max_any_t": 1.0,
+    "max_any_d_change": 7.799999999999997,
+    "chosen_t": 10.0,
+    "chosen_d_change": 97.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 46.95,
+    "n_frames_checked": 93,
+    "n_frames_alive_both": 93,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 305.03,
+    "crit_max_dev_t_s": 46.5,
+    "crit_first_gt_1m_20hz_s": 13.25,
+    "any_agent_first_gt_1m_2hz_s": 13.5,
+    "any_agent_first_gt_1m_slots": [
+     8
+    ],
+    "own_div_at_t_min_m": 25.36,
+    "own_div_max_before_t_min_m": 25.36,
+    "own_first_gt_1m_20hz_s": 11.75
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 446,
+   "slot": 14,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 62.7,
+   "a_min_row": 44.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0446",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 44.46,
+   "a_t_rec": 62.7,
+   "c_min_rec": 232.38,
+   "c_t_rec": 63.3,
+   "c_episode_min_rec": 187.92,
+   "c_episode_min_slot": 9,
+   "wall_s": {
+    "none": 26.9,
+    "model": 41.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 62.7,
+    "first_rule_t": 20.0,
+    "first_rule_d_change": 43.7,
+    "max_elig_t": 13.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 12.0,
+    "max_any_d_change": 219.60000000000002,
+    "chosen_t": 20.0,
+    "chosen_d_change": 43.7,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 62.7,
+    "n_frames_checked": 125,
+    "n_frames_alive_both": 125,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 186.58,
+    "crit_max_dev_t_s": 59.0,
+    "crit_first_gt_1m_20hz_s": 42.8,
+    "any_agent_first_gt_1m_2hz_s": 41.0,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 146.02,
+    "own_div_max_before_t_min_m": 146.02,
+    "own_first_gt_1m_20hz_s": 12.7
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 456,
+   "slot": 4,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 70.25,
+   "a_min_row": 33.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0456",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 33.76,
+   "a_t_rec": 70.25,
+   "c_min_rec": 231.79,
+   "c_t_rec": 72.25,
+   "c_episode_min_rec": 209.96,
+   "c_episode_min_slot": 6,
+   "wall_s": {
+    "none": 25.6,
+    "model": 41.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 70.25,
+    "first_rule_t": 42.0,
+    "first_rule_d_change": 187.5,
+    "max_elig_t": 41.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 23.5,
+    "max_any_d_change": 154.3,
+    "chosen_t": 42.0,
+    "chosen_d_change": 187.5,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 70.25,
+    "n_frames_checked": 140,
+    "n_frames_alive_both": 140,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 280.96,
+    "crit_max_dev_t_s": 70.0,
+    "crit_first_gt_1m_20hz_s": 52.5,
+    "any_agent_first_gt_1m_2hz_s": 43.0,
+    "any_agent_first_gt_1m_slots": [
+     1,
+     21
+    ],
+    "own_div_at_t_min_m": 355.44,
+    "own_div_max_before_t_min_m": 355.44,
+    "own_first_gt_1m_20hz_s": 18.95
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 459,
+   "slot": 2,
+   "type_name": "Bird",
+   "intent_name": "SearchWander",
+   "gt_type": 0,
+   "gt_intent": 3,
+   "t_min_a": 56.05,
+   "a_min_row": 10.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0459",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 10.17,
+   "a_t_rec": 56.05,
+   "c_min_rec": 195.74,
+   "c_t_rec": 43.05,
+   "c_episode_min_rec": 41.88,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 25.1,
+    "model": 42.7
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 56.05,
+    "first_rule_t": 21.0,
+    "first_rule_d_change": 30.3,
+    "max_elig_t": 14.0,
+    "max_elig_d_change": 15.3,
+    "max_any_t": 10.0,
+    "max_any_d_change": 111.60000000000001,
+    "chosen_t": 21.0,
+    "chosen_d_change": 30.3,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 56.05,
+    "n_frames_checked": 112,
+    "n_frames_alive_both": 112,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 783.34,
+    "crit_max_dev_t_s": 53.5,
+    "crit_first_gt_1m_20hz_s": 12.05,
+    "any_agent_first_gt_1m_2hz_s": 12.0,
+    "any_agent_first_gt_1m_slots": [
+     5,
+     22
+    ],
+    "own_div_at_t_min_m": 140.04,
+    "own_div_max_before_t_min_m": 140.05,
+    "own_first_gt_1m_20hz_s": 11.7
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 471,
+   "slot": 12,
+   "type_name": "Bird",
+   "intent_name": "LoiterHover",
+   "gt_type": 0,
+   "gt_intent": 2,
+   "t_min_a": 90.0,
+   "a_min_row": 42.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0471",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 42.22,
+   "a_t_rec": 90.0,
+   "c_min_rec": 202.19,
+   "c_t_rec": 84.65,
+   "c_episode_min_rec": 119.63,
+   "c_episode_min_slot": 0,
+   "wall_s": {
+    "none": 27.2,
+    "model": 37.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 90.0,
+    "first_rule_t": 54.5,
+    "first_rule_d_change": 238.2,
+    "max_elig_t": 39.0,
+    "max_elig_d_change": 13.0,
+    "max_any_t": 13.5,
+    "max_any_d_change": 256.1,
+    "chosen_t": 54.5,
+    "chosen_d_change": 238.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 90.0,
+    "n_frames_checked": 180,
+    "n_frames_alive_both": 180,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 429.11,
+    "crit_max_dev_t_s": 90.0,
+    "crit_first_gt_1m_20hz_s": 28.85,
+    "any_agent_first_gt_1m_2hz_s": 25.0,
+    "any_agent_first_gt_1m_slots": [
+     0,
+     1,
+     16,
+     22,
+     23
+    ],
+    "own_div_at_t_min_m": 54.42,
+    "own_div_max_before_t_min_m": 182.1,
+    "own_first_gt_1m_20hz_s": 12.45
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 508,
+   "slot": 12,
+   "type_name": "Multirotor",
+   "intent_name": "SearchWander",
+   "gt_type": 1,
+   "gt_intent": 3,
+   "t_min_a": 89.45,
+   "a_min_row": 8.3,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0508",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 8.32,
+   "a_t_rec": 89.45,
+   "c_min_rec": 336.24,
+   "c_t_rec": 78.65,
+   "c_episode_min_rec": 69.86,
+   "c_episode_min_slot": 23,
+   "wall_s": {
+    "none": 25.1,
+    "model": 36.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 89.45,
+    "first_rule_t": 41.0,
+    "first_rule_d_change": 35.400000000000006,
+    "max_elig_t": 40.5,
+    "max_elig_d_change": 1.1999999999999993,
+    "max_any_t": 11.5,
+    "max_any_d_change": 53.4,
+    "chosen_t": 41.0,
+    "chosen_d_change": 35.400000000000006,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 89.45,
+    "n_frames_checked": 178,
+    "n_frames_alive_both": 178,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 875.92,
+    "crit_max_dev_t_s": 89.0,
+    "crit_first_gt_1m_20hz_s": 16.6,
+    "any_agent_first_gt_1m_2hz_s": 16.0,
+    "any_agent_first_gt_1m_slots": [
+     0,
+     9,
+     21
+    ],
+    "own_div_at_t_min_m": 263.8,
+    "own_div_max_before_t_min_m": 263.8,
+    "own_first_gt_1m_20hz_s": 12.75
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 522,
+   "slot": 18,
+   "type_name": "Unknown",
+   "intent_name": "CorridorTransit",
+   "gt_type": 6,
+   "gt_intent": 0,
+   "t_min_a": 58.45,
+   "a_min_row": 12.6,
+   "b_min_row": 60.5,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0522",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 12.6,
+   "a_t_rec": 58.45,
+   "c_min_rec": 389.93,
+   "c_t_rec": 55.25,
+   "c_episode_min_rec": 133.93,
+   "c_episode_min_slot": 2,
+   "wall_s": {
+    "none": 20.6,
+    "model": 44.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 58.45,
+    "first_rule_t": 18.0,
+    "first_rule_d_change": 64.8,
+    "max_elig_t": 14.5,
+    "max_elig_d_change": 24.900000000000002,
+    "max_any_t": 10.0,
+    "max_any_d_change": 93.6,
+    "chosen_t": 18.0,
+    "chosen_d_change": 64.8,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 58.45,
+    "n_frames_checked": 116,
+    "n_frames_alive_both": 116,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 313.84,
+    "crit_max_dev_t_s": 58.0,
+    "crit_first_gt_1m_20hz_s": 47.35,
+    "any_agent_first_gt_1m_2hz_s": 45.5,
+    "any_agent_first_gt_1m_slots": [
+     8,
+     13,
+     15,
+     22,
+     23
+    ],
+    "own_div_at_t_min_m": 124.17,
+    "own_div_max_before_t_min_m": 144.31,
+    "own_first_gt_1m_20hz_s": 12.0
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 540,
+   "slot": 20,
+   "type_name": "Unknown",
+   "intent_name": "ReactiveAvoid",
+   "gt_type": 6,
+   "gt_intent": 4,
+   "t_min_a": 75.55,
+   "a_min_row": 23.8,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0540",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 23.83,
+   "a_t_rec": 75.55,
+   "c_min_rec": 1103.16,
+   "c_t_rec": 57.35,
+   "c_episode_min_rec": 0.47,
+   "c_episode_min_slot": 7,
+   "wall_s": {
+    "none": 26.4,
+    "model": 46.3
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 75.55,
+    "first_rule_t": 54.5,
+    "first_rule_d_change": 344.30000000000007,
+    "max_elig_t": 52.0,
+    "max_elig_d_change": 16.5,
+    "max_any_t": 6.5,
+    "max_any_d_change": 172.20000000000002,
+    "chosen_t": 54.5,
+    "chosen_d_change": 344.30000000000007,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 75.55,
+    "n_frames_checked": 151,
+    "n_frames_alive_both": 151,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 1278.57,
+    "crit_max_dev_t_s": 75.5,
+    "crit_first_gt_1m_20hz_s": 14.35,
+    "any_agent_first_gt_1m_2hz_s": 14.5,
+    "any_agent_first_gt_1m_slots": [
+     20
+    ],
+    "own_div_at_t_min_m": 67.86,
+    "own_div_max_before_t_min_m": 104.71,
+    "own_first_gt_1m_20hz_s": 16.3
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 542,
+   "slot": 3,
+   "type_name": "Unknown",
+   "intent_name": "LoiterHover",
+   "gt_type": 6,
+   "gt_intent": 2,
+   "t_min_a": 70.8,
+   "a_min_row": 4.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0542",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 4.54,
+   "a_t_rec": 70.8,
+   "c_min_rec": 729.2,
+   "c_t_rec": 90.0,
+   "c_episode_min_rec": 208.53,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 28.0,
+    "model": 43.5
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 70.8,
+    "first_rule_t": 37.0,
+    "first_rule_d_change": 128.10000000000002,
+    "max_elig_t": 25.5,
+    "max_elig_d_change": 0.3000000000000007,
+    "max_any_t": 21.0,
+    "max_any_d_change": 29.5,
+    "chosen_t": 37.0,
+    "chosen_d_change": 128.10000000000002,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 70.8,
+    "n_frames_checked": 141,
+    "n_frames_alive_both": 141,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 1703.54,
+    "crit_max_dev_t_s": 70.5,
+    "crit_first_gt_1m_20hz_s": 25.0,
+    "any_agent_first_gt_1m_2hz_s": 24.0,
+    "any_agent_first_gt_1m_slots": [
+     23
+    ],
+    "own_div_at_t_min_m": 68.74,
+    "own_div_max_before_t_min_m": 68.81,
+    "own_first_gt_1m_20hz_s": 14.4
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 553,
+   "slot": 5,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "LoiterHover",
+   "gt_type": 2,
+   "gt_intent": 2,
+   "t_min_a": 40.15,
+   "a_min_row": 12.1,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0553",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 12.15,
+   "a_t_rec": 40.15,
+   "c_min_rec": 410.86,
+   "c_t_rec": 37.15,
+   "c_episode_min_rec": 65.84,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 26.2,
+    "model": 44.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 40.15,
+    "first_rule_t": 13.0,
+    "first_rule_d_change": 45.1,
+    "max_elig_t": 12.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 10.0,
+    "max_any_d_change": 75.2,
+    "chosen_t": 13.0,
+    "chosen_d_change": 45.1,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 40.15,
+    "n_frames_checked": 80,
+    "n_frames_alive_both": 80,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 554.12,
+    "crit_max_dev_t_s": 40.0,
+    "crit_first_gt_1m_20hz_s": 18.6,
+    "any_agent_first_gt_1m_2hz_s": 15.0,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 113.62,
+    "own_div_max_before_t_min_m": 115.96,
+    "own_first_gt_1m_20hz_s": 12.25
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 562,
+   "slot": 7,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "SearchWander",
+   "gt_type": 2,
+   "gt_intent": 3,
+   "t_min_a": 48.4,
+   "a_min_row": 8.6,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/ep0562",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 8.58,
+   "a_t_rec": 48.4,
+   "c_min_rec": 273.47,
+   "c_t_rec": 50.75,
+   "c_episode_min_rec": 80.35,
+   "c_episode_min_slot": 1,
+   "wall_s": {
+    "none": 27.3,
+    "model": 44.1
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 48.4,
+    "first_rule_t": 23.0,
+    "first_rule_d_change": 63.0,
+    "max_elig_t": 22.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 20.0,
+    "max_any_d_change": 70.0,
+    "chosen_t": 23.0,
+    "chosen_d_change": 63.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 48.4,
+    "n_frames_checked": 96,
+    "n_frames_alive_both": 96,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 203.68,
+    "crit_max_dev_t_s": 48.0,
+    "crit_first_gt_1m_20hz_s": 31.35,
+    "any_agent_first_gt_1m_2hz_s": 14.0,
+    "any_agent_first_gt_1m_slots": [
+     18
+    ],
+    "own_div_at_t_min_m": 178.71,
+    "own_div_max_before_t_min_m": 178.71,
+    "own_first_gt_1m_20hz_s": 12.35
+   },
+   "status": "attributability_failed"
+  }
+ ],
+ "selection": {
+  "index": 319,
+  "rank_1based": 2,
+  "n_survivors": 3,
+  "c_min_rec": 221.83,
+  "median_rule": "lower median for an even count",
+  "order_by_c_min": [
+   [
+    183,
+    218.76
+   ],
+   [
+    319,
+    221.83
+   ],
+   [
+    595,
+    240.62
+   ]
+  ]
+ },
+ "n_survivors": 3,
+ "extend_pool": true
+}

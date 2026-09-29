@@ -1,0 +1,555 @@
+{
+  "model": "C:/PRISM/Logs/Models/20260926_231702_r3_pointnet_s0/checkpoints/best.pt",
+  "eval_runs": [
+    "C:/PRISM/Logs/Dataset/20260813_023139_test_id_full5x"
+  ],
+  "n_samples": 170076,
+  "overall": {
+    "minADE": 73.31372862410132,
+    "minFDE": 146.44774645395776,
+    "NLL": 2.4401482767616804,
+    "type_acc": 0.9058832521987445,
+    "mode_entropy": 0.0,
+    "pi_0": 1.0,
+    "use_0": 1.0,
+    "cov50_5s": 0.9432430207755974,
+    "cov70_5s": 0.973641195704951,
+    "cov90_5s": 0.9928326160069616,
+    "cov50_10s": 0.7463486911831706,
+    "cov70_10s": 0.843052517692363,
+    "cov90_10s": 0.9208530303973179,
+    "cov50_15s": 0.5312095768943342,
+    "cov70_15s": 0.6586820009877937,
+    "cov90_15s": 0.7859839130811642,
+    "top1ADE": 73.31372840428615,
+    "top1FDE": 146.44774646755047,
+    "meanADE": 73.31372840428615,
+    "meanFDE": 146.44774646755047,
+    "trajNLL": 2.440148273512226,
+    "trajNLL_total": 73.20444821543195,
+    "ES": 398.0468917685547,
+    "H_pi": 0.0,
+    "branch_sep_15s": 0.0,
+    "n_distinct": 1.0
+  },
+  "reliability": [
+    {
+      "nominal": 0.5,
+      "horizon_s": 5,
+      "empirical": 0.9432430207755974
+    },
+    {
+      "nominal": 0.5,
+      "horizon_s": 10,
+      "empirical": 0.7463486911831706
+    },
+    {
+      "nominal": 0.5,
+      "horizon_s": 15,
+      "empirical": 0.5312095768943342
+    },
+    {
+      "nominal": 0.7,
+      "horizon_s": 5,
+      "empirical": 0.973641195704951
+    },
+    {
+      "nominal": 0.7,
+      "horizon_s": 10,
+      "empirical": 0.843052517692363
+    },
+    {
+      "nominal": 0.7,
+      "horizon_s": 15,
+      "empirical": 0.6586820009877937
+    },
+    {
+      "nominal": 0.9,
+      "horizon_s": 5,
+      "empirical": 0.9928326160069616
+    },
+    {
+      "nominal": 0.9,
+      "horizon_s": 10,
+      "empirical": 0.9208530303973179
+    },
+    {
+      "nominal": 0.9,
+      "horizon_s": 15,
+      "empirical": 0.7859839130811642
+    }
+  ],
+  "by_type": {
+    "Multirotor": {
+      "minADE": 51.858436584472656,
+      "minFDE": 92.5752182006836,
+      "n": 70612
+    },
+    "FixedWingUAS": {
+      "minADE": 97.86196899414062,
+      "minFDE": 205.9276123046875,
+      "n": 59900
+    },
+    "eVTOL": {
+      "minADE": 74.44003295898438,
+      "minFDE": 152.54429626464844,
+      "n": 39564
+    }
+  },
+  "by_intent": {
+    "CorridorTransit": {
+      "minADE": 63.639808654785156,
+      "n": 67818
+    },
+    "DeliveryWP": {
+      "minADE": 81.10582733154297,
+      "n": 59396
+    },
+    "LoiterHover": {
+      "minADE": 77.82231140136719,
+      "n": 42862
+    }
+  },
+  "latency_ms": {
+    "batch1_ms": 4.2,
+    "batch16_ms": 3.067
+  },
+  "index_rule": "current",
+  "feature_rule": "current",
+  "index_rule_override": null,
+  "data_cfg": {
+    "max_agents": 10,
+    "t0_stride": 4,
+    "min_obs": 3,
+    "min_future_valid": 27,
+    "val_fraction": 0.1,
+    "max_samples_per_epoch": 0,
+    "track_rule": "current"
+  },
+  "run_dirs": [
+    "C:/PRISM/Logs/Dataset/20260813_023139_test_id_full5x"
+  ],
+  "model_sha256": "b4128aa51cd3d6a7951445687ca4e23b21294641660da72f7558bf238c943164",
+  "n_index": 170076,
+  "complete": true,
+  "code_fp": {
+    "sha256": "7cdc1d63d908567f0a56159598a85d936f4c7cbc6da8f79c17487815d26a0a18",
+    "n_files": 61,
+    "n_bytes": 687800,
+    "roots": [
+      "modelTraining",
+      "modelVal",
+      "baselines"
+    ],
+    "per_root": {
+      "modelTraining": "57e516f7e8b6e7aed65716d5fd4607831c7864ca8216fd4d98ad4ab1d1f2da7d",
+      "modelVal": "d75f44720d797a49b25a809477448b4a38d4935beaeff66bdddda718ccbe53c4",
+      "baselines": "dd7bcb9751da553fa5761348ffd8e374b7bf8c7e2e2d055657d1738aa4388be9"
+    },
+    "definition": "sha256 over sorted relpath + NUL + bytes of every .py under the roots, __pycache__ excluded"
+  },
+  "mc_seed": 20260925,
+  "es_seed": 20260926,
+  "batch_size": 256,
+  "strata": {
+    "all": {
+      "n": 170076,
+      "minADE": 73.31372840428615,
+      "minFDE": 146.44774646755047,
+      "NLL": 2.440148273512226,
+      "top1ADE": 73.31372840428615,
+      "top1FDE": 146.44774646755047,
+      "meanADE": 73.31372840428615,
+      "meanFDE": 146.44774646755047,
+      "trajNLL": 2.440148273512226,
+      "trajNLL_total": 73.20444821543195,
+      "ES": 398.0468917685547,
+      "H_pi": 0.0,
+      "branch_sep_15s": 0.0,
+      "n_distinct": 1.0,
+      "n_valid": 30.0,
+      "type_acc": 0.9058832521931371,
+      "mode_entropy": -0.0,
+      "pi_0": 1.0,
+      "use_0": 1.0,
+      "n_distinct_frac": {
+        "1": 1.0
+      },
+      "cov50_5s": 0.9432430207671865,
+      "cov50_10s": 0.7463486911733578,
+      "cov50_15s": 0.5312095768950351,
+      "cov70_5s": 0.9736411957007456,
+      "cov70_10s": 0.8430525176979703,
+      "cov70_15s": 0.6586820009877937,
+      "cov90_5s": 0.9928326160069616,
+      "cov90_10s": 0.9208530304099344,
+      "cov90_15s": 0.785983913074155
+    },
+    "reacq": {
+      "0": {
+        "n": 135417,
+        "minADE": 62.75449192286668,
+        "minFDE": 129.5954713455397,
+        "NLL": 2.2711174109471592,
+        "top1ADE": 62.75449192286668,
+        "top1FDE": 129.5954713455397,
+        "meanADE": 62.75449192286668,
+        "meanFDE": 129.5954713455397,
+        "trajNLL": 2.2711174109471592,
+        "trajNLL_total": 68.13352233426534,
+        "ES": 358.44755078621967,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9419792197434591,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9795594349306217,
+        "cov50_10s": 0.8039906363307413,
+        "cov50_15s": 0.5821204132420598,
+        "cov70_5s": 0.994055399248248,
+        "cov70_10s": 0.8916901127627993,
+        "cov70_15s": 0.7102653285776527,
+        "cov90_5s": 0.9991581559183854,
+        "cov90_10s": 0.9548431880783063,
+        "cov90_15s": 0.8310847234837576
+      },
+      "1": {
+        "n": 34659,
+        "minADE": 114.56997141777126,
+        "minFDE": 212.29166984091194,
+        "NLL": 3.100572761119301,
+        "top1ADE": 114.56997141777126,
+        "top1FDE": 212.29166984091194,
+        "meanADE": 114.56997141777126,
+        "meanFDE": 212.29166984091194,
+        "trajNLL": 3.100572761119301,
+        "trajNLL_total": 93.01718286011126,
+        "ES": 552.7664150613464,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.7648518422343403,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.8013502986237341,
+        "cov50_10s": 0.5211344816642142,
+        "cov50_15s": 0.3322946420843071,
+        "cov70_5s": 0.8938803773911538,
+        "cov70_10s": 0.6530194177558498,
+        "cov70_15s": 0.45713955971032055,
+        "cov90_5s": 0.9681179491618339,
+        "cov90_10s": 0.7880492801292593,
+        "cov90_15s": 0.6097694682477856
+      }
+    },
+    "type": {
+      "Multirotor": {
+        "n": 70612,
+        "minADE": 51.85844138819155,
+        "minFDE": 92.57522222301161,
+        "NLL": 2.0973167688959498,
+        "top1ADE": 51.85844138819155,
+        "top1FDE": 92.57522222301161,
+        "meanADE": 51.85844138819155,
+        "meanFDE": 92.57522222301161,
+        "trajNLL": 2.0973167688959498,
+        "trajNLL_total": 62.919503077402915,
+        "ES": 311.12533293968085,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9724551067807171,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9803999320228857,
+        "cov50_10s": 0.8799212598425197,
+        "cov50_15s": 0.7204724409448819,
+        "cov70_5s": 0.9928199172945108,
+        "cov70_10s": 0.9494278592873733,
+        "cov70_15s": 0.8484960063445307,
+        "cov90_5s": 0.9986262958137427,
+        "cov90_10s": 0.9837421401461508,
+        "cov90_15s": 0.9426301478502238
+      },
+      "FixedWingUAS": {
+        "n": 59900,
+        "minADE": 97.86196783954193,
+        "minFDE": 205.92759790550488,
+        "NLL": 2.796850843377822,
+        "top1ADE": 97.86196783954193,
+        "top1FDE": 205.92759790550488,
+        "meanADE": 97.86196783954193,
+        "meanFDE": 205.92759790550488,
+        "trajNLL": 2.796850843377822,
+        "trajNLL_total": 83.90552531342674,
+        "ES": 494.16075736655614,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9086310517529216,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9029549248747913,
+        "cov50_10s": 0.582804674457429,
+        "cov50_15s": 0.31168614357262103,
+        "cov70_5s": 0.9576460767946577,
+        "cov70_10s": 0.71669449081803,
+        "cov70_15s": 0.44335559265442404,
+        "cov90_5s": 0.9922871452420701,
+        "cov90_10s": 0.8481469115191986,
+        "cov90_15s": 0.6131552587646076
+      },
+      "eVTOL": {
+        "n": 39564,
+        "minADE": 74.44003475876625,
+        "minFDE": 152.5442882940066,
+        "NLL": 2.5119694814036246,
+        "top1ADE": 74.44003475876625,
+        "top1FDE": 152.5442882940066,
+        "meanADE": 74.44003475876625,
+        "meanFDE": 152.5442882940066,
+        "trajNLL": 2.5119694814036246,
+        "trajNLL_total": 75.35908444828554,
+        "ES": 407.66383046798234,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.7829087048832272,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9379233646749571,
+        "cov50_10s": 0.7555606106561521,
+        "cov50_15s": 0.5257810130421595,
+        "cov70_5s": 0.963628551208169,
+        "cov70_10s": 0.8445051056516024,
+        "cov70_15s": 0.6459154787180265,
+        "cov90_5s": 0.9833181680315438,
+        "cov90_10s": 0.9186887069052674,
+        "cov90_15s": 0.7680719846324942
+      }
+    },
+    "intent": {
+      "CorridorTransit": {
+        "n": 67818,
+        "minADE": 63.63980689053056,
+        "minFDE": 123.91911277245349,
+        "NLL": 2.2840264657881826,
+        "top1ADE": 63.63980689053056,
+        "top1FDE": 123.91911277245349,
+        "meanADE": 63.63980689053056,
+        "meanFDE": 123.91911277245349,
+        "trajNLL": 2.2840264657881826,
+        "trajNLL_total": 68.52079398724368,
+        "ES": 356.8520364498951,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9351794508832464,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9575628889085493,
+        "cov50_10s": 0.8196349051874133,
+        "cov50_15s": 0.6128166563449232,
+        "cov70_5s": 0.9781031584535079,
+        "cov70_10s": 0.8979621929281312,
+        "cov70_15s": 0.7486213099767024,
+        "cov90_5s": 0.9929222330354773,
+        "cov90_10s": 0.9516205137279189,
+        "cov90_15s": 0.863885694063523
+      },
+      "DeliveryWP": {
+        "n": 59396,
+        "minADE": 81.10582204525443,
+        "minFDE": 162.00827172763243,
+        "NLL": 2.5166142424599265,
+        "top1ADE": 81.10582204525443,
+        "top1FDE": 162.00827172763243,
+        "meanADE": 81.10582204525443,
+        "meanFDE": 162.00827172763243,
+        "trajNLL": 2.5166142424599265,
+        "trajNLL_total": 75.49842728520974,
+        "ES": 420.93241326085916,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9316283924843424,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9389857902889084,
+        "cov50_10s": 0.7020169708397872,
+        "cov50_15s": 0.45129301636473834,
+        "cov70_5s": 0.9721698430870765,
+        "cov70_10s": 0.8216378207286686,
+        "cov70_15s": 0.5991144184793589,
+        "cov90_5s": 0.9921880261297057,
+        "cov90_10s": 0.9132433160482187,
+        "cov90_15s": 0.7535019193211664
+      },
+      "LoiterHover": {
+        "n": 42862,
+        "minADE": 77.82230978921743,
+        "minFDE": 160.53047526196653,
+        "NLL": 2.581207861599845,
+        "top1ADE": 77.82230978921743,
+        "top1FDE": 160.53047526196653,
+        "meanADE": 77.82230978921743,
+        "meanFDE": 160.53047526196653,
+        "trajNLL": 2.581207861599845,
+        "trajNLL_total": 77.43623585060415,
+        "ES": 431.51346503727626,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.8238532966263823,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9264849983668517,
+        "cov50_10s": 0.691824926508329,
+        "cov50_15s": 0.5128318790537072,
+        "cov70_5s": 0.9686202230413886,
+        "cov70_10s": 0.7858476039382203,
+        "cov70_15s": 0.5989221221594886,
+        "cov90_5s": 0.9935840604731464,
+        "cov90_10s": 0.8827166254491158,
+        "cov90_15s": 0.707736456534926
+      }
+    },
+    "avoid": {
+      "inactive": {
+        "n": 88210,
+        "minADE": 69.07162361282528,
+        "minFDE": 134.9248500136217,
+        "NLL": 2.3701494795423885,
+        "top1ADE": 69.07162361282528,
+        "top1FDE": 134.9248500136217,
+        "meanADE": 69.07162361282528,
+        "meanFDE": 134.9248500136217,
+        "trajNLL": 2.3701494795423885,
+        "trajNLL_total": 71.10448439671276,
+        "ES": 380.07906425483856,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.9249858292710577,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9471148395873483,
+        "cov50_10s": 0.7753996145561728,
+        "cov50_15s": 0.5734157125042513,
+        "cov70_5s": 0.9755809998866342,
+        "cov70_10s": 0.8661943090352567,
+        "cov70_15s": 0.7013490533953066,
+        "cov90_5s": 0.993934928012697,
+        "cov90_10s": 0.9325246570683596,
+        "cov90_15s": 0.8218115859879832
+      },
+      "active": {
+        "n": 81866,
+        "minADE": 77.88456444922257,
+        "minFDE": 158.86358083347844,
+        "NLL": 2.515571448164455,
+        "top1ADE": 77.88456444922257,
+        "top1FDE": 158.86358083347844,
+        "meanADE": 77.88456444922257,
+        "meanFDE": 158.86358083347844,
+        "trajNLL": 2.515571448164455,
+        "trajNLL_total": 75.46714345459375,
+        "ES": 417.4070909353016,
+        "H_pi": 0.0,
+        "branch_sep_15s": 0.0,
+        "n_distinct": 1.0,
+        "n_valid": 30.0,
+        "type_acc": 0.8853003688955122,
+        "mode_entropy": -0.0,
+        "pi_0": 1.0,
+        "use_0": 1.0,
+        "n_distinct_frac": {
+          "1": 1.0
+        },
+        "cov50_5s": 0.9390711650746342,
+        "cov50_10s": 0.7150465394669338,
+        "cov50_15s": 0.4857327828402511,
+        "cov70_5s": 0.9715510712627953,
+        "cov70_10s": 0.8181174113795715,
+        "cov70_15s": 0.612708572545379,
+        "cov90_5s": 0.9916448831016539,
+        "cov90_10s": 0.9082769403659638,
+        "cov90_15s": 0.7473798646568783
+      }
+    }
+  },
+  "avoid_labels": {
+    "labels_dir": "C:/PRISM/Logs/Analysis/reaction_labels",
+    "n_episodes": 900,
+    "n_episodes_missing": 0,
+    "missing_examples": [],
+    "n_samples_unknown": 0,
+    "n_samples_active": 81866,
+    "n_samples_inactive": 88210
+  },
+  "metric_definitions": {
+    "minADE/minFDE": "m; best of K branch means (min over branches of the valid-step mean error / error at the last valid step)",
+    "NLL": "per-step MARGINAL mixture NLL: mean over valid steps of -log sum_k pi_k N(y_t; mu_kt, Sigma_kt) (branches re-mixed at every step), then mean over samples; density per (POS_SCALE m)^2 = per (100 m)^2 (add 2 ln 100 = 9.2103 per step for per m^2)",
+    "top1ADE/top1FDE": "m; branch with the highest pi",
+    "meanADE/meanFDE": "m; mixture mean sum_k pi_k mu_kt",
+    "trajNLL": "trajectory NLL, one branch shared over the horizon: -log sum_k pi_k prod_{t valid} N(y_t; mu_kt, Sigma_kt), divided by the number of valid steps (as l_mix); same units as NLL; steps independent within a branch",
+    "trajNLL_total": "the same, not divided (per-sample total)",
+    "ES": "m; energy score of the concatenated valid-step trajectory, M=64 draws (k ~ pi, independent per-step Gaussians given k), unbiased pair term, dedicated generator seed 20260926",
+    "H_pi": "nats; branch entropy -sum pi ln pi",
+    "branch_sep_15s": "m; mean pairwise distance between branch means at 15 s (0 for K=1)",
+    "n_distinct": "branches with pi > 0.05 whose 15 s mean is more than 2.0 sigma_iso (of the higher-weight branch; sigma_iso = sqrt((sx^2+sy^2)/2)) from every higher-weight branch's 15 s mean",
+    "covP_Hs": "MC-HPD coverage (128 draws/sample from a dedicated generator seeded 20260925; pre-round-1 reports used the unseeded global RNG); 'overall' averages per-batch fractions weighted by batch size (legacy), 'strata' pool inside/valid over the stratum",
+    "mode_entropy": "normalised entropy of the winner (argmin ADE) histogram; 'overall' = batch-weighted mean of per-batch values (legacy), 'strata' = pooled histogram",
+    "reacq": "0 = history window holds only detections of the track open at t0; 1 = it also holds detections of an earlier, closed track of the same object (reacquired); 2 = no open track at t0 (slot eligibility only); -1 = no track ids stored",
+    "avoid": "1 = the target's reaction layer is active at any logged step t0+1..t0+30 (labels/<run>/<episode>.npz: reaction_active [T,N]); 0 = never active; -1 = no label file for the episode"
+  },
+  "created": "2026-09-27 01:26:14",
+  "wall_s": 65.2,
+  "per_sample_path": "C:/PRISM/Logs/Analysis/eval_r3/r3_pointnet_s0_testid_persample.npz"
+}

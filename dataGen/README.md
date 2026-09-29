@@ -2,33 +2,29 @@
 
 **2D traffic simulator and trajectory-prediction dataset generator.**
 
-This is stage 1–3 of the PRISM pipeline (`논문관련.txt` section `[10]`):
+This package supplies the simulator and observation tracks used by PRISM:
 
 ```
-2D simulator  ->  trajectory prediction model  ->  BEV risk map  ->  PPO policy
+2D simulator -> multi-branch prediction -> time-indexed risk -> fixed Frenet planner
 ^^^^^^^^^^^^
 this program
 ```
 
-PRISM studies *calibrated* probabilistic trajectory prediction for RL-based
-collision avoidance against **non-cooperative** aerial traffic in low-altitude
-airspace (doc `[0]`). "Non-cooperative" means no ADS-B and no Remote ID: only
-onboard sensor tracks exist, with no identity or intent labels (doc `[3.5]`).
+The revised paper studies observation-based forecasting and planning for
+**non-cooperative** aerial traffic. The predictor uses current sensor tracks,
+not prior object-type, identity or intent labels. The experiments model
+horizontal motion; they are not real-traffic or 3D flight validation.
 This program builds the simulator and the dataset. It does not train anything.
 
 ---
 
-## The one design rule that governs everything (doc 3.1)
+## Simulation scope
 
-> The simulator's purpose is **not** to look realistic. It is to embed structure
-> that a constant-velocity (CV) extrapolator **cannot** predict.
-
-If trajectories are too straight, CV wins and the paper's contribution
-collapses. Multimodality therefore arises from **stochastic decision rules
-given to agents** (doc 3.3) — never from hand-placed waypoints on a map.
-
-`python main.py diagnose` is the guard on that rule and the first thing to run
-after any change to the simulator (doc `[10]` step 2).
+Type-specific motion, maneuver and reaction rules create a range of futures
+from shared observed histories. These are explicit simulator assumptions,
+not a claim of complete real-world traffic coverage. The CV diagnostic
+characterizes dataset difficulty before predictor training; it does not
+establish comparative performance or safety on its own.
 
 ---
 

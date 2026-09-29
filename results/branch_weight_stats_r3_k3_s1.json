@@ -1,0 +1,20 @@
+{
+ "testid": {
+  "n": 170076,
+  "min_pi_min": 0.1164,
+  "min_pi_p01": 0.195,
+  "min_pi_median": 0.2818,
+  "frac_min_below_0.05": 0.0,
+  "frac_min_below_0.10": 0.0,
+  "frac_min_below_0.20": 0.01342
+ },
+ "testood": {
+  "n": 399403,
+  "min_pi_min": 0.1134,
+  "min_pi_p01": 0.201,
+  "min_pi_median": 0.2869,
+  "frac_min_below_0.05": 0.0,
+  "frac_min_below_0.10": 0.0,
+  "frac_min_below_0.20": 0.00939
+ }
+}

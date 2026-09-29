@@ -1,0 +1,20 @@
+{
+  "id": "20260926_231702_r3_pointnet_s0",
+  "kind": "train",
+  "status": "failed",
+  "progress": {
+    "phase": "failed",
+    "pct": 100.0,
+    "epoch": 26,
+    "epochs": 26,
+    "step": 116922,
+    "steps_per_epoch": 4497,
+    "eta_s": 0.0,
+    "samples_per_s": 7093.9,
+    "gpu_mem_gb": 0.04,
+    "phase_detail": "indexing 6000/6000 episodes, 1151057 samples"
+  },
+  "error": "Traceback (most recent call last):\n  File \"C:\\PRISM\\.envs\\PRISM310\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 1243, in _try_get_data\n    data = self._data_queue.get(timeout=timeout)\n  File \"C:\\PRISM\\.envs\\PRISM310\\lib\\queue.py\", line 179, in get\n    raise Empty\n_queue.Empty\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\PRISM\\r3\\modelTraining\\training\\job.py\", line 152, in _run_loop\n    target(job, *args)\n  File \"C:\\PRISM\\r3\\modelTraining\\training\\trainer.py\", line 190, in run_training\n    vm = _validate(model, val_loader, device, use_amp, amp_dtype, job)\n  File \"C:\\PRISM\\.envs\\PRISM310\\lib\\site-packages\\torch\\utils\\_contextlib.py\", line 116, in decorate_context\n    return func(*args, **kwargs)\n  File \"C:\\PRISM\\r3\\modelTraining\\training\\trainer.py\", line 254, in _validate\n    for batch in val_loader:\n  File \"C:\\PRISM\\.envs\\PRISM310\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 701, in __next__\n    data = self._next_data()\n  File \"C:\\PRISM\\.envs\\PRISM310\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 1448, in _next_data\n    idx, data = self._get_data()\n  File \"C:\\PRISM\\.envs\\PRISM310\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 1402, in _get_data\n    success, data = self._try_get_data()\n  File \"C:\\PRISM\\.envs\\PRISM310\\lib\\site-packages\\torch\\utils\\data\\dataloader.py\", line 1256, in _try_get_data\n    raise RuntimeError(\nRuntimeError: DataLoader worker (pid(s) 8932, 13572) exited unexpectedly\n",
+  "created": 1790432222.182887,
+  "summary": {}
+}

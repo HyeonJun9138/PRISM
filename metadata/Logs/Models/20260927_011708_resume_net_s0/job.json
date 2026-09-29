@@ -1,0 +1,28 @@
+{
+  "id": "20260927_011708_resume_net_s0",
+  "kind": "train",
+  "status": "finished",
+  "progress": {
+    "phase": "finished",
+    "pct": 100.0,
+    "epoch": 26,
+    "epochs": 26,
+    "step": 116922,
+    "steps_per_epoch": 4497,
+    "eta_s": 0.0,
+    "samples_per_s": 3102.4,
+    "gpu_mem_gb": 0.04,
+    "phase_detail": "indexing 6000/6000 episodes, 1151057 samples"
+  },
+  "error": null,
+  "created": 1790439428.8339446,
+  "summary": {
+    "best": {
+      "value": 73.80977717285157,
+      "epoch": 21
+    },
+    "params": 1423038,
+    "final_model": "C:/PRISM/Logs/Models/20260927_011708_resume_net_s0/final/model_final.pt",
+    "stopped_by_user": false
+  }
+}

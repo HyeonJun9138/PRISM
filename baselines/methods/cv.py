@@ -18,12 +18,13 @@ from __future__ import annotations
 import numpy as np
 
 from common.constants import HIST_STEPS, PRED_STEPS
+from data.dataset import window_detections
 
 LOG_DT = 0.5
 
 
 def cv_predict_obs(ep: dict, t0: int, target: int,
-                   fit_window: int = 5) -> np.ndarray | None:
+                   fit_window: int = 5, rule: str = "slot") -> np.ndarray | None:
     """CV extrapolation from the observed track. [PRED,2] world metres.
 
     Velocity comes from a least-squares line fit over the last up-to-
@@ -32,9 +33,17 @@ def cv_predict_obs(ep: dict, t0: int, target: int,
     residual sigma at 15 s -- a strawman no reviewer would accept as "the CV
     baseline". The LS fit is what any real tracker front-end would do and
     remains strictly constant-velocity.
+
+    ``rule`` is the track rule of the neural feature builder
+    (modelTraining/data/dataset.py): "current" fits only detections of the
+    track OPEN at t0 -- a reacquired object's earlier, closed tracks are
+    invisible, as the stated tracking model says; "slot" (the default, the
+    pre-round-1 behaviour) uses every detection of the physical slot, i.e.
+    oracle re-association. The harness always passes track_rule(data_cfg).
+    Returns None when fewer than two usable detections exist.
     """
     h0 = t0 - HIST_STEPS + 1
-    det = ep["obs_detected"][h0:t0 + 1, target].astype(bool)
+    det = window_detections(ep, t0, rule)[:, target]
     hs = np.flatnonzero(det)
     if hs.size < 2:
         return None

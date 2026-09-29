@@ -1,0 +1,495 @@
+{
+ "records": [
+  {
+   "case": "baseline",
+   "run": "D:/PRISM/Logs/Dataset\\20260907_200707_sens_baseline_rebut",
+   "job": "20260907_201457_eval",
+   "returncode": 0,
+   "metrics": {
+    "minADE": 47.212,
+    "minFDE": 87.3495,
+    "NLL": 1.0647,
+    "type_acc": 0.9284,
+    "mode_entropy": 0.9669,
+    "pi_0": 0.3941,
+    "use_0": 0.447,
+    "pi_1": 0.3014,
+    "use_1": 0.2735,
+    "pi_2": 0.3045,
+    "use_2": 0.2795,
+    "cov50_5s": 0.5006,
+    "cov70_5s": 0.7118,
+    "cov90_5s": 0.8865,
+    "cov50_10s": 0.5068,
+    "cov70_10s": 0.7163,
+    "cov90_10s": 0.8852,
+    "cov50_15s": 0.5396,
+    "cov70_15s": 0.7379,
+    "cov90_15s": 0.8984
+   },
+   "n_samples": 47814,
+   "patch": {
+    "case": "baseline",
+    "kind": "none",
+    "description": "no perturbation; regenerates the control so the comparison is like for like",
+    "edits": {}
+   }
+  },
+  {
+   "case": "dwell_lo",
+   "run": "D:/PRISM/Logs/Dataset\\20260907_200707_sens_dwell_lo_rebut",
+   "job": "20260907_201609_eval",
+   "returncode": 0,
+   "metrics": {
+    "minADE": 46.1673,
+    "minFDE": 84.6471,
+    "NLL": 1.0155,
+    "type_acc": 0.93,
+    "mode_entropy": 0.9656,
+    "pi_0": 0.3948,
+    "use_0": 0.4494,
+    "pi_1": 0.3011,
+    "use_1": 0.2729,
+    "pi_2": 0.3041,
+    "use_2": 0.2776,
+    "cov50_5s": 0.5008,
+    "cov70_5s": 0.7211,
+    "cov90_5s": 0.8974,
+    "cov50_10s": 0.5121,
+    "cov70_10s": 0.729,
+    "cov90_10s": 0.9016,
+    "cov50_15s": 0.553,
+    "cov70_15s": 0.7549,
+    "cov90_15s": 0.9157
+   },
+   "n_samples": 47838,
+   "patch": {
+    "case": "dwell_lo",
+    "kind": "dwell",
+    "description": "manoeuvre dwell times scaled by 0.7",
+    "edits": {
+     "platforms.INTENT_DWELL_MULTIPLIER": [
+      "dict",
+      "x0.7"
+     ],
+     "platforms.UNKNOWN_DWELL_SCALE": [
+      0.45,
+      0.315
+     ],
+     "stability[0]": {
+      "dwell_min_s": [
+       1.0,
+       0.7
+      ],
+      "dwell_mean_s": [
+       2.5,
+       1.75
+      ]
+     },
+     "stability[1]": {
+      "dwell_min_s": [
+       2.0,
+       1.4
+      ],
+      "dwell_mean_s": [
+       4.5,
+       3.15
+      ]
+     },
+     "stability[2]": {
+      "dwell_min_s": [
+       4.0,
+       2.8
+      ],
+      "dwell_mean_s": [
+       9.0,
+       6.3
+      ]
+     },
+     "stability[3]": {
+      "dwell_min_s": [
+       12.0,
+       8.399999999999999
+      ],
+      "dwell_mean_s": [
+       25.0,
+       17.5
+      ]
+     },
+     "stability[4]": {
+      "dwell_min_s": [
+       8.0,
+       5.6
+      ],
+      "dwell_mean_s": [
+       18.0,
+       12.6
+      ]
+     },
+     "stability[5]": {
+      "dwell_min_s": [
+       5.0,
+       3.5
+      ],
+      "dwell_mean_s": [
+       30.0,
+       21.0
+      ]
+     },
+     "stability[6]": {
+      "dwell_min_s": [
+       1.0,
+       0.7
+      ],
+      "dwell_mean_s": [
+       2.0,
+       1.4
+      ]
+     }
+    }
+   }
+  },
+  {
+   "case": "dwell_hi",
+   "run": "D:/PRISM/Logs/Dataset\\20260907_200707_sens_dwell_hi_rebut",
+   "job": "20260907_201720_eval",
+   "returncode": 0,
+   "metrics": {
+    "minADE": 47.5765,
+    "minFDE": 87.9146,
+    "NLL": 1.071,
+    "type_acc": 0.9261,
+    "mode_entropy": 0.9658,
+    "pi_0": 0.3942,
+    "use_0": 0.448,
+    "pi_1": 0.3016,
+    "use_1": 0.2772,
+    "pi_2": 0.3042,
+    "use_2": 0.2748,
+    "cov50_5s": 0.5015,
+    "cov70_5s": 0.7115,
+    "cov90_5s": 0.8883,
+    "cov50_10s": 0.5071,
+    "cov70_10s": 0.7134,
+    "cov90_10s": 0.8823,
+    "cov50_15s": 0.5403,
+    "cov70_15s": 0.7325,
+    "cov90_15s": 0.8937
+   },
+   "n_samples": 47918,
+   "patch": {
+    "case": "dwell_hi",
+    "kind": "dwell",
+    "description": "manoeuvre dwell times scaled by 1.3",
+    "edits": {
+     "platforms.INTENT_DWELL_MULTIPLIER": [
+      "dict",
+      "x1.3"
+     ],
+     "platforms.UNKNOWN_DWELL_SCALE": [
+      0.45,
+      0.5850000000000001
+     ],
+     "stability[0]": {
+      "dwell_min_s": [
+       1.0,
+       1.3
+      ],
+      "dwell_mean_s": [
+       2.5,
+       3.25
+      ]
+     },
+     "stability[1]": {
+      "dwell_min_s": [
+       2.0,
+       2.6
+      ],
+      "dwell_mean_s": [
+       4.5,
+       5.8500000000000005
+      ]
+     },
+     "stability[2]": {
+      "dwell_min_s": [
+       4.0,
+       5.2
+      ],
+      "dwell_mean_s": [
+       9.0,
+       11.700000000000001
+      ]
+     },
+     "stability[3]": {
+      "dwell_min_s": [
+       12.0,
+       15.600000000000001
+      ],
+      "dwell_mean_s": [
+       25.0,
+       32.5
+      ]
+     },
+     "stability[4]": {
+      "dwell_min_s": [
+       8.0,
+       10.4
+      ],
+      "dwell_mean_s": [
+       18.0,
+       23.400000000000002
+      ]
+     },
+     "stability[5]": {
+      "dwell_min_s": [
+       5.0,
+       6.5
+      ],
+      "dwell_mean_s": [
+       30.0,
+       39.0
+      ]
+     },
+     "stability[6]": {
+      "dwell_min_s": [
+       1.0,
+       1.3
+      ],
+      "dwell_mean_s": [
+       2.0,
+       2.6
+      ]
+     }
+    }
+   }
+  },
+  {
+   "case": "notice_lo",
+   "run": "D:/PRISM/Logs/Dataset\\20260907_200707_sens_notice_lo_rebut",
+   "job": "20260907_201831_eval",
+   "returncode": 0,
+   "metrics": {
+    "minADE": 47.44,
+    "minFDE": 87.4331,
+    "NLL": 1.0722,
+    "type_acc": 0.9258,
+    "mode_entropy": 0.9655,
+    "pi_0": 0.3941,
+    "use_0": 0.4477,
+    "pi_1": 0.3015,
+    "use_1": 0.271,
+    "pi_2": 0.3044,
+    "use_2": 0.2813,
+    "cov50_5s": 0.4986,
+    "cov70_5s": 0.7103,
+    "cov90_5s": 0.8847,
+    "cov50_10s": 0.5044,
+    "cov70_10s": 0.7112,
+    "cov90_10s": 0.8847,
+    "cov50_15s": 0.538,
+    "cov70_15s": 0.7338,
+    "cov90_15s": 0.8967
+   },
+   "n_samples": 47828,
+   "patch": {
+    "case": "notice_lo",
+    "kind": "notice",
+    "description": "conflict notice probability shifted by -0.2",
+    "edits": {
+     "reaction[3].notice_prob": [
+      0.95,
+      0.75
+     ],
+     "reaction[2].notice_prob": [
+      0.55,
+      0.35000000000000003
+     ],
+     "reaction[1].notice_prob": [
+      0.65,
+      0.45
+     ],
+     "reaction[4].notice_prob": [
+      0.35,
+      0.14999999999999997
+     ],
+     "reaction[0].notice_prob": [
+      0.9,
+      0.7
+     ],
+     "reaction[6].notice_prob": [
+      0.5,
+      0.3
+     ]
+    }
+   }
+  },
+  {
+   "case": "notice_hi",
+   "run": "D:/PRISM/Logs/Dataset\\20260907_200707_sens_notice_hi_rebut",
+   "job": "20260907_201943_eval",
+   "returncode": 0,
+   "metrics": {
+    "minADE": 47.2213,
+    "minFDE": 87.0002,
+    "NLL": 1.0581,
+    "type_acc": 0.9284,
+    "mode_entropy": 0.9662,
+    "pi_0": 0.3945,
+    "use_0": 0.4468,
+    "pi_1": 0.3012,
+    "use_1": 0.2712,
+    "pi_2": 0.3043,
+    "use_2": 0.282,
+    "cov50_5s": 0.4992,
+    "cov70_5s": 0.7096,
+    "cov90_5s": 0.887,
+    "cov50_10s": 0.5052,
+    "cov70_10s": 0.7142,
+    "cov90_10s": 0.887,
+    "cov50_15s": 0.5412,
+    "cov70_15s": 0.7365,
+    "cov90_15s": 0.8998
+   },
+   "n_samples": 47846,
+   "patch": {
+    "case": "notice_hi",
+    "kind": "notice",
+    "description": "conflict notice probability shifted by +0.2",
+    "edits": {
+     "reaction[3].notice_prob": [
+      0.95,
+      0.99
+     ],
+     "reaction[2].notice_prob": [
+      0.55,
+      0.75
+     ],
+     "reaction[1].notice_prob": [
+      0.65,
+      0.8500000000000001
+     ],
+     "reaction[4].notice_prob": [
+      0.35,
+      0.55
+     ],
+     "reaction[0].notice_prob": [
+      0.9,
+      0.99
+     ],
+     "reaction[6].notice_prob": [
+      0.5,
+      0.7
+     ]
+    }
+   }
+  },
+  {
+   "case": "sensor_2x",
+   "run": "D:/PRISM/Logs/Dataset\\20260907_200707_sens_sensor_2x_rebut",
+   "job": "20260907_202054_eval",
+   "returncode": 0,
+   "metrics": {
+    "minADE": 67.0691,
+    "minFDE": 115.1051,
+    "NLL": 1.8766,
+    "type_acc": 0.8798,
+    "mode_entropy": 0.9777,
+    "pi_0": 0.3817,
+    "use_0": 0.4176,
+    "pi_1": 0.3077,
+    "use_1": 0.2719,
+    "pi_2": 0.3105,
+    "use_2": 0.3105,
+    "cov50_5s": 0.4447,
+    "cov70_5s": 0.6473,
+    "cov90_5s": 0.8381,
+    "cov50_10s": 0.4644,
+    "cov70_10s": 0.6677,
+    "cov90_10s": 0.8514,
+    "cov50_15s": 0.5018,
+    "cov70_15s": 0.6964,
+    "cov90_15s": 0.8702
+   },
+   "n_samples": 47814,
+   "patch": {
+    "case": "sensor_2x",
+    "kind": "sensor",
+    "description": "range and bearing noise multiplied by 2",
+    "edits": {
+     "sensor.sigma_r0_m": [
+      "x",
+      2.0
+     ],
+     "sensor.sigma_r_frac": [
+      "x",
+      2.0
+     ],
+     "sensor.sigma_theta_rad": [
+      "x",
+      2.0
+     ]
+    }
+   }
+  }
+ ],
+ "table": [
+  {
+   "case": "baseline",
+   "n": 47814,
+   "minADE": 47.212,
+   "NLL": 1.0647,
+   "cov90_15s": 0.8984,
+   "type_acc": 0.9284
+  },
+  {
+   "case": "dwell_lo",
+   "n": 47838,
+   "minADE": 46.1673,
+   "NLL": 1.0155,
+   "cov90_15s": 0.9157,
+   "type_acc": 0.93,
+   "d_minADE": -1.04,
+   "d_cov90": 0.0173
+  },
+  {
+   "case": "dwell_hi",
+   "n": 47918,
+   "minADE": 47.5765,
+   "NLL": 1.071,
+   "cov90_15s": 0.8937,
+   "type_acc": 0.9261,
+   "d_minADE": 0.36,
+   "d_cov90": -0.0047
+  },
+  {
+   "case": "notice_lo",
+   "n": 47828,
+   "minADE": 47.44,
+   "NLL": 1.0722,
+   "cov90_15s": 0.8967,
+   "type_acc": 0.9258,
+   "d_minADE": 0.23,
+   "d_cov90": -0.0017
+  },
+  {
+   "case": "notice_hi",
+   "n": 47846,
+   "minADE": 47.2213,
+   "NLL": 1.0581,
+   "cov90_15s": 0.8998,
+   "type_acc": 0.9284,
+   "d_minADE": 0.01,
+   "d_cov90": 0.0014
+  },
+  {
+   "case": "sensor_2x",
+   "n": 47814,
+   "minADE": 67.0691,
+   "NLL": 1.8766,
+   "cov90_15s": 0.8702,
+   "type_acc": 0.8798,
+   "d_minADE": 19.86,
+   "d_cov90": -0.0282
+  }
+ ]
+}

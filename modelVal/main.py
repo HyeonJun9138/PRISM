@@ -94,6 +94,7 @@ def main() -> None:
     if args.command is None:
         args.port = None
         args.no_browser = False
+        args.public = False
     {"gui": cmd_gui, "smoke": cmd_smoke}[cmd](args)
 
 

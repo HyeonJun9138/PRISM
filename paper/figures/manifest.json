@@ -1,0 +1,215 @@
+[
+  {
+    "caption": "Figure 1. Schematic of Probabilistic Risk Intelligence for Safe Mission Planning (PRISM). Current sensor tracks are mapped to three unlabeled future branches with mixture probabilities and time-varying positional uncertainty. Forecast centers enter candidate feasibility checks, while an uncertainty-dependent risk field contributes to path ranking in a fixed planner. Branch probabilities and path shapes are illustrative.",
+    "images": [
+      {
+        "file": "paper/figures/figure_01.png",
+        "sha256": "7c5bbfeaad419c54764582370b8a08383d96606cea5f9a575aae924d745e8371"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 2. Traffic-simulation, dataset, and evaluation pipeline. Training, validation, in-distribution (ID) test, and out-of-distribution (OOD) evaluation episodes are generated independently. Constant-velocity (CV) extrapolation is a pre-training dataset diagnostic, and repeated branch rollouts provide simulator-state-conditioned futures for assessing the forecast distribution. The predictor receives sensor observations only.",
+    "images": [
+      {
+        "file": "paper/figures/figure_02.png",
+        "sha256": "68b29c61ab10fcbb3618de70b3fba0fd39829a8dab66f7326dca172a67948606"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 3. Simulated avoidance response in a nearly head-on encounter. Arrows show travel direction; the black dashed and green solid lines trace the ownship and fixed-wing UAS intruder trajectories, respectively. The green and orange circles mark first detection and turn onset. The gray dotted line extrapolates the intruder's pre-turn velocity without a turn. The gray and orange connectors mark minimum separations of 84 and 482 m for the no-turn and simulated turned paths, respectively.",
+    "images": [
+      {
+        "file": "paper/figures/figure_03.png",
+        "sha256": "801378f82a476e48cbd77a4746dae54667655c34b09cbcfb968e94119a616b7d"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 4. PRISM predictor architecture. The 10 × 20 × 13 observation tensor is processed by feature embedding, a temporal Transformer, attention pooling, and an inter-object Transformer before branching into trajectory-distribution, mixture-weight, and auxiliary class heads. The network is shared across targets and applied in batch.",
+    "images": [
+      {
+        "file": "paper/figures/figure_04.png",
+        "sha256": "361836940a22b882268317b80cae820539a4a9d1d54206027966e11771a76ffd"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 5. Integration architecture. An observation-only forecast is converted to time-indexed planning disks. Their centers and hard radii enter the fixed planner's feasibility screen, while mixture weight and scale determine the soft-risk score. Dashed consumers are outside the present evaluation.",
+    "images": [
+      {
+        "file": "paper/figures/figure_05.png",
+        "sha256": "4a1708e543d8e0f8ffde2404758dd51cdaf1d3d428f749f347fc58b8281a8087"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 6. Schematic of risk-aware candidate selection in Frenet coordinates. In (a), paths are evaluated near an illustrative risk contour; in (b), the selected path is emphasized and the others fade.",
+    "images": [
+      {
+        "file": "paper/figures/figure_06.png",
+        "sha256": "6617873c9805f663c57e0853bb419108c1813683dec123c8b1e3bf689253fc8b"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 7. PRISM (a, c, e) and observed-track CV (b, d, f) for two eVTOL corridor cases and one unseen search-wandering object. Branch width denotes mixture weight. Blue shading is the 0–15 s sweep of HPD regions; outlines mark 5, 10, and 15 s, and gray traces show 60 futures. These are predictive distributions, not collision probabilities.",
+    "images": [
+      {
+        "file": "paper/figures/figure_07_01.png",
+        "sha256": "18ffe93db24b94d3b59ecf6b3c86a081e66cf1e411e01ada9ff5c8d49f6b8b5c"
+      },
+      {
+        "file": "paper/figures/figure_07_02.png",
+        "sha256": "4b50762d90664d69473ed0f039994199fc42060aba5ea691c78daa25ba990134"
+      },
+      {
+        "file": "paper/figures/figure_07_03.png",
+        "sha256": "cdd8cf4c88e54d7fd60e8a659ab54ec2f6e5eb000139fae241f988cae59b7b12"
+      },
+      {
+        "file": "paper/figures/figure_07_04.png",
+        "sha256": "407f36baf6ee3c97ed5caeb92581b9f0dded347b349610ac708d7c9189df55c7"
+      },
+      {
+        "file": "paper/figures/figure_07_05.png",
+        "sha256": "09aa9bb423f5d42a0dddf532a9a01c50d4b1d7b478788515d03d172969f9afe8"
+      },
+      {
+        "file": "paper/figures/figure_07_06.png",
+        "sha256": "48bab47f5ccc5279b4dda1f55e5e5e77b539dbed6a74ff8def48d94e7abcc45b"
+      },
+      {
+        "file": "paper/figures/figure_07_07.png",
+        "sha256": "2825823f28e9ea2d769f26b0b2d571b60b919c7e7d22a4d39985f88b392a418d"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 8. State-conditioned rollout calibration. Panels (a–c) show HPD coverage for ID, raw OOD, and scaled OOD; (e–g) show 15 s density-PIT diagnostics. Each condition has 60 futures. Panel (d) audits old versus corrected timing for the submitted oracle-association checkpoint, not the retrained model. The OOD scale T = 1.695 was fitted on disjoint episodes.",
+    "images": [
+      {
+        "file": "paper/figures/figure_08.png",
+        "sha256": "43004bc0c78720f2bd74aecebeceaca3911ed121ad398664f357f8ee020f8e39"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 9. Class-wise prediction from 10 s tracks. (a) ID auxiliary-head confusion. (b) ID minADE against observed CV, corrected IMM, and true-state CV (oracle). (c) ID 90% HPD coverage by horizon. (d) OOD errors, with unseen classes shaded and their dominant trained-class assignments indicated. Bars are episode-cluster bootstrap intervals.",
+    "images": [
+      {
+        "file": "paper/figures/figure_09.png",
+        "sha256": "34c6ad8dff6c07de7386a04b87e15d360c55de2d6653b4c4712ce502db2cd536"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 10. OOD-fitted uncertainty scaling and transfer. The multiplier T = 1.695 is fitted on 300 episodes and tested unchanged on 900 disjoint episodes and factor-wise shifts. Panels show 15 s nominal 90% coverage and marginal NLL. Improved held-out OOD coverage does not imply uniform transfer.",
+    "images": [
+      {
+        "file": "paper/figures/figure_10.png",
+        "sha256": "6a3f740e8fa82e52452b2f66a368b92d96c4ec0f3d51eb91e9759c239a108606"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 11. One-factor OOD tests of the fixed planner checkpoint. Density, wind, intent, and platform mix are changed separately; the last set changes all factors. Panels show minADE, 15 s nominal 90% coverage, and class accuracy. The source reports provide point estimates without intervals.",
+    "images": [
+      {
+        "file": "paper/figures/figure_11.png",
+        "sha256": "08ca82645531c59adecc0ef01d554253af5a60864ee64d4fb7a074d3e66f58b4"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 12. PRISM episode 319 at t = 17.5 s. Magenta shows the remaining plan issued at 16.0 s. Dark blue is the selected 13 s plan; light-blue dashes show actual flight to 44.3 s under repeated replanning. Gray paths are the other 97 feasible candidates; 177 candidates failing corridor or dynamic limits are omitted. Maps summarize the next 15 s and omit upper-scene traffic only for display; planning used all traffic. The bird contributes 97% of the selected plan's soft safety cost. Spatial overlap in the swept maps does not establish a simultaneous collision.",
+    "images": [
+      {
+        "file": "paper/figures/figure_12.png",
+        "sha256": "d352cb9047221937f6503484a2b8743e11d4f42748cbe6d5e2015a7895928b37"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 13. Closed-loop rate ratios across five settings. Squares show CV/PRISM and circles static/PRISM; above one favors PRISM. Panels (a–c) classify current-track-screened union encounters at 152.4, 76.2, and 45 m. Bars are paired-episode 95% intervals. Panel (d) shows unscreened time below 45 m per hour. All 152.4 m CV/PRISM intervals include one.",
+    "images": [
+      {
+        "file": "paper/figures/figure_13.png",
+        "sha256": "5b57b39f63200cf39fa69c3ebdc4288a08eb8dce496ae9979feebb51aee56b49"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 14. Common-hard-geometry control on 300 nominal OOD pairs. Filled markers use arm-specific forecast disks; open markers use shared observed-position disks with arm-specific soft risk. Panels show event rates and paired ratios, where above one favors the denominator. The control probes feasibility effects but does not decompose the 600-pair result.",
+    "images": [
+      {
+        "file": "paper/figures/figure_14.png",
+        "sha256": "6fadba4a07276ec8a67e26810403e34e33caf81878506812c898b5a6cef307f0"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 15. Nominal 90% coverage offline and during closed-loop planning, pooled and stratified by ownship maneuver or intruder reaction. Panels compare ID and nominal-load OOD at 5, 10, and 15 s. CV under-covers substantially. Figure 17 adds the 50% and 70% levels and no-maneuver stratum.",
+    "images": [
+      {
+        "file": "paper/figures/figure_15.png",
+        "sha256": "fcda9d0b53cbaa7a98b2e904077eeee0d6c16a2412fe9264b0da1b6f5c4a8771"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 16. Subsequent flight in the encounter introduced in Figure 12, under static (A), CV (B), and PRISM (C). The selected bird's path differs by less than 30 m across arms; closest bird separation is 11.2, 27.2, and 221.8 m. A separate GA aircraft reaches 20.4, 3.1, and 37.7 m, so PRISM does not avoid all hazards. Later traffic may diverge; the example explains the route change, while Tables 11 and 11b assess its benefit across episodes.",
+    "images": [
+      {
+        "file": "paper/figures/figure_16.png",
+        "sha256": "008854f00eac1bc6af60fff28be2dc182ff96bdc09de57c310115d7a72489235"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 17. Closed-loop HPD coverage at nominal 50%, 70%, and 90% levels and 5, 10, and 15 s. ID and OOD panels separate ownship-maneuver and intruder-reaction strata. PRISM uses 256 Monte Carlo draws per point; CV is analytic. Points are descriptive estimates without episode-bootstrap intervals.",
+    "images": [
+      {
+        "file": "paper/figures/figure_17.png",
+        "sha256": "ba6ccfe09bd64f4b5013703bbd3976fa4c3892474baf2b1b6a657eb3930767f4"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 18. Reacquisition errors for current-track models (diamonds) and oracle association (stars), paired by episode, forecast time, and agent. Bars are 95% episode-cluster intervals. An earlier closed track lies within 10 s in reacquisition cases but is not used by the revised model.",
+    "images": [
+      {
+        "file": "paper/figures/figure_18.png",
+        "sha256": "cb7e718c044625343b1e423a570a8e6511a0e9fb9e835326ea1e5acbfb4ccccf"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 19. Validation NLL (top) and minADE (bottom) for current-track models; circles mark retained epochs. Point-MSE is excluded from NLL because its spread head was untrained. The 1× and 5× models use different validation sets; Table 10 compares them on common test samples.",
+    "images": [
+      {
+        "file": "paper/figures/figure_19.png",
+        "sha256": "235972e8a38f134a931764355c306b9d947c87332a0d9df5e4da051540b34498"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 20. One-factor planning sensitivity on 300 nominal OOD pairs. CV/PRISM ratios above one favor PRISM. Rows vary the scale floor, plateau, safety weight, normalization, pruning, or isotropic reduction, while encounter thresholds and screening remain fixed. Bars are 95% paired-episode intervals; PRISM-only rows reuse baseline CV episodes.",
+    "images": [
+      {
+        "file": "paper/figures/figure_20.png",
+        "sha256": "e5d821434d13b5087a823c3a07624bb2df83caa301d0ff2d5088e7658643da33"
+      }
+    ]
+  },
+  {
+    "caption": "Figure 21. Fixed-checkpoint sensitivity to maneuver dwell, notice probability, and sensor noise. Panels show minADE, marginal NLL, and 15 s nominal 90% coverage without confidence intervals.",
+    "images": [
+      {
+        "file": "paper/figures/figure_21.png",
+        "sha256": "a49034e5cd126971522668c3efec136d2709739387db7aa01fb528839ddc39bd"
+      }
+    ]
+  }
+]

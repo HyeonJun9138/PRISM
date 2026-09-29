@@ -1,0 +1,448 @@
+{
+ "figure": "fig_hdr_v3_s1",
+ "version": "v2",
+ "terminology": "highest predictive density (HPD) region",
+ "generated_utc": "2026-09-26T10:18:50+00:00",
+ "script": {
+  "path": "D:/PRISM/Paper/figures/make_fig_hdr.py",
+  "sha256": "0d4f83553251b9017b03ecd2bc5ffb4065a3480ee541ee735002036358437a55",
+  "v1_snapshot": "make_fig_hdr_v1.py"
+ },
+ "model": {
+  "path": "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+  "sha256": "1bbb693397af69141a563df5eb7b8300138b93c58f2322b4ad1a701dcca841ba",
+  "epoch": 24,
+  "track_rule": "current",
+  "K": 3
+ },
+ "method": {
+  "fine_grid": {
+   "n_sigma_box": 5.0,
+   "cells_per_sigma": 16,
+   "max_side": 3000,
+   "mass_min": 0.995
+  },
+  "display_n": 720,
+  "blank_above": 0.95,
+  "swept_contours_ab": [
+   0.5,
+   0.9
+  ],
+  "per_time_contour_level": 0.9,
+  "per_time_steps_s": [
+   5.0,
+   10.0,
+   15.0
+  ],
+  "display_interpolation": {
+   "enabled": true,
+   "substep_s": 0.1,
+   "scheme": "branch-wise linear in mean and covariance entries between forecast steps; weights constant",
+   "node0": "last detection at t0, covariance 0.5 x first forecast step",
+   "used_for": "swept map only; coverage and inclusion counts use forecast steps"
+  },
+  "colormap": "matplotlib Blues 0.90 -> 0.16",
+  "view": "square; both arms' swept L <= 0.95, branch means, CV mean, true future, rollouts, last 4 detections; ticks on round steps",
+  "rollout_panel_background_alpha": 0.45,
+  "mean_path_lw_pt_per_pi": 2.0
+ },
+ "case_ab": {
+  "episode_file": "D:/PRISM/Logs/Dataset/20260813_023139_test_ood_full5x_a/episodes/ep_000029.npz",
+  "episode_sha256": "7be3c9d1850783c86281ce32ea0670ac680a0654c1541c4eb1b95345d0e616a7",
+  "t0": 31,
+  "t_s": 16.0,
+  "slot": 1,
+  "gt_type": "eVTOL",
+  "gt_intent_t0": "CorridorTransit",
+  "eligibility": {
+   "alive": true,
+   "n_open_track_10s": 20,
+   "n_slot_10s": 20,
+   "detected_t0": true,
+   "track_id_t0": 0,
+   "n_open_track_4s": 8,
+   "future_valid": true
+  },
+  "pi_desc": [
+   0.411,
+   0.355,
+   0.234
+  ],
+  "sigma15_m_desc": [
+   [
+    20.4,
+    38.7
+   ],
+   [
+    32.2,
+    61.3
+   ],
+   [
+    66.8,
+    100.2
+   ]
+  ],
+  "cv": {
+   "speed_mps": 74.47,
+   "n_fit": 8,
+   "sigma15_m": 61.8,
+   "equals_planner_cvrisk": true
+  },
+  "facts": {
+   "track_ids_in_input": [
+    0
+   ],
+   "branch_mean_speed_15s_mps": [
+    77.5,
+    78.4,
+    72.8
+   ],
+   "true_speed_range_mps": [
+    72.3,
+    73.6
+   ],
+   "cv_speed_mps": 74.5
+  },
+  "view_m": [
+   -322.2,
+   1177.8,
+   -328.1,
+   1171.9
+  ],
+  "n_detections_used": 20,
+  "swept_map_time_points": 151,
+  "rule": "the sample of the published case figure, panel (a) (OOD test run _a, ep_000029, t0 = 31, slot 1). The published (b) and (c) samples are not reused: under the current-track rule their open tracks hold 2 and 1 detections in the 10 s history (below min_obs = 3; the slot rule counted 10 and 10), and sample (b) has no detection at t0, so the planner's CV arm has no forecast for it",
+  "published_samples_eligibility": {
+   "a": {
+    "alive": true,
+    "n_open_track_10s": 20,
+    "n_slot_10s": 20,
+    "detected_t0": true,
+    "track_id_t0": 0,
+    "n_open_track_4s": 8,
+    "future_valid": true
+   },
+   "b": {
+    "alive": true,
+    "n_open_track_10s": 2,
+    "n_slot_10s": 10,
+    "detected_t0": false,
+    "track_id_t0": 86,
+    "n_open_track_4s": 2,
+    "future_valid": true
+   },
+   "c": {
+    "alive": true,
+    "n_open_track_10s": 1,
+    "n_slot_10s": 10,
+    "detected_t0": true,
+    "track_id_t0": 35,
+    "n_open_track_4s": 1,
+    "future_valid": true
+   }
+  }
+ },
+ "case_cd": {
+  "episode_file": "D:/PRISM/Logs/Dataset/20260814_101540_test_id_rollout_eval/episodes/ep_000013.npz",
+  "episode_sha256": "566733684d8c92bfb12574cf3cf7f6c1fe08351f701502a42a8837e975681748",
+  "t0": 59,
+  "t_s": 30.0,
+  "slot": 8,
+  "gt_type": "eVTOL",
+  "gt_intent_t0": "CorridorTransit",
+  "eligibility": {
+   "alive": true,
+   "n_open_track_10s": 6,
+   "n_slot_10s": 11,
+   "detected_t0": true,
+   "track_id_t0": 42,
+   "n_open_track_4s": 6,
+   "future_valid": true
+  },
+  "pi_desc": [
+   0.348,
+   0.347,
+   0.305
+  ],
+  "sigma15_m_desc": [
+   [
+    149.2,
+    103.2
+   ],
+   [
+    117.8,
+    54.6
+   ],
+   [
+    185.8,
+    131.0
+   ]
+  ],
+  "cv": {
+   "speed_mps": 47.38,
+   "n_fit": 6,
+   "sigma15_m": 61.8,
+   "equals_planner_cvrisk": true
+  },
+  "facts": {
+   "track_ids_in_input": [
+    42
+   ],
+   "branch_mean_speed_15s_mps": [
+    53.6,
+    41.3,
+    25.9
+   ],
+   "true_speed_range_mps": [
+    38.5,
+    43.4
+   ],
+   "cv_speed_mps": 47.4
+  },
+  "view_m": [
+   -383.0,
+   1117.0,
+   -405.9,
+   1094.1
+  ],
+  "n_detections_used": 6,
+  "swept_map_time_points": 151,
+  "rule": "Pool all rollout groups of both rollout-evaluation runs (test_id and test_ood, 100 episodes each; branch at 30.0 s). Keep groups whose target (i) is alive at 30.0 s, with all 60 rollouts and the logged future valid over the whole 15 s horizon; (ii) has >= 3 detections of its currently open track in the 10 s history (eligible under both the current-track and the slot rule) and is detected at 30.0 s with >= 2 open-track detections in the last 4 s (the planner's CV arm can extrapolate it); (iii) is not frozen: 15 s rollout spread > 1 m (dataGen FROZEN_SPREAD_M, a point mass below it). Split the 60 rollout endpoints at 15 s by 2-means (deterministic: best SSE of a principal-axis split and a farthest-pair split, Lloyd iterations); keep the group if both clusters hold >= 2 endpoints and the centroid separation exceeds 3 x the mean within-cluster std, where a cluster's std is the RMS distance of its endpoints from its centroid (sqrt(trace(cov)), ddof = 1). Among the kept groups pick the one with the median 15 s rollout spread (sqrt(trace(cov)) of all 60 endpoints, dataGen's rollout_statistics definition; lower median for an even count). No model output enters the selection.",
+  "selection": {
+   "run": "D:/PRISM/Logs/Dataset/20260814_101540_test_id_rollout_eval",
+   "episode": "ep_000013.npz",
+   "ep": 13,
+   "group": 8,
+   "slot": 8,
+   "t0": 59,
+   "origin_step": 60,
+   "gt_type": 3,
+   "gt_intent": 0,
+   "alive": true,
+   "rollouts_valid": true,
+   "eligible": true,
+   "not_frozen": true,
+   "two_cluster": true,
+   "spread15_m": 46.79837746285623,
+   "separation_m": 104.355348512032,
+   "cluster_std_m": [
+    4.961396647395351,
+    5.0350795983027
+   ],
+   "cluster_n": [
+    44,
+    16
+   ],
+   "rank": 548,
+   "n_kept": 1096,
+   "median_rank": "548 of 1096",
+   "kept_spread_quartiles_m": [
+    29.9,
+    46.8,
+    82.5
+   ]
+  },
+  "stage_counts": {
+   "groups": 5563,
+   "alive": 5563,
+   "rollouts_valid": 5563,
+   "eligible": 2639,
+   "not_frozen": 2446,
+   "two_cluster": 1096
+  },
+  "rollout_file": "D:/PRISM/Logs/Dataset/20260814_101540_test_id_rollout_eval/rollouts/ep_000013_rollouts.npz",
+  "inclusion_counts_per_time": {
+   "prism": {
+    "5s": {
+     "50": 60,
+     "90": 60
+    },
+    "10s": {
+     "50": 60,
+     "90": 60
+    },
+    "15s": {
+     "50": 60,
+     "90": 60
+    }
+   },
+   "cv": {
+    "5s": {
+     "50": 44,
+     "90": 60
+    },
+    "10s": {
+     "50": 44,
+     "90": 60
+    },
+    "15s": {
+     "50": 44,
+     "90": 60
+    }
+   },
+   "n_rollouts": 60
+  }
+ },
+ "case_ef": {
+  "episode_file": "D:/PRISM/Logs/Dataset/20260814_101541_test_ood_rollout_eval/episodes/ep_000035.npz",
+  "episode_sha256": "07c97dc86bbb738b502224ea685a6b8aec6b6a46b42055961a176f186e95335f",
+  "t0": 59,
+  "t_s": 30.0,
+  "slot": 26,
+  "gt_type": "Unknown",
+  "gt_intent_t0": "SearchWander",
+  "eligibility": {
+   "alive": true,
+   "n_open_track_10s": 6,
+   "n_slot_10s": 13,
+   "detected_t0": true,
+   "track_id_t0": 81,
+   "n_open_track_4s": 6,
+   "future_valid": true
+  },
+  "pi_desc": [
+   0.373,
+   0.315,
+   0.312
+  ],
+  "sigma15_m_desc": [
+   [
+    82.4,
+    106.9
+   ],
+   [
+    98.3,
+    124.7
+   ],
+   [
+    142.8,
+    118.8
+   ]
+  ],
+  "cv": {
+   "speed_mps": 55.36,
+   "n_fit": 6,
+   "sigma15_m": 61.8,
+   "equals_planner_cvrisk": true
+  },
+  "facts": {
+   "track_ids_in_input": [
+    81
+   ],
+   "branch_mean_speed_15s_mps": [
+    53.2,
+    58.4,
+    48.9
+   ],
+   "true_speed_range_mps": [
+    60.5,
+    79.7
+   ],
+   "cv_speed_mps": 55.4
+  },
+  "view_m": [
+   -1193.4,
+   306.6,
+   -1078.1,
+   421.9
+  ],
+  "n_detections_used": 6,
+  "swept_map_time_points": 151,
+  "rule": "ROLLOUT_RULE applied to the test_ood rollout run only, after keeping the groups of the HARD classes: target platform Bird (gt_type 0) or Unknown (gt_type 6), or intent SearchWander (gt_intent 3) at the branch step. Lower median of the 15 s rollout spread. Not relaxed if empty.",
+  "selection": {
+   "run": "D:/PRISM/Logs/Dataset/20260814_101541_test_ood_rollout_eval",
+   "episode": "ep_000035.npz",
+   "ep": 35,
+   "group": 26,
+   "slot": 26,
+   "t0": 59,
+   "origin_step": 60,
+   "gt_type": 6,
+   "gt_intent": 3,
+   "alive": true,
+   "rollouts_valid": true,
+   "eligible": true,
+   "not_frozen": true,
+   "two_cluster": true,
+   "spread15_m": 198.37433645682856,
+   "separation_m": 344.7140515571594,
+   "cluster_std_m": [
+    102.66327350321002,
+    96.54129569120359
+   ],
+   "cluster_n": [
+    26,
+    34
+   ],
+   "rank": 25,
+   "n_kept": 49,
+   "median_rank": "25 of 49",
+   "kept_spread_quartiles_m": [
+    156.4,
+    198.4,
+    249.2
+   ]
+  },
+  "stage_counts": {
+   "groups": 3600,
+   "hard_class": 1435,
+   "alive": 1435,
+   "rollouts_valid": 1435,
+   "eligible": 684,
+   "not_frozen": 684,
+   "two_cluster": 49
+  },
+  "rollout_file": "D:/PRISM/Logs/Dataset/20260814_101541_test_ood_rollout_eval/rollouts/ep_000035_rollouts.npz",
+  "inclusion_counts_per_time": {
+   "prism": {
+    "5s": {
+     "50": 0,
+     "90": 19
+    },
+    "10s": {
+     "50": 5,
+     "90": 31
+    },
+    "15s": {
+     "50": 8,
+     "90": 36
+    }
+   },
+   "cv": {
+    "5s": {
+     "50": 0,
+     "90": 0
+    },
+    "10s": {
+     "50": 0,
+     "90": 4
+    },
+    "15s": {
+     "50": 1,
+     "90": 7
+    }
+   },
+   "n_rollouts": 60
+  }
+ },
+ "files": [
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_a_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_a_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_b_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_b_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_c_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_c_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_d_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_d_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_e_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_e_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_f_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_panel_f_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_legend_v3_s1.png",
+  "D:/PRISM/Paper/figures_r3\\fig_hdr_legend_v3_s1.pdf",
+  "D:/PRISM/Paper/figures_r3\\caption_hdr_v3_s1.txt",
+  "D:/PRISM/Paper/figures_r3\\hdr_validation_v3_s1.txt"
+ ]
+}

@@ -1,0 +1,168 @@
+PRE-REGISTERED CASE SELECTION RULE (r3 closed-loop case figures)
+Written 2026-09-27 (UTC), before any replay was run or looked at. Not changed afterwards.
+The pool sizes at the end come from the batch rows alone (no replay).
+
+[EN]
+Purpose. Figures 9 and 11 show one paired closed-loop episode. The episode is chosen by
+this rule, not by how the result looks. The earlier case (episode 244 of the saturated
+OOD condition) is replaced regardless of the outcome.
+
+Data. Batch rows of the frozen r3 campaign: D:/PRISM/Logs/Planner/r3_<cond>/{none,cv,model}.jsonl
+(one JSON row per episode index; arm A = none, "A: static observation"; arm B = cv, "B: CV";
+arm C = model, "C: PRISM"). Episode index i means scenario index 10000 + i. The three arms of
+an index share the scenario seed and the initial state; the traffic reacts to the ownship, so it
+is matched on initial conditions only.
+
+Step 1. Candidate pool (from the batch rows alone, no replay). Condition ood40 (preset
+test_ood, density setting 40 per km2, 600 episodes, indices 0-599). An episode is a candidate if
+(i) arm A has at least one pairwise encounter segment with min_sep < 45 m and
+unavoidable_new == false; the critical intruder is the slot of A's smallest such segment (tie:
+the earliest t_min); and (ii) arm C has no pairwise segment with that slot, i.e. C never came
+within 152.4 m of it. Arm B is unconstrained. If fewer than 5 candidates survive Step 3 in
+ood40, the pool is extended to the other conditions in the order id24, id40, ood100, sparse
+(same rule), and the extension is stated.
+
+Step 2. Replay gate. Arms A and C of every candidate are replayed through the frozen r3 code
+snapshot with the read-only recorder (same batch command line as the campaign, one process per
+arm, the same checkpoint). A replay is used only if every deterministic row field equals the
+batch row (wall-clock timing fields excluded; model_path and code_fp compared after the
+C:/PRISM -> D:/PRISM layout rewrite; pred_logged reproduced by passing --log-preds where the
+row carries a count). A candidate whose A or C replay fails the gate is dropped and reported;
+nothing is drawn from a non-reproducing replay.
+
+Step 3. Attributability. With the recorded 2 Hz ground truth, the critical intruder's position
+in arm C must be within 30 m of its position in arm A at every 2 Hz frame from t = 0 s up to
+A's closest-approach time t_min (the t_min of A's segment). A frame in which the intruder is
+alive in one arm only fails. Recorded for information only: the first 2 Hz frame at which any
+agent (ownship excluded) differs by more than 1 m between A and C, and the ownship distance
+between A and C at t_min (20 Hz).
+
+Step 4. Selection. Among the survivors of Step 3, the episode whose arm-C closest approach to
+the critical intruder (20 Hz ground truth, whole episode) is the median; for an even count the
+lower median. The survivor table is reported in full: index, slot, class (platform type,
+intent), A min, B min, C min, t_min, ownship divergence at t_min. B min is taken from the B
+batch row (the smallest B pairwise segment of that slot; "> 152.4 m" when B has no segment
+with that slot); for the selected episode B is replayed and its recorded value is used.
+
+Step 5. Figure 9 instant (arm C of the selected episode). The first replanning cycle with
+t < t_min at which the selected plan's lateral offset target changes by more than 30 m
+relative to the previously selected plan, |target_d(t) - target_d(t - 0.5 s)| > 30 m, while the
+critical intruder has an open track (obs_track_id >= 0 at that cycle) and a PRISM forecast.
+If no cycle qualifies: the cycle with t < t_min and the largest |delta target_d| among the
+cycles at which the intruder has an open track and a forecast, stated as a fallback in the
+caption; if no such cycle exists either, the cycle with the largest |delta target_d| before
+t_min regardless, also stated.
+
+Step 6. Arm B is replayed for the selected episode only, under the same gate. All three
+replays of the selected episode must pass the gate, or the next survivor in the median order
+(the higher neighbour first) is taken and this is stated.
+
+Pool sizes from the rows (Step 1 applied to each condition): ood40 43; id24 5; id40 6;
+ood100 29; sparse 3.
+
+[KR]
+목적. 그림 9와 그림 11은 짝지은 폐루프 에피소드 하나를 보인다. 에피소드는 결과의 모양이 아니라
+이 규칙으로 고른다. 이전 사례(포화 OOD 조건의 에피소드 244)는 결과와 무관하게 교체한다.
+
+자료. 동결된 r3 캠페인의 배치 행 D:/PRISM/Logs/Planner/r3_<cond>/{none,cv,model}.jsonl
+(에피소드 인덱스당 JSON 한 행; A군 = none "A: 정적 관측", B군 = cv "B: CV", C군 = model "C: PRISM").
+에피소드 인덱스 i는 시나리오 인덱스 10000 + i이다. 한 인덱스의 세 군은 시나리오 시드와 초기
+상태를 공유한다. 교통은 자기 비행체에 반응하므로 초기 조건만 일치한다.
+
+1단계. 후보군(배치 행만 사용, 재생 없음). 조건 ood40(프리셋 test_ood, 밀도 설정 40 /km²,
+600 에피소드, 인덱스 0~599). (i) A군에 min_sep < 45 m이고 unavoidable_new == false인 쌍별
+조우 구간이 하나 이상 있고(핵심 침입기는 A군의 가장 작은 그 구간의 슬롯, 동률이면 가장 이른
+t_min), (ii) C군에 그 슬롯의 쌍별 구간이 없으면(C가 그 침입기의 152.4 m 안에 들어간 적이 없음)
+후보이다. B군은 제한하지 않는다. ood40에서 3단계 생존자가 5개 미만이면 id24, id40, ood100,
+sparse 순서로 같은 규칙을 적용해 후보군을 넓히고 이를 명시한다.
+
+2단계. 재생 관문. 모든 후보의 A군과 C군을 동결 r3 코드 스냅숏에서 읽기 전용 기록기와 함께
+재생한다(캠페인과 같은 배치 명령줄, 군당 프로세스 1개, 같은 체크포인트). 결정적 행 필드가
+전부 배치 행과 같을 때만 그 재생을 쓴다(벽시계 시간 필드 제외, model_path와 code_fp는
+C:/PRISM -> D:/PRISM 배치 차이만 허용, pred_logged는 행에 값이 있으면 --log-preds를 주어
+재현). A 또는 C 재생이 관문을 통과하지 못한 후보는 제외하고 보고한다. 재현되지 않는 재생에서는
+아무것도 그리지 않는다.
+
+3단계. 귀속 가능성. 기록된 2 Hz 지상 진실에서 핵심 침입기의 C군 위치가 t = 0초부터 A군
+최근접 시각 t_min(A군 구간의 t_min)까지 모든 2 Hz 프레임에서 A군 위치의 30 m 안에 있어야
+한다. 한 군에서만 살아 있는 프레임은 실패로 본다. 참고용으로 기록: 임의의 에이전트(자기 비행체
+제외)가 A와 C 사이에서 1 m 넘게 달라지는 첫 2 Hz 프레임, t_min에서의 A-C 자기 비행체 거리(20 Hz).
+
+4단계. 선택. 3단계 생존자 가운데 C군의 핵심 침입기 최근접 거리(20 Hz 지상 진실, 에피소드 전체)가
+중앙값인 에피소드를 고른다. 짝수 개이면 낮은 중앙값이다. 생존자 표(인덱스, 슬롯, 클래스(기종,
+의도), A 최소, B 최소, C 최소, t_min, t_min에서의 자기 비행체 차이)를 전부 보고한다. B 최소는 B군
+배치 행에서 취한다(그 슬롯의 가장 작은 B 쌍별 구간, 구간이 없으면 "> 152.4 m"). 선택된 에피소드는
+B군을 재생하여 기록값을 쓴다.
+
+5단계. 그림 9 시점(선택 에피소드의 C군). t < t_min인 재계획 주기 가운데, 선택 경로의 횡방향 편위
+목표가 직전 선택 경로에 비해 30 m 넘게 바뀌고(|target_d(t) - target_d(t - 0.5 s)| > 30 m) 그 주기에
+핵심 침입기가 열린 트랙(obs_track_id >= 0)과 PRISM 예측을 모두 가진 첫 주기. 그런 주기가 없으면
+t < t_min이고 침입기가 열린 트랙과 예측을 가진 주기 중 |Δtarget_d|가 가장 큰 주기를 쓰고 캡션에
+대체 규칙임을 밝힌다. 그것도 없으면 t_min 이전에서 |Δtarget_d|가 가장 큰 주기를 쓰고 이를 밝힌다.
+
+6단계. B군은 선택된 에피소드에 대해서만 같은 관문으로 재생한다. 선택 에피소드의 세 재생이 모두
+관문을 통과해야 하며, 아니면 중앙값 순서에서 다음 생존자(위쪽 이웃 먼저)를 취하고 이를 밝힌다.
+
+행에서 구한 후보군 크기(각 조건에 1단계 적용): ood40 43, id24 5, id40 6, ood100 29, sparse 3.
+
+====================================================================================================
+AMENDMENT A1 TO STEP 5 (post hoc; declared 2026-09-27 after Steps 1-4 had selected episode 319 of
+ood40 and after the first Figure 9 had been drawn at the Step 5 instant, t = 10.0 s). The original
+text above is kept unchanged (its sha256 is 6d8927f810d4fa94ea8d681f076649fcc1981cae0a1a7523c01012c13866f939);
+Steps 1-4, the candidate pool, the survivor table and the selected episode are NOT changed.
+
+[EN]
+Reason. The Step 5 instant (t = 10.0 s) is an emergency cycle: none of the 275 candidates was
+admissible, all 255 hard-radius conflicts came from the forecast disks of a general-aviation
+aircraft (slot 15), and the planner applied its least-violation fallback. The bird's forecast did
+not enter that decision. Figure 9 is meant to show prediction and path selection for the critical
+intruder, so its instant must be a NON-emergency C-arm cycle at which the bird's forecast actually
+enters the decision.
+
+Amended Step 5. For every C-arm replanning cycle with 5 s <= t < t_min (A's closest approach,
+32.95 s), from the candidate pool and the risk disks recorded at that cycle:
+  (i)   n_infeasible_by_bird: the number of candidates whose hard check fails on a disk of the
+        critical intruder (slot 2). The planner's own hard rule is recomputed per disk (clearance =
+        distance - r_disk - r_vehicle < 0 at any sample time <= 15 s) and each conflicting disk is
+        attributed to its slot; the recomputed any-conflict flag must equal the planner's collision
+        flag for every candidate.
+  (ii)  bird_share: the share of the selected candidate's raw safety cost
+        (sum of exp(-soft^2 / (2 sigma^2)) x gain x dt over samples and disks) that comes from the
+        disks of slot 2; 0 when the total is below 1e-9. It "is the largest intruder share" when no
+        other slot's share exceeds it.
+  (iii) emergency: the cycle has no admissible candidate (n_valid = 0).
+The instant is the first non-emergency cycle at which (i) >= 1, or (ii) > 0.5 and is the largest
+intruder share. If no cycle qualifies, the non-emergency cycle with the largest (ii) (tie: the
+earliest) is used and stated as a fallback. If the table shows that the bird's forecast never
+entered a non-emergency decision, the captions say so plainly, and Figure 11 describes the larger
+separation in C as the ownship's displaced path, not as anticipation of the bird.
+Recorded for information (not selection criteria): the number of candidates that only the bird's
+disks exclude from the admissible set; and whether the selected candidate would change if the
+bird's disks were removed (same scoring rule, pool re-normalised). The whole per-cycle table
+(t, emergency, n_infeasible_by_bird, bird_share, selected target_d, and the information columns)
+is reported in the caption notes and in data/scene_319_cycles.json. The three arms are re-recorded
+at the chosen instant under the same replay gate.
+
+[KR]
+사유. 5단계 시점(t = 10.0초)은 비상 주기였다. 후보 275개 중 허용 후보가 없었고, 경성 반경 충돌 255개는
+모두 경항공기(슬롯 15)의 예측 원판에서 왔으며, 플래너는 최소 위반 대체 규칙을 적용하였다. 조류의
+예측은 그 결정에 들어가지 않았다. 그림 9의 목적은 핵심 침입기에 대한 예측과 경로 선택을 보이는 것이므로,
+시점은 조류의 예측이 실제로 결정에 들어가는 비상 아닌 C군 주기여야 한다.
+
+개정 5단계. 5초 <= t < t_min(A군 최근접, 32.95초)인 모든 C군 재계획 주기에 대해, 그 주기에 기록한 후보
+집합과 위험 원판으로 다음을 계산한다.
+  (i)   n_infeasible_by_bird: 핵심 침입기(슬롯 2)의 원판에서 경성 검사에 실패하는 후보 수. 플래너의
+        경성 규칙(여유 = 거리 - 원판 반경 - 기체 반경 < 0, 15초 이내 표본)을 원판별로 재계산하여 슬롯에
+        귀속한다. 재계산한 충돌 여부는 모든 후보에서 플래너의 충돌 플래그와 같아야 한다.
+  (ii)  bird_share: 선택 후보의 원시 안전 비용(표본과 원판에 대한 exp(-soft^2/(2 sigma^2)) x 이득 x dt의
+        합) 가운데 슬롯 2의 원판이 차지하는 비율. 총합이 1e-9 미만이면 0. 다른 슬롯의 비율이 이를 넘지
+        않으면 "가장 큰 침입기 비율"이다.
+  (iii) emergency: 허용 후보가 없는 주기(n_valid = 0).
+시점은 (i) >= 1이거나 (ii) > 0.5이면서 가장 큰 침입기 비율인 첫 비상 아닌 주기이다. 그런 주기가 없으면
+(ii)가 가장 큰 비상 아닌 주기(동률이면 가장 이른 주기)를 쓰고 대체 규칙임을 밝힌다. 표가 조류의 예측이
+비상 아닌 결정에 한 번도 들어가지 않았음을 보이면 캡션에 그대로 적고, 그림 11은 C의 큰 이격을 조류
+예측의 선제 대응이 아니라 자기 비행체의 변위된 경로로 기술한다. 참고용 기록(선택 기준 아님): 조류의
+원판만이 허용 집합에서 제외하는 후보 수, 조류 원판을 제거하면 선택 후보가 바뀌는지(같은 채점 규칙,
+풀 재정규화). 주기별 표 전체(t, emergency, n_infeasible_by_bird, bird_share, 선택 target_d, 참고 열)를
+캡션 노트와 data/scene_319_cycles.json에 보고한다. 세 군은 선택된 시점에서 같은 재생 관문 아래 다시
+기록한다.

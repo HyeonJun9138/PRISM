@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.npz binary
+*.pt binary
+paper/figure_data/** -text
+metadata/Logs/Models/*/metrics.jsonl -text

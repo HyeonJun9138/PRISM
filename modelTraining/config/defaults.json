@@ -7,7 +7,8 @@
     "min_obs": 3,
     "min_future_valid": 27,
     "val_fraction": 0.1,
-    "max_samples_per_epoch": 0
+    "max_samples_per_epoch": 0,
+    "track_rule": "current"
   },
   "model": {
     "d_model": 128,

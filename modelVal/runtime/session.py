@@ -234,10 +234,12 @@ class LiveSession:
         if t0 < 0:
             return
         ep = eng.ep
+        # obs_track_id: a current-track checkpoint (track_rule "current",
+        # R3 major 3) refuses an episode without it -- see LivePredictor
         ep_dict = {k: getattr(ep, k) for k in
                    ("gt_pos", "gt_valid", "gt_type", "gt_intent",
                     "obs_detected", "obs_pos", "obs_R", "obs_track_age",
-                    "own_pos")}
+                    "own_pos", "obs_track_id")}
 
         preds = {}
         if self.predictor.loaded:

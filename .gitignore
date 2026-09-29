@@ -1,14 +1,11 @@
-# Datasets and run artifacts - regenerate with dataGen (see README)
-Logs/
-
-# Python
+/Logs/
+/outputs/
+/downloads/
 __pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
 venv/
-
-# Editors / OS
 .vscode/
 .idea/
 .DS_Store

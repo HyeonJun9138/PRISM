@@ -1,0 +1,28 @@
+{
+  "id": "20260813_170429_full5x_s4",
+  "kind": "train",
+  "status": "finished",
+  "progress": {
+    "phase": "finished",
+    "pct": 100.0,
+    "epoch": 26,
+    "epochs": 26,
+    "step": 150176,
+    "steps_per_epoch": 5776,
+    "eta_s": 0.0,
+    "samples_per_s": 3451.1,
+    "gpu_mem_gb": 0.04,
+    "phase_detail": "indexing 6000/6000 episodes, 1478501 samples"
+  },
+  "error": null,
+  "created": 1786608269.8796556,
+  "summary": {
+    "best": {
+      "value": 1.0808394523620606,
+      "epoch": 25
+    },
+    "params": 1519980,
+    "final_model": "D:/PRISM/Logs/Models/20260813_170429_full5x_s4/final/model_final.pt",
+    "stopped_by_user": false
+  }
+}

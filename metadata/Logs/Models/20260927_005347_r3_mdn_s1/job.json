@@ -1,0 +1,28 @@
+{
+  "id": "20260927_005347_r3_mdn_s1",
+  "kind": "train",
+  "status": "finished",
+  "progress": {
+    "phase": "finished",
+    "pct": 100.0,
+    "epoch": 26,
+    "epochs": 26,
+    "step": 116922,
+    "steps_per_epoch": 4497,
+    "eta_s": 0.0,
+    "samples_per_s": 6955.9,
+    "gpu_mem_gb": 0.04,
+    "phase_detail": "indexing 6000/6000 episodes, 1151057 samples"
+  },
+  "error": null,
+  "created": 1790438027.8911393,
+  "summary": {
+    "best": {
+      "value": 0.9640704540252686,
+      "epoch": 24
+    },
+    "params": 1519980,
+    "final_model": "C:/PRISM/Logs/Models/20260927_005347_r3_mdn_s1/final/model_final.pt",
+    "stopped_by_user": false
+  }
+}

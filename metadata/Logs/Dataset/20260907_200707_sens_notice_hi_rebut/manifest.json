@@ -1,0 +1,294 @@
+{
+  "format_version": "1.0.0",
+  "run_id": "20260907_200707_sens_notice_hi_rebut",
+  "preset": "sens_notice_hi",
+  "tag": "rebut",
+  "status": "complete",
+  "created_utc": "2026-09-07T11:07:07+00:00",
+  "finished_utc": "2026-09-07T11:12:56+00:00",
+  "wall_clock_s": 349.615,
+  "master_seed": 200000,
+  "config": {
+    "name": "test_id/000000",
+    "seed": 200000,
+    "duration_s": 60.0,
+    "area_km2": 0.5,
+    "density_per_km2": 53.54217186503344,
+    "n_agents_min": 12,
+    "n_agents_max": 26,
+    "ownship_speed_ms": 55.0,
+    "platform_mix": {
+      "weights": {
+        "0": 0.0,
+        "1": 0.4,
+        "2": 0.35,
+        "3": 0.25,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0
+      }
+    },
+    "intent_mix": {
+      "weights": {
+        "0": 0.4,
+        "1": 0.35,
+        "2": 0.25,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0
+      }
+    },
+    "encounter": {
+      "n_designed_min": 0,
+      "n_designed_max": 5,
+      "cpa_dist_min_m": 30.0,
+      "cpa_dist_max_m": 2500.0,
+      "tcpa_min_s": 15.0,
+      "tcpa_max_s": 45.0,
+      "geometry_weights": {
+        "0": 0.3,
+        "1": 0.45,
+        "2": 0.25,
+        "3": 0.0
+      }
+    },
+    "sensor": {
+      "enabled": true,
+      "sigma_r0_m": 3.0,
+      "sigma_r_frac": 0.01,
+      "sigma_theta_rad": 0.0087,
+      "pd_max": 0.95,
+      "r_full_m": 800.0,
+      "r_max_m": 3000.0,
+      "update_rate_hz": 5.0,
+      "async_phase": true,
+      "latency_s": 0.2,
+      "latency_jitter_s": 0.05,
+      "drop_after_misses": 6,
+      "rcs_factor": {
+        "0": 0.4,
+        "1": 0.6,
+        "2": 0.8,
+        "3": 1.2,
+        "4": 1.3,
+        "5": 0.3,
+        "6": 1.0
+      },
+      "clutter_enabled": false
+    },
+    "wind": {
+      "speed_min_ms": 0.0,
+      "speed_max_ms": 8.0,
+      "dir_min_rad": -3.141592653589793,
+      "dir_max_rad": 3.141592653589793,
+      "gust_enabled": false,
+      "gust_sigma_ms": 1.5,
+      "gust_tau_s": 5.0
+    },
+    "corridor_enabled": true,
+    "nfz_count": 2,
+    "reaction_enabled": true
+  },
+  "timing": {
+    "sim_dt_s": 0.05,
+    "log_dt_s": 0.5,
+    "log_decimation": 10,
+    "hist_steps": 20,
+    "pred_steps": 30,
+    "duration_s": 60.0,
+    "n_logged_steps": 120
+  },
+  "counts": {
+    "n_episodes": 200,
+    "n_rollout_files": 0,
+    "n_preview_files": 200,
+    "n_index_lines": 200
+  },
+  "splits": {
+    "sens_notice_hi": {
+      "n_episodes": 200,
+      "seed_base": 0,
+      "episode_range": [
+        0,
+        199
+      ],
+      "notes": "{\"case\": \"notice_hi\", \"kind\": \"notice\", \"description\": \"conflict notice probability shifted by +0.2\", \"edits\": {\"reaction[3].notice_prob\": [0.95, 0.99], \"reaction[2].notice_prob\": [0.55, 0.75], \"reaction[1].notice_prob\": [0.65, 0.8500000000000001], \"reaction[4].notice_prob\": [0.35, 0.55], \"reaction[0].notice_prob\": [0.9, 0.99], \"reaction[6].notice_prob\": [0.5, 0.7]}}"
+    }
+  },
+  "environment": {
+    "python_version": "3.10.9",
+    "python_implementation": "CPython",
+    "python_executable": "C:/Users/AISIMULATOR2/anaconda3/python.exe",
+    "numpy_version": "2.2.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD",
+    "hostname": "HJLAB"
+  },
+  "source": {
+    "root": "D:/PRISM/dataGen",
+    "sha256": "d457813d878f89b7100b0eec03a26feb4301d43c5574823e60b3cf32ddf01095",
+    "n_files": 52,
+    "n_bytes": 1240944
+  },
+  "layout": {
+    "manifest": "manifest.json",
+    "config": "config.json",
+    "index": "index.jsonl",
+    "readme": "README.txt",
+    "episodes_dir": "episodes",
+    "rollouts_dir": "rollouts",
+    "preview_dir": "preview",
+    "episode_file": "ep_000000.npz",
+    "rollout_file": "ep_000000_rollouts.npz",
+    "preview_file": "ep_000000.json"
+  },
+  "array_spec": {
+    "t": {
+      "dtype": "float32",
+      "shape": [
+        "T"
+      ],
+      "group": "index"
+    },
+    "own_pos": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "2"
+      ],
+      "group": "own"
+    },
+    "own_vel": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "2"
+      ],
+      "group": "own"
+    },
+    "own_psi": {
+      "dtype": "float32",
+      "shape": [
+        "T"
+      ],
+      "group": "own"
+    },
+    "gt_valid": {
+      "dtype": "bool",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "gt"
+    },
+    "gt_pos": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "N",
+        "2"
+      ],
+      "group": "gt"
+    },
+    "gt_vel": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "N",
+        "2"
+      ],
+      "group": "gt"
+    },
+    "gt_psi": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "gt"
+    },
+    "gt_mode": {
+      "dtype": "int8",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "gt"
+    },
+    "gt_intent": {
+      "dtype": "int8",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "gt"
+    },
+    "gt_type": {
+      "dtype": "int8",
+      "shape": [
+        "N"
+      ],
+      "group": "gt"
+    },
+    "obs_detected": {
+      "dtype": "bool",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "obs"
+    },
+    "obs_pos": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "N",
+        "2"
+      ],
+      "group": "obs"
+    },
+    "obs_R": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "N",
+        "2",
+        "2"
+      ],
+      "group": "obs"
+    },
+    "obs_t_valid": {
+      "dtype": "float32",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "obs"
+    },
+    "obs_track_id": {
+      "dtype": "int32",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "obs"
+    },
+    "obs_track_age": {
+      "dtype": "int32",
+      "shape": [
+        "T",
+        "N"
+      ],
+      "group": "obs"
+    },
+    "agent_ids": {
+      "dtype": "int32",
+      "shape": [
+        "N"
+      ],
+      "group": "index"
+    }
+  },
+  "extra": {}
+}

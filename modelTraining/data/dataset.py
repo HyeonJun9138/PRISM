@@ -21,6 +21,21 @@ features let the model see how stale the information is. NaN discipline:
 obs_pos / obs_R contain NaN where undetected, so every read of those arrays
 is routed through np.where(detected, ..., 0) before any arithmetic result is
 kept.
+
+Track identity (data_cfg["track_rule"], review round 1, R3 major 3):
+  * "current" -- a detection is usable only if it belongs to the track that
+    is OPEN at t0 (obs_track_id[t0] >= 0). The tracker closes a track after
+    drop_after_misses consecutive misses and hands a reacquired object a NEW
+    id, so the predictor must not see the object's earlier, closed tracks.
+    This is the tracking model the paper states.
+  * "slot" -- every detection of the physical agent slot, across track drops.
+    That is PERFECT re-association (an oracle the stated tracker does not
+    have). It is the behaviour of every model trained before 2026-09-26, so
+    a config WITHOUT the key means "slot": a legacy checkpoint is always fed
+    the way it was trained. Kept as the oracle-association control.
+data_cfg["index_track_rule"] overrides the rule used for sample ELIGIBILITY
+only, so an oracle model can be scored on exactly the current-track sample
+set (paired comparison) while still being fed its own inputs.
 """
 from __future__ import annotations
 
@@ -38,6 +53,52 @@ from common.utils import read_json, read_jsonl
 
 HEADING_MIN_DISP = 0.3      # m; below this the target is treated as hovering
 OWNSHIP_POS_STD = 0.5       # m; ownship knows its own position to ~GPS level
+
+TRACK_RULES = ("current", "slot")
+
+
+def track_rule(data_cfg: Mapping) -> str:
+    """Feature-construction track rule of a data config (see module doc).
+
+    A missing key is a legacy (pre-2026-09-26) config and means "slot".
+    """
+    rule = str(data_cfg.get("track_rule", "slot"))
+    if rule not in TRACK_RULES:
+        raise ValueError(f"track_rule must be one of {TRACK_RULES}, got {rule!r}")
+    return rule
+
+
+def index_track_rule(data_cfg: Mapping) -> str:
+    """Eligibility track rule: ``index_track_rule`` if set, else track_rule."""
+    rule = str(data_cfg.get("index_track_rule", track_rule(data_cfg)))
+    if rule not in TRACK_RULES:
+        raise ValueError(f"index_track_rule must be one of {TRACK_RULES}, got {rule!r}")
+    return rule
+
+
+def window_detections(ep: Mapping, t0: int, rule: str) -> np.ndarray:
+    """[HIST, N] bool: detections in the history window ending at t0 that a
+    predictor may use under ``rule`` ("current" or "slot", module doc).
+
+    Under "current" an agent with no open track at t0 contributes nothing,
+    and detections of its earlier, closed tracks are masked. Raises when the
+    episode carries no obs_track_id: silently falling back to "slot" would
+    reintroduce the oracle association this rule exists to remove.
+    """
+    if t0 < HIST_STEPS - 1:
+        raise ValueError(f"t0={t0} leaves no full history window")
+    h0 = t0 - HIST_STEPS + 1
+    det = np.asarray(ep["obs_detected"][h0:t0 + 1]).astype(bool)
+    if rule == "slot":
+        return det
+    if rule != "current":
+        raise ValueError(f"unknown track rule {rule!r}")
+    if "obs_track_id" not in ep:
+        raise KeyError("track_rule='current' needs obs_track_id in the episode "
+                       "arrays (pass it through every ep_dict builder)")
+    tid = np.asarray(ep["obs_track_id"][h0:t0 + 1])
+    cur = np.asarray(ep["obs_track_id"][t0])
+    return det & (tid == cur[None, :]) & (cur >= 0)[None, :]
 
 REQUIRED_KEYS = ["t", "gt_valid", "gt_pos", "gt_type", "obs_detected",
                  "obs_pos", "obs_R", "obs_track_age", "own_pos"]
@@ -131,14 +192,16 @@ def build_sample_index(run_dirs: list[str], data_cfg: dict,
     """Scan every episode of the given runs and enumerate eligible samples.
 
     Eligibility per (t0, agent):
-      * >= min_obs detections of the agent inside the history window
-        (also guarantees the >=2 valid points the frame heading needs)
+      * >= min_obs usable detections of the agent inside the history window
+        under index_track_rule(data_cfg) (also guarantees the >=2 valid
+        points the frame heading needs)
       * gt_valid at t0 and >= min_future_valid GT steps in the future window
     t0 runs over range(HIST_STEPS-1, T-PRED_STEPS, t0_stride).
     """
     stride = int(data_cfg.get("t0_stride", 5))
     min_obs = max(2, int(data_cfg.get("min_obs", 3)))
     min_fut = int(data_cfg.get("min_future_valid", 27))
+    rule = index_track_rule(data_cfg)
 
     files: list[str] = []
     for rd in run_dirs:
@@ -151,15 +214,20 @@ def build_sample_index(run_dirs: list[str], data_cfg: dict,
         with np.load(path) as z:
             det = z["obs_detected"].astype(bool)       # [T,N]
             valid = z["gt_valid"].astype(bool)         # [T,N]
+            tid = z["obs_track_id"] if rule == "current" else None
         T, N = det.shape
         # cumulative sums let each t0 window be tested in O(1)
         det_c = np.concatenate([np.zeros((1, N), np.int32),
                                 np.cumsum(det, axis=0, dtype=np.int32)])
         val_c = np.concatenate([np.zeros((1, N), np.int32),
                                 np.cumsum(valid, axis=0, dtype=np.int32)])
+        ep_ids = {"obs_detected": det, "obs_track_id": tid}
         for t0 in range(HIST_STEPS - 1, T - PRED_STEPS, stride):
             h0 = t0 - HIST_STEPS + 1
-            n_det = det_c[t0 + 1] - det_c[h0]                      # [N]
+            if rule == "slot":
+                n_det = det_c[t0 + 1] - det_c[h0]                  # [N]
+            else:
+                n_det = window_detections(ep_ids, t0, rule).sum(axis=0)
             n_fut = val_c[t0 + 1 + PRED_STEPS] - val_c[t0 + 1]     # [N]
             ok = (n_det >= min_obs) & valid[t0] & (n_fut >= min_fut)
             for a in np.nonzero(ok)[0]:
@@ -190,10 +258,12 @@ def split_train_val(idx: SampleIndex, val_fraction: float,
 # ========================================================== feature building
 
 #: Only the arrays build_sample actually reads. Loading (and caching) the
-#: rest -- gt_vel, gt_psi, gt_mode, obs_track_id, t -- roughly doubled the
-#: per-episode memory and halved the effective cache size for nothing.
+#: rest -- gt_vel, gt_psi, gt_mode, t -- roughly doubled the per-episode
+#: memory and halved the effective cache size for nothing. obs_track_id is
+#: [T,N] int32 (a few KB) and is needed by track_rule "current".
 _NEEDED_KEYS = ("gt_pos", "gt_valid", "gt_type", "gt_intent",
-                "obs_detected", "obs_pos", "obs_R", "obs_track_age", "own_pos")
+                "obs_detected", "obs_pos", "obs_R", "obs_track_age", "own_pos",
+                "obs_track_id")
 
 
 @functools.lru_cache(maxsize=256)
@@ -236,12 +306,28 @@ def build_sample(path: str | Mapping, t0: int, target: int, data_cfg: dict,
     """
     A = int(data_cfg.get("max_agents", 8))
     ep = _load_episode(path) if isinstance(path, str) else path
-    det_all = ep["obs_detected"].astype(bool)
-    N = det_all.shape[1]
+    rule = track_rule(data_cfg)
+    N = ep["obs_detected"].shape[1]
     h0 = t0 - HIST_STEPS + 1
     W = slice(h0, t0 + 1)
 
-    det = det_all[W]                                # [H,N] bool
+    # [H,N] bool; under "current" the earlier, closed tracks of an object are
+    # masked exactly as if they had never been detected (module doc)
+    det = window_detections(ep, t0, rule)
+    # track-history class of the target, identical under both rules, for the
+    # reacquisition breakdown R3 asks for: 0 = every window detection belongs
+    # to the track open at t0; 1 = the window also holds detections of an
+    # earlier, closed track (reacquired object); 2 = no open track at t0
+    # (only reachable under "slot" eligibility); -1 = no track ids stored.
+    reacq = -1
+    if "obs_track_id" in ep:
+        slot_det = window_detections(ep, t0, "slot")[:, target]
+        tid_t = np.asarray(ep["obs_track_id"][W])[:, target]
+        cur_t = int(ep["obs_track_id"][t0][target])
+        if cur_t < 0:
+            reacq = 2
+        else:
+            reacq = int(bool(np.any(slot_det & (tid_t != cur_t))))
     pos_raw = ep["obs_pos"][W].astype(np.float64)   # [H,N,2] NaN when ~det
     R_raw = ep["obs_R"][W].astype(np.float64)       # [H,N,2,2]
     age_raw = ep["obs_track_age"][W].astype(np.float64)
@@ -353,6 +439,7 @@ def build_sample(path: str | Mapping, t0: int, target: int, data_cfg: dict,
         "type_label": np.int64(ep["gt_type"][target]),
         "meta_intent": np.int64(ep["gt_intent"][t0, target]) if "gt_intent" in ep else np.int64(-1),
         "meta_t0": np.int64(t0),
+        "meta_reacq": np.int64(reacq),
         # frame transform (origin [m], theta [rad]) -- predictions come out in
         # this frame; the live console inverts it to draw in world axes.
         "frame": np.array([origin[0], origin[1], theta], dtype=np.float64),

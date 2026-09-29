@@ -1,0 +1,107 @@
+{
+ "definitions": "Branch-rollout spread of the held-out rollout sets (revised Table A2 input).\n\n    python analysis_branch_radius.py        # writes branch_radius_heldout.json next to this file\n\nFor every rollout group (one target, 60 branch futures re-simulated from the\nsame simulator state at 30.0 s) the RMS branch radius at horizon h is\nsqrt(mean_b |p_b(h) - mean_b p_b(h)|^2) over the branches valid at h. Reported:\nmedian (and quartiles) over groups at 5, 10, 15 s, per set, all groups and\ngroups with all 60 branches valid at 15 s. Positions are ground truth\n(rollouts/*.npz, key 'pos' [groups, 60, 30, 2]); step k is at 30.0 + 0.5 (k+1) s,\nso 5/10/15 s are k = 9, 19, 29. numpy + stdlib only; reads only.\n",
+ "sets": {
+  "id_heldout": {
+   "run": "D:/PRISM/Logs/Dataset/20260926_160253_test_id_rollout_heldout",
+   "episodes": 100,
+   "groups": 1951,
+   "all_groups": {
+    "5s": {
+     "n": 1951,
+     "median": 0.83,
+     "q25": 0.0,
+     "q75": 4.82,
+     "mean": 3.42
+    },
+    "10s": {
+     "n": 1951,
+     "median": 16.8,
+     "q25": 3.92,
+     "q75": 31.91,
+     "mean": 21.5
+    },
+    "15s": {
+     "n": 1951,
+     "median": 40.83,
+     "q25": 21.32,
+     "q75": 72.92,
+     "mean": 52.39
+    }
+   },
+   "groups_all60_valid_15s": {
+    "5s": {
+     "n": 1951,
+     "median": 0.83,
+     "q25": 0.0,
+     "q75": 4.82,
+     "mean": 3.42
+    },
+    "10s": {
+     "n": 1951,
+     "median": 16.8,
+     "q25": 3.92,
+     "q75": 31.91,
+     "mean": 21.5
+    },
+    "15s": {
+     "n": 1951,
+     "median": 40.83,
+     "q25": 21.32,
+     "q75": 72.92,
+     "mean": 52.39
+    }
+   }
+  },
+  "ood_heldout": {
+   "run": "D:/PRISM/Logs/Dataset/20260926_155613_test_ood_rollout_heldout",
+   "episodes": 100,
+   "groups": 3600,
+   "all_groups": {
+    "5s": {
+     "n": 3600,
+     "median": 4.7,
+     "q25": 0.02,
+     "q75": 18.36,
+     "mean": 11.37
+    },
+    "10s": {
+     "n": 3600,
+     "median": 30.39,
+     "q25": 9.02,
+     "q75": 67.98,
+     "mean": 40.87
+    },
+    "15s": {
+     "n": 3600,
+     "median": 69.37,
+     "q25": 31.83,
+     "q75": 121.72,
+     "mean": 79.13
+    }
+   },
+   "groups_all60_valid_15s": {
+    "5s": {
+     "n": 3600,
+     "median": 4.7,
+     "q25": 0.02,
+     "q75": 18.36,
+     "mean": 11.37
+    },
+    "10s": {
+     "n": 3600,
+     "median": 30.39,
+     "q25": 9.02,
+     "q75": 67.98,
+     "mean": 40.87
+    },
+    "15s": {
+     "n": 3600,
+     "median": 69.37,
+     "q25": 31.83,
+     "q75": 121.72,
+     "mean": 79.13
+    }
+   }
+  }
+ }
+}

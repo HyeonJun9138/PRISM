@@ -17,7 +17,9 @@ Usage:
   python main.py train --train-run $PRISM_ROOT/Logs/<run> [--val-run ...]
                        [--epochs 60] [--seed 0] [--tag x] [--config file.json]
   python main.py resume --job <job_id> [--checkpoint last.pt]
-  python main.py evaluate --job <job_id> --run $PRISM_ROOT/Logs/<run>
+  python main.py evaluate --job <job_id> --run $PRISM_ROOT/Logs/<run> [<run> ...]
+                       [--index-rule current|slot] [--out report.json]
+                       [--per-sample samples.npz] [--labels <labels dir>]
   python main.py demo               # synthetic end-to-end smoke run (no real data needed)
   python main.py selftest           # unit + integration tests
   python main.py list-jobs
@@ -99,6 +101,7 @@ def cmd_resume(args) -> None:
 
 
 def cmd_evaluate(args) -> None:
+    import functools
     from analysis.evaluate import run_evaluation
     from training.job import REGISTRY
     model = args.model
@@ -109,8 +112,13 @@ def cmd_evaluate(args) -> None:
         model = cand
     if not model or not os.path.exists(model):
         sys.exit(f"model not found: {model}")
+    if args.labels and not os.path.isdir(args.labels):
+        sys.exit(f"labels dir not found: {args.labels}")
     job = REGISTRY.create_job("eval", kind="eval")
-    _run_blocking(job, run_evaluation, model, args.run)
+    fn = functools.partial(run_evaluation, index_rule=args.index_rule,
+                           out_path=args.out, per_sample_path=args.per_sample,
+                           labels_dir=args.labels)
+    _run_blocking(job, fn, model, args.run)
 
 
 def cmd_demo(args) -> None:
@@ -180,6 +188,7 @@ def cmd_validate_data(args) -> None:
 def cmd_selftest(args) -> None:
     from tests.test_pipeline import run_all
     ok = run_all(verbose=True)
+    ok = __import__("tests.test_r3_metrics", fromlist=["run_all"]).run_all(verbose=True) and ok
     sys.exit(0 if ok else 1)
 
 
@@ -216,7 +225,18 @@ def main() -> None:
     e = sub.add_parser("evaluate", help="write eval_report.json for a model")
     e.add_argument("--job", default=None)
     e.add_argument("--model", default=None)
-    e.add_argument("--run", action="append", required=True)
+    e.add_argument("--run", nargs="+", action="extend", required=True,
+                   help="dataset run dir(s); repeatable")
+    e.add_argument("--index-rule", choices=("current", "slot"), default=None,
+                   help="override sample ELIGIBILITY only (data_cfg "
+                        "index_track_rule); the model's feature rule is kept")
+    e.add_argument("--out", default=None,
+                   help="also write the report here (never overwrites)")
+    e.add_argument("--per-sample", default=None,
+                   help="write per-sample arrays (.npz) keyed by (file, t0, agent)")
+    e.add_argument("--labels", default=None,
+                   help="avoidance labels dir: <labels>/<run name>/<episode>.npz "
+                        "with reaction_active [T,N]")
 
     d = sub.add_parser("demo", help="synthetic end-to-end smoke run")
     d.add_argument("--epochs", type=int, default=3)

@@ -1,0 +1,61 @@
+{
+  "config": {
+    "tag": "r3_1x_s0",
+    "seed": 0,
+    "data": {
+      "max_agents": 10,
+      "t0_stride": 4,
+      "min_obs": 3,
+      "min_future_valid": 27,
+      "val_fraction": 0.1,
+      "max_samples_per_epoch": 0,
+      "track_rule": "current"
+    },
+    "model": {
+      "d_model": 160,
+      "n_modes": 3,
+      "temporal_layers": 3,
+      "agent_layers": 2,
+      "n_heads": 8,
+      "d_ff": 384,
+      "dropout": 0.1,
+      "cumulative_mu": true
+    },
+    "optim": {
+      "batch_size": 256,
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "epochs": 85,
+      "warmup_steps": 1500,
+      "grad_clip": 1.0,
+      "amp": "bf16",
+      "num_workers": 8,
+      "val_every": 2,
+      "early_stop_patience": 0
+    },
+    "loss": {
+      "w_mode": 1.0,
+      "w_type": 0.2,
+      "w_mixture_max": 0.5,
+      "mixture_ramp_start": 0.7
+    },
+    "checkpoint": {
+      "every_epochs": 5,
+      "keep_last": 6,
+      "best_metric": "val/minADE"
+    },
+    "r3": {
+      "note": "data-scale (1x) model of Figure 8 retrained under the current-track rule; config identical to 20260812_204740_full except track_rule, seed tag, num_workers",
+      "created": "2026-09-26"
+    }
+  },
+  "roster": {
+    "train": [
+      "C:/PRISM/Logs/Dataset/20260812_202611_train_full"
+    ],
+    "val": [
+      "C:/PRISM/Logs/Dataset/20260812_203525_valid_full"
+    ]
+  },
+  "resume_from": null
+}

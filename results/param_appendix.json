@@ -1,0 +1,1875 @@
+{
+ "0_generation": [
+  {
+   "param": "generated",
+   "value": "2026-09-27T14:34:50",
+   "unit": "",
+   "meaning": "Python 3.10.9, numpy 2.2.6; PRISM root D:/PRISM; cross-checks run: sim, data, cli",
+   "source": "Paper/rebuttal/r3/make_param_appendix.py:1"
+  },
+  {
+   "param": "dataGen source fingerprint",
+   "value": "d457813d878f89b7100b0eec03a26feb4301d43c5574823e60b3cf32ddf01095",
+   "unit": "",
+   "meaning": "SHA-256 over 52 .py files; the digest dataset manifests record",
+   "source": "dataGen/storage/manifest.py:219-262"
+  },
+  {
+   "param": "dataGen fingerprint of the evaluation datasets",
+   "value": "matches current source",
+   "unit": "",
+   "meaning": "manifest source.sha256 of the 3 evaluation runs used below equals the current dataGen digest: every dataGen value in this appendix is the one that generated those datasets",
+   "source": "read-only: Logs/Dataset/20260813_023139_test_id_full5x/manifest.json; Logs/Dataset/20260813_023139_test_ood_full5x_a/manifest.json; Logs/Dataset/20260813_023139_test_ood_full5x_b/manifest.json"
+  },
+  {
+   "param": "planner/evaluation code fingerprint",
+   "value": "98b7d62ad58222bb331d04825d430ba786e43a1c90e9158893043260fc577c72",
+   "unit": "",
+   "meaning": "batch.py's own code_fingerprint over modelVal+modelTraining+baselines (61 .py files); DIFFERS from the frozen r3 planner snapshot b254585bc9054075",
+   "source": "modelVal/experiments/batch.py:174-193,166"
+  }
+ ],
+ "1_measurement_and_reception_times": [
+  {
+   "param": "SIM_DT",
+   "value": 0.05,
+   "unit": "s",
+   "meaning": "integration step (20 Hz); the sensor model is polled on every tick, so report times are multiples of SIM_DT",
+   "source": "dataGen/core/constants.py:60"
+  },
+  {
+   "param": "LOG_DT",
+   "value": 0.5,
+   "unit": "s",
+   "meaning": "logging step (2 Hz): sampling interval of every stored array and the cycle of predictor, IMM and planner",
+   "source": "dataGen/core/constants.py:63"
+  },
+  {
+   "param": "LOG_DECIMATION",
+   "value": 10,
+   "unit": "ticks",
+   "meaning": "integration ticks per logged step (= LOG_DT/SIM_DT)",
+   "source": "dataGen/core/constants.py:66"
+  },
+  {
+   "param": "HIST_STEPS",
+   "value": 20,
+   "unit": "logged steps",
+   "meaning": "model history window",
+   "source": "dataGen/core/constants.py:69"
+  },
+  {
+   "param": "PRED_STEPS",
+   "value": 30,
+   "unit": "logged steps",
+   "meaning": "prediction horizon",
+   "source": "dataGen/core/constants.py:72"
+  },
+  {
+   "param": "HIST_SECONDS",
+   "value": 10.0,
+   "unit": "s",
+   "meaning": "history window = HIST_STEPS·LOG_DT",
+   "source": "dataGen/core/constants.py:75"
+  },
+  {
+   "param": "PRED_SECONDS",
+   "value": 15.0,
+   "unit": "s",
+   "meaning": "prediction horizon = PRED_STEPS·LOG_DT",
+   "source": "dataGen/core/constants.py:78"
+  },
+  {
+   "param": "episode duration (all four dataset splits)",
+   "value": 60.0,
+   "unit": "s",
+   "meaning": "T = duration/LOG_DT = 120 logged steps per episode",
+   "source": "dataGen/scenario/presets.py:453; dataGen/scenario/config.py:606-608"
+  },
+  {
+   "param": "logged time of index i",
+   "value": "t_i = (i+1)·LOG_DT",
+   "unit": "s",
+   "meaning": "the frame is written after the clock advances: t_0 = 0.5 s, t_119 = 60 s; there is no frame at t = 0",
+   "source": "dataGen/simulation/engine.py:342,353,461"
+  },
+  {
+   "param": "SensorConfig.latency_s (mean latency)",
+   "value": 0.2,
+   "unit": "s",
+   "meaning": "mean delay τ between the instant the geometry was true and the instant the report reaches the tracker (processing and transmission as one lumped term)",
+   "source": "dataGen/scenario/config.py:152"
+  },
+  {
+   "param": "SensorConfig.latency_jitter_s",
+   "value": 0.05,
+   "unit": "s",
+   "meaning": "SD of the Gaussian jitter: τ = latency_s + N(0, jitter²) per report ('sensor_latency' stream), clipped at τ ≥ 0",
+   "source": "dataGen/scenario/config.py:153; dataGen/sensors/model.py:530,531"
+  },
+  {
+   "param": "measurement time t_valid",
+   "value": "t_emit − τ",
+   "unit": "s",
+   "meaning": "instant the reported geometry was true; range and bearing are computed from the 20 Hz true-state history interpolated at t_valid; stored as obs_t_valid",
+   "source": "dataGen/sensors/model.py:535,537; dataGen/simulation/engine.py:495"
+  },
+  {
+   "param": "reception time t_emit",
+   "value": "tick at which the track's update fires",
+   "unit": "",
+   "meaning": "SensorModel.measure runs on every 20 Hz tick; a report is emitted when the target's update schedule is due (section 2) and waits for the next logged frame",
+   "source": "dataGen/sensors/model.py:506; dataGen/simulation/engine.py:346,409"
+  },
+  {
+   "param": "logged frame of a report",
+   "value": "t such that t_emit ∈ (t − LOG_DT, t]",
+   "unit": "",
+   "meaning": "all reports emitted since the previous frame are applied to the tracker as one batch at logged tick t; the last detection of the batch sets obs_pos, obs_R, obs_t_valid",
+   "source": "dataGen/simulation/engine.py:434; dataGen/sensors/tracker.py:267,289"
+  },
+  {
+   "param": "report age inside the log interval a = t − t_emit",
+   "value": [
+    0.0,
+    0.45
+   ],
+   "unit": "s",
+   "meaning": "derived: 0 … LOG_DT − SIM_DT in steps of SIM_DT",
+   "source": "dataGen/core/constants.py:60,63"
+  },
+  {
+   "param": "staleness t − obs_t_valid = a + τ",
+   "value": [
+    0.05,
+    0.8
+   ],
+   "unit": "s",
+   "meaning": "derived with τ inside ±3σ; the hard support is [0, ∞): the jitter is Gaussian (clipped only at τ ≥ 0), so obs_t_valid = t is possible and values above the 3σ bound occur (see data cross-check)",
+   "source": "dataGen/core/constants.py:60,63; dataGen/scenario/config.py:152,153"
+  },
+  {
+   "param": "obs_R time reference",
+   "value": "polar noise at t_valid only",
+   "unit": "",
+   "meaning": "the stored covariance excludes the staleness term; calibration of the input layer must propagate to t or score at obs_t_valid",
+   "source": "dataGen/storage/schema.py:105"
+  },
+  {
+   "param": "time stamp used by the predictor",
+   "value": "logged step t_i",
+   "unit": "",
+   "meaning": "each detection enters the network at its logged step; obs_t_valid is not loaded by the feature builder and is not among the 13 FEATURES, so staleness is not an explicit input",
+   "source": "modelTraining/common/constants.py:26-37; modelTraining/data/dataset.py:264,331"
+  },
+  {
+   "param": "time stamp used by IMM, CV baseline and planner CV arm",
+   "value": "logged step t_i",
+   "unit": "",
+   "meaning": "IMM steps dt = LOG_DT per logged frame; the CV fits regress on logged times; none reads obs_t_valid",
+   "source": "baselines/methods/imm.py:251; baselines/methods/cv.py:51; modelVal/planner/risk.py:255"
+  },
+  {
+   "param": "OWNSHIP_POS_STD",
+   "value": 0.5,
+   "unit": "m",
+   "meaning": "position SD used as the ownship slot's covariance in the model input (ownship position treated as known)",
+   "source": "modelTraining/data/dataset.py:55"
+  },
+  {
+   "param": "forecast time of step k",
+   "value": "t[t0] + (k+1)·LOG_DT",
+   "unit": "s",
+   "meaning": "k = 0…29; the planner puts forecast node i = 1…30 at lookahead i·LOG_DT after the plan epoch (NODE_T = 0.5…15 s)",
+   "source": "modelVal/experiments/rollout_score.py:25; modelVal/planner/risk.py:56"
+  },
+  {
+   "param": "rollout fork time branch_t",
+   "value": 30.0,
+   "unit": "s",
+   "meaning": "origin_step = round(branch_t/LOG_DT) = 60; the aligned history ends at logged index 59 (t = 30 s) so forecast step k and rollout step k both refer to branch_t + (k+1)·LOG_DT; branches re-seed only mode_decision, branch_choice, sensor_noise, sensor_detect, wind, perception",
+   "source": "dataGen/main.py:955,275; modelVal/experiments/rollout_score.py:228; dataGen/simulation/rollout.py:67-77"
+  },
+  {
+   "param": "branch rollouts per evaluation episode",
+   "value": 60,
+   "unit": "branches",
+   "meaning": "default of `main.py dataset` (eval splits only)",
+   "source": "dataGen/main.py:969"
+  },
+  {
+   "param": "timing constants re-declared in other subsystems",
+   "value": "consistent",
+   "unit": "",
+   "meaning": "values equal dataGen/core/constants.py",
+   "source": "modelTraining/common/constants.py:11,12,13; modelVal/planner/risk.py:48,49; baselines/methods/imm.py:31; baselines/methods/cv.py:23"
+  },
+  {
+   "param": "cross-check: logged times (runtime)",
+   "value": [
+    0.5,
+    60.0
+   ],
+   "unit": "s",
+   "meaning": "T = 120 frames; max |t_i − (i+1)·LOG_DT| = 0 s",
+   "source": "runtime, in memory (nothing written): SimulationEngine(config_for_episode('test_ood', 0)); dataGen/simulation/engine.py:267-355"
+  },
+  {
+   "param": "cross-check: staleness in one simulated episode (runtime)",
+   "value": {
+    "min": 0.0264,
+    "median": 0.3108,
+    "max": 0.7366
+   },
+   "unit": "s",
+   "meaning": "2066 logged detections, 36 agent slots",
+   "source": "runtime, in memory (nothing written): SimulationEngine(config_for_episode('test_ood', 0)); dataGen/simulation/engine.py:267-355"
+  },
+  {
+   "param": "cross-check: staleness in stored evaluation episodes (data)",
+   "value": {
+    "min": 0.0,
+    "p0.1": 0.0719,
+    "median": 0.3101,
+    "p99.9": 0.7382,
+    "max": 0.8621
+   },
+   "unit": "s",
+   "meaning": "1568647 detections in 900 episodes; 15 with obs_t_valid = t exactly, 0 negative; fraction < 0.05 s: 2.69e-04, > 0.78 s: 1.15e-04",
+   "source": "read-only: Logs/Dataset/20260813_023139_test_id_full5x (300 ep); Logs/Dataset/20260813_023139_test_ood_full5x_a (300 ep); Logs/Dataset/20260813_023139_test_ood_full5x_b (300 ep)"
+  }
+ ],
+ "2_update_rate_and_tracking": [
+  {
+   "param": "sensor models",
+   "value": 1,
+   "unit": "",
+   "meaning": "classes with a measure() method in sensors/model.py (no per-sensor-type rates)",
+   "source": "dataGen/sensors/model.py:244"
+  },
+  {
+   "param": "SensorConfig.update_rate_hz",
+   "value": 5.0,
+   "unit": "Hz",
+   "meaning": "per-track update (revisit) rate",
+   "source": "dataGen/scenario/config.py:150"
+  },
+  {
+   "param": "update period",
+   "value": 0.2,
+   "unit": "s",
+   "meaning": "1/update_rate_hz",
+   "source": "dataGen/sensors/model.py:292-295"
+  },
+  {
+   "param": "update opportunities per logged step",
+   "value": [
+    2,
+    3
+   ],
+   "unit": "reports",
+   "meaning": "LOG_DT·update_rate = 2.5; a miss is an explicit report and counts toward the drop rule",
+   "source": "dataGen/core/constants.py:63; dataGen/scenario/config.py:150"
+  },
+  {
+   "param": "SensorConfig.async_phase",
+   "value": true,
+   "unit": "",
+   "meaning": "first update of a track at t + phase·period, phase ∈ [0, 1) from a CRC-32 hash of (scenario seed, agent id): tracks refresh on different ticks and branch rollouts keep the same schedule",
+   "source": "dataGen/scenario/config.py:151; dataGen/sensors/model.py:626,641-644"
+  },
+  {
+   "param": "sensor parameters per split",
+   "value": "identical",
+   "unit": "",
+   "meaning": "make_preset() leaves ScenarioConfig.sensor at its default for train, valid, test_id, test_ood (checked at generation time)",
+   "source": "dataGen/scenario/config.py:582; dataGen/scenario/presets.py:428-476"
+  },
+  {
+   "param": "SensorConfig.pd_max",
+   "value": 0.95,
+   "unit": "-",
+   "meaning": "maximum per-update detection probability",
+   "source": "dataGen/scenario/config.py:147"
+  },
+  {
+   "param": "SensorConfig.r_full_m",
+   "value": 800.0,
+   "unit": "m",
+   "meaning": "Pd = pd_max·rcs up to this range",
+   "source": "dataGen/scenario/config.py:148"
+  },
+  {
+   "param": "SensorConfig.r_max_m",
+   "value": 3000.0,
+   "unit": "m",
+   "meaning": "Pd reaches 0 here; raised-cosine falloff f(r) = ½(1 + cos(π(r − r_full)/(r_max − r_full))) in between",
+   "source": "dataGen/scenario/config.py:149; dataGen/sensors/model.py:331-355"
+  },
+  {
+   "param": "detection probability",
+   "value": "Pd = clip(pd_max·f(r)·rcs(type), 0, 1)",
+   "unit": "",
+   "meaning": "one Bernoulli draw per update opportunity ('sensor_detect' stream), evaluated at the t_valid geometry",
+   "source": "dataGen/sensors/model.py:357-386"
+  },
+  {
+   "param": "rcs_factor[Bird]",
+   "value": 0.4,
+   "unit": "-",
+   "meaning": "detectability multiplier (marked ASSUMED in the code); per-update Pd at r ≤ r_full = 0.38",
+   "source": "dataGen/scenario/config.py:101"
+  },
+  {
+   "param": "rcs_factor[Multirotor]",
+   "value": 0.6,
+   "unit": "-",
+   "meaning": "detectability multiplier (marked ASSUMED in the code); per-update Pd at r ≤ r_full = 0.57",
+   "source": "dataGen/scenario/config.py:102"
+  },
+  {
+   "param": "rcs_factor[Fixed-wing UAS]",
+   "value": 0.8,
+   "unit": "-",
+   "meaning": "detectability multiplier (marked ASSUMED in the code); per-update Pd at r ≤ r_full = 0.76",
+   "source": "dataGen/scenario/config.py:103"
+  },
+  {
+   "param": "rcs_factor[eVTOL UAM]",
+   "value": 1.2,
+   "unit": "-",
+   "meaning": "detectability multiplier (marked ASSUMED in the code); per-update Pd at r ≤ r_full = 1",
+   "source": "dataGen/scenario/config.py:104"
+  },
+  {
+   "param": "rcs_factor[General aviation]",
+   "value": 1.3,
+   "unit": "-",
+   "meaning": "detectability multiplier (marked ASSUMED in the code); per-update Pd at r ≤ r_full = 1",
+   "source": "dataGen/scenario/config.py:105"
+  },
+  {
+   "param": "rcs_factor[Debris]",
+   "value": 0.3,
+   "unit": "-",
+   "meaning": "detectability multiplier (marked ASSUMED in the code); per-update Pd at r ≤ r_full = 0.285",
+   "source": "dataGen/scenario/config.py:106"
+  },
+  {
+   "param": "rcs_factor[Unknown]",
+   "value": 1.0,
+   "unit": "-",
+   "meaning": "detectability multiplier (marked ASSUMED in the code); per-update Pd at r ≤ r_full = 0.95",
+   "source": "dataGen/scenario/config.py:107"
+  },
+  {
+   "param": "SensorConfig.sigma_r0_m",
+   "value": 3.0,
+   "unit": "m",
+   "meaning": "range-noise floor",
+   "source": "dataGen/scenario/config.py:144"
+  },
+  {
+   "param": "SensorConfig.sigma_r_frac",
+   "value": 0.01,
+   "unit": "-",
+   "meaning": "range-noise slope: σ_r = sigma_r0_m + sigma_r_frac·r",
+   "source": "dataGen/scenario/config.py:145"
+  },
+  {
+   "param": "SensorConfig.sigma_theta_rad",
+   "value": 0.0087,
+   "unit": "rad",
+   "meaning": "bearing-noise SD, constant in angle",
+   "source": "dataGen/scenario/config.py:146"
+  },
+  {
+   "param": "noise SD [along-range σ_r, cross-range r·σ_θ]",
+   "value": {
+    "r = 1000 m": [
+     13.0,
+     8.7
+    ],
+    "r = 3000 m": [
+     33.0,
+     26.1
+    ]
+   },
+   "unit": "m",
+   "meaning": "sampled in polar space; obs_R is the polar covariance propagated through the Jacobian at the MEASURED geometry and rotated to world axes",
+   "source": "dataGen/sensors/model.py:388-402,599"
+  },
+  {
+   "param": "SensorConfig.clutter_enabled",
+   "value": false,
+   "unit": "",
+   "meaning": "no false alarms; no data association (reports arrive keyed by the true agent id)",
+   "source": "dataGen/scenario/config.py:156; dataGen/sensors/tracker.py:182"
+  },
+  {
+   "param": "track initiation",
+   "value": "1 detection",
+   "unit": "",
+   "meaning": "the first detection of an object without a live track opens a track (no M-of-N confirmation)",
+   "source": "dataGen/sensors/tracker.py:276,278"
+  },
+  {
+   "param": "SensorConfig.drop_after_misses",
+   "value": 6,
+   "unit": "updates",
+   "meaning": "consecutive missed updates that close a track = 1.2 s at 5 Hz; no coasting (payload NaN), a later detection opens a NEW track",
+   "source": "dataGen/scenario/config.py:154; dataGen/sensors/tracker.py:294,371-385"
+  },
+  {
+   "param": "obs_track_id",
+   "value": "-1, or 0, 1, … per episode",
+   "unit": "",
+   "meaning": "monotonically increasing, never reused; -1 = no live track; a re-acquired object receives a new id (no identity carried across a drop)",
+   "source": "dataGen/sensors/tracker.py:188,278,279,378"
+  },
+  {
+   "param": "obs_track_age",
+   "value": "logged steps",
+   "unit": "",
+   "meaning": "engine counter: 1 on the first logged frame of a new id, +1 per frame while the id is unchanged, 0 exactly when obs_track_id = -1 (the tracker itself counts updates)",
+   "source": "dataGen/simulation/engine.py:446,448"
+  },
+  {
+   "param": "obs_detected",
+   "value": "≥ 1 detection among the frame's reports",
+   "unit": "",
+   "meaning": "missed or absent updates leave obs_pos / obs_R / obs_t_valid NaN; never interpolated",
+   "source": "dataGen/simulation/engine.py:486; dataGen/sensors/tracker.py:286"
+  },
+  {
+   "param": "min_obs (model sample eligibility)",
+   "value": 3,
+   "unit": "detections",
+   "meaning": "usable detections of the target required in the 10 s history window (also guarantees the two points the frame heading needs)",
+   "source": "modelTraining/config/defaults.json:7; modelTraining/data/dataset.py:202"
+  },
+  {
+   "param": "track_rule (training default)",
+   "value": "current",
+   "unit": "",
+   "meaning": "'current' = only detections of the track open at t0 are used; 'slot' = legacy oracle re-association across drops",
+   "source": "modelTraining/config/defaults.json:11; modelTraining/data/dataset.py:79-101"
+  },
+  {
+   "param": "cross-check: data config of the r3 planner model (data)",
+   "value": {
+    "min_obs": 3,
+    "track_rule": "current"
+   },
+   "unit": "",
+   "meaning": "job 20260926_141629_r3_k3_s1 (model_path of the r3 planner rows), read-only; keys that differ from defaults.json: {\"max_agents\": 10, \"t0_stride\": 4}",
+   "source": "Logs/Models/20260926_141629_r3_k3_s1/config.json:8"
+  },
+  {
+   "param": "cross-check: track bookkeeping (runtime)",
+   "value": "all hold",
+   "unit": "",
+   "meaning": "113 track ids in one simulated test_ood episode: det_implies_track=True, age0_iff_no_track=True, ids_increasing_unique_per_slot=True, ids_unique_across_slots=True, first_frame_age_is_1=True",
+   "source": "runtime, in memory: dataGen/simulation/engine.py:418-497"
+  }
+ ],
+ "3_heading_thresholds": [
+  {
+   "param": "HEADING_MIN_DISP",
+   "value": 0.3,
+   "unit": "m",
+   "meaning": "minimum displacement between the last detection and an earlier one for the frame heading to be defined",
+   "source": "modelTraining/data/dataset.py:54"
+  },
+  {
+   "param": "target-centric frame",
+   "value": "origin = last usable detection; +x = observed direction of motion",
+   "unit": "",
+   "meaning": "θ = atan2 of (last detection − most recent earlier usable detection at least HEADING_MIN_DISP away), scanning backwards over the 10 s window; observations only",
+   "source": "modelTraining/data/dataset.py:337,338,340,342,346"
+  },
+  {
+   "param": "hover fallback",
+   "value": "θ = 0 (world +X, East)",
+   "unit": "",
+   "meaning": "no earlier detection at ≥ HEADING_MIN_DISP (hovering or near-stationary target): world-aligned frame, deterministic and available at inference",
+   "source": "modelTraining/data/dataset.py:339"
+  },
+  {
+   "param": "CV_OMEGA_FRACTION",
+   "value": 0.15,
+   "unit": "× ω_max(v)",
+   "meaning": "defines the GT mode label CV ('nearly constant velocity'): the CV/CA/HOVER turn command is capped at this fraction of the speed-dependent limit (section 5); the reaction layer, applied after the mode machine, can exceed it",
+   "source": "dataGen/agents/maneuver.py:461,1332"
+  },
+  {
+   "param": "CV_TRACK_GAIN",
+   "value": 0.25,
+   "unit": "-",
+   "meaning": "gain on the intent's turn command while in CV/CA/HOVER (course keeping)",
+   "source": "dataGen/agents/maneuver.py:456"
+  },
+  {
+   "param": "CT turn command (GT modes CT_LEFT / CT_RIGHT)",
+   "value": "±frac·ω_max(v)",
+   "unit": "rad/s",
+   "meaning": "frac is drawn on entry from the platform band (section 5) and re-applied to ω_max(v) every step; blended with the intent command by mode_authority",
+   "source": "dataGen/agents/maneuver.py:1275,1327"
+  },
+  {
+   "param": "CT_BLEND_S",
+   "value": 1.0,
+   "unit": "s",
+   "meaning": "linear blend when leaving a coordinated turn",
+   "source": "dataGen/agents/maneuver.py:449"
+  },
+  {
+   "param": "turning_at_track_start / turning_at_entry",
+   "value": {
+    "TURN_MODES": [
+     1,
+     2
+    ]
+   },
+   "unit": "",
+   "meaning": "planner-analysis stratum: 'yes' if the intruder's GT manoeuvre mode is in ['CT_LEFT', 'CT_RIGHT'] at the first detection of its track (at the threshold-entry tick); categorical, no numeric heading-rate threshold; 'unknown' = never tracked before entry",
+   "source": "modelVal/experiments/batch.py:158,331,334; dataGen/core/types.py:61,62; modelVal/experiments/aggregate_r3.py:155,347"
+  },
+  {
+   "param": "encounter geometry bands (heading difference χ)",
+   "value": {
+    "OVERTAKING": [
+     0.0,
+     30.0
+    ],
+    "CROSSING": [
+     30.0,
+     150.0
+    ],
+    "HEAD_ON": [
+     150.0,
+     180.0
+    ]
+   },
+   "unit": "deg",
+   "meaning": "χ = |ψ_intruder − ψ_own|; bands of the designed encounters and of the geometry label given to background traffic",
+   "source": "dataGen/environment/encounter.py:103-107,162-182"
+  },
+  {
+   "param": "CV-baseline residual frame threshold",
+   "value": 1e-06,
+   "unit": "m",
+   "meaning": "the fitted CV sigma is expressed along/cross the forecast displacement pred[−1] − pred[0]; below this norm world axes are used",
+   "source": "baselines/methods/cv.py:94,112"
+  },
+  {
+   "param": "_HEADING_EPS_V (unpowered bodies)",
+   "value": 1e-06,
+   "unit": "m/s",
+   "meaning": "below this ground speed a debris body's heading is undefined and the previous heading is kept",
+   "source": "dataGen/core/kinematics.py:57,276"
+  }
+ ],
+ "4_imm_baseline": [
+  {
+   "param": "model set",
+   "value": [
+    "CV",
+    "CT",
+    "CA"
+   ],
+   "unit": "",
+   "meaning": "N_MODELS = 3; CV [x y vx vy] (dim 4); CT [x y vx vy ω], turn rate ω estimated, EKF-linearised (dim 5); CA [x y vx vy ax ay] (dim 6)",
+   "source": "baselines/methods/imm.py:7-10,32,135"
+  },
+  {
+   "param": "CV process noise",
+   "value": "Q = q_cv·[[dt³/3, dt²/2], [dt²/2, dt]] per axis",
+   "unit": "",
+   "meaning": "continuous white-acceleration model",
+   "source": "baselines/methods/imm.py:67-73"
+  },
+  {
+   "param": "CT process noise",
+   "value": "CV form with q_ct; Q_ωω = q_w·dt",
+   "unit": "",
+   "meaning": "coordinated turn, ω a random walk with PSD q_w (the 'q_omega' of the response)",
+   "source": "baselines/methods/imm.py:76-108,111-115"
+  },
+  {
+   "param": "CA process noise",
+   "value": "white-jerk Q with PSD q_ca",
+   "unit": "",
+   "meaning": "per axis [p, v, a]",
+   "source": "baselines/methods/imm.py:126-132"
+  },
+  {
+   "param": "IMMParams class defaults",
+   "value": {
+    "q_cv": 0.6,
+    "q_ct": 0.8,
+    "q_w": 0.01,
+    "q_ca": 0.4,
+    "p_stay": 0.95,
+    "r_infl": 1.0
+   },
+   "unit": "",
+   "meaning": "constructor defaults; the reported rows load q_cv/q_ct/q_w/q_ca from the tuned JSON (below), while p_stay and r_infl keep these defaults (the tuning family does not set them)",
+   "source": "baselines/methods/imm.py:37-42"
+  },
+  {
+   "param": "mode transition matrix",
+   "value": "p_stay on the diagonal, (1 − p_stay)/2 elsewhere",
+   "unit": "",
+   "meaning": "p_stay is fixed at 0.95 by the tuning family (not tuned)",
+   "source": "baselines/methods/imm.py:44-48"
+  },
+  {
+   "param": "initial mode probabilities",
+   "value": [
+    0.333333,
+    0.333333,
+    0.333333
+   ],
+   "unit": "-",
+   "meaning": "uniform",
+   "source": "baselines/methods/imm.py:163"
+  },
+  {
+   "param": "track initialisation",
+   "value": "two-point",
+   "unit": "",
+   "meaning": "first detection stored; at the second: position = z1, velocity = (z1 - z0) / max(gap_s, 1e-6); no forecast before the second detection",
+   "source": "baselines/methods/imm.py:170-188,262"
+  },
+  {
+   "param": "initial covariance",
+   "value": {
+    "P_pos (m²)": "2·R",
+    "P_vel ((m/s)² per axis)": 100.0,
+    "P_omega ((rad/s)²)": 0.09,
+    "P_acc ((m/s²)² per axis)": 4.0
+   },
+   "unit": "",
+   "meaning": "diagonal priors at initialisation (σ_ω = 0.3 rad/s); the same ω / acceleration priors re-initialise the model-specific states during mixing",
+   "source": "baselines/methods/imm.py:173,180,183,185,246"
+  },
+  {
+   "param": "--imm-init-gap-fix",
+   "value": "off = published rows, on = revised rows",
+   "unit": "",
+   "meaning": "legacy: the first velocity divides by LOG_DT even when k misses separate the two initial detections, i.e. starts at (k+1)× the true velocity; fix: dt accumulates over those misses; outputs named 'imm-gapfix'",
+   "source": "baselines/methods/imm.py:150,255; baselines/main.py:304,335,177"
+  },
+  {
+   "param": "measurement update",
+   "value": "z = obs_pos, R = obs_R·r_infl",
+   "unit": "",
+   "meaning": "position-only linear update (H picks x, y) at each logged detection with the stored per-point covariance; a missed logged step is a coast (time update only); dt = LOG_DT = 0.5 s",
+   "source": "baselines/methods/imm.py:274,286,251"
+  },
+  {
+   "param": "forecast",
+   "value": "30 steps × LOG_DT, open loop",
+   "unit": "",
+   "meaning": "each model propagated without updates; mixture weights = current IMM model probabilities",
+   "source": "baselines/methods/imm.py:302-320"
+  },
+  {
+   "param": "track rule 'current'",
+   "value": "fresh filter per track id",
+   "unit": "",
+   "meaning": "a detection with a new track id restarts the filter; a forecast exists only if the filter belongs to the track open at t0",
+   "source": "baselines/methods/imm.py:383,391"
+  },
+  {
+   "param": "tuning objective",
+   "value": "mean per-step marginal mixture NLL, minimised",
+   "unit": "",
+   "meaning": "same metric code as the neural model",
+   "source": "baselines/harness/evaluate.py:288"
+  },
+  {
+   "param": "tuned family",
+   "value": {
+    "q_cv": "0.6·q",
+    "q_ct": "q",
+    "q_w": "free",
+    "q_ca": "0.8·q",
+    "p_stay": 0.95,
+    "r_infl": 1.0
+   },
+   "unit": "",
+   "meaning": "two free parameters (q, q_w); p_stay and r_infl fixed at the IMMParams defaults",
+   "source": "baselines/harness/evaluate.py:309-310,289"
+  },
+  {
+   "param": "search grid",
+   "value": {
+    "pass1": {
+     "q": [
+      0.2,
+      0.5,
+      1.0,
+      2.5
+     ],
+     "q_w": [
+      0.003,
+      0.01,
+      0.03,
+      0.08
+     ]
+    },
+    "pass2": {
+     "q": [
+      0.05,
+      0.1,
+      0.2,
+      0.5
+     ],
+     "q_w": [
+      0.05,
+      0.2,
+      0.5,
+      1.0
+     ]
+    },
+    "pass3": {
+     "q": [
+      0.01,
+      0.03,
+      0.05,
+      0.1
+     ],
+     "q_w": [
+      0.7,
+      2.0,
+      6.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "winner = argmin over all evaluated points; while it lies on the grid edge the 3×3 neighbourhood {x/3, x, 3x} is added (at most 3 times)",
+   "source": "baselines/harness/evaluate.py:299-303,348-393"
+  },
+  {
+   "param": "tuning data",
+   "value": 1200,
+   "unit": "samples",
+   "meaning": "the first samples of the VALID split in index order; never a test split",
+   "source": "baselines/harness/evaluate.py:304,286; baselines/main.py:336"
+  },
+  {
+   "param": "tuning command",
+   "value": "main.py tune-imm --valid-run <valid> --track-rule current --imm-init-gap-fix",
+   "unit": "",
+   "meaning": "writes baselines_r3/imm_params_<rule>[_gapfix].json, never overwriting; evaluate picks <rule>_gapfix.json first when --imm-init-gap-fix is set",
+   "source": "baselines/main.py:221-266,103-121"
+  },
+  {
+   "param": "published IMM rows: tuned values",
+   "value": {
+    "q_cv": 0.03,
+    "q_ct": 0.05,
+    "q_w": 1.0,
+    "q_ca": 0.04,
+    "p_stay": 0.95,
+    "r_infl": 1.0
+   },
+   "unit": "",
+   "meaning": "pre-round-1 fit (legacy init, rule slot) on Logs/Dataset/20260813_023139_valid_full5x; file note: grid passes 1-3 plateau at q~0.05, q_w~0.7-2.0; frozen at pass-2 optimum (val NLL 2.132); units q_cv m²/s³, q_ct m²/s³, q_w rad²/s³, q_ca m²/s⁵",
+   "source": "Logs/Models/baselines/imm_params.json:2"
+  },
+  {
+   "param": "revised IMM rows: re-tuned values (gap fix, rule current)",
+   "value": {
+    "q_cv": 0.03,
+    "q_ct": 0.05,
+    "q_w": 2.0,
+    "q_ca": 0.04000000000000001,
+    "p_stay": 0.95,
+    "r_infl": 1.0
+   },
+   "unit": "",
+   "meaning": "best (q = 0.05, q_w = 2), NLL 1.9137 on 1200 samples / 6 episodes of Logs/Dataset/20260813_023139_valid_full5x; created 2026-09-26 15:50:29; units q_cv m²/s³, q_ct m²/s³, q_w rad²/s³, q_ca m²/s⁵",
+   "source": "Logs/Models/baselines_r3/imm_params_current_gapfix.json:2"
+  },
+  {
+   "param": "q_w ('q_omega'): published → revised",
+   "value": [
+    1.0,
+    2.0
+   ],
+   "unit": "rad²/s³",
+   "meaning": "turn-rate random-walk PSD of the CT model",
+   "source": "Logs/Models/baselines/imm_params.json:5; Logs/Models/baselines_r3/imm_params_current_gapfix.json:5; baselines/methods/imm.py:39"
+  },
+  {
+   "param": "parameter file used by the revised IMM rows",
+   "value": [
+    "Logs/Models/baselines_r3/imm_params_current_gapfix.json"
+   ],
+   "unit": "",
+   "meaning": "read from the reports' params_file (sha c194979b5573)",
+   "source": "Logs/Models/baselines_r3/report_imm-gapfix_test_id_revised_current_idxcurrent.json:443; Logs/Models/baselines_r3/report_imm-gapfix_test_ood_revised_current_idxcurrent.json:737"
+  },
+  {
+   "param": "sensitivity: re-tune on 12000 samples",
+   "value": {
+    "q_cv": 0.06,
+    "q_ct": 0.1,
+    "q_w": 6.0,
+    "q_ca": 0.08000000000000002,
+    "p_stay": 0.95,
+    "r_infl": 1.0
+   },
+   "unit": "",
+   "meaning": "best q = 0.1, q_w = 6 (61 episodes); NOT used by the reported rows (only via --imm-file)",
+   "source": "Logs/Models/baselines_r3/imm_params_current_gapfix_cap12000.json:2"
+  }
+ ],
+ "5_speed_dependent_turn_limit": [
+  {
+   "param": "turn-rate limit ω_max(v)",
+   "value": "tilt: a_lat,max/max(v, EPS_V); bank: G·tan(φ_max)/max(v, EPS_V); other: omega_max; always ≤ omega_max",
+   "unit": "rad/s",
+   "meaning": "tilt regime = not bank-limited and hover-capable; bank regime = bank-limited platforms; evaluated at the current airspeed every integration step",
+   "source": "dataGen/core/state.py:360-386"
+  },
+  {
+   "param": "G",
+   "value": 9.80665,
+   "unit": "m/s²",
+   "meaning": "standard gravity",
+   "source": "dataGen/core/constants.py:44"
+  },
+  {
+   "param": "EPS_V",
+   "value": 0.5,
+   "unit": "m/s",
+   "meaning": "speed floor in the denominator (finite ω_max at hover)",
+   "source": "dataGen/core/constants.py:106"
+  },
+  {
+   "param": "derived absolute cap",
+   "value": "G·tan(φ_max)/v_min or a_lat,max/v_min",
+   "unit": "rad/s",
+   "meaning": "when omega_max is not authored it is set exactly non-binding at v_min, so the speed-dependent law governs the whole speed band",
+   "source": "dataGen/agents/platforms.py:634,636"
+  },
+  {
+   "param": "command shaping",
+   "value": "clip to ±ω_max(v), then |Δω| ≤ omega_dot_max·dt",
+   "unit": "",
+   "meaning": "turn rate is a state (roll onset), integrated with RK4",
+   "source": "dataGen/core/kinematics.py:124,133"
+  },
+  {
+   "param": "Bird: envelope bands",
+   "value": {
+    "regime": "constant",
+    "v_min (m/s)": {
+     "uniform": [
+      5.0,
+      8.0
+     ]
+    },
+    "v_max (m/s)": {
+     "uniform": [
+      20.0,
+      25.0
+     ]
+    },
+    "omega_max (deg/s)": {
+     "uniform": [
+      48.0,
+      72.0
+     ]
+    },
+    "omega_dot_max (deg/s²)": {
+     "uniform": [
+      100.0,
+      140.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "sampled uniformly per agent (family band); bank_limited=False, can_hover=False, is_powered=True",
+   "source": "dataGen/agents/platforms.py:298,307,308,311,312"
+  },
+  {
+   "param": "Bird: ω_max at the mid-band envelope",
+   "value": {
+    "v = 6.5 m/s": 60.0,
+    "v = 14.5 m/s": 60.0,
+    "v = 22.5 m/s": 60.0
+   },
+   "unit": "deg/s",
+   "meaning": "computed with max_turn_rate at v_min, cruise = (v_min + v_max)/2, v_max; minimum turn radius at cruise 13.85 m",
+   "source": "dataGen/core/state.py:360-386; dataGen/agents/platforms.py:842-885"
+  },
+  {
+   "param": "Multirotor: envelope bands",
+   "value": {
+    "regime": "tilt",
+    "v_min (m/s)": 0.0,
+    "v_max (m/s)": {
+     "uniform": [
+      16.0,
+      20.0
+     ]
+    },
+    "a_lat,max (m/s²)": {
+     "uniform": [
+      4.5,
+      6.8
+     ]
+    },
+    "omega_max (deg/s)": {
+     "uniform": [
+      72.0,
+      108.0
+     ]
+    },
+    "omega_dot_max (deg/s²)": {
+     "uniform": [
+      75.0,
+      105.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "sampled uniformly per agent (family band); bank_limited=False, can_hover=True, is_powered=True",
+   "source": "dataGen/agents/platforms.py:329,338,339,345,342,343"
+  },
+  {
+   "param": "Multirotor: ω_max at the mid-band envelope",
+   "value": {
+    "v = 0 m/s": 90.0,
+    "v = 9 m/s": 35.97,
+    "v = 18 m/s": 17.98
+   },
+   "unit": "deg/s",
+   "meaning": "computed with max_turn_rate at v_min, cruise = (v_min + v_max)/2, v_max; minimum turn radius at cruise 14.34 m; over the a_lat,max band at v = 9 m/s: 28.65–43.29 deg/s",
+   "source": "dataGen/core/state.py:360-386; dataGen/agents/platforms.py:842-885"
+  },
+  {
+   "param": "Fixed-wing UAS: envelope bands",
+   "value": {
+    "regime": "bank",
+    "v_min (m/s)": {
+     "uniform": [
+      20.0,
+      23.0
+     ]
+    },
+    "v_max (m/s)": {
+     "uniform": [
+      36.0,
+      40.0
+     ]
+    },
+    "φ_max (deg)": {
+     "uniform": [
+      40.0,
+      50.0
+     ]
+    },
+    "omega_dot_max (deg/s²)": {
+     "uniform": [
+      25.0,
+      35.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "sampled uniformly per agent (family band); bank_limited=True, can_hover=False, is_powered=True",
+   "source": "dataGen/agents/platforms.py:358,367,368,373,372"
+  },
+  {
+   "param": "Fixed-wing UAS: ω_max at the mid-band envelope",
+   "value": {
+    "v = 21.5 m/s": 26.13,
+    "v = 29.8 m/s": 18.89,
+    "v = 38 m/s": 14.79
+   },
+   "unit": "deg/s",
+   "meaning": "computed with max_turn_rate at v_min, cruise = (v_min + v_max)/2, v_max; minimum turn radius at cruise 90.25 m; over the φ_max band at v = 29.8 m/s: 15.85–22.51 deg/s",
+   "source": "dataGen/core/state.py:360-386; dataGen/agents/platforms.py:842-885"
+  },
+  {
+   "param": "eVTOL UAM: envelope bands",
+   "value": {
+    "regime": "bank",
+    "v_min (m/s)": {
+     "uniform": [
+      30.0,
+      33.0
+     ]
+    },
+    "v_max (m/s)": {
+     "uniform": [
+      72.0,
+      80.0
+     ]
+    },
+    "φ_max (deg)": {
+     "uniform": [
+      22.0,
+      28.0
+     ]
+    },
+    "omega_dot_max (deg/s²)": {
+     "uniform": [
+      4.0,
+      6.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "sampled uniformly per agent (family band); bank_limited=True, can_hover=True, is_powered=True",
+   "source": "dataGen/agents/platforms.py:386,395,396,401,400"
+  },
+  {
+   "param": "eVTOL UAM: ω_max at the mid-band envelope",
+   "value": {
+    "v = 31.5 m/s": 8.32,
+    "v = 53.8 m/s": 4.87,
+    "v = 76 m/s": 3.45
+   },
+   "unit": "deg/s",
+   "meaning": "computed with max_turn_rate at v_min, cruise = (v_min + v_max)/2, v_max; minimum turn radius at cruise 631.8 m; over the φ_max band at v = 53.8 m/s: 4.22–5.56 deg/s",
+   "source": "dataGen/core/state.py:360-386; dataGen/agents/platforms.py:842-885"
+  },
+  {
+   "param": "General aviation: envelope bands",
+   "value": {
+    "regime": "bank",
+    "v_min (m/s)": {
+     "uniform": [
+      40.0,
+      44.0
+     ]
+    },
+    "v_max (m/s)": {
+     "uniform": [
+      64.0,
+      70.0
+     ]
+    },
+    "φ_max (deg)": {
+     "uniform": [
+      27.0,
+      33.0
+     ]
+    },
+    "omega_dot_max (deg/s²)": {
+     "uniform": [
+      12.0,
+      18.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "sampled uniformly per agent (family band); bank_limited=True, can_hover=False, is_powered=True",
+   "source": "dataGen/agents/platforms.py:418,427,428,433,432"
+  },
+  {
+   "param": "General aviation: ω_max at the mid-band envelope",
+   "value": {
+    "v = 42 m/s": 7.72,
+    "v = 54.5 m/s": 5.95,
+    "v = 67 m/s": 4.84
+   },
+   "unit": "deg/s",
+   "meaning": "computed with max_turn_rate at v_min, cruise = (v_min + v_max)/2, v_max; minimum turn radius at cruise 524.6 m; over the φ_max band at v = 54.5 m/s: 5.25–6.70 deg/s",
+   "source": "dataGen/core/state.py:360-386; dataGen/agents/platforms.py:842-885"
+  },
+  {
+   "param": "Debris: envelope bands",
+   "value": {
+    "regime": "constant (bookkeeping only: passive body)",
+    "v_min (m/s)": 0.0,
+    "v_max (m/s)": {
+     "uniform": [
+      15.0,
+      25.0
+     ]
+    },
+    "omega_max (deg/s)": {
+     "uniform": [
+      10.0,
+      30.0
+     ]
+    },
+    "omega_dot_max (deg/s²)": {
+     "uniform": [
+      30.0,
+      90.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "sampled uniformly per agent (family band); bank_limited=False, can_hover=False, is_powered=False",
+   "source": "dataGen/agents/platforms.py:446,455,456,459,460"
+  },
+  {
+   "param": "Debris: ω_max at the mid-band envelope",
+   "value": {
+    "v = 0 m/s": 20.0,
+    "v = 10 m/s": 20.0,
+    "v = 20 m/s": 20.0
+   },
+   "unit": "deg/s",
+   "meaning": "computed with max_turn_rate at v_min, cruise = (v_min + v_max)/2, v_max; minimum turn radius at cruise 28.65 m",
+   "source": "dataGen/core/state.py:360-386; dataGen/agents/platforms.py:842-885"
+  },
+  {
+   "param": "Unknown: envelope",
+   "value": {
+    "base": [
+     "Bird",
+     "Multirotor",
+     "Fixed-wing UAS",
+     "eVTOL UAM",
+     "General aviation"
+    ],
+    "v_max ×": {
+     "uniform": [
+      1.3,
+      1.6
+     ]
+    },
+    "turn caps ×": {
+     "uniform": [
+      1.4,
+      1.8
+     ]
+    },
+    "omega_dot ×": {
+     "uniform": [
+      1.5,
+      2.0
+     ]
+    },
+    "bank cap deg": 75.0
+   },
+   "unit": "",
+   "meaning": "OOD class: a random base platform with every turn-rate cap (omega_max, a_lat,max, tan φ_max) scaled by the same factor; the regime is the base platform's",
+   "source": "dataGen/agents/platforms.py:477,126,135-146"
+  },
+  {
+   "param": "Unknown: ω_max at the mid-band envelope",
+   "value": {
+    "v = 6.5 m/s": 96.0,
+    "v = 19.6 m/s": 96.0,
+    "v = 32.6 m/s": 96.0
+   },
+   "unit": "deg/s",
+   "meaning": "computed with max_turn_rate at v_min, cruise = (v_min + v_max)/2, v_max; minimum turn radius at cruise 11.68 m; mid-band UNKNOWN built on Bird with mid-band factors (default_envelope)",
+   "source": "dataGen/core/state.py:360-386; dataGen/agents/platforms.py:842-885"
+  },
+  {
+   "param": "CT turn fraction of ω_max(v) per platform",
+   "value": {
+    "Bird": {
+     "uniform": [
+      0.4,
+      1.0
+     ]
+    },
+    "Multirotor": {
+     "uniform": [
+      0.3,
+      0.9
+     ]
+    },
+    "Fixed-wing UAS": {
+     "uniform": [
+      0.3,
+      0.8
+     ]
+    },
+    "eVTOL UAM": {
+     "uniform": [
+      0.15,
+      0.45
+     ]
+    },
+    "General aviation": {
+     "uniform": [
+      0.2,
+      0.6
+     ]
+    },
+    "Unknown": {
+     "uniform": [
+      0.5,
+      1.0
+     ]
+    }
+   },
+   "unit": "-",
+   "meaning": "drawn on entry to CT_LEFT/CT_RIGHT; mode_authority (blend with the intent command): Bird 0.9, Multirotor 0.8, Fixed-wing UAS 0.65, eVTOL UAM 0.35, General aviation 0.5, Unknown 0.95",
+   "source": "dataGen/agents/platforms.py:184-236"
+  },
+  {
+   "param": "ownship (planner experiments)",
+   "value": "EVTOL_UAM envelope",
+   "unit": "",
+   "meaning": "the ownship is built with the same catalogue and turn law (bank-limited)",
+   "source": "dataGen/scenario/builder.py:808"
+  },
+  {
+   "param": "cross-check: `dataGen/main.py platforms` turn@cruise",
+   "value": "agrees",
+   "unit": "deg/s",
+   "meaning": "the CLI's turn@cru column (1 decimal) vs the values computed above",
+   "source": "runtime subprocess: python -B dataGen/main.py platforms"
+  }
+ ],
+ "6_debris_initialisation": [
+  {
+   "param": "platform-mix weight of DEBRIS",
+   "value": {
+    "train": 0.0,
+    "valid": 0.0,
+    "test_id": 0.0,
+    "test_ood": 0.1
+   },
+   "unit": "-",
+   "meaning": "train/valid/test_id never contain debris",
+   "source": "dataGen/scenario/presets.py:232,254"
+  },
+  {
+   "param": "intent",
+   "value": "PASSIVE_DRIFT (forced)",
+   "unit": "",
+   "meaning": "any drawn intent is replaced; the passive integrator owns the motion",
+   "source": "dataGen/scenario/builder.py:181"
+  },
+  {
+   "param": "reaction layer",
+   "value": "none",
+   "unit": "",
+   "meaning": "unpowered bodies carry no evasive layer",
+   "source": "dataGen/agents/reaction.py:158"
+  },
+  {
+   "param": "spawn time",
+   "value": 0.0,
+   "unit": "s",
+   "meaning": "every traffic agent, debris included, exists from t = 0",
+   "source": "dataGen/scenario/builder.py:715"
+  },
+  {
+   "param": "spawn position (background slot)",
+   "value": [
+    -2640.0,
+    2640.0
+   ],
+   "unit": "m",
+   "meaning": "x and y uniform in ±(half side − margin) of the 36 km² arena (half side 3000 m, margin MARGIN_FRACTION·half = 360 m), rejection-sampled ≥ 50 m outside no-fly zones",
+   "source": "dataGen/scenario/builder.py:110,575-599; dataGen/environment/world.py:156,429-465"
+  },
+  {
+   "param": "initial speed (background slot)",
+   "value": {
+    "uniform": [
+     "0.25·v_max",
+     "0.85·v_max"
+    ]
+   },
+   "unit": "m/s",
+   "meaning": "_nominal_speed: U(v_min + 0.25Δ, v_min + 0.85Δ), Δ = v_max − v_min, with v_min = 0 and v_max ~ U(15, 25) m/s → 3.75–21.25 m/s overall; a GROUND speed for unpowered bodies",
+   "source": "dataGen/scenario/builder.py:476-492,877; dataGen/agents/platforms.py:455,456"
+  },
+  {
+   "param": "initial heading (background slot)",
+   "value": [
+    -180.0,
+    180.0
+   ],
+   "unit": "deg",
+   "meaning": "uniform",
+   "source": "dataGen/scenario/builder.py:878"
+  },
+  {
+   "param": "initial turn rate and acceleration",
+   "value": {
+    "omega (rad/s)": 0.0,
+    "a (m/s²)": 0.0
+   },
+   "unit": "",
+   "meaning": "AgentState defaults; drag then sets both",
+   "source": "dataGen/core/state.py:101,102"
+  },
+  {
+   "param": "designed-encounter slot",
+   "value": {
+    "cpa_dist (m)": {
+     "uniform": [
+      30.0,
+      2500.0
+     ]
+    },
+    "tcpa (s)": {
+     "uniform": [
+      15.0,
+      45.0
+     ]
+    },
+    "speed (m/s)": {
+     "uniform": [
+      "max(v_min, 0.3·v_max)",
+      "v_max"
+     ]
+    },
+    "initial range (m)": [
+     200.0,
+     3750.0
+    ]
+   },
+   "unit": "",
+   "meaning": "the first n_designed slots are inverse-designed whatever their platform; a debris slot gets its position and heading from the CPA design (constant-velocity solve)",
+   "source": "dataGen/scenario/builder.py:853,114,118; dataGen/environment/encounter.py:261,342; dataGen/scenario/config.py:354,357"
+  },
+  {
+   "param": "mass",
+   "value": {
+    "uniform": [
+     0.2,
+     2.0
+    ]
+   },
+   "unit": "kg",
+   "meaning": "per-agent draw",
+   "source": "dataGen/agents/platforms.py:464"
+  },
+  {
+   "param": "drag area Cd·A",
+   "value": {
+    "uniform": [
+     0.01,
+     0.08
+    ]
+   },
+   "unit": "m²",
+   "meaning": "per-agent draw",
+   "source": "dataGen/agents/platforms.py:465"
+  },
+  {
+   "param": "RHO_AIR",
+   "value": 1.225,
+   "unit": "kg/m³",
+   "meaning": "sea-level ISA density (debris drag only)",
+   "source": "dataGen/core/kinematics.py:52"
+  },
+  {
+   "param": "drag law",
+   "value": "a = −k·|v − w|·(v − w), k = ½·ρ·CdA/m",
+   "unit": "",
+   "meaning": "w = wind; k [1/m] over the bands: 0.003063 (min) … 0.02506 (mid) … 0.245 (max); the air-relative speed decays as u0/(1 + k·u0·t) and the body becomes wind-slaved",
+   "source": "dataGen/core/kinematics.py:256,188-206"
+  },
+  {
+   "param": "time to halve a 10 m/s air-relative speed",
+   "value": {
+    "min k": 32.65,
+    "mid k": 3.99,
+    "max k": 0.41
+   },
+   "unit": "s",
+   "meaning": "derived: t½ = 1/(k·u0) with k from the mass, drag-area and RHO_AIR rows",
+   "source": "dataGen/agents/platforms.py:464,465; dataGen/core/kinematics.py:52,256"
+  },
+  {
+   "param": "wind the debris converges to",
+   "value": {
+    "test_ood": [
+     10.0,
+     16.0
+    ]
+   },
+   "unit": "m/s",
+   "meaning": "steady wind speed U(band) per episode, direction U(-180.0, 180.0) deg; gust process off",
+   "source": "dataGen/scenario/presets.py:325,465; dataGen/scenario/config.py:257; dataGen/environment/wind.py:122"
+  },
+  {
+   "param": "envelope caps",
+   "value": {
+    "a_max (m/s²)": {
+     "uniform": [
+      0.3,
+      0.8
+     ]
+    },
+    "a_min (m/s²)": {
+     "uniform": [
+      -4.0,
+      -2.0
+     ]
+    },
+    "omega_max (deg/s)": {
+     "uniform": [
+      10.0,
+      30.0
+     ]
+    },
+    "a_lat,max (m/s²)": {
+     "uniform": [
+      1.0,
+      3.0
+     ]
+    }
+   },
+   "unit": "",
+   "meaning": "bookkeeping bounds only (not control authority)",
+   "source": "dataGen/agents/platforms.py:457,458,459,462"
+  },
+  {
+   "param": "detectability",
+   "value": 0.3,
+   "unit": "-",
+   "meaning": "rcs_factor of DEBRIS (section 2)",
+   "source": "dataGen/scenario/config.py:106"
+  },
+  {
+   "param": "lifetime",
+   "value": "whole episode",
+   "unit": "",
+   "meaning": "agents are never retired (0 call(s) of retire() outside tests) and never killed or teleported at the boundary",
+   "source": "dataGen/agents/base.py:874; dataGen/environment/world.py:16"
+  },
+  {
+   "param": "boundary",
+   "value": "no containment for debris",
+   "unit": "",
+   "meaning": "containment is a heading command (1 call site(s): dataGen/simulation/engine.py:110 (default_ownship_controller)); the hard reflection enforce_bounds() has 0 call site(s); an unpowered body can drift out of the 36 km² arena and stays alive (detectable while inside sensor range)",
+   "source": "dataGen/environment/world.py:546-585,587-621"
+  }
+ ],
+ "7_ownship_planner": [
+  {
+   "param": "NMAC_RADIUS_M",
+   "value": 152.4,
+   "unit": "m",
+   "meaning": "NMAC horizontal radius (500 ft)",
+   "source": "dataGen/core/constants.py:87"
+  },
+  {
+   "param": "DWC_HMD_M",
+   "value": 1219.2,
+   "unit": "m",
+   "meaning": "DAA well-clear horizontal miss distance (4000 ft); the code flags it for verification against RTCA DO-365 before citation",
+   "source": "dataGen/core/constants.py:94"
+  },
+  {
+   "param": "DWC_TAU_MOD_S",
+   "value": 35.0,
+   "unit": "s",
+   "meaning": "DAA well-clear modified tau; the code flags it for verification against RTCA DO-365 before citation",
+   "source": "dataGen/core/constants.py:98"
+  },
+  {
+   "param": "20 Hz separation endpoints",
+   "value": [
+    152.4,
+    76.2,
+    45.0
+   ],
+   "unit": "m",
+   "meaning": "events = contiguous 20 Hz runs of GT separation below each threshold (NMAC, half NMAC, severe); sensors are never used for scoring",
+   "source": "modelVal/experiments/batch.py:153"
+  },
+  {
+   "param": "sigma floor",
+   "value": 10.0,
+   "unit": "m",
+   "meaning": "lower bound on every disk sigma, all arms (class default 10 m); the t = 0 anchor node of a forecast is set to the floor",
+   "source": "modelVal/experiments/batch.py:923; modelVal/planner/risk.py:102,139,462"
+  },
+  {
+   "param": "hard radius",
+   "value": 30.0,
+   "unit": "m",
+   "meaning": "deconfliction floor, identical across arms (not overridden by batch.py): a candidate sample within hard_radius + vehicle_radius = 36 m of any disk centre (observed or forecast, t ≤ risk_horizon) is a collision and makes the candidate invalid; with no valid candidate the planner flies the least-violating one (emergency mode)",
+   "source": "modelVal/planner/risk.py:101; modelVal/planner/frenet.py:22,27,615"
+  },
+  {
+   "param": "vehicle radius",
+   "value": 6.0,
+   "unit": "m",
+   "meaning": "ownship radius in the planner's clearance",
+   "source": "modelVal/planner/controller.py:116"
+  },
+  {
+   "param": "static-disk sigma (no-prediction arm, uncovered tracks)",
+   "value": 152.4,
+   "unit": "m",
+   "meaning": "sigma of observed-position disks (arm 'none', and detected tracks a predictor could not serve)",
+   "source": "modelVal/planner/risk.py:102"
+  },
+  {
+   "param": "CV arm",
+   "value": {
+    "sigma0 (m)": 15.0,
+    "sigma_growth (m/s)": 4.0,
+    "window_steps (logged steps)": 8
+   },
+   "unit": "",
+   "meaning": "σ(t) = sqrt(sigma0² + (sigma_growth·t)²); velocity = least-squares fit over the last 8 logged steps (4 s)",
+   "source": "modelVal/planner/risk.py:215-223"
+  },
+  {
+   "param": "model arm",
+   "value": {
+    "pi_min": 0.05,
+    "iso": "rms",
+    "gain_mode": "pi",
+    "sigma_scale": 1.0
+   },
+   "unit": "",
+   "meaning": "branches with π < pi_min dropped; isotropic σ = sqrt((σx² + σy²)/2) ('rms'); gain split by π; sigma_scale = 1 (raw network σ) unless a recalibration condition",
+   "source": "modelVal/experiments/batch.py:947,951,956,942"
+  },
+  {
+   "param": "soft-cost base gain",
+   "value": 3.0,
+   "unit": "-",
+   "meaning": "(hard_radius + vehicle_radius)/12, shared by all arms",
+   "source": "modelVal/planner/risk.py:62-64"
+  },
+  {
+   "param": "planner lateral-acceleration limit",
+   "value": [
+    3.962,
+    5.214
+   ],
+   "unit": "m/s²",
+   "meaning": "hard validity limit on candidate lateral acceleration = ownship envelope lateral_accel_max = G·tan(φ_max), φ_max ~ U(22, 28) deg per episode (mid-band 4.573); the literal 4.5 is only the fallback for an envelope without that field",
+   "source": "modelVal/planner/controller.py:107,128; dataGen/agents/platforms.py:401,619"
+  },
+  {
+   "param": "unavoidability screen t_need",
+   "value": 8.23,
+   "unit": "s",
+   "meaning": "sqrt(2·NMAC_RADIUS_M/a_lat) with the literal a_lat = 4.5 m/s² (time to displace one NMAC radius laterally at full rate); an event is screened 'unavoidable' when its detection lead is shorter: old screen = first-ever detection → closest approach, new screen = first detection of the track open at entry → threshold entry (a missing lead counts as unavoidable)",
+   "source": "modelVal/experiments/batch.py:154,730,105-109; modelVal/experiments/aggregate_r3.py:148"
+  },
+  {
+   "param": "planner cycle period",
+   "value": 0.5,
+   "unit": "s",
+   "meaning": "predictor (model arms) + replan after every logged frame (LOG_DECIMATION ticks); synchronous in simulated time: the new plan is tracked from the next 20 Hz command (no simulated compute delay)",
+   "source": "modelVal/experiments/batch.py:658,672; modelVal/planner/controller.py:7,9"
+  },
+  {
+   "param": "DEADLINE_MS",
+   "value": 500.0,
+   "unit": "ms",
+   "meaning": "wall-clock budget of one cycle (inference + replan), recorded as deadline_miss",
+   "source": "modelVal/experiments/batch.py:155"
+  },
+  {
+   "param": "PLAN_STALE_S",
+   "value": 2.5,
+   "unit": "s",
+   "meaning": "no replan for this long → corridor-hold fallback",
+   "source": "modelVal/planner/controller.py:38"
+  },
+  {
+   "param": "planning horizon",
+   "value": {
+    "horizon": 29.0,
+    "duration_max": 30.0,
+    "extra_durations": [
+     6.5,
+     13.0
+    ],
+    "plan_dt": 0.5,
+    "risk_horizon": 15.0
+   },
+   "unit": "s",
+   "meaning": "candidates reach duration_max = 30 s; risk is charged only up to risk_horizon (= PRED_SECONDS, the forecast horizon)",
+   "source": "modelVal/planner/controller.py:122,123,124,125,126"
+  },
+  {
+   "param": "soft standoff",
+   "value": 152.4,
+   "unit": "m",
+   "meaning": "NMAC_RADIUS_M * self.plateau_scale with plateau_scale = 1: full risk cost inside, sigma decay beyond",
+   "source": "modelVal/planner/controller.py:137; modelVal/experiments/batch.py:925"
+  },
+  {
+   "param": "cost weights",
+   "value": {
+    "weight_safety": 12.0,
+    "weight_jerk": 0.8,
+    "weight_offset": 1.0,
+    "weight_fuel": 0.5,
+    "weight_center": 0.5,
+    "weight_speed": 3.0
+   },
+   "unit": "-",
+   "meaning": "fixed across arms",
+   "source": "modelVal/experiments/batch.py:927; modelVal/planner/controller.py:150,151,152"
+  },
+  {
+   "param": "planner episode duration",
+   "value": 90.0,
+   "unit": "s",
+   "meaning": "closed-loop batch episodes",
+   "source": "modelVal/experiments/batch.py:148"
+  },
+  {
+   "param": "episode index offset",
+   "value": 10000,
+   "unit": "-",
+   "meaning": "identical indices across arms (paired traffic), outside the generated evaluation range",
+   "source": "modelVal/experiments/batch.py:147"
+  },
+  {
+   "param": "ownship cruise airspeed",
+   "value": 55.0,
+   "unit": "m/s",
+   "meaning": "EVTOL_UAM envelope (section 5), clamped to [v_min, v_max]; same in every split",
+   "source": "dataGen/scenario/presets.py:161"
+  },
+  {
+   "param": "cross-check: knobs recorded in the frozen r3 planner rows (data)",
+   "value": "match current CLI defaults",
+   "unit": "",
+   "meaning": "r3_id24/model.jsonl row 0 (code_fp b254585bc9054075): sigma_floor=10.0, plateau_scale=1.0, w_safety=12.0, pi_min=0.05, iso=rms, gain_mode=pi, hard_geom=arm, track_rule=current, sigma_scale=1.0; replan spacing in 'cycles': [0.5] s",
+   "source": "read-only: Logs/Planner/r3_id24/model.jsonl"
+  }
+ ],
+ "8_parameter_provenance": [
+  {
+   "param": "G",
+   "value": "traced",
+   "unit": "",
+   "meaning": "ISO 80000-3 / CGPM standard gravity (core.constants.G)",
+   "source": "dataGen/agents/platforms.py:501"
+  },
+  {
+   "param": "standard_rate_turn",
+   "value": "traced",
+   "unit": "",
+   "meaning": "3 deg/s, basic airmanship; reference only",
+   "source": "dataGen/agents/platforms.py:502"
+  },
+  {
+   "param": "MULTIROTOR.v_max",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "bounded by 14 CFR 107.51 ground-speed limit (100 mph = 44.7 m/s)",
+   "source": "dataGen/agents/platforms.py:503"
+  },
+  {
+   "param": "FIXED_WING_UAS.v_range",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "bounded by 14 CFR 107.51; typical small fixed-wing cruise",
+   "source": "dataGen/agents/platforms.py:507"
+  },
+  {
+   "param": "EVTOL_UAM.bank_max",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "passenger ride-comfort limit; doc 7.2 defence paragraph",
+   "source": "dataGen/agents/platforms.py:511"
+  },
+  {
+   "param": "EVTOL_UAM.v_range",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "OUTSTANDING: manufacturer spec or NASA reference vehicle (doc 12.4)",
+   "source": "dataGen/agents/platforms.py:515"
+  },
+  {
+   "param": "BIRD.v_range",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "OUTSTANDING: birdstrike literature (doc 12.4)",
+   "source": "dataGen/agents/platforms.py:519"
+  },
+  {
+   "param": "BIRD.omega_max",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "OUTSTANDING: avian avoidance-behaviour observation study (doc 12.4)",
+   "source": "dataGen/agents/platforms.py:520"
+  },
+  {
+   "param": "GA.v_range",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "OUTSTANDING: light-aircraft POH cruise figures",
+   "source": "dataGen/agents/platforms.py:524"
+  },
+  {
+   "param": "GA.bank_max",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "typical enroute manoeuvring bank",
+   "source": "dataGen/agents/platforms.py:525"
+  },
+  {
+   "param": "DEBRIS.mass",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "no standard exists",
+   "source": "dataGen/agents/platforms.py:526"
+  },
+  {
+   "param": "DEBRIS.drag_area",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "no standard exists",
+   "source": "dataGen/agents/platforms.py:527"
+  },
+  {
+   "param": "omega_dot_max",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "roll-onset rate; no public figure used",
+   "source": "dataGen/agents/platforms.py:528"
+  },
+  {
+   "param": "wind_susceptibility",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "modelling device, not a measurement",
+   "source": "dataGen/agents/platforms.py:529"
+  },
+  {
+   "param": "a_max",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "plausible longitudinal authority, unsourced",
+   "source": "dataGen/agents/platforms.py:530"
+  },
+  {
+   "param": "a_min",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "plausible longitudinal authority, unsourced",
+   "source": "dataGen/agents/platforms.py:531"
+  },
+  {
+   "param": "UNKNOWN.factors",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "deliberately arbitrary; purpose is to leave the trained envelope",
+   "source": "dataGen/agents/platforms.py:532"
+  },
+  {
+   "param": "stability.dwell",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "manoeuvre commitment per platform; no public figure. Ordering (eVTOL >> GA > fixed-wing > multirotor > bird) is the defensible claim, not the absolute seconds; enters the sensitivity analysis (doc 12)",
+   "source": "dataGen/agents/platforms.py:536"
+  },
+  {
+   "param": "stability.mode_authority",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "modelling device: how far a discrete manoeuvre overrides guidance",
+   "source": "dataGen/agents/platforms.py:542"
+  },
+  {
+   "param": "stability.diag_bias",
+   "value": "assumed",
+   "unit": "",
+   "meaning": "modelling device: stickiness of the mode transition matrix",
+   "source": "dataGen/agents/platforms.py:546"
+  }
+ ],
+ "not_found_ambiguous": [
+  {
+   "param": "current code vs frozen r3 planner snapshot",
+   "value": "AMBIGUOUS",
+   "unit": "",
+   "meaning": "this appendix reads the CURRENT tree (fp 98b7d62ad58222bb); the r3 planner rows were produced by snapshot fp b254585bc9054075 (not available locally). mtime heuristic: 6 fingerprinted file(s) changed after the first r3 planner shard (2026-09-26T15:27): baselines/harness/evaluate.py, baselines/main.py, baselines/selftests/test_track_rule.py, modelTraining/main.py, modelVal/experiments/gen_rollout_heldout.py, modelVal/tests/test_r3_eval.py; of the planner files cited in section 7, none changed. The knobs recorded in the rows are compared in section 7.",
+   "source": "Logs/Planner/r3_*/*.jsonl field code_fp; file mtimes; modelVal/experiments/batch.py:174-193"
+  },
+  {
+   "param": "staleness range stated in the dataset README",
+   "value": "AMBIGUOUS",
+   "unit": "",
+   "meaning": "README text says 0.05–0.78 s; stored evaluation data span 0.000–0.862 s (15 exact zeros). The stated range is a ~99.96% interval, not a bound (Gaussian latency jitter).",
+   "source": "dataGen/storage/writer.py:427"
+  },
+  {
+   "param": "IMM gap-fix rows under track rule 'slot'",
+   "value": "AMBIGUOUS",
+   "unit": "",
+   "meaning": "2 slot-rule gap-fix report(s) ran with the LEGACY parameters (q_w = 1): no imm_params_slot_gapfix.json exists, so _param_file falls back to the legacy file; only rule 'current' was re-tuned",
+   "source": "Logs/Models/baselines_r3/report_imm-gapfix_test_id_slot_idxslot.json:482; Logs/Models/baselines_r3/report_imm-gapfix_test_ood_slot_idxslot.json:776; baselines/main.py:103-121"
+  },
+  {
+   "param": "IMM q_w optimum depends on the tuning sample size",
+   "value": "AMBIGUOUS",
+   "unit": "",
+   "meaning": "12000 samples give q_w = 6 (q = 0.1) vs 1200 samples q_w = 2 (q = 0.05); the reported rows use the latter (the pre-round-1 protocol's sample cap)",
+   "source": "Logs/Models/baselines_r3/imm_params_current_gapfix_cap12000.json:10; Logs/Models/baselines_r3/imm_params_current_gapfix.json:10"
+  },
+  {
+   "param": "debris designed-encounter geometry",
+   "value": "AMBIGUOUS",
+   "unit": "",
+   "meaning": "the CPA design assumes a constant intruder velocity, but a debris body decelerates under drag from t = 0, so its designed cpa_dist/tcpa are not realised (the realised closest approach is min_separation_m)",
+   "source": "dataGen/environment/encounter.py:283; dataGen/core/kinematics.py:209-292"
+  },
+  {
+   "param": "debris descent / altitude / lifetime constants",
+   "value": "NOT FOUND (2D model)",
+   "unit": "",
+   "meaning": "dataGen is horizontal-only; no descent, altitude or lifetime parameter exists (2 regex hits, none a debris parameter: dataGen/main.py:11, dataGen/storage/writer.py:354)",
+   "source": "regex (?i)descent|altitude|sink.?rate|lifetime_s|despawn over dataGen/**/*.py"
+  },
+  {
+   "param": "DWC_HMD_M / DWC_TAU_MOD_S sourcing",
+   "value": "UNVERIFIED (flagged in code)",
+   "unit": "",
+   "meaning": "constants.py states both must be checked against RTCA DO-365 before any derived number is reported",
+   "source": "dataGen/core/constants.py:91,97"
+  },
+  {
+   "param": "a_lat in t_need vs the planner's limit",
+   "value": "AMBIGUOUS",
+   "unit": "",
+   "meaning": "t_need uses the literal 4.5 m/s² while the planner flies with the episode's envelope value G·tan(φ_max) ∈ [3.962, 5.214] (mid-band 4.573); aggregate_r3.py also hard-codes 152.4 instead of NMAC_RADIUS_M",
+   "source": "modelVal/experiments/batch.py:154,730; modelVal/experiments/aggregate_r3.py:148; modelVal/planner/controller.py:107"
+  },
+  {
+   "param": "PlannerConfig.replan_period",
+   "value": "UNUSED",
+   "unit": "",
+   "meaning": "field defaults to 0.35 s (JS-port parity) but nothing reads it; the effective cycle is LOG_DECIMATION·SIM_DT = 0.5 s",
+   "source": "modelVal/planner/frenet.py:346; regex replan_period over modelVal/**/*.py"
+  },
+  {
+   "param": "sensor parameters in PARAMETER_PROVENANCE",
+   "value": "NOT FOUND",
+   "unit": "",
+   "meaning": "no provenance rows for sensor parameters (sigma_r0_m, sigma_theta_rad, pd_max, update_rate_hz, latency_s, rcs_factor); the SensorConfig docstring asks for DO-365 tracing before publication and _default_rcs_factor marks the RCS factors ASSUMED",
+   "source": "dataGen/agents/platforms.py:500-550; dataGen/scenario/config.py:116,97"
+  },
+  {
+   "param": "frame-heading wording in dataset.py",
+   "value": "AMBIGUOUS (wording)",
+   "unit": "",
+   "meaning": "module docstring says the heading comes from 'the last two distinct valid observations'; the code scans back to the most recent earlier detection at least HEADING_MIN_DISP = 0.3 m away, which may not be the second-to-last detection. Use the code's definition in the paper.",
+   "source": "modelTraining/data/dataset.py:12,340"
+  },
+  {
+   "param": "'q_omega'",
+   "value": "NAMING",
+   "unit": "",
+   "meaning": "the code calls the CT turn-rate noise q_w (0 occurrences of 'q_omega' in baselines); section 4 reports it as q_w",
+   "source": "regex q_omega over baselines/**/*.py"
+  }
+ ]
+}

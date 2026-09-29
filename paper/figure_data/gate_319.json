@@ -1,0 +1,5884 @@
+{
+ "generated_utc": "2026-09-27T05:11:01+00:00",
+ "pass": true,
+ "rows_pass": true,
+ "imports_pass": true,
+ "episode_index": 319,
+ "condition": "ood40",
+ "arm_labels": {
+  "none": "A: static observation",
+  "cv": "B: CV",
+  "model": "C: PRISM"
+ },
+ "provenance": {
+  "snapshot_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/r3_code_p2",
+  "snapshot_runner_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/r3_code_runner_p2",
+  "code_fp_local_layout": {
+   "fp": "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+   "files": 60
+  },
+  "code_fp_runner_layout": {
+   "fp": "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702",
+   "files": 60
+  },
+  "code_fp_in_batch_rows": [
+   "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702"
+  ],
+  "runner_fp_matches_rows": true,
+  "layout_equivalence": {
+   "only_local": [],
+   "only_runner": [],
+   "identical": 104,
+   "path_rewrite_only": 31,
+   "other": [],
+   "equivalent": true
+  },
+  "model_local": "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+  "model_runner_in_rows": "C:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+  "model_sha256": "1bbb693397af69141a563df5eb7b8300138b93c58f2322b4ad1a701dcca841ba",
+  "batch_rows": {
+   "none": {
+    "line_no": 320,
+    "file": "D:/PRISM/Logs/Planner/r3_ood40/none.jsonl",
+    "line_sha256": "db6948cde477ccd058e60002778631a3f24b52b02c90faec3a98a9bf6a1bc83d",
+    "file_sha256": "af4a5456a67aa7dd965e29c7f2084db9eaff7c95037f83ba7618dde5db07139f"
+   },
+   "cv": {
+    "line_no": 320,
+    "file": "D:/PRISM/Logs/Planner/r3_ood40/cv.jsonl",
+    "line_sha256": "b5448f12a1b1ceb01effb2e548075b9121f48c58c7df934a0bb90092a42f0c61",
+    "file_sha256": "35af6fa93c3e31562225ce7dc93ddbf7d0a403a86f83d300ce64205e90aef7ff"
+   },
+   "model": {
+    "line_no": 320,
+    "file": "D:/PRISM/Logs/Planner/r3_ood40/model.jsonl",
+    "line_sha256": "fdc2a911d2dd6efba2d066a90ff08e071ae82f1864a0f25abf858cdbebb4de65",
+    "file_sha256": "5ebe879ef57195f698bb9f912ab1ed65859dede3251110d21a765f45dafbf7a6"
+   }
+  },
+  "batch_command": "python -m experiments.batch --arm <none|cv|model> --episodes 1 --start 319 --density 40 --preset test_ood --track-rule current --out <dir> [--model <path>] [--log-preds <dir>, where the row's pred_logged is not null]",
+  "rule_file": "D:/PRISM/Paper/figures_r3/case_rule_r3.txt",
+  "rule_sha256": "6d8927f810d4fa94ea8d681f076649fcc1981cae0a1a7523c01012c13866f939",
+  "script": "D:/PRISM/Paper/figures/select_case_r3.py",
+  "script_sha256": "0f03512c75e5cc6fae33a473f8060ad88dd7128b1c5ca4ec202b719c15ef713b"
+ },
+ "table": {
+  "none": {
+   "key_fields": {
+    "seed": {
+     "batch": 310319,
+     "replay": 310319,
+     "equal": true
+    },
+    "n_agents": {
+     "batch": 24,
+     "replay": 24,
+     "equal": true
+    },
+    "min_sep": {
+     "batch": 11.5,
+     "replay": 11.5,
+     "equal": true
+    },
+    "min_sep_20hz": {
+     "batch": 11.2,
+     "replay": 11.2,
+     "equal": true
+    },
+    "sep_p5": {
+     "batch": 70.9,
+     "replay": 70.9,
+     "equal": true
+    },
+    "nmac_events": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "union20_events_152": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "union20_events_76": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "union20_events_45": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "path_len_m": {
+     "batch": 4205.0,
+     "replay": 4205.0,
+     "equal": true
+    },
+    "abs_omega_p95": {
+     "batch": 3.85,
+     "replay": 3.85,
+     "equal": true
+    },
+    "n_cycles": {
+     "batch": 179,
+     "replay": 179,
+     "equal": true
+    },
+    "emergency_cycles": {
+     "batch": 18,
+     "replay": 18,
+     "equal": true
+    },
+    "pred_logged": {
+     "batch": null,
+     "replay": null,
+     "equal": true
+    }
+   },
+   "n_deterministic_fields": 85,
+   "deterministic_mismatches": [],
+   "layout_fields": {
+    "code_fp": [
+     "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702",
+     "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026"
+    ],
+    "model_path": [
+     null,
+     null
+    ]
+   },
+   "layout_ok": true,
+   "timing_fields": {
+    "cycle_ms_max": [
+     89.4,
+     160.1
+    ],
+    "cycle_ms_p50": [
+     60.1,
+     124.4
+    ],
+    "cycle_ms_p99": [
+     88.0,
+     148.3
+    ],
+    "deadline_miss": [
+     0,
+     0
+    ],
+    "infer_ms_mean": [
+     null,
+     null
+    ],
+    "plan_ms_mean": [
+     59.5,
+     119.6
+    ],
+    "plan_ms_p95": [
+     84.8,
+     143.2
+    ],
+    "wall_s": [
+     12.8,
+     25.5
+    ]
+   },
+   "pass": true
+  },
+  "cv": {
+   "key_fields": {
+    "seed": {
+     "batch": 310319,
+     "replay": 310319,
+     "equal": true
+    },
+    "n_agents": {
+     "batch": 24,
+     "replay": 24,
+     "equal": true
+    },
+    "min_sep": {
+     "batch": 9.4,
+     "replay": 9.4,
+     "equal": true
+    },
+    "min_sep_20hz": {
+     "batch": 3.1,
+     "replay": 3.1,
+     "equal": true
+    },
+    "sep_p5": {
+     "batch": 58.3,
+     "replay": 58.3,
+     "equal": true
+    },
+    "nmac_events": {
+     "batch": 3,
+     "replay": 3,
+     "equal": true
+    },
+    "union20_events_152": {
+     "batch": 3,
+     "replay": 3,
+     "equal": true
+    },
+    "union20_events_76": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "union20_events_45": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "path_len_m": {
+     "batch": 4184.0,
+     "replay": 4184.0,
+     "equal": true
+    },
+    "abs_omega_p95": {
+     "batch": 4.03,
+     "replay": 4.03,
+     "equal": true
+    },
+    "n_cycles": {
+     "batch": 179,
+     "replay": 179,
+     "equal": true
+    },
+    "emergency_cycles": {
+     "batch": 16,
+     "replay": 16,
+     "equal": true
+    },
+    "pred_logged": {
+     "batch": null,
+     "replay": null,
+     "equal": true
+    }
+   },
+   "n_deterministic_fields": 85,
+   "deterministic_mismatches": [],
+   "layout_fields": {
+    "code_fp": [
+     "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702",
+     "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026"
+    ],
+    "model_path": [
+     null,
+     null
+    ]
+   },
+   "layout_ok": true,
+   "timing_fields": {
+    "cycle_ms_max": [
+     94.5,
+     161.6
+    ],
+    "cycle_ms_p50": [
+     53.9,
+     129.0
+    ],
+    "cycle_ms_p99": [
+     93.8,
+     154.4
+    ],
+    "deadline_miss": [
+     0,
+     0
+    ],
+    "infer_ms_mean": [
+     null,
+     null
+    ],
+    "plan_ms_mean": [
+     58.0,
+     123.6
+    ],
+    "plan_ms_p95": [
+     86.7,
+     148.4
+    ],
+    "wall_s": [
+     12.4,
+     26.3
+    ]
+   },
+   "pass": true
+  },
+  "model": {
+   "key_fields": {
+    "seed": {
+     "batch": 310319,
+     "replay": 310319,
+     "equal": true
+    },
+    "n_agents": {
+     "batch": 24,
+     "replay": 24,
+     "equal": true
+    },
+    "min_sep": {
+     "batch": 40.8,
+     "replay": 40.8,
+     "equal": true
+    },
+    "min_sep_20hz": {
+     "batch": 37.7,
+     "replay": 37.7,
+     "equal": true
+    },
+    "sep_p5": {
+     "batch": 111.0,
+     "replay": 111.0,
+     "equal": true
+    },
+    "nmac_events": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "union20_events_152": {
+     "batch": 2,
+     "replay": 2,
+     "equal": true
+    },
+    "union20_events_76": {
+     "batch": 1,
+     "replay": 1,
+     "equal": true
+    },
+    "union20_events_45": {
+     "batch": 1,
+     "replay": 1,
+     "equal": true
+    },
+    "path_len_m": {
+     "batch": 4012.0,
+     "replay": 4012.0,
+     "equal": true
+    },
+    "abs_omega_p95": {
+     "batch": 4.27,
+     "replay": 4.27,
+     "equal": true
+    },
+    "n_cycles": {
+     "batch": 179,
+     "replay": 179,
+     "equal": true
+    },
+    "emergency_cycles": {
+     "batch": 22,
+     "replay": 22,
+     "equal": true
+    },
+    "pred_logged": {
+     "batch": null,
+     "replay": null,
+     "equal": true
+    }
+   },
+   "n_deterministic_fields": 85,
+   "deterministic_mismatches": [],
+   "layout_fields": {
+    "code_fp": [
+     "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702",
+     "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026"
+    ],
+    "model_path": [
+     "C:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+     "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt"
+    ]
+   },
+   "layout_ok": true,
+   "timing_fields": {
+    "cycle_ms_max": [
+     160.8,
+     553.3
+    ],
+    "cycle_ms_p50": [
+     107.3,
+     219.0
+    ],
+    "cycle_ms_p99": [
+     154.8,
+     455.6
+    ],
+    "deadline_miss": [
+     0,
+     1
+    ],
+    "infer_ms_mean": [
+     17.7,
+     43.7
+    ],
+    "plan_ms_mean": [
+     86.5,
+     171.0
+    ],
+    "plan_ms_p95": [
+     118.5,
+     200.4
+    ],
+    "wall_s": [
+     21.0,
+     43.0
+    ]
+   },
+   "pass": true
+  }
+ },
+ "children": {
+  "none": {
+   "arm": "none",
+   "mode": "gate",
+   "cond": "ood40",
+   "index": 319,
+   "argv": [
+    "experiments.batch",
+    "--arm",
+    "none",
+    "--episodes",
+    "1",
+    "--start",
+    "319",
+    "--density",
+    "40",
+    "--preset",
+    "test_ood",
+    "--track-rule",
+    "current",
+    "--out",
+    "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/final_ep0319_20260927_140915/gate"
+   ],
+   "calls": [
+    {
+     "arm": "none",
+     "index": 319,
+     "predictor": null,
+     "overrides": {
+      "density_per_km2": 40.0
+     },
+     "risk_kw": {
+      "track_rule": "current",
+      "sigma_floor": 10.0
+     },
+     "preset": "test_ood",
+     "pilot_kw": {
+      "plateau_scale": 1.0,
+      "w_safety": 12.0,
+      "safety_norm": "pool",
+      "safety_ref": null,
+      "hard_geom": "arm"
+     },
+     "model_kw": {},
+     "probe_safety": false,
+     "pred_log_dir": null,
+     "meta": {
+      "preset": "test_ood",
+      "track_rule": "current",
+      "allow_rule_mismatch": false,
+      "hard_geom": "arm",
+      "sigma_floor": 10.0,
+      "plateau_scale": 1.0,
+      "w_safety": 12.0,
+      "safety_norm": "pool",
+      "safety_ref": null,
+      "safety_ref_probe": false,
+      "model_path": null,
+      "model_track_rule": null,
+      "overrides": {
+       "density_per_km2": 40.0
+      },
+      "code_fp": "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+      "code_fp_files": 60
+     },
+     "overwrite": false
+    }
+   ],
+   "modules": {
+    "n_modules_checked": 36,
+    "package_roots": {
+     "agents": [
+      "dataGen"
+     ],
+     "bridge": [
+      "modelVal"
+     ],
+     "core": [
+      "dataGen"
+     ],
+     "environment": [
+      "dataGen"
+     ],
+     "experiments": [
+      "modelVal"
+     ],
+     "planner": [
+      "modelVal"
+     ],
+     "scenario": [
+      "dataGen"
+     ],
+     "sensors": [
+      "dataGen"
+     ],
+     "simulation": [
+      "dataGen"
+     ],
+     "storage": [
+      "dataGen"
+     ]
+    },
+    "outside_snapshot": [],
+    "from_live_tree": [],
+    "ok": true
+   },
+   "env": {
+    "python": "3.10.9",
+    "numpy": "2.2.6"
+   },
+   "wall_s": 25.7,
+   "code_fp_import": [
+    "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+    60
+   ],
+   "cwd": "C:\\Users\\AISIMULATOR2\\AppData\\Local\\Temp\\claude\\D--PRISM\\3bfba519-c6dc-499b-8200-bb2b9cf2ddff\\scratchpad\\r3_code_p2\\modelVal",
+   "log": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/final_ep0319_20260927_140915/gate\\none_gate.log"
+  },
+  "cv": {
+   "arm": "cv",
+   "mode": "gate",
+   "cond": "ood40",
+   "index": 319,
+   "argv": [
+    "experiments.batch",
+    "--arm",
+    "cv",
+    "--episodes",
+    "1",
+    "--start",
+    "319",
+    "--density",
+    "40",
+    "--preset",
+    "test_ood",
+    "--track-rule",
+    "current",
+    "--out",
+    "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/final_ep0319_20260927_140915/gate"
+   ],
+   "calls": [
+    {
+     "arm": "cv",
+     "index": 319,
+     "predictor": null,
+     "overrides": {
+      "density_per_km2": 40.0
+     },
+     "risk_kw": {
+      "track_rule": "current",
+      "sigma_floor": 10.0
+     },
+     "preset": "test_ood",
+     "pilot_kw": {
+      "plateau_scale": 1.0,
+      "w_safety": 12.0,
+      "safety_norm": "pool",
+      "safety_ref": null,
+      "hard_geom": "arm"
+     },
+     "model_kw": {},
+     "probe_safety": false,
+     "pred_log_dir": null,
+     "meta": {
+      "preset": "test_ood",
+      "track_rule": "current",
+      "allow_rule_mismatch": false,
+      "hard_geom": "arm",
+      "sigma_floor": 10.0,
+      "plateau_scale": 1.0,
+      "w_safety": 12.0,
+      "safety_norm": "pool",
+      "safety_ref": null,
+      "safety_ref_probe": false,
+      "model_path": null,
+      "model_track_rule": null,
+      "overrides": {
+       "density_per_km2": 40.0
+      },
+      "code_fp": "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+      "code_fp_files": 60
+     },
+     "overwrite": false
+    }
+   ],
+   "modules": {
+    "n_modules_checked": 36,
+    "package_roots": {
+     "agents": [
+      "dataGen"
+     ],
+     "bridge": [
+      "modelVal"
+     ],
+     "core": [
+      "dataGen"
+     ],
+     "environment": [
+      "dataGen"
+     ],
+     "experiments": [
+      "modelVal"
+     ],
+     "planner": [
+      "modelVal"
+     ],
+     "scenario": [
+      "dataGen"
+     ],
+     "sensors": [
+      "dataGen"
+     ],
+     "simulation": [
+      "dataGen"
+     ],
+     "storage": [
+      "dataGen"
+     ]
+    },
+    "outside_snapshot": [],
+    "from_live_tree": [],
+    "ok": true
+   },
+   "env": {
+    "python": "3.10.9",
+    "numpy": "2.2.6"
+   },
+   "wall_s": 26.5,
+   "code_fp_import": [
+    "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+    60
+   ],
+   "cwd": "C:\\Users\\AISIMULATOR2\\AppData\\Local\\Temp\\claude\\D--PRISM\\3bfba519-c6dc-499b-8200-bb2b9cf2ddff\\scratchpad\\r3_code_p2\\modelVal",
+   "log": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/final_ep0319_20260927_140915/gate\\cv_gate.log"
+  },
+  "model": {
+   "arm": "model",
+   "mode": "gate",
+   "cond": "ood40",
+   "index": 319,
+   "argv": [
+    "experiments.batch",
+    "--arm",
+    "model",
+    "--episodes",
+    "1",
+    "--start",
+    "319",
+    "--density",
+    "40",
+    "--preset",
+    "test_ood",
+    "--track-rule",
+    "current",
+    "--out",
+    "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/final_ep0319_20260927_140915/gate",
+    "--model",
+    "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt"
+   ],
+   "calls": [
+    {
+     "arm": "model",
+     "index": 319,
+     "predictor": {
+      "class": "LivePredictor",
+      "info": {
+       "path": "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+       "epoch": 24,
+       "params": 1519980,
+       "K": 3,
+       "d_model": 160,
+       "device": "cuda",
+       "track_rule": "current",
+       "loaded_at": "14:09:46"
+      }
+     },
+     "overrides": {
+      "density_per_km2": 40.0
+     },
+     "risk_kw": {
+      "sigma_scale": 1.0,
+      "pi_min": 0.05,
+      "iso": "rms",
+      "gain_mode": "pi",
+      "track_rule": "current",
+      "sigma_floor": 10.0
+     },
+     "preset": "test_ood",
+     "pilot_kw": {
+      "plateau_scale": 1.0,
+      "w_safety": 12.0,
+      "safety_norm": "pool",
+      "safety_ref": null,
+      "hard_geom": "arm"
+     },
+     "model_kw": {
+      "sigma_scale": 1.0,
+      "pi_min": 0.05,
+      "iso": "rms",
+      "gain_mode": "pi"
+     },
+     "probe_safety": false,
+     "pred_log_dir": null,
+     "meta": {
+      "preset": "test_ood",
+      "track_rule": "current",
+      "allow_rule_mismatch": false,
+      "hard_geom": "arm",
+      "sigma_floor": 10.0,
+      "plateau_scale": 1.0,
+      "w_safety": 12.0,
+      "safety_norm": "pool",
+      "safety_ref": null,
+      "safety_ref_probe": false,
+      "model_path": "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+      "model_track_rule": "current",
+      "overrides": {
+       "density_per_km2": 40.0
+      },
+      "code_fp": "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+      "code_fp_files": 60
+     },
+     "overwrite": false
+    }
+   ],
+   "modules": {
+    "n_modules_checked": 45,
+    "package_roots": {
+     "agents": [
+      "dataGen"
+     ],
+     "bridge": [
+      "modelVal"
+     ],
+     "common": [
+      "modelTraining"
+     ],
+     "core": [
+      "dataGen"
+     ],
+     "data": [
+      "modelTraining"
+     ],
+     "environment": [
+      "dataGen"
+     ],
+     "experiments": [
+      "modelVal"
+     ],
+     "model": [
+      "modelTraining"
+     ],
+     "planner": [
+      "modelVal"
+     ],
+     "runtime": [
+      "modelVal"
+     ],
+     "scenario": [
+      "dataGen"
+     ],
+     "sensors": [
+      "dataGen"
+     ],
+     "simulation": [
+      "dataGen"
+     ],
+     "storage": [
+      "dataGen"
+     ]
+    },
+    "outside_snapshot": [],
+    "from_live_tree": [],
+    "ok": true
+   },
+   "env": {
+    "python": "3.10.9",
+    "numpy": "2.2.6",
+    "torch": "2.5.1+cu121",
+    "cuda": "12.1",
+    "cudnn": 90100,
+    "tf32_matmul": false,
+    "tf32_cudnn": true,
+    "gpu": "NVIDIA GeForce RTX 3080"
+   },
+   "wall_s": 46.2,
+   "code_fp_import": [
+    "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+    60
+   ],
+   "cwd": "C:\\Users\\AISIMULATOR2\\AppData\\Local\\Temp\\claude\\D--PRISM\\3bfba519-c6dc-499b-8200-bb2b9cf2ddff\\scratchpad\\r3_code_p2\\modelVal",
+   "log": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/final_ep0319_20260927_140915/gate\\model_gate.log"
+  }
+ },
+ "replay_rows": {
+  "none": {
+   "arm": "none",
+   "index": 319,
+   "sigma_scale": 1.0,
+   "pi_min": 0.05,
+   "iso": "rms",
+   "gain_mode": "pi",
+   "seed": 310319,
+   "n_agents": 24,
+   "sim_s": 89.5,
+   "wall_s": 25.5,
+   "min_sep": 11.5,
+   "sep_p5": 70.9,
+   "sep_median": 529.3,
+   "nmac_events": 2,
+   "nmac_events_avoidable": 2,
+   "nmac_duration_s": 11.5,
+   "lowc_fraction": 1.0,
+   "lowc_events": 1,
+   "path_len_m": 4205.0,
+   "corridor_progress_m": 4152.0,
+   "path_elongation": 0.0127,
+   "abs_omega_mean": 1.33,
+   "abs_omega_p95": 3.85,
+   "v_mean": 50.5,
+   "v_std": 2.73,
+   "plan_ms_mean": 119.6,
+   "plan_ms_p95": 143.2,
+   "infer_ms_mean": null,
+   "events": [
+    {
+     "t": 14.5,
+     "slot": 15,
+     "min_sep": 23.4,
+     "duration_s": 5.5,
+     "detect_lead_s": 14.0,
+     "unavoidable": false
+    },
+    {
+     "t": 33.0,
+     "slot": 2,
+     "min_sep": 11.5,
+     "duration_s": 6.0,
+     "detect_lead_s": 32.5,
+     "unavoidable": false
+    }
+   ],
+   "preset": "test_ood",
+   "track_rule": "current",
+   "allow_rule_mismatch": false,
+   "hard_geom": "arm",
+   "sigma_floor": 10.0,
+   "plateau_scale": 1.0,
+   "w_safety": 12.0,
+   "safety_norm": "pool",
+   "safety_ref": null,
+   "safety_ref_probe": false,
+   "model_path": null,
+   "model_track_rule": null,
+   "overrides": {
+    "density_per_km2": 40.0
+   },
+   "code_fp": "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+   "code_fp_files": 60,
+   "nmac_events_avoidable_new": 2,
+   "events_new_screen": [
+    {
+     "lead_track_s": 12.0,
+     "unavoidable_new": false
+    },
+    {
+     "lead_track_s": 29.5,
+     "unavoidable_new": false
+    }
+   ],
+   "min_sep_engine": 11.2,
+   "min_sep_20hz": 11.2,
+   "pairwise_encounters": 2,
+   "union20_time_below_152_s": 11.45,
+   "union20_events_152": 2,
+   "union20_time_below_76_s": 5.55,
+   "union20_events_76": 2,
+   "union20_time_below_45_s": 3.15,
+   "union20_events_45": 2,
+   "n_cycles": 179,
+   "feasible_frac_mean": 0.532,
+   "feasible_frac_p10": 0.0029,
+   "emergency_cycles": 18,
+   "emergency_frac": 0.1006,
+   "emerg_collision_static": 7,
+   "emerg_collision_forecast": 0,
+   "emerg_boundary_only": 4,
+   "emerg_boundary_dynamic": 2,
+   "emerg_dynamic_only": 5,
+   "emerg_unexplained": 0,
+   "pen_depth_mean_m": 13.63,
+   "pen_depth_max_m": 25.03,
+   "emerg_dyn_violation_mean": 7.28,
+   "emerg_dyn_violation_max": 36.977,
+   "emerg_boundary_excess_max_m": 1.73,
+   "attrib_inconsistent": 0,
+   "floor_active_frac": null,
+   "floor_n": 0,
+   "floor_active_frac_cycle_mean": null,
+   "branch_sigma_below_floor_5s": null,
+   "branch_sigma_n_5s": null,
+   "branch_sigma_below_floor_10s": null,
+   "branch_sigma_n_10s": null,
+   "branch_sigma_below_floor_15s": null,
+   "branch_sigma_n_15s": null,
+   "safety_pool_max_p50": null,
+   "safety_pool_max_p90": null,
+   "safety_pool_max_max": null,
+   "safety_pool_max_nz_p50": null,
+   "safety_pool_max_nz_p90": null,
+   "safety_pool_max_n_nz": null,
+   "cycle_ms_p50": 124.4,
+   "cycle_ms_p99": 148.3,
+   "cycle_ms_max": 160.1,
+   "deadline_miss": 0,
+   "pred_logged": null,
+   "union20_event_list": {
+    "152": [
+     {
+      "slot": 15,
+      "t_entry": 12.25,
+      "t_min": 14.7,
+      "t_exit": 17.5,
+      "min_sep": 20.4,
+      "time_below_s": 5.3,
+      "lead_phys_s": 14.2,
+      "lead_track_s": 11.75,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 2,
+      "t_entry": 29.85,
+      "t_min": 32.95,
+      "t_exit": 35.95,
+      "min_sep": 11.2,
+      "time_below_s": 6.15,
+      "lead_phys_s": 32.45,
+      "lead_track_s": 29.35,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ],
+    "76": [
+     {
+      "slot": 15,
+      "t_entry": 13.5,
+      "t_min": 14.7,
+      "t_exit": 16.0,
+      "min_sep": 20.4,
+      "time_below_s": 2.55,
+      "lead_phys_s": 14.2,
+      "lead_track_s": 11.75,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 2,
+      "t_entry": 31.45,
+      "t_min": 32.95,
+      "t_exit": 34.4,
+      "min_sep": 11.2,
+      "time_below_s": 3.0,
+      "lead_phys_s": 32.45,
+      "lead_track_s": 29.35,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ],
+    "45": [
+     {
+      "slot": 15,
+      "t_entry": 14.05,
+      "t_min": 14.7,
+      "t_exit": 15.4,
+      "min_sep": 20.4,
+      "time_below_s": 1.4,
+      "lead_phys_s": 14.2,
+      "lead_track_s": 11.75,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 2,
+      "t_entry": 32.1,
+      "t_min": 32.95,
+      "t_exit": 33.8,
+      "min_sep": 11.2,
+      "time_below_s": 1.75,
+      "lead_phys_s": 32.45,
+      "lead_track_s": 29.35,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ]
+   },
+   "pairwise": [
+    {
+     "slot": 15,
+     "gt_type": 4,
+     "gt_intent": 4,
+     "track_id": 0,
+     "t_entry": 12.25,
+     "t_min": 14.7,
+     "t_exit": 17.5,
+     "min_sep": 20.4,
+     "tb_152_s": 5.3,
+     "tb_76_s": 2.55,
+     "tb_45_s": 1.4,
+     "lead_phys_s": 14.2,
+     "lead_track_s": 11.75,
+     "turning_at_track_start": false,
+     "turning_at_entry": true,
+     "reaction_active": true,
+     "unavoidable_old": false,
+     "unavoidable_new": false
+    },
+    {
+     "slot": 2,
+     "gt_type": 0,
+     "gt_intent": 4,
+     "track_id": 1,
+     "t_entry": 29.85,
+     "t_min": 32.95,
+     "t_exit": 35.95,
+     "min_sep": 11.2,
+     "tb_152_s": 6.15,
+     "tb_76_s": 3.0,
+     "tb_45_s": 1.75,
+     "lead_phys_s": 32.45,
+     "lead_track_s": 29.35,
+     "turning_at_track_start": true,
+     "turning_at_entry": false,
+     "reaction_active": false,
+     "unavoidable_old": false,
+     "unavoidable_new": false
+    }
+   ],
+   "cycles": [
+    [
+     0.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     1.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     1.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     2.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     2.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     3.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     3.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     4.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     4.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     5.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     5.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     6.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     6.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     7.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     7.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     8.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     8.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     9.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     9.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     10.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     10.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     11.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     11.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     12.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     12.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     13.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     13.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     14.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     14.5,
+     0,
+     275,
+     1,
+     0,
+     24.95
+    ],
+    [
+     15.0,
+     0,
+     275,
+     1,
+     0,
+     25.03
+    ],
+    [
+     15.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     16.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     16.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     17.0,
+     185,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     17.5,
+     140,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     18.0,
+     143,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     18.5,
+     143,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     19.0,
+     110,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     19.5,
+     102,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     20.0,
+     96,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     20.5,
+     82,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     21.0,
+     76,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     21.5,
+     74,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     22.0,
+     59,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     22.5,
+     61,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     23.0,
+     67,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     23.5,
+     83,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     24.0,
+     59,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     24.5,
+     69,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     25.0,
+     18,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     25.5,
+     12,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     26.0,
+     6,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     26.5,
+     9,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     27.0,
+     9,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     27.5,
+     6,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     28.0,
+     3,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     28.5,
+     1,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     29.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     29.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     30.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     30.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     31.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     31.5,
+     0,
+     275,
+     1,
+     0,
+     2.07
+    ],
+    [
+     32.0,
+     0,
+     275,
+     1,
+     0,
+     10.19
+    ],
+    [
+     32.5,
+     0,
+     275,
+     1,
+     0,
+     14.43
+    ],
+    [
+     33.0,
+     0,
+     275,
+     1,
+     0,
+     18.11
+    ],
+    [
+     33.5,
+     0,
+     275,
+     1,
+     0,
+     0.6
+    ],
+    [
+     34.0,
+     67,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     34.5,
+     71,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     35.0,
+     106,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     35.5,
+     143,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     36.0,
+     179,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     36.5,
+     177,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     37.0,
+     177,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     37.5,
+     177,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     38.0,
+     177,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     38.5,
+     177,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     39.0,
+     177,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     39.5,
+     178,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     40.0,
+     180,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     40.5,
+     180,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     41.0,
+     176,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     41.5,
+     95,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     42.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     42.5,
+     0,
+     300,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     43.0,
+     0,
+     300,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     43.5,
+     0,
+     300,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     44.0,
+     0,
+     300,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     44.5,
+     0,
+     300,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     45.0,
+     205,
+     300,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     45.5,
+     183,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     46.0,
+     189,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     46.5,
+     189,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     47.0,
+     196,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     47.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     48.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     48.5,
+     195,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     49.0,
+     191,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     49.5,
+     189,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     50.0,
+     191,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     50.5,
+     193,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     51.0,
+     196,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     51.5,
+     196,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     52.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     52.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     53.0,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     53.5,
+     195,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     54.0,
+     195,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     54.5,
+     195,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     55.0,
+     195,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     55.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     56.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     56.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     57.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     57.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     58.0,
+     204,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     58.5,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     59.0,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     59.5,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     60.0,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     60.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     61.0,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     61.5,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     62.0,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     62.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     63.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     63.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     64.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     64.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     65.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     65.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     66.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     66.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     67.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     67.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     68.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     68.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     69.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     69.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     70.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     70.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     71.0,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     71.5,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     72.0,
+     188,
+     250,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     72.5,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     73.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     73.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     74.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     74.5,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     75.0,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     75.5,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     76.0,
+     189,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     76.5,
+     180,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     77.0,
+     168,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     77.5,
+     183,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     78.0,
+     136,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     78.5,
+     126,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     79.0,
+     108,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     79.5,
+     123,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     80.0,
+     108,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     80.5,
+     105,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     81.0,
+     96,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     81.5,
+     93,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     82.0,
+     73,
+     250,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     82.5,
+     73,
+     250,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     83.0,
+     76,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     83.5,
+     68,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     84.0,
+     56,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     84.5,
+     75,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     85.0,
+     75,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     85.5,
+     58,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     86.0,
+     87,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     86.5,
+     98,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     87.0,
+     92,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     87.5,
+     191,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     88.0,
+     193,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     88.5,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     89.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     89.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ]
+   ]
+  },
+  "cv": {
+   "arm": "cv",
+   "index": 319,
+   "sigma_scale": 1.0,
+   "pi_min": 0.05,
+   "iso": "rms",
+   "gain_mode": "pi",
+   "seed": 310319,
+   "n_agents": 24,
+   "sim_s": 89.5,
+   "wall_s": 26.3,
+   "min_sep": 9.4,
+   "sep_p5": 58.3,
+   "sep_median": 311.4,
+   "nmac_events": 3,
+   "nmac_events_avoidable": 3,
+   "nmac_duration_s": 16.5,
+   "lowc_fraction": 1.0,
+   "lowc_events": 1,
+   "path_len_m": 4184.0,
+   "corridor_progress_m": 4142.0,
+   "path_elongation": 0.0101,
+   "abs_omega_mean": 1.29,
+   "abs_omega_p95": 4.03,
+   "v_mean": 50.3,
+   "v_std": 3.4,
+   "plan_ms_mean": 123.6,
+   "plan_ms_p95": 148.4,
+   "infer_ms_mean": null,
+   "events": [
+    {
+     "t": 15.0,
+     "slot": 15,
+     "min_sep": 9.4,
+     "duration_s": 6.5,
+     "detect_lead_s": 14.5,
+     "unavoidable": false
+    },
+    {
+     "t": 30.5,
+     "slot": 2,
+     "min_sep": 30.1,
+     "duration_s": 6.0,
+     "detect_lead_s": 30.0,
+     "unavoidable": false
+    },
+    {
+     "t": 79.0,
+     "slot": 17,
+     "min_sep": 122.3,
+     "duration_s": 4.0,
+     "detect_lead_s": 48.0,
+     "unavoidable": false
+    }
+   ],
+   "preset": "test_ood",
+   "track_rule": "current",
+   "allow_rule_mismatch": false,
+   "hard_geom": "arm",
+   "sigma_floor": 10.0,
+   "plateau_scale": 1.0,
+   "w_safety": 12.0,
+   "safety_norm": "pool",
+   "safety_ref": null,
+   "safety_ref_probe": false,
+   "model_path": null,
+   "model_track_rule": null,
+   "overrides": {
+    "density_per_km2": 40.0
+   },
+   "code_fp": "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+   "code_fp_files": 60,
+   "nmac_events_avoidable_new": 3,
+   "events_new_screen": [
+    {
+     "lead_track_s": 12.0,
+     "unavoidable_new": false
+    },
+    {
+     "lead_track_s": 27.5,
+     "unavoidable_new": false
+    },
+    {
+     "lead_track_s": 33.5,
+     "unavoidable_new": false
+    }
+   ],
+   "min_sep_engine": 3.1,
+   "min_sep_20hz": 3.1,
+   "pairwise_encounters": 3,
+   "union20_time_below_152_s": 16.3,
+   "union20_events_152": 3,
+   "union20_time_below_76_s": 5.95,
+   "union20_events_76": 2,
+   "union20_time_below_45_s": 3.3,
+   "union20_events_45": 2,
+   "n_cycles": 179,
+   "feasible_frac_mean": 0.5712,
+   "feasible_frac_p10": 0.0109,
+   "emergency_cycles": 16,
+   "emergency_frac": 0.0894,
+   "emerg_collision_static": 0,
+   "emerg_collision_forecast": 8,
+   "emerg_boundary_only": 0,
+   "emerg_boundary_dynamic": 0,
+   "emerg_dynamic_only": 8,
+   "emerg_unexplained": 0,
+   "pen_depth_mean_m": 10.55,
+   "pen_depth_max_m": 17.37,
+   "emerg_dyn_violation_mean": 21.281,
+   "emerg_dyn_violation_max": 84.672,
+   "emerg_boundary_excess_max_m": 0.0,
+   "attrib_inconsistent": 0,
+   "floor_active_frac": 0.0,
+   "floor_n": 69180,
+   "floor_active_frac_cycle_mean": 0.0,
+   "branch_sigma_below_floor_5s": null,
+   "branch_sigma_n_5s": null,
+   "branch_sigma_below_floor_10s": null,
+   "branch_sigma_n_10s": null,
+   "branch_sigma_below_floor_15s": null,
+   "branch_sigma_n_15s": null,
+   "safety_pool_max_p50": null,
+   "safety_pool_max_p90": null,
+   "safety_pool_max_max": null,
+   "safety_pool_max_nz_p50": null,
+   "safety_pool_max_nz_p90": null,
+   "safety_pool_max_n_nz": null,
+   "cycle_ms_p50": 129.0,
+   "cycle_ms_p99": 154.4,
+   "cycle_ms_max": 161.6,
+   "deadline_miss": 0,
+   "pred_logged": null,
+   "union20_event_list": {
+    "152": [
+     {
+      "slot": 15,
+      "t_entry": 12.4,
+      "t_min": 15.2,
+      "t_exit": 18.85,
+      "min_sep": 3.1,
+      "time_below_s": 6.5,
+      "lead_phys_s": 14.7,
+      "lead_track_s": 11.9,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 2,
+      "t_entry": 27.95,
+      "t_min": 30.75,
+      "t_exit": 33.65,
+      "min_sep": 27.2,
+      "time_below_s": 5.75,
+      "lead_phys_s": 30.25,
+      "lead_track_s": 27.45,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 17,
+      "t_entry": 76.85,
+      "t_min": 78.85,
+      "t_exit": 80.85,
+      "min_sep": 122.2,
+      "time_below_s": 4.05,
+      "lead_phys_s": 47.85,
+      "lead_track_s": 33.35,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ],
+    "76": [
+     {
+      "slot": 15,
+      "t_entry": 13.7,
+      "t_min": 15.2,
+      "t_exit": 16.95,
+      "min_sep": 3.1,
+      "time_below_s": 3.3,
+      "lead_phys_s": 14.7,
+      "lead_track_s": 11.9,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 2,
+      "t_entry": 29.45,
+      "t_min": 30.75,
+      "t_exit": 32.05,
+      "min_sep": 27.2,
+      "time_below_s": 2.65,
+      "lead_phys_s": 30.25,
+      "lead_track_s": 27.45,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ],
+    "45": [
+     {
+      "slot": 15,
+      "t_entry": 14.3,
+      "t_min": 15.2,
+      "t_exit": 16.2,
+      "min_sep": 3.1,
+      "time_below_s": 1.95,
+      "lead_phys_s": 14.7,
+      "lead_track_s": 11.9,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 2,
+      "t_entry": 30.1,
+      "t_min": 30.75,
+      "t_exit": 31.4,
+      "min_sep": 27.2,
+      "time_below_s": 1.35,
+      "lead_phys_s": 30.25,
+      "lead_track_s": 27.45,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ]
+   },
+   "pairwise": [
+    {
+     "slot": 15,
+     "gt_type": 4,
+     "gt_intent": 4,
+     "track_id": 0,
+     "t_entry": 12.4,
+     "t_min": 15.2,
+     "t_exit": 18.85,
+     "min_sep": 3.1,
+     "tb_152_s": 6.5,
+     "tb_76_s": 3.3,
+     "tb_45_s": 1.95,
+     "lead_phys_s": 14.7,
+     "lead_track_s": 11.9,
+     "turning_at_track_start": false,
+     "turning_at_entry": true,
+     "reaction_active": true,
+     "unavoidable_old": false,
+     "unavoidable_new": false
+    },
+    {
+     "slot": 2,
+     "gt_type": 0,
+     "gt_intent": 4,
+     "track_id": 1,
+     "t_entry": 27.95,
+     "t_min": 30.75,
+     "t_exit": 33.65,
+     "min_sep": 27.2,
+     "tb_152_s": 5.75,
+     "tb_76_s": 2.65,
+     "tb_45_s": 1.35,
+     "lead_phys_s": 30.25,
+     "lead_track_s": 27.45,
+     "turning_at_track_start": true,
+     "turning_at_entry": false,
+     "reaction_active": false,
+     "unavoidable_old": false,
+     "unavoidable_new": false
+    },
+    {
+     "slot": 17,
+     "gt_type": 1,
+     "gt_intent": 0,
+     "track_id": 50,
+     "t_entry": 76.85,
+     "t_min": 78.85,
+     "t_exit": 80.85,
+     "min_sep": 122.2,
+     "tb_152_s": 4.05,
+     "tb_76_s": 0.0,
+     "tb_45_s": 0.0,
+     "lead_phys_s": 47.85,
+     "lead_track_s": 33.35,
+     "turning_at_track_start": false,
+     "turning_at_entry": false,
+     "reaction_active": true,
+     "unavoidable_old": false,
+     "unavoidable_new": false
+    }
+   ],
+   "cycles": [
+    [
+     0.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     1.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     1.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     2.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     2.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     3.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     3.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     4.0,
+     194,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     4.5,
+     190,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     5.0,
+     184,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     5.5,
+     189,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     6.0,
+     191,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     6.5,
+     100,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     7.0,
+     194,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     7.5,
+     191,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     8.0,
+     136,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     8.5,
+     8,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     9.0,
+     5,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     9.5,
+     4,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     10.0,
+     3,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     10.5,
+     4,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     11.0,
+     192,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     11.5,
+     191,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     12.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     12.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     13.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     13.5,
+     0,
+     275,
+     1,
+     1,
+     8.03
+    ],
+    [
+     14.0,
+     0,
+     275,
+     1,
+     1,
+     5.75
+    ],
+    [
+     14.5,
+     0,
+     275,
+     1,
+     1,
+     17.37
+    ],
+    [
+     15.0,
+     0,
+     275,
+     1,
+     1,
+     13.88
+    ],
+    [
+     15.5,
+     0,
+     275,
+     1,
+     1,
+     16.8
+    ],
+    [
+     16.0,
+     182,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     16.5,
+     182,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     17.0,
+     182,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     17.5,
+     184,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     18.0,
+     184,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     18.5,
+     187,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     19.0,
+     186,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     19.5,
+     189,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     20.0,
+     141,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     20.5,
+     86,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     21.0,
+     154,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     21.5,
+     138,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     22.0,
+     186,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     22.5,
+     162,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     23.0,
+     74,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     23.5,
+     60,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     24.0,
+     5,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     24.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     25.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     25.5,
+     3,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     26.0,
+     69,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     26.5,
+     3,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     27.0,
+     177,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     27.5,
+     1,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     28.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     28.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     29.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     29.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     30.0,
+     0,
+     275,
+     1,
+     1,
+     7.94
+    ],
+    [
+     30.5,
+     0,
+     275,
+     1,
+     1,
+     3.63
+    ],
+    [
+     31.0,
+     0,
+     275,
+     1,
+     1,
+     11.0
+    ],
+    [
+     31.5,
+     151,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     32.0,
+     166,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     32.5,
+     167,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     33.0,
+     184,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     33.5,
+     183,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     34.0,
+     183,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     34.5,
+     185,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     35.0,
+     187,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     35.5,
+     189,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     36.0,
+     190,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     36.5,
+     192,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     37.0,
+     188,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     37.5,
+     156,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     38.0,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     38.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     39.0,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     39.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     40.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     40.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     41.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     41.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     42.0,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     42.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     43.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     43.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     44.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     44.5,
+     174,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     45.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     45.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     46.0,
+     202,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     46.5,
+     202,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     47.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     47.5,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     48.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     48.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     49.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     49.5,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     50.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     50.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     51.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     51.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     52.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     52.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     53.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     53.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     54.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     54.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     55.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     55.5,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     56.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     56.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     57.0,
+     181,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     57.5,
+     191,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     58.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     58.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     59.0,
+     179,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     59.5,
+     180,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     60.0,
+     173,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     60.5,
+     158,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     61.0,
+     164,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     61.5,
+     142,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     62.0,
+     92,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     62.5,
+     167,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     63.0,
+     157,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     63.5,
+     126,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     64.0,
+     101,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     64.5,
+     98,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     65.0,
+     91,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     65.5,
+     93,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     66.0,
+     84,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     66.5,
+     78,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     67.0,
+     163,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     67.5,
+     157,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     68.0,
+     175,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     68.5,
+     159,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     69.0,
+     175,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     69.5,
+     154,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     70.0,
+     74,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     70.5,
+     112,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     71.0,
+     155,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     71.5,
+     186,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     72.0,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     72.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     73.0,
+     200,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     73.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     74.0,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     74.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     75.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     75.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     76.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     76.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     77.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     77.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     78.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     78.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     79.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     79.5,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     80.0,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     80.5,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     81.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     81.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     82.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     82.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     83.0,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     83.5,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     84.0,
+     210,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     84.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     85.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     85.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     86.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     86.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     87.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     87.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     88.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     88.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     89.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     89.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ]
+   ]
+  },
+  "model": {
+   "arm": "model",
+   "index": 319,
+   "sigma_scale": 1.0,
+   "pi_min": 0.05,
+   "iso": "rms",
+   "gain_mode": "pi",
+   "seed": 310319,
+   "n_agents": 24,
+   "sim_s": 89.5,
+   "wall_s": 43.0,
+   "min_sep": 40.8,
+   "sep_p5": 111.0,
+   "sep_median": 394.4,
+   "nmac_events": 2,
+   "nmac_events_avoidable": 2,
+   "nmac_duration_s": 8.0,
+   "lowc_fraction": 1.0,
+   "lowc_events": 1,
+   "path_len_m": 4012.0,
+   "corridor_progress_m": 3961.0,
+   "path_elongation": 0.013,
+   "abs_omega_mean": 1.29,
+   "abs_omega_p95": 4.27,
+   "v_mean": 48.3,
+   "v_std": 2.77,
+   "plan_ms_mean": 171.0,
+   "plan_ms_p95": 200.4,
+   "infer_ms_mean": 43.7,
+   "events": [
+    {
+     "t": 14.0,
+     "slot": 15,
+     "min_sep": 40.8,
+     "duration_s": 4.0,
+     "detect_lead_s": 13.5,
+     "unavoidable": false
+    },
+    {
+     "t": 36.0,
+     "slot": 5,
+     "min_sep": 97.8,
+     "duration_s": 4.0,
+     "detect_lead_s": 35.5,
+     "unavoidable": false
+    }
+   ],
+   "preset": "test_ood",
+   "track_rule": "current",
+   "allow_rule_mismatch": false,
+   "hard_geom": "arm",
+   "sigma_floor": 10.0,
+   "plateau_scale": 1.0,
+   "w_safety": 12.0,
+   "safety_norm": "pool",
+   "safety_ref": null,
+   "safety_ref_probe": false,
+   "model_path": "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+   "model_track_rule": "current",
+   "overrides": {
+    "density_per_km2": 40.0
+   },
+   "code_fp": "0523a42038fb4a9a82f535cf8aef2fd3807e16c50a8e0511c5e8add722026026",
+   "code_fp_files": 60,
+   "nmac_events_avoidable_new": 2,
+   "events_new_screen": [
+    {
+     "lead_track_s": 12.0,
+     "unavoidable_new": false
+    },
+    {
+     "lead_track_s": 33.5,
+     "unavoidable_new": false
+    }
+   ],
+   "min_sep_engine": 37.7,
+   "min_sep_20hz": 37.7,
+   "pairwise_encounters": 2,
+   "union20_time_below_152_s": 7.8,
+   "union20_events_152": 2,
+   "union20_time_below_76_s": 1.75,
+   "union20_events_76": 1,
+   "union20_time_below_45_s": 0.65,
+   "union20_events_45": 1,
+   "n_cycles": 179,
+   "feasible_frac_mean": 0.56,
+   "feasible_frac_p10": 0.0,
+   "emergency_cycles": 22,
+   "emergency_frac": 0.1229,
+   "emerg_collision_static": 0,
+   "emerg_collision_forecast": 3,
+   "emerg_boundary_only": 5,
+   "emerg_boundary_dynamic": 5,
+   "emerg_dynamic_only": 9,
+   "emerg_unexplained": 0,
+   "pen_depth_mean_m": 3.51,
+   "pen_depth_max_m": 5.15,
+   "emerg_dyn_violation_mean": 10.307,
+   "emerg_dyn_violation_max": 60.765,
+   "emerg_boundary_excess_max_m": 5.19,
+   "attrib_inconsistent": 0,
+   "floor_active_frac": 0.10107,
+   "floor_n": 173160,
+   "floor_active_frac_cycle_mean": 0.10082,
+   "branch_sigma_below_floor_5s": 0.0291,
+   "branch_sigma_n_5s": 6324,
+   "branch_sigma_below_floor_10s": 0.00063,
+   "branch_sigma_n_10s": 6324,
+   "branch_sigma_below_floor_15s": 0.0,
+   "branch_sigma_n_15s": 6324,
+   "safety_pool_max_p50": null,
+   "safety_pool_max_p90": null,
+   "safety_pool_max_max": null,
+   "safety_pool_max_nz_p50": null,
+   "safety_pool_max_nz_p90": null,
+   "safety_pool_max_n_nz": null,
+   "cycle_ms_p50": 219.0,
+   "cycle_ms_p99": 455.6,
+   "cycle_ms_max": 553.3,
+   "deadline_miss": 1,
+   "pred_logged": null,
+   "union20_event_list": {
+    "152": [
+     {
+      "slot": 15,
+      "t_entry": 12.2,
+      "t_min": 14.2,
+      "t_exit": 16.2,
+      "min_sep": 37.7,
+      "time_below_s": 4.05,
+      "lead_phys_s": 13.7,
+      "lead_track_s": 11.7,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     },
+     {
+      "slot": 5,
+      "t_entry": 34.0,
+      "t_min": 35.85,
+      "t_exit": 37.7,
+      "min_sep": 97.5,
+      "time_below_s": 3.75,
+      "lead_phys_s": 35.35,
+      "lead_track_s": 33.5,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ],
+    "76": [
+     {
+      "slot": 15,
+      "t_entry": 13.35,
+      "t_min": 14.2,
+      "t_exit": 15.05,
+      "min_sep": 37.7,
+      "time_below_s": 1.75,
+      "lead_phys_s": 13.7,
+      "lead_track_s": 11.7,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ],
+    "45": [
+     {
+      "slot": 15,
+      "t_entry": 13.9,
+      "t_min": 14.2,
+      "t_exit": 14.5,
+      "min_sep": 37.7,
+      "time_below_s": 0.65,
+      "lead_phys_s": 13.7,
+      "lead_track_s": 11.7,
+      "unavoidable_old": false,
+      "unavoidable_new": false
+     }
+    ]
+   },
+   "pairwise": [
+    {
+     "slot": 15,
+     "gt_type": 4,
+     "gt_intent": 4,
+     "track_id": 0,
+     "t_entry": 12.2,
+     "t_min": 14.2,
+     "t_exit": 16.2,
+     "min_sep": 37.7,
+     "tb_152_s": 4.05,
+     "tb_76_s": 1.75,
+     "tb_45_s": 0.65,
+     "lead_phys_s": 13.7,
+     "lead_track_s": 11.7,
+     "turning_at_track_start": false,
+     "turning_at_entry": false,
+     "reaction_active": true,
+     "unavoidable_old": false,
+     "unavoidable_new": false
+    },
+    {
+     "slot": 5,
+     "gt_type": 1,
+     "gt_intent": 3,
+     "track_id": 5,
+     "t_entry": 34.0,
+     "t_min": 35.85,
+     "t_exit": 37.7,
+     "min_sep": 97.5,
+     "tb_152_s": 3.75,
+     "tb_76_s": 0.0,
+     "tb_45_s": 0.0,
+     "lead_phys_s": 35.35,
+     "lead_track_s": 33.5,
+     "turning_at_track_start": true,
+     "turning_at_entry": true,
+     "reaction_active": true,
+     "unavoidable_old": false,
+     "unavoidable_new": false
+    }
+   ],
+   "cycles": [
+    [
+     0.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     1.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     1.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     2.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     2.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     3.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     3.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     4.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     4.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     5.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     5.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     6.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     6.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     7.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     7.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     8.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     8.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     9.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     9.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     10.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     10.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     11.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     11.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     12.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     12.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     13.0,
+     0,
+     275,
+     1,
+     1,
+     5.15
+    ],
+    [
+     13.5,
+     0,
+     275,
+     1,
+     1,
+     3.53
+    ],
+    [
+     14.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     14.5,
+     0,
+     275,
+     1,
+     1,
+     1.86
+    ],
+    [
+     15.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     15.5,
+     43,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     16.0,
+     54,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     16.5,
+     59,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     17.0,
+     98,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     17.5,
+     98,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     18.0,
+     103,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     18.5,
+     109,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     19.0,
+     100,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     19.5,
+     56,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     20.0,
+     20,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     20.5,
+     11,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     21.0,
+     11,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     21.5,
+     32,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     22.0,
+     19,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     22.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     23.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     23.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     24.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     24.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     25.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     25.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     26.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     26.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     27.0,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     27.5,
+     0,
+     275,
+     1,
+     -1,
+     0.0
+    ],
+    [
+     28.0,
+     195,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     28.5,
+     184,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     29.0,
+     190,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     29.5,
+     196,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     30.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     30.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     31.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     31.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     32.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     32.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     33.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     33.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     34.0,
+     200,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     34.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     35.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     35.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     36.0,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     36.5,
+     200,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     37.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     37.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     38.0,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     38.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     39.0,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     39.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     40.0,
+     195,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     40.5,
+     196,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     41.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     41.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     42.0,
+     200,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     42.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     43.0,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     43.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     44.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     44.5,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     45.0,
+     197,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     45.5,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     46.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     46.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     47.0,
+     202,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     47.5,
+     204,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     48.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     48.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     49.0,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     49.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     50.0,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     50.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     51.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     51.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     52.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     52.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     53.0,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     53.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     54.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     54.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     55.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     55.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     56.0,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     56.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     57.0,
+     200,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     57.5,
+     165,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     58.0,
+     123,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     58.5,
+     116,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     59.0,
+     63,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     59.5,
+     97,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     60.0,
+     121,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     60.5,
+     67,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     61.0,
+     80,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     61.5,
+     117,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     62.0,
+     41,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     62.5,
+     157,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     63.0,
+     123,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     63.5,
+     201,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     64.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     64.5,
+     206,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     65.0,
+     121,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     65.5,
+     151,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     66.0,
+     160,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     66.5,
+     202,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     67.0,
+     184,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     67.5,
+     199,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     68.0,
+     179,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     68.5,
+     106,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     69.0,
+     90,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     69.5,
+     48,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     70.0,
+     48,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     70.5,
+     46,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     71.0,
+     86,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     71.5,
+     184,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     72.0,
+     198,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     72.5,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     73.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     73.5,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     74.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     74.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     75.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     75.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     76.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     76.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     77.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     77.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     78.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     78.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     79.0,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     79.5,
+     203,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     80.0,
+     205,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     80.5,
+     207,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     81.0,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     81.5,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     82.0,
+     208,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     82.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     83.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     83.5,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     84.0,
+     209,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     84.5,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     85.0,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     85.5,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     86.0,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     86.5,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     87.0,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     87.5,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     88.0,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     88.5,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     89.0,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ],
+    [
+     89.5,
+     213,
+     275,
+     0,
+     -1,
+     0.0
+    ]
+   ]
+  }
+ },
+ "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/ood40/final_ep0319_20260927_140915"
+}

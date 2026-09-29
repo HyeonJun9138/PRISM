@@ -1,0 +1,1091 @@
+{
+ "generated_utc": "2026-09-27T04:43:53+00:00",
+ "condition": "id40",
+ "condition_desc": "in-distribution condition (preset test_id, density setting 40 per km²)",
+ "batch_dir": "D:/PRISM/Logs/Planner/r3_id40",
+ "n_episodes": 300,
+ "rule_file": "D:/PRISM/Paper/figures_r3/case_rule_r3.txt",
+ "rule_sha256": "6d8927f810d4fa94ea8d681f076649fcc1981cae0a1a7523c01012c13866f939",
+ "pool_rule": {
+  "a_segment_min_sep_below_m": 45.0,
+  "a_segment_unavoidable_new": false,
+  "c_has_no_segment_with_slot": true
+ },
+ "pool_size": 6,
+ "pool": [
+  {
+   "index": 2,
+   "seed": 210002,
+   "n_agents": 20,
+   "slot": 5,
+   "t_min_a": 89.2,
+   "min_sep_a": 14.4,
+   "gt_type": 2,
+   "gt_intent": 0,
+   "track_id_a": 52,
+   "lead_track_s_a": 28.7,
+   "t_entry_a": 87.2,
+   "t_exit_a": 90.0,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 14.4,
+    "cv": 212.5,
+    "model": 228.7
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 365,
+    "model": 321
+   }
+  },
+  {
+   "index": 23,
+   "seed": 210023,
+   "n_agents": 20,
+   "slot": 18,
+   "t_min_a": 70.25,
+   "min_sep_a": 25.7,
+   "gt_type": 3,
+   "gt_intent": 2,
+   "track_id_a": 71,
+   "lead_track_s_a": 22.45,
+   "t_entry_a": 67.45,
+   "t_exit_a": 73.35,
+   "n_qualifying_segments_a": 1,
+   "type_name": "eVTOL",
+   "intent_name": "LoiterHover",
+   "b_min_row": 87.1,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 25.7,
+    "cv": 57.9,
+    "model": 113.1
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 374,
+    "model": 335
+   }
+  },
+  {
+   "index": 243,
+   "seed": 210243,
+   "n_agents": 20,
+   "slot": 16,
+   "t_min_a": 63.5,
+   "min_sep_a": 29.2,
+   "gt_type": 2,
+   "gt_intent": 1,
+   "track_id_a": 60,
+   "lead_track_s_a": 26.15,
+   "t_entry_a": 61.65,
+   "t_exit_a": 65.35,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "DeliveryWP",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 29.2,
+    "cv": 228.9,
+    "model": 230.9
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 338,
+    "model": 285
+   }
+  },
+  {
+   "index": 252,
+   "seed": 210252,
+   "n_agents": 20,
+   "slot": 2,
+   "t_min_a": 53.6,
+   "min_sep_a": 30.4,
+   "gt_type": 2,
+   "gt_intent": 1,
+   "track_id_a": 32,
+   "lead_track_s_a": 23.4,
+   "t_entry_a": 51.9,
+   "t_exit_a": 55.25,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "DeliveryWP",
+   "b_min_row": 86.1,
+   "b_has_segment": true,
+   "row_min_sep_20hz": {
+    "none": 30.4,
+    "cv": 86.1,
+    "model": 134.5
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 448,
+    "model": 375
+   }
+  },
+  {
+   "index": 264,
+   "seed": 210264,
+   "n_agents": 20,
+   "slot": 13,
+   "t_min_a": 67.15,
+   "min_sep_a": 25.4,
+   "gt_type": 2,
+   "gt_intent": 0,
+   "track_id_a": 59,
+   "lead_track_s_a": 31.5,
+   "t_entry_a": 63.0,
+   "t_exit_a": 70.95,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 25.4,
+    "cv": 184.5,
+    "model": 164.2
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 486,
+    "model": 493
+   }
+  },
+  {
+   "index": 281,
+   "seed": 210281,
+   "n_agents": 20,
+   "slot": 14,
+   "t_min_a": 67.4,
+   "min_sep_a": 16.5,
+   "gt_type": 2,
+   "gt_intent": 2,
+   "track_id_a": 43,
+   "lead_track_s_a": 30.75,
+   "t_entry_a": 62.25,
+   "t_exit_a": 73.8,
+   "n_qualifying_segments_a": 1,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "LoiterHover",
+   "b_min_row": null,
+   "b_has_segment": false,
+   "row_min_sep_20hz": {
+    "none": 16.5,
+    "cv": 70.5,
+    "model": 72.0
+   },
+   "pred_logged_row": {
+    "none": null,
+    "cv": 332,
+    "model": 306
+   }
+  }
+ ],
+ "row_files": {
+  "none": {
+   "file": "D:/PRISM/Logs/Planner/r3_id40/none.jsonl",
+   "sha256": "4fc892d6462f581eccd0d027dcad4028b83d24a34548f85d78e13981fb9ace4b"
+  },
+  "cv": {
+   "file": "D:/PRISM/Logs/Planner/r3_id40/cv.jsonl",
+   "sha256": "6d16f8a4e7e4f32ee6242f7e939bde4b7d0d9621478256edf56b0be3b3746dbf"
+  },
+  "model": {
+   "file": "D:/PRISM/Logs/Planner/r3_id40/model.jsonl",
+   "sha256": "f6caded7030c1b6e9f43ecc8f24f07fa91bff456a2570ed145fd73208461f208"
+  }
+ },
+ "replay_utc": "2026-09-27T04:47:31+00:00",
+ "replays": [
+  {
+   "index": 2,
+   "slot": 5,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "gt_type": 2,
+   "gt_intent": 0,
+   "t_min_a": 89.2,
+   "a_min_row": 14.4,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0002",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 14.44,
+   "a_t_rec": 89.2,
+   "c_min_rec": 228.66,
+   "c_t_rec": 88.65,
+   "c_episode_min_rec": 228.66,
+   "c_episode_min_slot": 5,
+   "wall_s": {
+    "none": 24.6,
+    "model": 41.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 89.2,
+    "first_rule_t": 83.5,
+    "first_rule_d_change": 93.60000000000001,
+    "max_elig_t": 81.5,
+    "max_elig_d_change": 14.100000000000001,
+    "max_any_t": 6.0,
+    "max_any_d_change": 108.60000000000001,
+    "chosen_t": 83.5,
+    "chosen_d_change": 93.60000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 89.2,
+    "n_frames_checked": 178,
+    "n_frames_alive_both": 178,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 0.0,
+    "crit_max_dev_t_s": 0.5,
+    "crit_first_gt_1m_20hz_s": null,
+    "any_agent_first_gt_1m_2hz_s": 69.0,
+    "any_agent_first_gt_1m_slots": [
+     19
+    ],
+    "own_div_at_t_min_m": 217.85,
+    "own_div_max_before_t_min_m": 217.85,
+    "own_first_gt_1m_20hz_s": 15.35
+   },
+   "status": "survivor"
+  },
+  {
+   "index": 23,
+   "slot": 18,
+   "type_name": "eVTOL",
+   "intent_name": "LoiterHover",
+   "gt_type": 3,
+   "gt_intent": 2,
+   "t_min_a": 70.25,
+   "a_min_row": 25.7,
+   "b_min_row": 87.1,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0023",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 25.72,
+   "a_t_rec": 70.25,
+   "c_min_rec": 162.53,
+   "c_t_rec": 72.5,
+   "c_episode_min_rec": 113.14,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 25.0,
+    "model": 38.7
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 70.25,
+    "first_rule_t": 70.0,
+    "first_rule_d_change": 51.2,
+    "max_elig_t": 46.0,
+    "max_elig_d_change": 20.700000000000003,
+    "max_any_t": 10.5,
+    "max_any_d_change": 75.30000000000001,
+    "chosen_t": 70.0,
+    "chosen_d_change": 51.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 70.25,
+    "n_frames_checked": 140,
+    "n_frames_alive_both": 140,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 73.57,
+    "crit_max_dev_t_s": 70.0,
+    "crit_first_gt_1m_20hz_s": 22.55,
+    "any_agent_first_gt_1m_2hz_s": 18.5,
+    "any_agent_first_gt_1m_slots": [
+     19
+    ],
+    "own_div_at_t_min_m": 102.56,
+    "own_div_max_before_t_min_m": 102.56,
+    "own_first_gt_1m_20hz_s": 13.95
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 243,
+   "slot": 16,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "DeliveryWP",
+   "gt_type": 2,
+   "gt_intent": 1,
+   "t_min_a": 63.5,
+   "a_min_row": 29.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0243",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 29.2,
+   "a_t_rec": 63.5,
+   "c_min_rec": 230.9,
+   "c_t_rec": 66.3,
+   "c_episode_min_rec": 230.9,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 24.3,
+    "model": 38.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 63.5,
+    "first_rule_t": 44.5,
+    "first_rule_d_change": 100.2,
+    "max_elig_t": 32.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 0.5,
+    "max_any_d_change": 0.0,
+    "chosen_t": 44.5,
+    "chosen_d_change": 100.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 63.5,
+    "n_frames_checked": 127,
+    "n_frames_alive_both": 127,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 284.76,
+    "crit_max_dev_t_s": 63.5,
+    "crit_first_gt_1m_20hz_s": 46.9,
+    "any_agent_first_gt_1m_2hz_s": 45.5,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 60.16,
+    "own_div_max_before_t_min_m": 60.16,
+    "own_first_gt_1m_20hz_s": 12.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 252,
+   "slot": 2,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "DeliveryWP",
+   "gt_type": 2,
+   "gt_intent": 1,
+   "t_min_a": 53.6,
+   "a_min_row": 30.4,
+   "b_min_row": 86.1,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0252",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 30.39,
+   "a_t_rec": 53.6,
+   "c_min_rec": 340.33,
+   "c_t_rec": 51.85,
+   "c_episode_min_rec": 134.52,
+   "c_episode_min_slot": 10,
+   "wall_s": {
+    "none": 25.6,
+    "model": 39.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 53.6,
+    "first_rule_t": 27.0,
+    "first_rule_d_change": 56.0,
+    "max_elig_t": 26.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 17.0,
+    "max_any_d_change": 147.5,
+    "chosen_t": 27.0,
+    "chosen_d_change": 56.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 53.6,
+    "n_frames_checked": 107,
+    "n_frames_alive_both": 107,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 366.32,
+    "crit_max_dev_t_s": 53.5,
+    "crit_first_gt_1m_20hz_s": 38.25,
+    "any_agent_first_gt_1m_2hz_s": 36.5,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 49.76,
+    "own_div_max_before_t_min_m": 109.53,
+    "own_first_gt_1m_20hz_s": 13.55
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 264,
+   "slot": 13,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "gt_type": 2,
+   "gt_intent": 0,
+   "t_min_a": 67.15,
+   "a_min_row": 25.4,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0264",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 25.42,
+   "a_t_rec": 67.15,
+   "c_min_rec": 164.23,
+   "c_t_rec": 58.5,
+   "c_episode_min_rec": 164.23,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 24.4,
+    "model": 42.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 67.15,
+    "first_rule_t": 51.0,
+    "first_rule_d_change": 34.4,
+    "max_elig_t": 49.0,
+    "max_elig_d_change": 0.6000000000000001,
+    "max_any_t": 18.0,
+    "max_any_d_change": 11.600000000000001,
+    "chosen_t": 51.0,
+    "chosen_d_change": 34.4,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 67.15,
+    "n_frames_checked": 134,
+    "n_frames_alive_both": 134,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 499.48,
+    "crit_max_dev_t_s": 67.0,
+    "crit_first_gt_1m_20hz_s": 40.9,
+    "any_agent_first_gt_1m_2hz_s": 40.5,
+    "any_agent_first_gt_1m_slots": [
+     1
+    ],
+    "own_div_at_t_min_m": 73.01,
+    "own_div_max_before_t_min_m": 86.55,
+    "own_first_gt_1m_20hz_s": 13.45
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 281,
+   "slot": 14,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "LoiterHover",
+   "gt_type": 2,
+   "gt_intent": 2,
+   "t_min_a": 67.4,
+   "a_min_row": 16.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0281",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 16.48,
+   "a_t_rec": 67.4,
+   "c_min_rec": 619.21,
+   "c_t_rec": 55.5,
+   "c_episode_min_rec": 72.04,
+   "c_episode_min_slot": 8,
+   "wall_s": {
+    "none": 25.7,
+    "model": 34.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 67.4,
+    "first_rule_t": null,
+    "first_rule_d_change": null,
+    "max_elig_t": 37.0,
+    "max_elig_d_change": 7.7,
+    "max_any_t": 4.0,
+    "max_any_d_change": 17.400000000000002,
+    "chosen_t": 37.0,
+    "chosen_d_change": 7.7,
+    "chosen_eligible": true,
+    "why": "fallback_max_change_eligible"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 67.4,
+    "n_frames_checked": 134,
+    "n_frames_alive_both": 134,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 1082.0,
+    "crit_max_dev_t_s": 67.0,
+    "crit_first_gt_1m_20hz_s": 43.0,
+    "any_agent_first_gt_1m_2hz_s": 28.0,
+    "any_agent_first_gt_1m_slots": [
+     2
+    ],
+    "own_div_at_t_min_m": 103.48,
+    "own_div_max_before_t_min_m": 103.78,
+    "own_first_gt_1m_20hz_s": 15.85
+   },
+   "status": "attributability_failed"
+  }
+ ],
+ "survivors": [
+  {
+   "index": 2,
+   "slot": 5,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "gt_type": 2,
+   "gt_intent": 0,
+   "t_min_a": 89.2,
+   "a_min_row": 14.4,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0002",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 14.44,
+   "a_t_rec": 89.2,
+   "c_min_rec": 228.66,
+   "c_t_rec": 88.65,
+   "c_episode_min_rec": 228.66,
+   "c_episode_min_slot": 5,
+   "wall_s": {
+    "none": 24.6,
+    "model": 41.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 89.2,
+    "first_rule_t": 83.5,
+    "first_rule_d_change": 93.60000000000001,
+    "max_elig_t": 81.5,
+    "max_elig_d_change": 14.100000000000001,
+    "max_any_t": 6.0,
+    "max_any_d_change": 108.60000000000001,
+    "chosen_t": 83.5,
+    "chosen_d_change": 93.60000000000001,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": true,
+    "threshold_m": 30.0,
+    "t_min_a": 89.2,
+    "n_frames_checked": 178,
+    "n_frames_alive_both": 178,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 0.0,
+    "crit_max_dev_t_s": 0.5,
+    "crit_first_gt_1m_20hz_s": null,
+    "any_agent_first_gt_1m_2hz_s": 69.0,
+    "any_agent_first_gt_1m_slots": [
+     19
+    ],
+    "own_div_at_t_min_m": 217.85,
+    "own_div_max_before_t_min_m": 217.85,
+    "own_first_gt_1m_20hz_s": 15.35
+   },
+   "status": "survivor"
+  }
+ ],
+ "dropped": [
+  {
+   "index": 23,
+   "slot": 18,
+   "type_name": "eVTOL",
+   "intent_name": "LoiterHover",
+   "gt_type": 3,
+   "gt_intent": 2,
+   "t_min_a": 70.25,
+   "a_min_row": 25.7,
+   "b_min_row": 87.1,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0023",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 25.72,
+   "a_t_rec": 70.25,
+   "c_min_rec": 162.53,
+   "c_t_rec": 72.5,
+   "c_episode_min_rec": 113.14,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 25.0,
+    "model": 38.7
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 70.25,
+    "first_rule_t": 70.0,
+    "first_rule_d_change": 51.2,
+    "max_elig_t": 46.0,
+    "max_elig_d_change": 20.700000000000003,
+    "max_any_t": 10.5,
+    "max_any_d_change": 75.30000000000001,
+    "chosen_t": 70.0,
+    "chosen_d_change": 51.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 70.25,
+    "n_frames_checked": 140,
+    "n_frames_alive_both": 140,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 73.57,
+    "crit_max_dev_t_s": 70.0,
+    "crit_first_gt_1m_20hz_s": 22.55,
+    "any_agent_first_gt_1m_2hz_s": 18.5,
+    "any_agent_first_gt_1m_slots": [
+     19
+    ],
+    "own_div_at_t_min_m": 102.56,
+    "own_div_max_before_t_min_m": 102.56,
+    "own_first_gt_1m_20hz_s": 13.95
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 243,
+   "slot": 16,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "DeliveryWP",
+   "gt_type": 2,
+   "gt_intent": 1,
+   "t_min_a": 63.5,
+   "a_min_row": 29.2,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0243",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 29.2,
+   "a_t_rec": 63.5,
+   "c_min_rec": 230.9,
+   "c_t_rec": 66.3,
+   "c_episode_min_rec": 230.9,
+   "c_episode_min_slot": 16,
+   "wall_s": {
+    "none": 24.3,
+    "model": 38.0
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 63.5,
+    "first_rule_t": 44.5,
+    "first_rule_d_change": 100.2,
+    "max_elig_t": 32.0,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 0.5,
+    "max_any_d_change": 0.0,
+    "chosen_t": 44.5,
+    "chosen_d_change": 100.2,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 63.5,
+    "n_frames_checked": 127,
+    "n_frames_alive_both": 127,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 284.76,
+    "crit_max_dev_t_s": 63.5,
+    "crit_first_gt_1m_20hz_s": 46.9,
+    "any_agent_first_gt_1m_2hz_s": 45.5,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 60.16,
+    "own_div_max_before_t_min_m": 60.16,
+    "own_first_gt_1m_20hz_s": 12.6
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 252,
+   "slot": 2,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "DeliveryWP",
+   "gt_type": 2,
+   "gt_intent": 1,
+   "t_min_a": 53.6,
+   "a_min_row": 30.4,
+   "b_min_row": 86.1,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0252",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 30.39,
+   "a_t_rec": 53.6,
+   "c_min_rec": 340.33,
+   "c_t_rec": 51.85,
+   "c_episode_min_rec": 134.52,
+   "c_episode_min_slot": 10,
+   "wall_s": {
+    "none": 25.6,
+    "model": 39.2
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 53.6,
+    "first_rule_t": 27.0,
+    "first_rule_d_change": 56.0,
+    "max_elig_t": 26.5,
+    "max_elig_d_change": 0.0,
+    "max_any_t": 17.0,
+    "max_any_d_change": 147.5,
+    "chosen_t": 27.0,
+    "chosen_d_change": 56.0,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 53.6,
+    "n_frames_checked": 107,
+    "n_frames_alive_both": 107,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 366.32,
+    "crit_max_dev_t_s": 53.5,
+    "crit_first_gt_1m_20hz_s": 38.25,
+    "any_agent_first_gt_1m_2hz_s": 36.5,
+    "any_agent_first_gt_1m_slots": [
+     11
+    ],
+    "own_div_at_t_min_m": 49.76,
+    "own_div_max_before_t_min_m": 109.53,
+    "own_first_gt_1m_20hz_s": 13.55
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 264,
+   "slot": 13,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "CorridorTransit",
+   "gt_type": 2,
+   "gt_intent": 0,
+   "t_min_a": 67.15,
+   "a_min_row": 25.4,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0264",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 25.42,
+   "a_t_rec": 67.15,
+   "c_min_rec": 164.23,
+   "c_t_rec": 58.5,
+   "c_episode_min_rec": 164.23,
+   "c_episode_min_slot": 13,
+   "wall_s": {
+    "none": 24.4,
+    "model": 42.6
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 67.15,
+    "first_rule_t": 51.0,
+    "first_rule_d_change": 34.4,
+    "max_elig_t": 49.0,
+    "max_elig_d_change": 0.6000000000000001,
+    "max_any_t": 18.0,
+    "max_any_d_change": 11.600000000000001,
+    "chosen_t": 51.0,
+    "chosen_d_change": 34.4,
+    "chosen_eligible": true,
+    "why": "first_rule"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 67.15,
+    "n_frames_checked": 134,
+    "n_frames_alive_both": 134,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 499.48,
+    "crit_max_dev_t_s": 67.0,
+    "crit_first_gt_1m_20hz_s": 40.9,
+    "any_agent_first_gt_1m_2hz_s": 40.5,
+    "any_agent_first_gt_1m_slots": [
+     1
+    ],
+    "own_div_at_t_min_m": 73.01,
+    "own_div_max_before_t_min_m": 86.55,
+    "own_first_gt_1m_20hz_s": 13.45
+   },
+   "status": "attributability_failed"
+  },
+  {
+   "index": 281,
+   "slot": 14,
+   "type_name": "Fixed-wing UAS",
+   "intent_name": "LoiterHover",
+   "gt_type": 2,
+   "gt_intent": 2,
+   "t_min_a": 67.4,
+   "a_min_row": 16.5,
+   "b_min_row": null,
+   "work_dir": "C:/Users/AISIMULATOR2/AppData/Local/Temp/claude/D--PRISM/3bfba519-c6dc-499b-8200-bb2b9cf2ddff/scratchpad/figcase/select/id40/ep0281",
+   "gate": {
+    "none": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    },
+    "model": {
+     "pass": true,
+     "n_deterministic_fields": 85,
+     "mismatches": [],
+     "sep_check_pass": true,
+     "imports_ok": true
+    }
+   },
+   "gate_pass": true,
+   "a_min_rec": 16.48,
+   "a_t_rec": 67.4,
+   "c_min_rec": 619.21,
+   "c_t_rec": 55.5,
+   "c_episode_min_rec": 72.04,
+   "c_episode_min_slot": 8,
+   "wall_s": {
+    "none": 25.7,
+    "model": 34.8
+   },
+   "fig9_rule": {
+    "threshold_m": 30.0,
+    "t_cpa_a": 67.4,
+    "first_rule_t": null,
+    "first_rule_d_change": null,
+    "max_elig_t": 37.0,
+    "max_elig_d_change": 7.7,
+    "max_any_t": 4.0,
+    "max_any_d_change": 17.400000000000002,
+    "chosen_t": 37.0,
+    "chosen_d_change": 7.7,
+    "chosen_eligible": true,
+    "why": "fallback_max_change_eligible"
+   },
+   "attributability": {
+    "pass": false,
+    "threshold_m": 30.0,
+    "t_min_a": 67.4,
+    "n_frames_checked": 134,
+    "n_frames_alive_both": 134,
+    "n_frames_alive_one_arm_only": 0,
+    "crit_max_dev_2hz_m": 1082.0,
+    "crit_max_dev_t_s": 67.0,
+    "crit_first_gt_1m_20hz_s": 43.0,
+    "any_agent_first_gt_1m_2hz_s": 28.0,
+    "any_agent_first_gt_1m_slots": [
+     2
+    ],
+    "own_div_at_t_min_m": 103.48,
+    "own_div_max_before_t_min_m": 103.78,
+    "own_first_gt_1m_20hz_s": 15.85
+   },
+   "status": "attributability_failed"
+  }
+ ],
+ "selection": {
+  "index": 2,
+  "rank_1based": 1,
+  "n_survivors": 1,
+  "c_min_rec": 228.66,
+  "median_rule": "lower median for an even count",
+  "order_by_c_min": [
+   [
+    2,
+    228.66
+   ]
+  ]
+ },
+ "n_survivors": 1,
+ "extend_pool": true
+}

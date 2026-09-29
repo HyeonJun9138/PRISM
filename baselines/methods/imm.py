@@ -145,14 +145,26 @@ class _ModelState:
 
 
 class IMMTracker:
-    """One target's IMM over its logged observation row."""
+    """One target's IMM over its logged observation row.
 
-    def __init__(self, params: IMMParams):
+    ``init_gap_fix`` (default False = pre-round-1 behaviour): the two-point
+    velocity initialisation divides by the time between the first two
+    detections. The legacy code does not advance that time over the misses
+    in between (step(None) returns early while initialisation is pending), so
+    a track whose first two detections are k misses apart starts with (k+1)x
+    its velocity. Found in review round 1 (2026-09-26); on 30 test_id
+    episodes the fix moved IMM minADE 101.9 -> 74.6 m under rule "slot". Kept
+    opt-in so the published IMM rows reproduce; see baselines/main.py
+    --imm-init-gap-fix.
+    """
+
+    def __init__(self, params: IMMParams, init_gap_fix: bool = False):
         self.p = params
         self.mu = np.full(N_MODELS, 1.0 / N_MODELS)
         self.models: list[_ModelState] | None = None
         self._last_z: np.ndarray | None = None
         self._init_pending = True
+        self.init_gap_fix = bool(init_gap_fix)
 
     # ------------------------------------------------------- initialisation
     def _init_from(self, z0: np.ndarray, z1: np.ndarray, gap_s: float,
@@ -240,6 +252,8 @@ class IMMTracker:
         """One logged step: z=None means a missed detection (coast)."""
         if self._init_pending:
             if z is None:
+                if self.init_gap_fix and self._last_z is not None:
+                    self._gap += dt          # time since the first detection grows
                 return
             if self._last_z is None:
                 self._last_z = z.copy()
@@ -309,32 +323,71 @@ class IMMTracker:
 # --------------------------------------------------------------- per-episode
 
 def imm_predictions_for_episode(ep: dict, t0_list: dict[int, list[int]],
-                                params: IMMParams) -> dict[tuple[int, int], tuple]:
+                                params: IMMParams, rule: str = "slot",
+                                init_gap_fix: bool = False
+                                ) -> dict[tuple[int, int], tuple]:
     """Filter each requested agent ONCE over its row, snapshotting forecasts
     at every requested t0 (windows overlap heavily; refiltering per sample
     would cost 20x).
 
     Args:
-        ep: episode arrays dict.
+        ep: episode arrays dict (needs obs_track_id under rule "current").
         t0_list: {agent_slot: sorted [t0, ...]} anchors to forecast at.
         params: tuned IMM noise set.
+        rule: track rule (modelTraining/data/dataset.py module doc).
+            "slot" (default, pre-round-1 behaviour): ONE filter over the whole
+            physical slot row, coasting through track drops -- oracle
+            re-association. "current": a detection whose track id differs
+            from the running filter's starts a FRESH filter (a reacquired
+            object is a new track: new id, no memory of the old one), and a
+            forecast at t0 exists only if the filter belongs to the track
+            open at t0 (obs_track_id[t0] >= 0 and equal to the filter's id).
+        init_gap_fix: IMMTracker option (class doc); False = legacy.
 
     Returns:
-        {(agent, t0): (mu[K,H,2], sigma, rho, pi)}
+        {(agent, t0): (mu[K,H,2], sigma, rho, pi)}; an anchor without a
+        ready filter (or, under "current", without an open track) is absent.
     """
+    if rule not in ("slot", "current"):
+        raise ValueError(f"unknown track rule {rule!r}")
     out: dict[tuple[int, int], tuple] = {}
     det_all = ep["obs_detected"].astype(bool)
+    if rule == "slot":
+        for a, anchors in t0_list.items():
+            tracker = IMMTracker(params, init_gap_fix)
+            want = set(int(t) for t in anchors)
+            t_max = max(want)
+            for t in range(0, t_max + 1):
+                if det_all[t, a]:
+                    z = ep["obs_pos"][t, a].astype(np.float64)
+                    R = ep["obs_R"][t, a].astype(np.float64)
+                    tracker.step(z, R)
+                else:
+                    tracker.step(None, None)
+                if t in want and tracker.ready:
+                    out[(a, t)] = tracker.predict()
+        return out
+
+    if "obs_track_id" not in ep:
+        raise KeyError("rule 'current' needs obs_track_id in the episode arrays")
+    tid_all = np.asarray(ep["obs_track_id"])
     for a, anchors in t0_list.items():
-        tracker = IMMTracker(params)
+        tracker: IMMTracker | None = None
+        trk_id = None
         want = set(int(t) for t in anchors)
         t_max = max(want)
         for t in range(0, t_max + 1):
             if det_all[t, a]:
+                tid = int(tid_all[t, a])
+                if tracker is None or tid != trk_id:
+                    tracker, trk_id = IMMTracker(params, init_gap_fix), tid  # new track
                 z = ep["obs_pos"][t, a].astype(np.float64)
                 R = ep["obs_R"][t, a].astype(np.float64)
                 tracker.step(z, R)
-            else:
+            elif tracker is not None:
                 tracker.step(None, None)
-            if t in want and tracker.ready:
-                out[(a, t)] = tracker.predict()
+            if t in want and tracker is not None and tracker.ready:
+                open_id = int(tid_all[t, a])
+                if open_id >= 0 and open_id == trk_id:
+                    out[(a, t)] = tracker.predict()
     return out

@@ -14,6 +14,25 @@ the very same cost formula.
 Disk row layout (M disks x 5): [x, y, hard_radius, sigma, gain]
   sigma == NaN -> JS default  max(10, hard_radius + safety_buffer)
   gain  == NaN -> JS default  (hard_radius + vehicle_radius) / 12
+
+Decision rule, stated completely (Reviewer 3 major 4 asked for it):
+  1. every candidate is swept against the risk disks at its sample times
+     t <= risk_horizon. A sample closer than hard_radius + vehicle_radius to
+     ANY disk -- including a FORECAST disk at a future lookahead time, not
+     only the observed positions -- is a hard collision;
+  2. a candidate is hard-valid iff it has no collision, no corridor-boundary
+     excess and no dynamic-limit excess (lateral / total acceleration);
+  3. if at least one candidate is valid, only the valid ones are scored
+     (per-pool normalized comfort terms + weighted soft safety cost);
+  4. if NONE is valid the planner enters EMERGENCY mode: every candidate is
+     scored and each is charged 2 x violation (+500 if it collides), so the
+     least-violating candidate is flown although it breaks a constraint.
+Changing the risk input therefore changes feasibility, not only the soft
+cost. PlannerConfig.hard_geom == "shared" is the control that removes this
+channel: the hard check (and the emergency penalty) then uses one
+arm-independent geometry (RiskProvider.hard_disks_batch) while the soft
+cost keeps the arm's disks. explain_candidate() re-evaluates a chosen
+candidate to attribute an emergency to its cause.
 """
 from __future__ import annotations
 
@@ -254,7 +273,13 @@ class ReferencePath:
 class RiskProvider(Protocol):
     def disks_batch(self, ts: np.ndarray) -> np.ndarray:
         """[S, M, 5] risk disks for each lookahead time in ts (seconds from
-        the plan epoch). M may be 0. Columns: x, y, hard_r, sigma, gain."""
+        the plan epoch). M may be 0. Columns: x, y, hard_r, sigma, gain.
+
+        Optional (planner.risk.BaseRisk implements both):
+          hard_disks_batch(ts) -> [S, M', 5]  shared hard geometry, read
+              only when PlannerConfig.hard_geom == "shared";
+          disk_kinds() -> [M] int  0 static / 1 forecast, aligned with the
+              M axis of disks_batch (collision attribution)."""
         ...
 
 
@@ -353,11 +378,32 @@ class PlannerConfig:
     # otherwise long candidates always lose on accumulated fuel and the
     # far-sighted rungs can never win, killing anticipatory avoidance.
     time_normalized_costs: bool = False
+    # --- review round 1 (Reviewer 3 majors 4/5). Defaults == every run
+    # before 2026-09-26, bit for bit.
+    # "arm": the hard collision check uses the arm's own disks_batch (the
+    # original rule: forecast disks can make a candidate infeasible).
+    # "shared": the hard check uses risk.hard_disks_batch -- one
+    # arm-independent geometry -- while the soft cost keeps the arm's disks.
+    hard_geom: str = "arm"
+    # "pool": safety term normalized by the max raw safety in the scored
+    # pool (the original candidate-wise normalization). "absolute": divided
+    # by the fixed safety_ref instead; the other cost terms are unchanged.
+    safety_norm: str = "pool"
+    safety_ref: Optional[float] = None
 
     def __post_init__(self) -> None:
         if self.max_total_accel is None:
             self.max_total_accel = max(
                 5.5, self.max_lateral_accel + self.max_vertical_accel + 1.2)
+        if self.hard_geom not in ("arm", "shared"):
+            raise ValueError(f"hard_geom must be arm|shared, got "
+                             f"{self.hard_geom!r}")
+        if self.safety_norm not in ("pool", "absolute"):
+            raise ValueError(f"safety_norm must be pool|absolute, got "
+                             f"{self.safety_norm!r}")
+        if self.safety_norm == "absolute" and not (
+                self.safety_ref is not None and self.safety_ref > 0):
+            raise ValueError("safety_norm='absolute' needs safety_ref > 0")
 
 
 @dataclass
@@ -541,7 +587,23 @@ def evaluate_candidate(state: FrenetState, target_d: float, target_h: float,
     collision = False
     min_clearance = math.inf
     cost_safety = 0.0
-    if disks.shape[0] > 0 and disks.shape[1] > 0:
+    if config.hard_geom == "shared":
+        # R3 major 4 control: hard feasibility (collision, min_clearance and
+        # hence the emergency penalty) from ONE arm-independent geometry;
+        # the soft safety cost below still reads the arm's own disks.
+        hdisks = risk.hard_disks_batch(tr)            # [Sr, M', 5]
+        if hdisks.shape[0] > 0 and hdisks.shape[1] > 0:
+            hclear = _disk_clearance(xr, yr, zr, hdisks, config, mode)
+            min_clearance = float(np.min(hclear))
+            hhit = hclear < 0
+            if np.any(hhit):
+                collision = True
+                violation += float(np.sum(40.0 + np.abs(hclear[hhit]) * 7.0))
+        if disks.shape[0] > 0 and disks.shape[1] > 0:
+            clearance = _disk_clearance(xr, yr, zr, disks, config, mode)
+            cost_safety = _soft_safety_cost(clearance, disks, config)
+    elif disks.shape[0] > 0 and disks.shape[1] > 0:
+        # the original rule, kept verbatim (bit-identical with hard_geom=arm)
         dx = xr[:, None] - disks[:, :, 0]
         dy = yr[:, None] - disks[:, :, 1]
         if mode == "3d":
@@ -595,6 +657,113 @@ def evaluate_candidate(state: FrenetState, target_d: float, target_h: float,
              "fuel": cost_fuel, "speed": speed_track})
 
 
+def _disk_clearance(xr: np.ndarray, yr: np.ndarray, zr: np.ndarray,
+                    disks: np.ndarray, config: PlannerConfig,
+                    mode: str) -> np.ndarray:
+    """[Sr, M] clearance of samples to disk edges, the same arithmetic as the
+    original sweep in evaluate_candidate (dist - hard_r - vehicle_radius)."""
+    dx = xr[:, None] - disks[:, :, 0]
+    dy = yr[:, None] - disks[:, :, 1]
+    if mode == "3d":
+        dz = zr[:, None] - config.reference_altitude  # disks fly at ref alt
+        dist = np.sqrt(dx * dx + dy * dy + dz * dz)
+    else:
+        dist = np.hypot(dx, dy)
+    return dist - disks[:, :, 2] - config.vehicle_radius
+
+
+def _soft_safety_cost(clearance: np.ndarray, disks: np.ndarray,
+                      config: PlannerConfig) -> float:
+    """The original soft potential over precomputed clearances."""
+    hard_r = disks[:, :, 2]
+    sigma = disks[:, :, 3]
+    sigma = np.where(np.isnan(sigma),
+                     np.maximum(10.0, hard_r + config.safety_buffer),
+                     sigma)
+    gain = disks[:, :, 4]
+    gain = np.where(np.isnan(gain),
+                    (hard_r + config.vehicle_radius) / 12.0,
+                    gain)
+    soft = np.maximum(0.0, clearance - config.soft_standoff)
+    return float(np.sum(
+        np.exp(-soft ** 2 / (2 * sigma ** 2)) * gain) * config.plan_dt)
+
+
+def explain_candidate(cand: Candidate, config: PlannerConfig,
+                      risk: RiskProvider, mode: str = "2d") -> dict:
+    """Why is this candidate (in)valid? Re-evaluates its samples against
+    the disks its HARD check used (R3 major 4 diagnostics).
+
+    Returns a dict:
+      collision        bool   any sample inside a hard disk (== cand.collision)
+      coll_kind        -1 none | 0 static | 1 forecast -- kind of the disk
+                       with the DEEPEST penetration (disk_kinds() of the
+                       provider; every shared hard disk is static)
+      coll_static / coll_forecast  bool  some static / forecast disk is hit
+      pen_depth_m      max negative clearance [m] (0.0 without collision)
+      boundary         bool   corridor (or altitude-band) excess
+      boundary_excess_m  max excess over the corridor edge [m]
+      dyn_violation    the non-collision, non-boundary part of violation:
+                       0.7 * sum(lat_accel excess) + 0.5 * sum(|sa| excess)
+                       (+ the 3-D climb/vertical terms), same formula as
+                       evaluate_candidate
+    """
+    s = cand.samples
+    t = s["t"]
+    half = config.corridor_width / 2
+    lat_excess = np.abs(s["d"]) + config.vehicle_radius - half
+    b_exc = float(np.max(lat_excess)) if lat_excess.size else 0.0
+    dyn = 0.0
+    lat_over = s["lat_accel"] - config.max_lateral_accel
+    dyn += float(np.sum(lat_over[lat_over > 0]) * 0.7)
+    if mode == "3d":
+        vertical_half = config.altitude_band / 2
+        vert_excess = np.abs(s["h"]) + config.vehicle_radius - vertical_half
+        if vert_excess.size:
+            b_exc = max(b_exc, float(np.max(vert_excess)))
+        _, hv, ha, _ = cand.h_poly.eval_batch(t)
+        climb_over = np.abs(hv) - config.max_climb_rate
+        dyn += float(np.sum(climb_over[climb_over > 0]) * 0.9)
+        vert_over = np.abs(ha) - config.max_vertical_accel
+        dyn += float(np.sum(vert_over[vert_over > 0]) * 0.8)
+    sa_over = np.abs(s["sa"]) - config.max_total_accel
+    dyn += float(np.sum(sa_over[sa_over > 0]) * 0.5)
+
+    out = {"collision": False, "coll_kind": -1, "coll_static": False,
+           "coll_forecast": False, "pen_depth_m": 0.0,
+           "boundary": bool(b_exc > 0), "boundary_excess_m": max(0.0, b_exc),
+           "dyn_violation": dyn}
+
+    rmask = t <= config.risk_horizon
+    tr = t[rmask]
+    shared = config.hard_geom == "shared"
+    disks = risk.hard_disks_batch(tr) if shared else risk.disks_batch(tr)
+    if disks.shape[0] == 0 or disks.shape[1] == 0:
+        return out
+    clearance = _disk_clearance(s["x"][rmask], s["y"][rmask], s["z"][rmask],
+                                disks, config, mode)
+    per_disk = clearance.min(axis=0)                  # [M]
+    if not np.any(per_disk < 0):
+        return out
+    m = disks.shape[1]
+    if shared:
+        kinds = np.zeros(m, dtype=np.int8)            # observed positions
+    else:
+        kinds_fn = getattr(risk, "disk_kinds", None)
+        kinds = (np.asarray(kinds_fn(), dtype=np.int8) if kinds_fn
+                 else np.zeros(m, dtype=np.int8))
+        if kinds.shape[0] != m:
+            raise ValueError(f"disk_kinds() has {kinds.shape[0]} entries but "
+                             f"disks_batch has {m} disks")
+    j = int(np.argmin(per_disk))
+    hit = per_disk < 0
+    out.update(collision=True, coll_kind=int(kinds[j]),
+               coll_static=bool(np.any(hit & (kinds == 0))),
+               coll_forecast=bool(np.any(hit & (kinds == 1))),
+               pen_depth_m=float(-per_disk[j]))
+    return out
+
+
 def normalize_and_score(pool: list[Candidate], config: PlannerConfig,
                         emergency_mode: bool) -> None:
     max_jerk = max(max((c.raw["jerk"] for c in pool), default=0.0), 1e-6)
@@ -602,10 +771,15 @@ def normalize_and_score(pool: list[Candidate], config: PlannerConfig,
     max_offset = max(max((c.raw["offset"] for c in pool), default=0.0), 1e-6)
     max_fuel = max(max((c.raw["fuel"] for c in pool), default=0.0), 1e-6)
     half_c = max(config.corridor_width / 2 - config.vehicle_radius - 1.5, 1.0)
+    # R3 major 5 knob: "pool" == the original candidate-wise normalization
+    # (a candidate's safety term depends on its competitors); "absolute"
+    # divides by a fixed reference so it does not.
+    safety_den = (max_safety if config.safety_norm == "pool"
+                  else float(config.safety_ref))
 
     for c in pool:
         c.norm["jerk"] = c.raw["jerk"] / max_jerk
-        c.norm["safety"] = c.raw["safety"] / max_safety
+        c.norm["safety"] = c.raw["safety"] / safety_den
         c.norm["offset"] = c.raw["offset"] / max_offset
         c.norm["fuel"] = c.raw["fuel"] / max_fuel
         c.norm["center"] = min(1.0, abs(c.target_d) / half_c)

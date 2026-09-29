@@ -1,0 +1,14 @@
+{
+ "_doc": "Training jobs that did not end normally, with the checkpoint that was actually evaluated. Read by make_r3_tables.py (Table 10) and Paper/figures/make_r3_figs.py (training figure) when no '<job>/final/model_final.pt' exists for the tag. DECISIONS.md D6.17.",
+ "r3_pointnet_s0": {
+  "job": "20260926_231702_r3_pointnet_s0",
+  "job_dir": "D:/PRISM/Logs/Models/20260926_231702_r3_pointnet_s0",
+  "extra_metrics": ["D:/PRISM/Logs/Models/20260927_011708_resume_net_s0/metrics.jsonl"],
+  "best": {"value": 73.80977717285157, "epoch": 21},
+  "best_metric": "val/minADE",
+  "epochs": 26,
+  "evaluated_checkpoint": "20260926_231702_r3_pointnet_s0/checkpoints/best.pt (epoch 21), sha256 b4128aa51cd3d6a7951445687ca4e23b21294641660da72f7558bf238c943164",
+  "resumed_job": "20260927_011708_resume_net_s0 (epoch 26 only; val minADE 73.9 > 73.810, so it is not the kept checkpoint; its final/ was packaged from last.pt and is NOT used)",
+  "note": "Interrupted 2026-09-27 01:07:02 on runner .66 (runner reclaimed for another job) during the epoch-26 validation. Epoch 26 was re-run on .77 with the same training snapshot by `main.py resume --checkpoint ckpt_ep0025.pt`. It did not improve on epoch 21, so the evaluated model is the epoch-21 best checkpoint by the job's selection metric (val/minADE) - the checkpoint an uninterrupted run would have packaged."
+ }
+}

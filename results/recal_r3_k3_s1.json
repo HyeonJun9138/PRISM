@@ -1,0 +1,320 @@
+{
+ "model": "D:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+ "T": 1.695,
+ "cal_runs": [
+  "D:/PRISM/Logs/Dataset\\20260813_124053_test_ood_cal_a",
+  "D:/PRISM/Logs/Dataset\\20260813_124054_test_ood_cal_b",
+  "D:/PRISM/Logs/Dataset\\20260813_124054_test_ood_cal_c"
+ ],
+ "t0_stride": 4,
+ "n_cal": 99724,
+ "n_test": 299679,
+ "before": {
+  "NLL": 2.2068,
+  "cov50_5s": 0.361,
+  "cov70_5s": 0.5373,
+  "cov90_5s": 0.7343,
+  "cov50_10s": 0.3583,
+  "cov70_10s": 0.5327,
+  "cov90_10s": 0.7303,
+  "cov50_15s": 0.3878,
+  "cov70_15s": 0.5641,
+  "cov90_15s": 0.7579
+ },
+ "after": {
+  "NLL": 1.7545,
+  "cov50_5s": 0.5481,
+  "cov70_5s": 0.7358,
+  "cov90_5s": 0.895,
+  "cov50_10s": 0.5377,
+  "cov70_10s": 0.7286,
+  "cov90_10s": 0.8937,
+  "cov50_15s": 0.5736,
+  "cov70_15s": 0.7579,
+  "cov90_15s": 0.9139
+ },
+ "eval_set": {
+  "legacy": false,
+  "rule": "test episodes with master seed >= 300300",
+  "test_runs": [
+   "D:/PRISM/Logs/Dataset/20260813_023139_test_ood_full5x_a",
+   "D:/PRISM/Logs/Dataset/20260813_023139_test_ood_full5x_b"
+  ],
+  "n_episodes": 900,
+  "seed_min": 300300,
+  "seed_max": 301199,
+  "episode_index_min": 300,
+  "episode_index_max": 1199,
+  "seeds_contiguous": true
+ },
+ "fit_set": {
+  "cal_runs": [
+   "D:/PRISM/Logs/Dataset/20260813_124053_test_ood_cal_a",
+   "D:/PRISM/Logs/Dataset/20260813_124054_test_ood_cal_b",
+   "D:/PRISM/Logs/Dataset/20260813_124054_test_ood_cal_c"
+  ],
+  "n_episodes": 300,
+  "seed_min": 300000,
+  "seed_max": 300299,
+  "episode_index_min": 0,
+  "episode_index_max": 299,
+  "seeds_contiguous": true
+ },
+ "seed_overlap": {
+  "n_fit_seeds": 300,
+  "n_eval_seeds": 900,
+  "n_overlap": 0,
+  "overlap_seed_min": null,
+  "overlap_seed_max": null,
+  "asserted_zero": true,
+  "note": "the calibration runs regenerate test_ood seeds 300000-300299 with the same preset, so equal seeds are identical episodes"
+ },
+ "n_test_samples_on_overlap_episodes": 0,
+ "sampling": {
+  "t0_stride": 4,
+  "min_future_valid": 27,
+  "min_obs": 3,
+  "index_track_rule": "current",
+  "feature_track_rule": "current"
+ },
+ "hpd_mc": {
+  "draws_per_sample_step": 96,
+  "normal_draws": "torch.Generator seeded 7, re-seeded per coverage call (before/after share the normals)",
+  "component_draws": "torch.Generator seeded 8, re-seeded per coverage call (released: unseeded torch default generator, clock-seeded per process)",
+  "threshold": "torch.quantile of the draws' log-densities at 1 - nominal",
+  "indicator": "log p(GT) >= threshold, GT-valid samples at the step"
+ },
+ "nll_definition": "mean over GT-valid (sample, step) pairs of the negative log mixture density, positions in units of POS_SCALE = 100 m",
+ "fit": {
+  "method": "golden-section on mixture NLL, bracket [0.8, 2.6], 24 iterations, T rounded to 3 decimals",
+  "T_unrounded": 1.6951172079288996,
+  "cal_NLL_T1": 2.2232,
+  "cal_NLL_T": 1.7523
+ },
+ "transfer": {
+  "control": {
+   "run": "D:/PRISM/Logs/Dataset/20260907_194445_ood_control_rebut",
+   "n_episodes": 300,
+   "seed_min": 900000,
+   "seed_max": 900299,
+   "episode_index_min": 0,
+   "episode_index_max": 299,
+   "seeds_contiguous": true,
+   "n_samples": 58865,
+   "before": {
+    "NLL": 0.9558,
+    "cov50_5s": 0.4997,
+    "cov70_5s": 0.7096,
+    "cov90_5s": 0.8875,
+    "cov50_10s": 0.5059,
+    "cov70_10s": 0.7143,
+    "cov90_10s": 0.8845,
+    "cov50_15s": 0.5403,
+    "cov70_15s": 0.7355,
+    "cov90_15s": 0.8981
+   },
+   "after": {
+    "NLL": 1.1218,
+    "cov50_5s": 0.6926,
+    "cov70_5s": 0.873,
+    "cov90_5s": 0.9789,
+    "cov50_10s": 0.6823,
+    "cov70_10s": 0.8673,
+    "cov90_10s": 0.9777,
+    "cov50_15s": 0.7117,
+    "cov70_15s": 0.8793,
+    "cov90_15s": 0.9801
+   }
+  },
+  "density": {
+   "run": "D:/PRISM/Logs/Dataset/20260907_194445_ood_density_rebut",
+   "n_episodes": 300,
+   "seed_min": 400000,
+   "seed_max": 400299,
+   "episode_index_min": 0,
+   "episode_index_max": 299,
+   "seeds_contiguous": true,
+   "n_samples": 101969,
+   "before": {
+    "NLL": 0.9733,
+    "cov50_5s": 0.5024,
+    "cov70_5s": 0.7118,
+    "cov90_5s": 0.8882,
+    "cov50_10s": 0.5077,
+    "cov70_10s": 0.7181,
+    "cov90_10s": 0.888,
+    "cov50_15s": 0.5422,
+    "cov70_15s": 0.7397,
+    "cov90_15s": 0.9011
+   },
+   "after": {
+    "NLL": 1.1457,
+    "cov50_5s": 0.6955,
+    "cov70_5s": 0.8765,
+    "cov90_5s": 0.9794,
+    "cov50_10s": 0.6866,
+    "cov70_10s": 0.8726,
+    "cov90_10s": 0.9781,
+    "cov50_15s": 0.7159,
+    "cov70_15s": 0.8841,
+    "cov90_15s": 0.9809
+   }
+  },
+  "wind": {
+   "run": "D:/PRISM/Logs/Dataset/20260907_194445_ood_wind_rebut",
+   "n_episodes": 300,
+   "seed_min": 500000,
+   "seed_max": 500299,
+   "episode_index_min": 0,
+   "episode_index_max": 299,
+   "seeds_contiguous": true,
+   "n_samples": 55647,
+   "before": {
+    "NLL": 1.2032,
+    "cov50_5s": 0.4641,
+    "cov70_5s": 0.6667,
+    "cov90_5s": 0.8586,
+    "cov50_10s": 0.4627,
+    "cov70_10s": 0.6637,
+    "cov90_10s": 0.8519,
+    "cov50_15s": 0.5024,
+    "cov70_15s": 0.6971,
+    "cov90_15s": 0.8687
+   },
+   "after": {
+    "NLL": 1.2753,
+    "cov50_5s": 0.6701,
+    "cov70_5s": 0.8538,
+    "cov90_5s": 0.9713,
+    "cov50_10s": 0.6572,
+    "cov70_10s": 0.8479,
+    "cov90_10s": 0.9666,
+    "cov50_15s": 0.6868,
+    "cov70_15s": 0.8611,
+    "cov90_15s": 0.969
+   }
+  },
+  "intent": {
+   "run": "D:/PRISM/Logs/Dataset/20260907_194445_ood_intent_rebut",
+   "n_episodes": 300,
+   "seed_min": 700000,
+   "seed_max": 700299,
+   "episode_index_min": 0,
+   "episode_index_max": 299,
+   "seeds_contiguous": true,
+   "n_samples": 57731,
+   "before": {
+    "NLL": 1.2136,
+    "cov50_5s": 0.4399,
+    "cov70_5s": 0.6504,
+    "cov90_5s": 0.852,
+    "cov50_10s": 0.4378,
+    "cov70_10s": 0.6489,
+    "cov90_10s": 0.8505,
+    "cov50_15s": 0.4711,
+    "cov70_15s": 0.6784,
+    "cov90_15s": 0.8708
+   },
+   "after": {
+    "NLL": 1.3113,
+    "cov50_5s": 0.6386,
+    "cov70_5s": 0.8406,
+    "cov90_5s": 0.9734,
+    "cov50_10s": 0.6257,
+    "cov70_10s": 0.8373,
+    "cov90_10s": 0.972,
+    "cov50_15s": 0.6612,
+    "cov70_15s": 0.8548,
+    "cov90_15s": 0.9766
+   }
+  },
+  "platform": {
+   "run": "D:/PRISM/Logs/Dataset/20260907_194445_ood_platform_rebut",
+   "n_episodes": 300,
+   "seed_min": 600000,
+   "seed_max": 600299,
+   "episode_index_min": 0,
+   "episode_index_max": 299,
+   "seeds_contiguous": true,
+   "n_samples": 56017,
+   "before": {
+    "NLL": 1.6674,
+    "cov50_5s": 0.4042,
+    "cov70_5s": 0.5875,
+    "cov90_5s": 0.7635,
+    "cov50_10s": 0.4218,
+    "cov70_10s": 0.6072,
+    "cov90_10s": 0.7862,
+    "cov50_15s": 0.4571,
+    "cov70_15s": 0.6443,
+    "cov90_15s": 0.823
+   },
+   "after": {
+    "NLL": 1.4125,
+    "cov50_5s": 0.5846,
+    "cov70_5s": 0.7571,
+    "cov90_5s": 0.9013,
+    "cov50_10s": 0.5892,
+    "cov70_10s": 0.7736,
+    "cov90_10s": 0.9238,
+    "cov50_15s": 0.6366,
+    "cov70_15s": 0.8107,
+    "cov90_15s": 0.9475
+   }
+  },
+  "all": {
+   "run": "D:/PRISM/Logs/Dataset/20260907_194445_ood_all_rebut",
+   "n_episodes": 300,
+   "seed_min": 800000,
+   "seed_max": 800299,
+   "episode_index_min": 0,
+   "episode_index_max": 299,
+   "seeds_contiguous": true,
+   "n_samples": 100064,
+   "before": {
+    "NLL": 2.2151,
+    "cov50_5s": 0.3617,
+    "cov70_5s": 0.5384,
+    "cov90_5s": 0.7366,
+    "cov50_10s": 0.36,
+    "cov70_10s": 0.5328,
+    "cov90_10s": 0.7326,
+    "cov50_15s": 0.389,
+    "cov70_15s": 0.5664,
+    "cov90_15s": 0.7601
+   },
+   "after": {
+    "NLL": 1.7501,
+    "cov50_5s": 0.5492,
+    "cov70_5s": 0.7393,
+    "cov90_5s": 0.8951,
+    "cov50_10s": 0.5381,
+    "cov70_10s": 0.731,
+    "cov90_10s": 0.893,
+    "cov50_15s": 0.5747,
+    "cov70_15s": 0.7599,
+    "cov90_15s": 0.9131
+   }
+  }
+ },
+ "sets_sidecar": "D:/PRISM/Paper/rebuttal/r3/recal_r3_k3_s1_sets.json",
+ "timing_s": {
+  "cal_forward_s": 40.7,
+  "eval_s": 130.3,
+  "transfer_control_s": 24.3,
+  "transfer_density_s": 44.3,
+  "transfer_wind_s": 22.9,
+  "transfer_intent_s": 23.6,
+  "transfer_platform_s": 22.9,
+  "transfer_all_s": 43.6,
+  "total": 356.5,
+  "workers": 4
+ },
+ "source": {
+  "script": "D:/PRISM/modelVal/experiments/recalibrate.py",
+  "script_sha256": "489558a422d0cf798087b7266b2b9dea7f133d110e56a648272fd52f51bcd919",
+  "dataset_py_sha256": "590365051fcfaca06770f08604973409741e5c4cbbfb22631e0f2b243f7ee1f3",
+  "torch": "2.5.1+cu121",
+  "device": "cuda"
+ }
+}

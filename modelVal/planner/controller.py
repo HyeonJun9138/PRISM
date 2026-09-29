@@ -28,7 +28,7 @@ from core.kinematics import heading_error, turn_rate_to_heading
 
 from planner.frenet import (Candidate, FrenetState, PlannerConfig,
                             PlanResult, ReferencePath, eval_trajectory_at,
-                            plan_trajectory)
+                            explain_candidate, plan_trajectory)
 from planner.risk import BaseRisk, make_risk
 
 TRACK_LOOKAHEAD_S = 0.6     # pursue the plan this far ahead of "now"
@@ -40,9 +40,28 @@ WIRE_DECIMATE = 4           # plan polyline decimation for the UI
 
 
 class PlannerPilot:
-    """Ownship controller driven by the ported Frenet planner."""
+    """Ownship controller driven by the ported Frenet planner.
 
-    def __init__(self, risk: Optional[BaseRisk] = None) -> None:
+    Keyword knobs (Reviewer 3 majors 4/5 one-factor sensitivity; the
+    defaults reproduce the frozen planner of every pre-review run exactly
+    and apply to EVERY risk arm):
+      plateau_scale  soft_standoff = NMAC radius x plateau_scale
+      w_safety       weight_safety (12.0)
+      safety_norm    "pool" (per-pool max normalization) | "absolute"
+      safety_ref     fixed divisor of raw safety when safety_norm="absolute"
+      hard_geom      "arm" | "shared" (see planner.frenet module doc)
+    """
+
+    def __init__(self, risk: Optional[BaseRisk] = None, *,
+                 plateau_scale: float = 1.0, w_safety: float = 12.0,
+                 safety_norm: str = "pool",
+                 safety_ref: Optional[float] = None,
+                 hard_geom: str = "arm") -> None:
+        self.plateau_scale = float(plateau_scale)
+        self.w_safety = float(w_safety)
+        self.safety_norm = str(safety_norm)
+        self.safety_ref = None if safety_ref is None else float(safety_ref)
+        self.hard_geom = str(hard_geom)
         self.lock = threading.Lock()
         self.risk: BaseRisk = risk or make_risk("none")
         self.path: Optional[ReferencePath] = None
@@ -113,7 +132,9 @@ class PlannerPilot:
             speed_abs_max=v_max,
             # separation standard as soft standoff: full risk cost within
             # NMAC of a predicted position, sigma-decay only beyond it
-            soft_standoff=NMAC_RADIUS_M,
+            # (x plateau_scale, the R3 major 5 plateau-radius knob; 1.0 is
+            # an exact no-op in IEEE arithmetic)
+            soft_standoff=NMAC_RADIUS_M * self.plateau_scale,
             # cost weights FIXED across risk arms. safety is deliberately
             # dominant (12 vs 3.2 combined comfort terms): separation is
             # produced by the soft risk field, so it must outrank comfort
@@ -126,11 +147,14 @@ class PlannerPilot:
             # long-duration return quintic beats parking in clear air,
             # while staying an order of magnitude under safety(12) so
             # escape decisions are untouched. Identical across risk arms.
-            weight_jerk=0.8, weight_safety=12.0,
+            weight_jerk=0.8, weight_safety=self.w_safety,
             weight_offset=1.0, weight_fuel=0.5, weight_center=0.5,
             weight_speed=3.0,   # hold cruise; braking must be bought by risk
             # deep-brake rung: "arrive later" as a plannable escape
             extra_speed_factors=(0.58,),
+            safety_norm=self.safety_norm,
+            safety_ref=self.safety_ref,
+            hard_geom=self.hard_geom,
         )
 
         with self.lock:
@@ -151,6 +175,50 @@ class PlannerPilot:
             self.plan_ms_max = 0.0
             self.replans = 0
 
+    # --------------------------------------------------------- diagnostics
+    def cycle_diagnostics(self, probe_safety: bool = False) -> dict:
+        """Decision-rule diagnostics of the LAST replan (R3 majors 4/5).
+
+        Read-only: re-evaluates at most the selected candidate, never
+        touches the plan, so calling it cannot change the flight. Keys:
+          n_total, n_valid, emergency
+          (emergency only) collision, coll_kind (-1/0/1), coll_static,
+            coll_forecast, pen_depth_m, boundary, boundary_excess_m,
+            dyn_violation      -- planner.frenet.explain_candidate
+          floor             (n_raised, n_total) forecast sigma values raised
+                            by sigma_floor (risk.floor_stats)
+          branch_floor      {5|10|15: [n_below, n_total]} network branch
+                            sigma below the floor (predictor arms) or None
+          safety_pool_max   (probe_safety) max raw safety cost over the
+                            scored pool = the 'pool' normalizer, un-clamped
+          own_intervening   selected plan leaves the nominal: |target_d| >
+                            lateral_step/2 or target_speed < 0.95 x desired
+        """
+        with self.lock:
+            res, cfg, risk, plan = (self._last_result, self.cfg, self.risk,
+                                    self.plan)
+        if res is None or cfg is None:
+            return {}
+        n_total = int(res.metrics["total"])
+        n_valid = int(res.metrics["valid"])
+        d: dict = {"n_total": n_total, "n_valid": n_valid,
+                   "emergency": n_valid == 0, "coll_kind": -1,
+                   "pen_depth_m": 0.0}
+        if n_valid == 0 and res.best is not None:
+            d.update(explain_candidate(res.best, cfg, risk, mode="2d"))
+            d["attrib_consistent"] = bool(d["collision"] == res.best.collision)
+        d["floor"] = risk.floor_stats()
+        d["branch_floor"] = getattr(risk, "branch_floor", None)
+        if probe_safety:
+            pool = [c for c in res.candidates if c.valid] or res.candidates
+            d["safety_pool_max"] = (max(c.raw["safety"] for c in pool)
+                                    if pool else 0.0)
+        if plan is not None:
+            d["own_intervening"] = bool(
+                abs(plan.target_d) > cfg.lateral_step / 2.0
+                or plan.target_speed < 0.95 * cfg.desired_speed)
+        return d
+
     # ------------------------------------------------------------ planning
     def replan(self, sim_t: float, ep_dict: dict, t0: int, preds: dict,
                own_state: Any) -> None:
@@ -162,6 +230,8 @@ class PlannerPilot:
             return
 
         risk.update(ep_dict, t0, preds)
+        if cfg.hard_geom == "shared":
+            risk.update_hard(ep_dict, t0)
 
         proj = path.project(own_state.x, own_state.y)
         # heading_error(a, b) == b - a wrapped; we want dpsi = psi - theta_ref
