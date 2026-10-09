@@ -1,5 +1,11 @@
 # Release identity and provenance
 
+> v3.1: corrected evaluation and updated figure references are documented in
+> [ROUND2_CORRECTIONS.md](ROUND2_CORRECTIONS.md). The v3.0 analysis and plotting
+> commands below are preserved as historical reproduction, not as the corrected
+> second-revision result. Model and dataset assets are unchanged.
+
+
 **PRISM-revision-v3.0** names the frozen release. Its Git commit identifies the
 published tree. Historical source fingerprints identify files available at
 particular research runs; they are not Git commit numbers.

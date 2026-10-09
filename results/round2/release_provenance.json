@@ -1,0 +1,20 @@
+{
+  "version": "PRISM-revision-v3.1",
+  "baseline_tag": "PRISM-revision-v3.0",
+  "analysis_ledger_sha256": "6692b8558afba8b2a0b2b487ae7d19ce4bebc8c7a3973e29a29c5d0a7894fdc3",
+  "code": [
+    {
+      "path": "modelVal/experiments/batch.py",
+      "frozen_analysis_sha256": "12c3af77e012ed8842124f63c0443c815de3d79c54c5c63ef487250d41bfa0a3",
+      "release_adaptation": "PRISM_ROOT environment path portability and Git LF normalization"
+    },
+    {
+      "path": "modelVal/experiments/aggregate_r3.py",
+      "frozen_analysis_sha256": "512d2c194c1c04d8b2823fa93d053219d9e88a6f21873ef1aa234516e73f8bf3",
+      "release_adaptation": "Git LF normalization only"
+    }
+  ],
+  "weights_retrained": false,
+  "historical_inputs_changed": false,
+  "documents_published": false
+}

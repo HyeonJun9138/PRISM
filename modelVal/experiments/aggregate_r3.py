@@ -29,13 +29,16 @@ test_id run against a test_ood run). Rows written before the review round
 lack the 20 Hz / new-screen fields; endpoints that need them are null.
 
 Definitions
-  exposure_hours = sum(sim_s) / 3600 over the condition's episodes.
+  exposure_hours = sum(exposure_s) / 3600 for corrected rows. Legacy rows
+  lacking exposure_s retain sim_s, with explicit fallback provenance.
   Event families (per-episode counts):
     union2    the original 2 Hz union NMAC events (row 'events'), 152.4 m
     union20   20 Hz union events (min over intruders), thresholds 152/76/45
     pairwise  20 Hz per-intruder encounters (runs below 152.4 m) whose
-              min_sep is below the threshold (152/76/45)
-    *_severe  union events whose minimum is below 45 m
+              min_sep_raw_m is below the threshold (152/76/45), falling
+              back to displayed min_sep only in legacy records without raw
+    *_severe  152.4 m union encounters whose minimum is below 45 m;
+              union20_45 counts direct below-45 m runs, NOT this family
   Screens: all = unscreened; old = drop events with lead_phys_s < t_need
   (first-ever detection -> closest approach: the paper's screen); new = drop
   events with lead_track_s < t_need (current-track detection -> threshold
@@ -290,6 +293,30 @@ def _screen_counts(evs: list[dict], pred=None) -> dict[str, int]:
             "new": sum(1 for e in evs if not e["unavoidable_new"])}
 
 
+def _minimum_m(event: dict) -> float:
+    """Raw 20 Hz event minimum; legacy displayed value is an explicit
+    fallback, not evidence that a rounded threshold value is truly equal."""
+    return float(event['min_sep_raw_m'] if event.get('min_sep_raw_m') is not None
+                 else event['min_sep'])
+
+
+def endpoint_minimum_provenance(rows: list[dict]) -> dict:
+    """Keep endpoint precision changes separate from track-screen changes.
+    Counts cover the records filtered by raw minima, not all direct runs."""
+    out = {'policy': 'raw_minimum_preferred_legacy_display_fallback',
+           'pairwise_raw_events': 0, 'pairwise_legacy_rounded_events': 0,
+           'union152_raw_events': 0, 'union152_legacy_rounded_events': 0,
+           'legacy_union2_events': sum(len(r.get('events', [])) for r in rows)}
+    for r in rows:
+        for family, events in (('pairwise', r.get('pairwise') or []),
+                               ('union152', (r.get('union20_event_list') or {}).get('152', []))):
+            for event in events:
+                suffix = ('raw_events' if event.get('min_sep_raw_m') is not None
+                          else 'legacy_rounded_events')
+                out[f'{family}_{suffix}'] += 1
+    return out
+
+
 def episode_endpoints(r: dict) -> dict[str, float | None]:
     """Per-episode event counts / times; None where the row lacks fields."""
     out: dict[str, float | None] = {}
@@ -315,14 +342,14 @@ def episode_endpoints(r: dict) -> dict[str, float | None]:
             for s in SCREENS:
                 out[f"union20_{lbl}_{s}"] = None
         if pw is not None:
-            c = _screen_counts(pw, lambda e, t=thr: e["min_sep"] < t)
+            c = _screen_counts(pw, lambda e, t=thr: _minimum_m(e) < t)
             for s, v in c.items():
                 out[f"pairwise_{lbl}_{s}"] = v
         else:
             for s in SCREENS:
                 out[f"pairwise_{lbl}_{s}"] = None
     if ul is not None:
-        c = _screen_counts(ul.get("152", []), lambda e: e["min_sep"] < 45.0)
+        c = _screen_counts(ul.get("152", []), lambda e: _minimum_m(e) < 45.0)
         for s, v in c.items():
             out[f"union20_severe_{s}"] = v
     else:
@@ -339,6 +366,26 @@ def episode_times(r: dict) -> dict[str, float | None]:
         out[f"pairwise_tb_{lbl}"] = (sum(float(s[f"tb_{lbl}_s"]) for s in pw)
                                      if pw is not None else None)
     return out
+
+
+def episode_exposure_s(r: dict) -> float:
+    """Prefer measured scoring exposure; never silently infer 90 s for
+    a legacy row. The original last-replan sim_s is retained in the input."""
+    value = float(r['exposure_s'] if r.get('exposure_s') is not None
+                  else r.get('sim_s', 0.0))
+    if not math.isfinite(value) or value < 0:
+        raise ValueError('episode exposure must be finite and nonnegative')
+    return value
+
+
+def exposure_provenance(rows: list[dict]) -> dict:
+    corrected = sum(r.get('exposure_s') is not None for r in rows)
+    legacy = sum(r.get('exposure_s') is None and 'sim_s' in r for r in rows)
+    return {'scoring_exposure_rows': corrected,
+            'legacy_sim_s_fallback_rows': legacy,
+            'missing_exposure_rows': len(rows) - corrected - legacy,
+            'legacy_last_replan_hours': sum(float(r.get('sim_s', 0.0))
+                                           for r in rows) / 3600.0}
 
 
 def _stratum_keys(seg: dict) -> dict[str, str]:
@@ -360,7 +407,7 @@ def episode_strata(r: dict) -> dict | None:
         return None
     fam: dict[str, list[tuple[dict, dict]]] = {
         "pairwise_152": [(s, s) for s in pw],
-        "pairwise_45": [(s, s) for s in pw if s["min_sep"] < 45.0],
+        "pairwise_45": [(s, s) for s in pw if _minimum_m(s) < 45.0],
         "union20_152": []}
     for e in ul.get("152", []):
         seg = next((s for s in pw if s["slot"] == e["slot"]
@@ -398,8 +445,10 @@ def summarize(label: str, rows: dict[int, dict]) -> dict:
     n = len(v)
     if n == 0:
         return {"episodes": 0}
-    hours = float(sum(float(r.get("sim_s", 0.0)) for r in v)) / 3600.0
-    out: dict = {"episodes": n, "exposure_hours": round(hours, 4)}
+    hours = sum(episode_exposure_s(r) for r in v) / 3600.0
+    out: dict = {"episodes": n, "exposure_hours": round(hours, 4),
+                 "exposure_provenance": exposure_provenance(v),
+                 "endpoint_minimum_provenance": endpoint_minimum_provenance(v)}
 
     eps = [episode_endpoints(r) for r in v]
     ev: dict = {}
@@ -539,10 +588,14 @@ def compare(ra: dict[int, dict], rb: dict[int, dict], B: int,
     A = [ra[i] for i in idx_ep]
     Bv = [rb[i] for i in idx_ep]
     bidx = boot_indices(n, B, seed)
-    ha = np.asarray([float(r.get("sim_s", 0.0)) / 3600.0 for r in A])
-    hb = np.asarray([float(r.get("sim_s", 0.0)) / 3600.0 for r in Bv])
+    ha = np.asarray([episode_exposure_s(r) / 3600.0 for r in A])
+    hb = np.asarray([episode_exposure_s(r) / 3600.0 for r in Bv])
     out: dict = {"n": n, "indices": [idx_ep[0], idx_ep[-1]],
-                 "unpaired_traffic_mismatch": len(common) - n}
+             "unpaired_traffic_mismatch": len(common) - n,
+             "exposure_provenance_a": exposure_provenance(A),
+             "exposure_provenance_b": exposure_provenance(Bv),
+             "endpoint_minimum_provenance_a": endpoint_minimum_provenance(A),
+             "endpoint_minimum_provenance_b": endpoint_minimum_provenance(Bv)}
 
     for key, name in (("min_sep_20hz", "min_sep_20hz"), ("min_sep", "min_sep_2hz")):
         a = _col(A, lambda r, key=key: r.get(key))

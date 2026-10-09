@@ -1,0 +1,794 @@
+{
+  "id40/cv": {
+    "counts": {
+      "dir": "D:/PRISM/Logs/Planner/r3_id40/predlog_cv",
+      "arm": "cv",
+      "files": 300,
+      "forecasts": 115513,
+      "kind": [
+        "gaussian"
+      ],
+      "strata_source": "raw",
+      "strata_params": {
+        "own_ref": "at_t",
+        "own_dev_m": 30.0,
+        "own_vfrac": 0.9,
+        "horizon_s": 15.0,
+        "intervening_in_horizon": "max|own_d(tau) - own_d(t)| over tau in [t, t+15 s] > own_dev_m OR max|own_v(tau) - own_v(t)| > (1 - own_vfrac) * v_desired (manoeuvre DURING the horizon, relative to the ownship state at the forecast time)",
+        "intruder_reacting": "reaction_latched OR intent_reactive"
+      },
+      "conditions": [
+        {
+          "allow_rule_mismatch": false,
+          "hard_geom": "arm",
+          "model_path": null,
+          "model_track_rule": null,
+          "overrides": {
+            "density_per_km2": 40.0
+          },
+          "plateau_scale": 1.0,
+          "preset": "test_id",
+          "safety_norm": "pool",
+          "safety_ref": null,
+          "safety_ref_probe": false,
+          "sigma_floor": 10.0,
+          "track_rule": "current",
+          "w_safety": 12.0
+        }
+      ],
+      "code_fp": [
+        "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702"
+      ],
+      "strata_counts": {
+        "forecasts": {
+          "all": 115513,
+          "interv0_react0": 47103,
+          "interv0_react1": 32024,
+          "interv1_react0": 20578,
+          "interv1_react1": 15808
+        },
+        "marginals": {
+          "intervening_in_horizon": {
+            "yes": 36386,
+            "no": 79127
+          },
+          "intruder_reacting": {
+            "yes": 47832,
+            "no": 67681
+          }
+        },
+        "components": {
+          "dev_crit": 36065,
+          "speed_crit": 982,
+          "reaction_latched": 47832,
+          "intent_reactive": 0,
+          "own_intervening_at_t": 25272
+        },
+        "valid_points": {
+          "all": {
+            "5s": 112543,
+            "10s": 107522,
+            "15s": 103766
+          },
+          "interv0_react0": {
+            "5s": 44623,
+            "10s": 41346,
+            "15s": 39442
+          },
+          "interv0_react1": {
+            "5s": 31625,
+            "10s": 30652,
+            "15s": 29900
+          },
+          "interv1_react0": {
+            "5s": 20500,
+            "10s": 19929,
+            "15s": 19172
+          },
+          "interv1_react1": {
+            "5s": 15795,
+            "10s": 15595,
+            "15s": 15252
+          }
+        }
+      }
+    },
+    "hpd_recomputed": true,
+    "cells": {
+      "all": {
+        "5s": {
+          "n": 112543,
+          "cov50": 0.237,
+          "cov70": 0.3528,
+          "cov90": 0.5173
+        },
+        "10s": {
+          "n": 107522,
+          "cov50": 0.2033,
+          "cov70": 0.302,
+          "cov90": 0.4522
+        },
+        "15s": {
+          "n": 103766,
+          "cov50": 0.1867,
+          "cov70": 0.2778,
+          "cov90": 0.4166
+        }
+      },
+      "interv0_react0": {
+        "5s": {
+          "n": 44623,
+          "cov50": 0.2494,
+          "cov70": 0.3682,
+          "cov90": 0.5325
+        },
+        "10s": {
+          "n": 41346,
+          "cov50": 0.2232,
+          "cov70": 0.328,
+          "cov90": 0.4828
+        },
+        "15s": {
+          "n": 39442,
+          "cov50": 0.2088,
+          "cov70": 0.3091,
+          "cov90": 0.4549
+        }
+      },
+      "interv0_react1": {
+        "5s": {
+          "n": 31625,
+          "cov50": 0.2142,
+          "cov70": 0.3251,
+          "cov90": 0.4907
+        },
+        "10s": {
+          "n": 30652,
+          "cov50": 0.1745,
+          "cov70": 0.263,
+          "cov90": 0.4068
+        },
+        "15s": {
+          "n": 29900,
+          "cov50": 0.157,
+          "cov70": 0.2346,
+          "cov90": 0.3632
+        }
+      },
+      "interv1_react0": {
+        "5s": {
+          "n": 20500,
+          "cov50": 0.2527,
+          "cov70": 0.3718,
+          "cov90": 0.5389
+        },
+        "10s": {
+          "n": 19929,
+          "cov50": 0.2244,
+          "cov70": 0.3321,
+          "cov90": 0.4903
+        },
+        "15s": {
+          "n": 19172,
+          "cov50": 0.2105,
+          "cov70": 0.3091,
+          "cov90": 0.4613
+        }
+      },
+      "interv1_react1": {
+        "5s": {
+          "n": 15795,
+          "cov50": 0.2277,
+          "cov70": 0.3399,
+          "cov90": 0.5
+        },
+        "10s": {
+          "n": 15595,
+          "cov50": 0.18,
+          "cov70": 0.2712,
+          "cov90": 0.4115
+        },
+        "15s": {
+          "n": 15252,
+          "cov50": 0.1581,
+          "cov70": 0.2424,
+          "cov90": 0.3664
+        }
+      }
+    }
+  },
+  "id40/model": {
+    "counts": {
+      "dir": "D:/PRISM/Logs/Planner/r3_id40/predlog_model",
+      "arm": "model",
+      "files": 300,
+      "forecasts": 106158,
+      "kind": [
+        "mixture"
+      ],
+      "strata_source": "raw",
+      "strata_params": {
+        "own_ref": "at_t",
+        "own_dev_m": 30.0,
+        "own_vfrac": 0.9,
+        "horizon_s": 15.0,
+        "intervening_in_horizon": "max|own_d(tau) - own_d(t)| over tau in [t, t+15 s] > own_dev_m OR max|own_v(tau) - own_v(t)| > (1 - own_vfrac) * v_desired (manoeuvre DURING the horizon, relative to the ownship state at the forecast time)",
+        "intruder_reacting": "reaction_latched OR intent_reactive"
+      },
+      "conditions": [
+        {
+          "allow_rule_mismatch": false,
+          "hard_geom": "arm",
+          "model_path": "C:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+          "model_track_rule": "current",
+          "overrides": {
+            "density_per_km2": 40.0
+          },
+          "plateau_scale": 1.0,
+          "preset": "test_id",
+          "safety_norm": "pool",
+          "safety_ref": null,
+          "safety_ref_probe": false,
+          "sigma_floor": 10.0,
+          "track_rule": "current",
+          "w_safety": 12.0
+        }
+      ],
+      "code_fp": [
+        "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702"
+      ],
+      "strata_counts": {
+        "forecasts": {
+          "all": 106158,
+          "interv0_react0": 47137,
+          "interv0_react1": 29138,
+          "interv1_react0": 16815,
+          "interv1_react1": 13068
+        },
+        "marginals": {
+          "intervening_in_horizon": {
+            "yes": 29883,
+            "no": 76275
+          },
+          "intruder_reacting": {
+            "yes": 42206,
+            "no": 63952
+          }
+        },
+        "components": {
+          "dev_crit": 29618,
+          "speed_crit": 1223,
+          "reaction_latched": 42206,
+          "intent_reactive": 0,
+          "own_intervening_at_t": 28036
+        },
+        "valid_points": {
+          "all": {
+            "5s": 103096,
+            "10s": 97968,
+            "15s": 94161
+          },
+          "interv0_react0": {
+            "5s": 44490,
+            "10s": 40987,
+            "15s": 38897
+          },
+          "interv0_react1": {
+            "5s": 28791,
+            "10s": 27877,
+            "15s": 27142
+          },
+          "interv1_react0": {
+            "5s": 16763,
+            "10s": 16242,
+            "15s": 15563
+          },
+          "interv1_react1": {
+            "5s": 13052,
+            "10s": 12862,
+            "15s": 12559
+          }
+        }
+      }
+    },
+    "hpd_recomputed": true,
+    "cells": {
+      "all": {
+        "5s": {
+          "n": 103096,
+          "cov50": 0.4978,
+          "cov70": 0.711,
+          "cov90": 0.8875
+        },
+        "10s": {
+          "n": 97968,
+          "cov50": 0.5034,
+          "cov70": 0.7149,
+          "cov90": 0.8877
+        },
+        "15s": {
+          "n": 94161,
+          "cov50": 0.5349,
+          "cov70": 0.7344,
+          "cov90": 0.9005
+        }
+      },
+      "interv0_react0": {
+        "5s": {
+          "n": 44490,
+          "cov50": 0.5099,
+          "cov70": 0.7232,
+          "cov90": 0.8918
+        },
+        "10s": {
+          "n": 40987,
+          "cov50": 0.5104,
+          "cov70": 0.7239,
+          "cov90": 0.892
+        },
+        "15s": {
+          "n": 38897,
+          "cov50": 0.5416,
+          "cov70": 0.7414,
+          "cov90": 0.9035
+        }
+      },
+      "interv0_react1": {
+        "5s": {
+          "n": 28791,
+          "cov50": 0.4776,
+          "cov70": 0.6912,
+          "cov90": 0.8826
+        },
+        "10s": {
+          "n": 27877,
+          "cov50": 0.4895,
+          "cov70": 0.702,
+          "cov90": 0.8838
+        },
+        "15s": {
+          "n": 27142,
+          "cov50": 0.52,
+          "cov70": 0.7235,
+          "cov90": 0.8967
+        }
+      },
+      "interv1_react0": {
+        "5s": {
+          "n": 16763,
+          "cov50": 0.5106,
+          "cov70": 0.7235,
+          "cov90": 0.8893
+        },
+        "10s": {
+          "n": 16242,
+          "cov50": 0.5156,
+          "cov70": 0.7237,
+          "cov90": 0.8849
+        },
+        "15s": {
+          "n": 15563,
+          "cov50": 0.5431,
+          "cov70": 0.7353,
+          "cov90": 0.8994
+        }
+      },
+      "interv1_react1": {
+        "5s": {
+          "n": 13052,
+          "cov50": 0.4846,
+          "cov70": 0.6972,
+          "cov90": 0.8814
+        },
+        "10s": {
+          "n": 12862,
+          "cov50": 0.4961,
+          "cov70": 0.7029,
+          "cov90": 0.8858
+        },
+        "15s": {
+          "n": 12559,
+          "cov50": 0.5362,
+          "cov70": 0.7354,
+          "cov90": 0.9011
+        }
+      }
+    }
+  },
+  "ood40/cv": {
+    "counts": {
+      "dir": "D:/PRISM/Logs/Planner/r3_ood40/predlog_cv",
+      "arm": "cv",
+      "files": 300,
+      "forecasts": 131809,
+      "kind": [
+        "gaussian"
+      ],
+      "strata_source": "raw",
+      "strata_params": {
+        "own_ref": "at_t",
+        "own_dev_m": 30.0,
+        "own_vfrac": 0.9,
+        "horizon_s": 15.0,
+        "intervening_in_horizon": "max|own_d(tau) - own_d(t)| over tau in [t, t+15 s] > own_dev_m OR max|own_v(tau) - own_v(t)| > (1 - own_vfrac) * v_desired (manoeuvre DURING the horizon, relative to the ownship state at the forecast time)",
+        "intruder_reacting": "reaction_latched OR intent_reactive"
+      },
+      "conditions": [
+        {
+          "allow_rule_mismatch": false,
+          "hard_geom": "arm",
+          "model_path": null,
+          "model_track_rule": null,
+          "overrides": {
+            "density_per_km2": 40.0
+          },
+          "plateau_scale": 1.0,
+          "preset": "test_ood",
+          "safety_norm": "pool",
+          "safety_ref": null,
+          "safety_ref_probe": false,
+          "sigma_floor": 10.0,
+          "track_rule": "current",
+          "w_safety": 12.0
+        }
+      ],
+      "code_fp": [
+        "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702"
+      ],
+      "strata_counts": {
+        "forecasts": {
+          "all": 131809,
+          "interv0_react0": 37811,
+          "interv0_react1": 41623,
+          "interv1_react0": 23993,
+          "interv1_react1": 28382
+        },
+        "marginals": {
+          "intervening_in_horizon": {
+            "yes": 52375,
+            "no": 79434
+          },
+          "intruder_reacting": {
+            "yes": 70005,
+            "no": 61804
+          }
+        },
+        "components": {
+          "dev_crit": 51439,
+          "speed_crit": 2418,
+          "reaction_latched": 45801,
+          "intent_reactive": 38102,
+          "own_intervening_at_t": 51153
+        },
+        "valid_points": {
+          "all": {
+            "5s": 128380,
+            "10s": 122621,
+            "15s": 118394
+          },
+          "interv0_react0": {
+            "5s": 35548,
+            "10s": 32626,
+            "15s": 30971
+          },
+          "interv0_react1": {
+            "5s": 40494,
+            "10s": 38561,
+            "15s": 37232
+          },
+          "interv1_react0": {
+            "5s": 23965,
+            "10s": 23412,
+            "15s": 22690
+          },
+          "interv1_react1": {
+            "5s": 28373,
+            "10s": 28022,
+            "15s": 27501
+          }
+        }
+      }
+    },
+    "hpd_recomputed": true,
+    "cells": {
+      "all": {
+        "5s": {
+          "n": 128380,
+          "cov50": 0.1976,
+          "cov70": 0.2979,
+          "cov90": 0.449
+        },
+        "10s": {
+          "n": 122621,
+          "cov50": 0.1676,
+          "cov70": 0.2536,
+          "cov90": 0.3885
+        },
+        "15s": {
+          "n": 118394,
+          "cov50": 0.1542,
+          "cov70": 0.2319,
+          "cov90": 0.3576
+        }
+      },
+      "interv0_react0": {
+        "5s": {
+          "n": 35548,
+          "cov50": 0.2165,
+          "cov70": 0.3177,
+          "cov90": 0.4642
+        },
+        "10s": {
+          "n": 32626,
+          "cov50": 0.1938,
+          "cov70": 0.2842,
+          "cov90": 0.4197
+        },
+        "15s": {
+          "n": 30971,
+          "cov50": 0.1824,
+          "cov70": 0.267,
+          "cov90": 0.3964
+        }
+      },
+      "interv0_react1": {
+        "5s": {
+          "n": 40494,
+          "cov50": 0.1798,
+          "cov70": 0.2783,
+          "cov90": 0.4297
+        },
+        "10s": {
+          "n": 38561,
+          "cov50": 0.1414,
+          "cov70": 0.2236,
+          "cov90": 0.3548
+        },
+        "15s": {
+          "n": 37232,
+          "cov50": 0.1269,
+          "cov70": 0.1972,
+          "cov90": 0.318
+        }
+      },
+      "interv1_react0": {
+        "5s": {
+          "n": 23965,
+          "cov50": 0.2194,
+          "cov70": 0.3178,
+          "cov90": 0.4683
+        },
+        "10s": {
+          "n": 23412,
+          "cov50": 0.1962,
+          "cov70": 0.2852,
+          "cov90": 0.4232
+        },
+        "15s": {
+          "n": 22690,
+          "cov50": 0.1871,
+          "cov70": 0.2722,
+          "cov90": 0.4012
+        }
+      },
+      "interv1_react1": {
+        "5s": {
+          "n": 28373,
+          "cov50": 0.1807,
+          "cov70": 0.2842,
+          "cov90": 0.441
+        },
+        "10s": {
+          "n": 28022,
+          "cov50": 0.1493,
+          "cov70": 0.2327,
+          "cov90": 0.3694
+        },
+        "15s": {
+          "n": 27501,
+          "cov50": 0.1322,
+          "cov70": 0.2059,
+          "cov90": 0.3313
+        }
+      }
+    }
+  },
+  "ood40/model": {
+    "counts": {
+      "dir": "D:/PRISM/Logs/Planner/r3_ood40/predlog_model",
+      "arm": "model",
+      "files": 300,
+      "forecasts": 120203,
+      "kind": [
+        "mixture"
+      ],
+      "strata_source": "raw",
+      "strata_params": {
+        "own_ref": "at_t",
+        "own_dev_m": 30.0,
+        "own_vfrac": 0.9,
+        "horizon_s": 15.0,
+        "intervening_in_horizon": "max|own_d(tau) - own_d(t)| over tau in [t, t+15 s] > own_dev_m OR max|own_v(tau) - own_v(t)| > (1 - own_vfrac) * v_desired (manoeuvre DURING the horizon, relative to the ownship state at the forecast time)",
+        "intruder_reacting": "reaction_latched OR intent_reactive"
+      },
+      "conditions": [
+        {
+          "allow_rule_mismatch": false,
+          "hard_geom": "arm",
+          "model_path": "C:/PRISM/Logs/Models/20260926_141629_r3_k3_s1/final/model_final.pt",
+          "model_track_rule": "current",
+          "overrides": {
+            "density_per_km2": 40.0
+          },
+          "plateau_scale": 1.0,
+          "preset": "test_ood",
+          "safety_norm": "pool",
+          "safety_ref": null,
+          "safety_ref_probe": false,
+          "sigma_floor": 10.0,
+          "track_rule": "current",
+          "w_safety": 12.0
+        }
+      ],
+      "code_fp": [
+        "b254585bc9054075f9dd3d6ee4b910fb4431d5bc41e1337bb021d673dfd5d702"
+      ],
+      "strata_counts": {
+        "forecasts": {
+          "all": 120203,
+          "interv0_react0": 35970,
+          "interv0_react1": 37168,
+          "interv1_react0": 21850,
+          "interv1_react1": 25215
+        },
+        "marginals": {
+          "intervening_in_horizon": {
+            "yes": 47065,
+            "no": 73138
+          },
+          "intruder_reacting": {
+            "yes": 62383,
+            "no": 57820
+          }
+        },
+        "components": {
+          "dev_crit": 46309,
+          "speed_crit": 2503,
+          "reaction_latched": 39522,
+          "intent_reactive": 34753,
+          "own_intervening_at_t": 58447
+        },
+        "valid_points": {
+          "all": {
+            "5s": 116725,
+            "10s": 110915,
+            "15s": 106624
+          },
+          "interv0_react0": {
+            "5s": 33728,
+            "10s": 30866,
+            "15s": 29219
+          },
+          "interv0_react1": {
+            "5s": 36041,
+            "10s": 34260,
+            "15s": 33052
+          },
+          "interv1_react0": {
+            "5s": 21790,
+            "10s": 21117,
+            "15s": 20329
+          },
+          "interv1_react1": {
+            "5s": 25166,
+            "10s": 24672,
+            "15s": 24024
+          }
+        }
+      }
+    },
+    "hpd_recomputed": true,
+    "cells": {
+      "all": {
+        "5s": {
+          "n": 116725,
+          "cov50": 0.3707,
+          "cov70": 0.5488,
+          "cov90": 0.7414
+        },
+        "10s": {
+          "n": 110915,
+          "cov50": 0.3714,
+          "cov70": 0.5451,
+          "cov90": 0.7391
+        },
+        "15s": {
+          "n": 106624,
+          "cov50": 0.3985,
+          "cov70": 0.576,
+          "cov90": 0.7632
+        }
+      },
+      "interv0_react0": {
+        "5s": {
+          "n": 33728,
+          "cov50": 0.4099,
+          "cov70": 0.5817,
+          "cov90": 0.7574
+        },
+        "10s": {
+          "n": 30866,
+          "cov50": 0.4172,
+          "cov70": 0.581,
+          "cov90": 0.756
+        },
+        "15s": {
+          "n": 29219,
+          "cov50": 0.4408,
+          "cov70": 0.6071,
+          "cov90": 0.7785
+        }
+      },
+      "interv0_react1": {
+        "5s": {
+          "n": 36041,
+          "cov50": 0.3308,
+          "cov70": 0.5189,
+          "cov90": 0.7317
+        },
+        "10s": {
+          "n": 34260,
+          "cov50": 0.3278,
+          "cov70": 0.5139,
+          "cov90": 0.7304
+        },
+        "15s": {
+          "n": 33052,
+          "cov50": 0.3626,
+          "cov70": 0.5518,
+          "cov90": 0.7541
+        }
+      },
+      "interv1_react0": {
+        "5s": {
+          "n": 21790,
+          "cov50": 0.4222,
+          "cov70": 0.5865,
+          "cov90": 0.7532
+        },
+        "10s": {
+          "n": 21117,
+          "cov50": 0.4274,
+          "cov70": 0.5837,
+          "cov90": 0.7501
+        },
+        "15s": {
+          "n": 20329,
+          "cov50": 0.4453,
+          "cov70": 0.6044,
+          "cov90": 0.7711
+        }
+      },
+      "interv1_react1": {
+        "5s": {
+          "n": 25166,
+          "cov50": 0.3307,
+          "cov70": 0.5149,
+          "cov90": 0.7237
+        },
+        "10s": {
+          "n": 24672,
+          "cov50": 0.3266,
+          "cov70": 0.5105,
+          "cov90": 0.7207
+        },
+        "15s": {
+          "n": 24024,
+          "cov50": 0.3568,
+          "cov70": 0.5475,
+          "cov90": 0.7505
+        }
+      }
+    }
+  }
+}

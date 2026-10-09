@@ -5,3 +5,6 @@
 *.pt binary
 paper/figure_data/** -text
 metadata/Logs/Models/*/metrics.jsonl -text
+
+# Frozen corrected evidence carries byte-level SHA-256 references.
+results/round2/** -text

@@ -132,25 +132,25 @@
     ]
   },
   {
-    "caption": "Figure 13. Closed-loop rate ratios across five settings. Squares show CV/PRISM and circles static/PRISM; above one favors PRISM. Panels (a–c) classify current-track-screened union encounters at 152.4, 76.2, and 45 m. Bars are paired-episode 95% intervals. Panel (d) shows unscreened time below 45 m per hour. All 152.4 m CV/PRISM intervals include one.",
+    "caption": "Figure 13. Closed-loop rate ratios across five settings. Squares show CV/PRISM and circles static/PRISM; above one favors PRISM. Panel (a) counts union encounters below 152.4 m; (b) counts contiguous union runs directly below 76.2 m; (c) counts 152.4 m union encounters whose unrounded minimum separation is below 45 m. Panels (a–c) use the corrected current-track screen. In these panels, bars are exploratory paired-episode 95% bootstrap intervals, unadjusted for multiplicity. Panel (d) shows unscreened time below 45 m per exposure hour. All 152.4 m CV/PRISM intervals include one.",
     "images": [
       {
         "file": "paper/figures/figure_13.png",
-        "sha256": "5b57b39f63200cf39fa69c3ebdc4288a08eb8dce496ae9979feebb51aee56b49"
+        "sha256": "a7256215d4e6401c7d7183c8394b4b436cd394b15cba2583a3f5fb5d4e317e61"
       }
     ]
   },
   {
-    "caption": "Figure 14. Common-hard-geometry control on 300 nominal OOD pairs. Filled markers use arm-specific forecast disks; open markers use shared observed-position disks with arm-specific soft risk. Panels show event rates and paired ratios, where above one favors the denominator. The control probes feasibility effects but does not decompose the 600-pair result.",
+    "caption": "Figure 14. Common-hard-geometry control on the first 300 nominal OOD pairs. Filled markers use arm-specific forecast disks; open markers use shared observed-position disks with arm-specific soft risk. Panels (a, b) show event rates and (c, d) paired ratios, where above one favors the denominator. Severe events are 152.4 m union encounters whose unrounded minimum separation is below 45 m; event counts use the corrected current-track screen. Bars are exploratory paired-episode 95% bootstrap intervals, unadjusted for multiplicity. The control probes feasibility effects but does not decompose the 600-pair result (Table S6).",
     "images": [
       {
         "file": "paper/figures/figure_14.png",
-        "sha256": "6fadba4a07276ec8a67e26810403e34e33caf81878506812c898b5a6cef307f0"
+        "sha256": "ea9aa7a11df338e98cfcad34678df28ea54c36dad1c7ac4f4b8fd3f7463e7561"
       }
     ]
   },
   {
-    "caption": "Figure 15. Nominal 90% coverage offline and during closed-loop planning, pooled and stratified by ownship maneuver or intruder reaction. Panels compare ID and nominal-load OOD at 5, 10, and 15 s. CV under-covers substantially. Figure 17 adds the 50% and 70% levels and no-maneuver stratum.",
+    "caption": "Figure 15. Nominal 90% coverage offline and for forecasts generated and logged during closed-loop operation in the first 300 episodes per nominal-ID and nominal-OOD arm. Panels show pooled estimates and strata defined by ownship maneuver or intruder reaction within the subsequent 15 s window, evaluated at 5, 10, and 15 s. These future-derived strata are descriptive. CV under-covers substantially. Figure 17 adds the 50% and 70% levels and the stratum with neither ownship maneuver nor intruder reaction.",
     "images": [
       {
         "file": "paper/figures/figure_15.png",
@@ -159,7 +159,7 @@
     ]
   },
   {
-    "caption": "Figure 16. Subsequent flight in the encounter introduced in Figure 12, under static (A), CV (B), and PRISM (C). The selected bird's path differs by less than 30 m across arms; closest bird separation is 11.2, 27.2, and 221.8 m. A separate GA aircraft reaches 20.4, 3.1, and 37.7 m, so PRISM does not avoid all hazards. Later traffic may diverge; the example explains the route change, while Tables 11 and 11b assess its benefit across episodes.",
+    "caption": "Figure 16. Subsequent flight in the encounter introduced in Figure 12, under static (A), CV (B), and PRISM (C). The selected bird's path differs by less than 30 m across arms; closest bird separation is 11.2, 27.2, and 221.8 m. A separate GA aircraft reaches 20.4, 3.1, and 37.7 m, so PRISM does not avoid all hazards. Later traffic may diverge; the example explains the route change, while Tables 11 and 11b compare planning outcomes across episodes.",
     "images": [
       {
         "file": "paper/figures/figure_16.png",
@@ -168,7 +168,7 @@
     ]
   },
   {
-    "caption": "Figure 17. Closed-loop HPD coverage at nominal 50%, 70%, and 90% levels and 5, 10, and 15 s. ID and OOD panels separate ownship-maneuver and intruder-reaction strata. PRISM uses 256 Monte Carlo draws per point; CV is analytic. Points are descriptive estimates without episode-bootstrap intervals.",
+    "caption": "Figure 17. HPD coverage for forecasts generated and logged during the first 300 episodes per nominal-ID and nominal-OOD arm, at nominal 50%, 70%, and 90% levels and 5, 10, and 15 s, with offline test-set coverage shown for reference. Ownship-maneuver and intruder-reaction strata use the subsequent 15 s window and are not available at forecast time. PRISM uses 256 Monte Carlo draws per point; CV is analytic. Points are descriptive estimates without episode-bootstrap intervals. Table S9 reports sample counts and inclusion rules.",
     "images": [
       {
         "file": "paper/figures/figure_17.png",
@@ -195,16 +195,16 @@
     ]
   },
   {
-    "caption": "Figure 20. One-factor planning sensitivity on 300 nominal OOD pairs. CV/PRISM ratios above one favor PRISM. Rows vary the scale floor, plateau, safety weight, normalization, pruning, or isotropic reduction, while encounter thresholds and screening remain fixed. Bars are 95% paired-episode intervals; PRISM-only rows reuse baseline CV episodes.",
+    "caption": "Figure 20. One-factor planning sensitivity on the first 300 nominal OOD pairs. CV/PRISM ratios above one favor PRISM. Rows vary the scale floor, plateau, safety weight, normalization, pruning, or isotropic reduction, while encounter thresholds and the corrected current-track screen remain fixed. Panel (a) counts 152.4 m union encounters; panel (b) counts those whose unrounded minimum separation is below 45 m. Bars are exploratory 95% paired-episode bootstrap intervals, unadjusted for multiplicity; PRISM-only rows reuse baseline CV episodes.",
     "images": [
       {
         "file": "paper/figures/figure_20.png",
-        "sha256": "e5d821434d13b5087a823c3a07624bb2df83caa301d0ff2d5088e7658643da33"
+        "sha256": "b33cced497629d889a42426df7abaa136fe422105b22426a0d8b114677633ac8"
       }
     ]
   },
   {
-    "caption": "Figure 21. Fixed-checkpoint sensitivity to maneuver dwell, notice probability, and sensor noise. Panels show minADE, marginal NLL, and 15 s nominal 90% coverage without confidence intervals.",
+    "caption": "Figure 21. Fixed-checkpoint sensitivity to maneuver dwell, perception probability, and sensor noise. Panels show minADE, marginal NLL, and 15 s nominal 90% coverage without confidence intervals.",
     "images": [
       {
         "file": "paper/figures/figure_21.png",

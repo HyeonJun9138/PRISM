@@ -1,5 +1,6 @@
 # Versioned downloads
 
+The v3.1 correction is a new asset; unchanged large inputs remain at v3.0.
 Download only the bundles needed for the analysis. Sizes below are compressed decimal MB.
 
 | Bundle | Files | MB | Download |
@@ -13,3 +14,15 @@ Download only the bundles needed for the analysis. Sizes below are compressed de
 | `rollout-diagnostics` | 9 | 1.1 | [PRISM-revision-v3.0-rollout-diagnostics.zip](https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-rollout-diagnostics.zip) |
 
 The models and records are synthetic research artifacts. GUI dataset previews, interim checkpoints and debug runs are omitted. Full file hashes are in `MANIFEST.json`. Install using `python tools/reproduce.py install`; do not extract over the source tree.
+
+## v3.1 corrected rows
+
+Download [PRISM-revision-v3.1-corrected-endpoints.zip](https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.1/PRISM-revision-v3.1-corrected-endpoints.zip).
+This contains 12,300 corrected episode rows, the event audit and frozen status
+under `round2/rescored/`. It does not overwrite the historical closed-loop
+bundle. File and archive hashes are in `MANIFEST.json`.
+
+```sh
+python tools/reproduce.py install --bundle corrected-endpoints
+python tools/verify_round2.py
+```

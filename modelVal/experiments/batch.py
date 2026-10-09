@@ -104,9 +104,9 @@ New row fields (JSONL, one row per episode)
              old 2 Hz 'events' list: {lead_track_s, unavoidable_new}).
            Definitions: lead_phys_s = closest approach - first-ever
            detection of the slot (the old screen); lead_track_s = threshold
-           entry - first detection of the track open at entry (if none is
-           open, the most recent track before entry; null if the slot was
-           never tracked before entry). unavoidable_old/new = lead < t_need
+           entry - first valid detection available by the as-of frame of
+           the track open at entry; null for closed/missing/invalid tracks.
+           unavoidable_old/new = unrounded lead < t_need
            (a null lead counts as unavoidable). turning_* = gt mode CT_LEFT
            or CT_RIGHT at the track's first detection / at the entry tick.
            reaction_active = the intruder's reaction layer LATCHED (the
@@ -268,29 +268,43 @@ class TrackBook:
 
     def frame_at(self, t: float) -> int:
         """Latest logged frame with time <= t (-1 before the first frame)."""
-        return int(np.searchsorted(self.t, t + 1e-6, side="right")) - 1
+        return int(np.searchsorted(self.t, t, side="right")) - 1
 
     def track_at_entry(self, slot: int, t_entry: float):
-        """(track_id, first_frame, t_first_detection) of the track open at
-        t_entry, else of the most recent track before it; None if the slot
-        had no track by then."""
+        """(track_id, first_frame, first_detection_s) of the open as-of
+        track with a past valid detection; otherwise None. A current miss
+        does not close an ID; closed IDs and future hits are never used."""
         i = self.frame_at(t_entry)
         if i < 0:
             return None
         col = self.tid[:i + 1, slot]
-        if col[i] >= 0:
-            tid = int(col[i])
-        else:
-            prev = np.nonzero(col >= 0)[0]
-            if prev.size == 0:
-                return None
-            tid = int(col[prev[-1]])
-        mine = self.tid[:, slot] == tid
-        rows = np.nonzero(mine & self.det[:, slot])[0]
-        if rows.size == 0:                 # defensive: track without a hit
-            rows = np.nonzero(mine)[0]
+        if col[i] < 0:
+            return None
+        tid = int(col[i])
+        rows = np.nonzero((col == tid) & self.det[:i + 1, slot])[0]
+        if rows.size == 0:
+            return None
         j = int(rows[0])
         return tid, j, float(self.t[j])
+
+    def screen_at_entry(self, slot: int, t_entry: float) -> dict:
+        """Read-only event provenance; timestamps below are not rounded."""
+        i = self.frame_at(t_entry)
+        trk = self.track_at_entry(slot, t_entry)
+        lead = None if trk is None else float(t_entry) - trk[2]
+        reason = ('before_first_observation' if i < 0 else
+                  'closed_asof_track' if self.tid[i, slot] < 0 else
+                  'open_track_without_past_detection' if trk is None else
+                  'insufficient_lead' if lead < T_NEED_S else None)
+        return {'screen_entry_s': float(t_entry), 'screen_threshold_m': NMAC_RADIUS_M,
+                'asof_frame': None if i < 0 else i,
+                'asof_time_s': None if i < 0 else float(self.t[i]),
+                'asof_track_id': None if i < 0 else int(self.tid[i, slot]),
+                'asof_detected': None if i < 0 else bool(self.det[i, slot]),
+                'track_open_asof': bool(i >= 0 and self.tid[i, slot] >= 0),
+                'first_detection_frame': None if trk is None else trk[1],
+                'first_detection_s': None if trk is None else trk[2],
+                'lead_track_raw_s': lead, 'exclusion_reason': reason}
 
 
 def _r(v, nd):
@@ -302,8 +316,18 @@ def safety_endpoints(arr: dict, book: TrackBook, first_det: dict,
     """R3 major 6 endpoints from the 20 Hz separation array."""
     tt, sep, lat, mode = arr["t"], arr["sep"], arr["lat"], arr["mode"]
     n_t, n_ag = sep.shape
+    # Endpoint samples still determine counts/minima; only the intervals
+    # [t_i, t_(i+1)) carry exposure. The last tick has zero time weight.
+    dt = np.r_[np.diff(tt), 0.0] if n_t else np.empty(0)
+    if not np.all(np.isfinite(tt)) or np.any(dt < 0):
+        raise ValueError('scoring ticks must be finite and nondecreasing')
     back = int(round(REACT_LOOKBACK_S / SIM_DT))
-    out: dict = {}
+    out: dict = {'screen_version': 'open_asof_v2',
+                 'endpoint_precision_version': 'raw_minimum_v2',
+                 'time_integration': 'left_tick_interval_v2',
+                 'scoring_start_s': float(tt[0]) if n_t else None,
+                 'scoring_end_s': float(tt[-1]) if n_t else None,
+                 'exposure_s': float(tt[-1] - tt[0]) if n_t else 0.0}
     umin = sep.min(axis=1) if n_ag else np.full(n_t, np.inf)
     out["min_sep_20hz"] = _r(float(umin.min()), 1) if n_t else None
 
@@ -320,17 +344,22 @@ def safety_endpoints(arr: dict, book: TrackBook, first_det: dict,
             lead_phys = None if det_t is None else t_min - det_t
             trk = book.track_at_entry(slot, t_entry)
             lead_track = None if trk is None else t_entry - trk[2]
+            audit = book.screen_at_entry(slot, t_entry)
             ag = agents[slot]
             s = {"slot": slot, "gt_type": int(ag.platform),
                  "gt_intent": int(ag.intent_code),
                  "track_id": None if trk is None else trk[0],
                  "t_entry": _r(t_entry, 2), "t_min": _r(t_min, 2),
-                 "t_exit": _r(t_exit, 2), "min_sep": _r(seg[k - a], 1)}
+                 "t_exit": _r(t_exit, 2), "min_sep": _r(seg[k - a], 1),
+                 "min_sep_raw_m": float(seg[k - a])}
             for thr, lbl in THRESHOLDS:
-                s[f"tb_{lbl}_s"] = _r(float((seg < thr).sum()) * SIM_DT, 2)
+                s[f"tb_{lbl}_s"] = _r(float(dt[a:b][seg < thr].sum()), 2)
+                s[f"tb_{lbl}_legacy_tick_s"] = _r(float((seg < thr).sum()) * SIM_DT, 2)
             s.update({
                 "lead_phys_s": _r(lead_phys, 2),
                 "lead_track_s": _r(lead_track, 2),
+                "lead_track_raw_s": None if lead_track is None else float(lead_track),
+                "screen_audit": audit,
                 "turning_at_track_start": (
                     None if trk is None
                     else bool(int(book.mode[trk[1], slot]) in TURN_MODES)),
@@ -350,7 +379,8 @@ def safety_endpoints(arr: dict, book: TrackBook, first_det: dict,
     lists: dict[str, list[dict]] = {}
     for thr, lbl in THRESHOLDS:
         inside = umin < thr
-        out[f"union20_time_below_{lbl}_s"] = _r(float(inside.sum()) * SIM_DT, 2)
+        out[f"union20_time_below_{lbl}_s"] = _r(float(dt[inside].sum()), 2)
+        out[f"union20_time_below_{lbl}_legacy_tick_s"] = _r(float(inside.sum()) * SIM_DT, 2)
         evs = []
         for a, b in _runs(inside):
             k = a + int(np.argmin(umin[a:b]))
@@ -359,12 +389,16 @@ def safety_endpoints(arr: dict, book: TrackBook, first_det: dict,
                         if sa <= k < sb), None)
             det_t = first_det.get(slot)
             lead_phys = None if det_t is None else tt[k] - det_t
-            lead_track = None if seg is None else seg["lead_track_s"]
+            lead_track = None if seg is None else seg["lead_track_raw_s"]
             evs.append({
                 "slot": slot, "t_entry": _r(tt[a], 2), "t_min": _r(tt[k], 2),
                 "t_exit": _r(tt[b - 1], 2), "min_sep": _r(umin[k], 1),
-                "time_below_s": _r((b - a) * SIM_DT, 2),
-                "lead_phys_s": _r(lead_phys, 2), "lead_track_s": lead_track,
+                "min_sep_raw_m": float(umin[k]),
+                "time_below_s": _r(float(dt[a:b].sum()), 2),
+                "time_below_legacy_tick_s": _r((b - a) * SIM_DT, 2),
+                "lead_phys_s": _r(lead_phys, 2), "lead_track_s": _r(lead_track, 2),
+                "lead_track_raw_s": lead_track,
+                "screen_audit": None if seg is None else dict(seg["screen_audit"]),
                 "unavoidable_old": bool(lead_phys is None
                                         or lead_phys < T_NEED_S),
                 "unavoidable_new": bool(lead_track is None
@@ -788,6 +822,8 @@ def run_episode(arm: str, index: int, predictor,
         trk = book.track_at_entry(slot, float(ts[f]))
         lt = None if trk is None else float(ts[f]) - trk[2]
         ev_new.append({"lead_track_s": _r(lt, 2),
+                       "lead_track_raw_s": lt,
+                       "screen_audit": book.screen_at_entry(slot, float(ts[f])),
                        "unavoidable_new": bool(lt is None or lt < T_NEED_S)})
 
     pred_logged = None

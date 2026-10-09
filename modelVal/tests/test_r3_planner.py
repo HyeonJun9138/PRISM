@@ -359,10 +359,11 @@ class SegmentationTests(unittest.TestCase):
     def test_screens_and_flags(self):
         segs = {(s["slot"], s["t_min"]): s for s in self.out["pairwise"]}
         a, b, c = segs[(0, 6.0)], segs[(1, 7.5)], segs[(0, 12.5)]
-        # a: no open track at entry 5.15 (track 3 closed at 4.0) -> the
-        # most recent track (3, first detected 1.0) -> lead 4.15 s
-        self.assertEqual(a["track_id"], 3)
-        self.assertAlmostEqual(a["lead_track_s"], 4.15)
+        # a: no open track at entry 5.15; closed track 3 is ineligible.
+        self.assertIsNone(a["track_id"])
+        self.assertIsNone(a["lead_track_s"])
+        self.assertTrue(a["unavoidable_new"])
+        self.assertEqual(a["screen_audit"]["exclusion_reason"], 'closed_asof_track')
         self.assertAlmostEqual(a["lead_phys_s"], 5.0)
         # c: reacquired track 9 (first det 6.0) open at entry 11.1:
         # old screen says avoidable (lead_phys 11.5), new screen does not

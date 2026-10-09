@@ -1,5 +1,5 @@
 {
- "version": "PRISM-revision-v3.0",
+ "version": "PRISM-revision-v3.1",
  "hash": "SHA-256",
  "bundles": {
   "models": {
@@ -87,7 +87,9 @@
      "bytes": 6107122,
      "sha256": "abaa2f5142321c94bb619890f6257626353798da4fb997ce6779539e9d3aabc6"
     }
-   ]
+   ],
+   "source_release": "PRISM-revision-v3.0",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-models.zip"
   },
   "prediction-evaluation": {
    "archive": "PRISM-revision-v3.0-prediction-evaluation.zip",
@@ -10909,7 +10911,9 @@
      "bytes": 4345,
      "sha256": "51ee37a05994e1356914e9d049d8aed5c023ca8c636a2c117f2c011d5a7c1460"
     }
-   ]
+   ],
+   "source_release": "PRISM-revision-v3.0",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-prediction-evaluation.zip"
   },
   "closed-loop": {
    "archive": "PRISM-revision-v3.0-closed-loop.zip",
@@ -17121,7 +17125,9 @@
      "bytes": 2583405,
      "sha256": "c669548f26f49478e12fab7c1973fcd795363d20609479428a41f949400d7aab"
     }
-   ]
+   ],
+   "source_release": "PRISM-revision-v3.0",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-closed-loop.zip"
   },
   "training-data": {
    "archive": "PRISM-revision-v3.0-training-data.zip",
@@ -58668,7 +58674,9 @@
      "bytes": 5692,
      "sha256": "45c059bf4a515d9f7b5d78bd6f9b0dcf43373106019756fd35cfb6510b227b37"
     }
-   ]
+   ],
+   "source_release": "PRISM-revision-v3.0",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-training-data.zip"
   },
   "evaluation-data": {
    "archive": "PRISM-revision-v3.0-evaluation-data.zip",
@@ -91655,7 +91663,9 @@
      "bytes": 3042,
      "sha256": "98a859da8b503211adaa4e8f0ead43b1c4195faa412ce2bbda59a4aa6d3fef01"
     }
-   ]
+   ],
+   "source_release": "PRISM-revision-v3.0",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-evaluation-data.zip"
   },
   "historical-training-source": {
    "archive": "PRISM-revision-v3.0-historical-training-source.zip",
@@ -91807,7 +91817,9 @@
      "bytes": 3314,
      "sha256": "50d414822f217a67b9f141a6caa05124e3111adb3b6ebb5e0b43a1f39f3f9ae3"
     }
-   ]
+   ],
+   "source_release": "PRISM-revision-v3.0",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-historical-training-source.zip"
   },
   "rollout-diagnostics": {
    "archive": "PRISM-revision-v3.0-rollout-diagnostics.zip",
@@ -91858,6 +91870,222 @@
      "path": "Paper/rebuttal/r3/rollout_r3_k3_s1_oodheldout_T1_groups.jsonl",
      "bytes": 1031498,
      "sha256": "269718b026d3e6156158ea34f79c2634fbe06a2eab807a7f2850d6c2bae31f3b"
+    }
+   ],
+   "source_release": "PRISM-revision-v3.0",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.0/PRISM-revision-v3.0-rollout-diagnostics.zip"
+  },
+  "corrected-endpoints": {
+   "archive": "PRISM-revision-v3.1-corrected-endpoints.zip",
+   "bytes": 16785112,
+   "sha256": "a5299b8f13b87a0a174bcd900154f01ddc40fd3f6e3f397c01d5dbca38759131",
+   "source_release": "PRISM-revision-v3.1",
+   "download_url": "https://github.com/HyeonJun9138/PRISM/releases/download/PRISM-revision-v3.1/PRISM-revision-v3.1-corrected-endpoints.zip",
+   "files": [
+    {
+     "path": "round2/rescored/r3_cal40/model.jsonl",
+     "bytes": 3353249,
+     "sha256": "ec05a5099f81cb85c534b74a803fd6b7c204cab0435aa08e0ab812e83f9f3161"
+    },
+    {
+     "path": "round2/rescored/r3_decomp40/cvc_msig.jsonl",
+     "bytes": 3270167,
+     "sha256": "02ea0e4906319cd47e2e08715aae9b27a1710a3c0220268d87235c110f2a0b6a"
+    },
+    {
+     "path": "round2/rescored/r3_decomp40/mc_cvsig.jsonl",
+     "bytes": 3353753,
+     "sha256": "8f85b86340818e03f344b15a786c983717db1d27aed8958a6770d99838d29ce5"
+    },
+    {
+     "path": "round2/rescored/r3_floor1/cv.jsonl",
+     "bytes": 3225788,
+     "sha256": "332daec36ca74c93e8a15df29e4ae074ba94d14248c7ee73a37a737e1b40c8d8"
+    },
+    {
+     "path": "round2/rescored/r3_floor1/model.jsonl",
+     "bytes": 3291870,
+     "sha256": "c1c2697b53a830656f0a57432b9d3869e3f5c1216505be284b78d885751528d7"
+    },
+    {
+     "path": "round2/rescored/r3_floor20/cv.jsonl",
+     "bytes": 3226275,
+     "sha256": "692107a8143ba46105d0dc95c3a5ea0c33dda835dcf6ca633f4b707f4682b275"
+    },
+    {
+     "path": "round2/rescored/r3_floor20/model.jsonl",
+     "bytes": 3304303,
+     "sha256": "25dd236e918a6b13f9fff38000a12381a03e5df0b08c94cb501c9b29ec3658d0"
+    },
+    {
+     "path": "round2/rescored/r3_id24/cv.jsonl",
+     "bytes": 3381393,
+     "sha256": "8275153d495bd4f27ebecdb967c430a0a934ecfb85e4e21100354911010646c1"
+    },
+    {
+     "path": "round2/rescored/r3_id24/model.jsonl",
+     "bytes": 3402735,
+     "sha256": "a5294d3f73ec11556271f0c68cfd61c3d0eaaa83d0479383ec9ae93303716d8c"
+    },
+    {
+     "path": "round2/rescored/r3_id24/none.jsonl",
+     "bytes": 3457117,
+     "sha256": "9d568b2692265b0e2bd9d0eedb515ffdb610e17d60edfbcb0cff7056feb223a5"
+    },
+    {
+     "path": "round2/rescored/r3_id40/cv.jsonl",
+     "bytes": 3254298,
+     "sha256": "929f882230763904dc6588d6fa3a5e2a173c8d2b6900e27e389b6ef5603f1f87"
+    },
+    {
+     "path": "round2/rescored/r3_id40/model.jsonl",
+     "bytes": 3268584,
+     "sha256": "fb0b8b920fea430e379469faa3e02f403d8b59153d27b5945e4c13f153d56900"
+    },
+    {
+     "path": "round2/rescored/r3_id40/none.jsonl",
+     "bytes": 3310077,
+     "sha256": "3d7bf8812b5a544031621a115d5897da8754834844fc158c18ae3dc812d0e878"
+    },
+    {
+     "path": "round2/rescored/r3_isomax/model.jsonl",
+     "bytes": 3301367,
+     "sha256": "a1d86a1e95971b24427f407c7f7724cb1a1565dc453e5b03ffd3b3d644ae04dd"
+    },
+    {
+     "path": "round2/rescored/r3_isomin/model.jsonl",
+     "bytes": 3332885,
+     "sha256": "8119738f2de4df0ee7cc220a119398e4419d30d7dbff0f12486c3f148f53d210"
+    },
+    {
+     "path": "round2/rescored/r3_normabs/cv.jsonl",
+     "bytes": 3282451,
+     "sha256": "18a6b8fc4a633ab69aa72c0da1755ed4461613aa67b895caad63064972b772e6"
+    },
+    {
+     "path": "round2/rescored/r3_normabs/model.jsonl",
+     "bytes": 3362402,
+     "sha256": "8940e390627bb40874e818f390f70be0ba587ef1248dcb41718e0428aae4c8be"
+    },
+    {
+     "path": "round2/rescored/r3_ood100/cv.jsonl",
+     "bytes": 3594313,
+     "sha256": "4154eafeeeb77908df3aef603805cb95cf244c8b5959643e340e4ef61e44e773"
+    },
+    {
+     "path": "round2/rescored/r3_ood100/model.jsonl",
+     "bytes": 3555746,
+     "sha256": "6b638728e751bc0ec3bc955aedfcdb3684f76aa84a943afaa6076ec72ff31118"
+    },
+    {
+     "path": "round2/rescored/r3_ood100/none.jsonl",
+     "bytes": 3636065,
+     "sha256": "546c631dc6deed855b733af618221a8b91affcbeb50d08704c072ed12be86543"
+    },
+    {
+     "path": "round2/rescored/r3_ood40/cv.jsonl",
+     "bytes": 6590113,
+     "sha256": "067fed14332dc2a53d2f22d53d96c078afb8796e371a2d537f696b9ed5a3083b"
+    },
+    {
+     "path": "round2/rescored/r3_ood40/model.jsonl",
+     "bytes": 6665830,
+     "sha256": "72ce35f9e58a85cd08a7b8c68d57c35fa3395c3dc6808c15e7a04e827790af09"
+    },
+    {
+     "path": "round2/rescored/r3_ood40/none.jsonl",
+     "bytes": 6779558,
+     "sha256": "9e968613ce3c53f27881dc4f0ea892d46bc258ded72ca468de11cb08c62d6a1a"
+    },
+    {
+     "path": "round2/rescored/r3_pimin20/model.jsonl",
+     "bytes": 3300173,
+     "sha256": "2ca94160b888033ece77f1a28911fd05586201961f7451ba0704e579a0de0736"
+    },
+    {
+     "path": "round2/rescored/r3_plat05/cv.jsonl",
+     "bytes": 3233268,
+     "sha256": "16974502b322ca05993717bebaeae94534015318885d87e26dffe9da2d216f79"
+    },
+    {
+     "path": "round2/rescored/r3_plat05/model.jsonl",
+     "bytes": 3292906,
+     "sha256": "e5bc99119da6c74feb2e90a944b54a2e29b366fe2d3fb64fdd4c7e85605261cd"
+    },
+    {
+     "path": "round2/rescored/r3_plat2/cv.jsonl",
+     "bytes": 3349093,
+     "sha256": "c1c265e7ce5889ac83b9cfac1c82e26336e565f6a6a7633e094a46c3591b2e0a"
+    },
+    {
+     "path": "round2/rescored/r3_plat2/model.jsonl",
+     "bytes": 3342294,
+     "sha256": "66c9eadd41c3dcaa79125b4dffb5a070d82dcac48c3d4355b805a5cf48889103"
+    },
+    {
+     "path": "round2/rescored/r3_shared40/cv.jsonl",
+     "bytes": 3269034,
+     "sha256": "513a8aaa779d340377e178b6714ee87e3d5d6faf3478b9b91a13dd538a58f0ba"
+    },
+    {
+     "path": "round2/rescored/r3_shared40/model.jsonl",
+     "bytes": 3335427,
+     "sha256": "c205dcf0bb508ea210b38e101117eb4a3ea2836c93f5980b9a73255459c4cf94"
+    },
+    {
+     "path": "round2/rescored/r3_shared40/none.jsonl",
+     "bytes": 3376542,
+     "sha256": "7a014fc37040351e9893b24a4963a705cec52067ed0327903ea2b3a9f4891ff9"
+    },
+    {
+     "path": "round2/rescored/r3_sparse/cv.jsonl",
+     "bytes": 2754483,
+     "sha256": "00a516be57918ae9e6edb2a919e7b1afeba80a3e04322e517970567d6a49809d"
+    },
+    {
+     "path": "round2/rescored/r3_sparse/model.jsonl",
+     "bytes": 2785681,
+     "sha256": "9184a924f91ce3a3c973d08855c7c46a8fb9ee740ab0f10a6714101f4a7556a3"
+    },
+    {
+     "path": "round2/rescored/r3_sparse/none.jsonl",
+     "bytes": 2781629,
+     "sha256": "36d81b2156c9fcd262095bac802cb38daccecdc73d6d09dadeb9ed4fd661af8b"
+    },
+    {
+     "path": "round2/rescored/r3_wsafe24/cv.jsonl",
+     "bytes": 3239795,
+     "sha256": "f940dad2ba5b33ef16e4834072ea9c341d9381d60994d439b03142ac33adf102"
+    },
+    {
+     "path": "round2/rescored/r3_wsafe24/model.jsonl",
+     "bytes": 3273659,
+     "sha256": "6c90a73ddff884f0cf40d0af57f94d6e8f1ac8fca0feb01e4bd3ffc912b938a9"
+    },
+    {
+     "path": "round2/rescored/r3_wsafe6/cv.jsonl",
+     "bytes": 3300464,
+     "sha256": "f75057189297545224989a5fb79043f5820b19f7ed208b29cd8ee641c3e6dc35"
+    },
+    {
+     "path": "round2/rescored/r3_wsafe6/model.jsonl",
+     "bytes": 3335220,
+     "sha256": "b48f8227f8aafae9c4d0b1fe122d43e61e8b65e429ccb83c8fe5c7f5a56225f5"
+    },
+    {
+     "path": "round2/rescored/event_screen_audit.csv",
+     "bytes": 43383251,
+     "sha256": "175f932ac3808157525a9b82b13aa405889aa53d7ece2b41b9e37b1f11bfa95d"
+    },
+    {
+     "path": "round2/rescored/event_screen_audit.jsonl",
+     "bytes": 97203172,
+     "sha256": "6e69f03343108fee9543de80e6e1232cbeafb6018b281af2caf0fdfef5037c9c"
+    },
+    {
+     "path": "round2/rescored/status.json",
+     "bytes": 13334,
+     "sha256": "2c6b765c70792e603b2bb8a838fc1165804ea2429f340e78ae6f210be5fbf60d"
     }
    ]
   }

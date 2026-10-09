@@ -1,5 +1,11 @@
 # Reproduction guide
 
+> v3.1: corrected evaluation and updated figure references are documented in
+> [ROUND2_CORRECTIONS.md](ROUND2_CORRECTIONS.md). The v3.0 analysis and plotting
+> commands below are preserved as historical reproduction, not as the corrected
+> second-revision result. Model and dataset assets are unchanged.
+
+
 ## Read without downloading
 
 The reference prediction tables (`results/r3_numbers.json`), planner
