@@ -1648,7 +1648,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.4557412794379332
+            "sign_p": 0.45574127943793313
           }
         },
         "union20_76_old": {
@@ -1836,7 +1836,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.4557412794379332
+            "sign_p": 0.45574127943793313
           }
         },
         "pairwise_76_new": {
@@ -2402,7 +2402,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.8878609477142119
+            "sign_p": 0.8878609477142116
           }
         },
         "pairwise_tb_152": {
@@ -2449,7 +2449,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.8878609477142119
+            "sign_p": 0.8878609477142116
           }
         },
         "union20_tb_76": {
@@ -2529,7 +2529,7 @@
             "rate_diff": {
               "est": -2.4866666666666646,
               "ci": [
-                -8.946999999999992,
+                -8.947,
                 3.8399999999999963
               ]
             },
@@ -2537,13 +2537,13 @@
               "est": 0.9333928571428572,
               "ci": [
                 0.777153039676664,
-                1.1118398136391572
+                1.111839813639157
               ],
               "undefined_draws": 0,
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.6635853603384568
+            "sign_p": 0.6635853603384567
           }
         },
         "union20_tb_45": {
@@ -4447,7 +4447,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.8974218269914684
+            "sign_p": 0.8974218269914683
           }
         },
         "pairwise_45_all": {
@@ -4729,7 +4729,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.8974218269914684
+            "sign_p": 0.8974218269914683
           }
         }
       },
@@ -4825,7 +4825,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.14518799427234552
+            "sign_p": 0.1451879942723455
           }
         },
         "pairwise_tb_152": {
@@ -4919,7 +4919,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.17453244937060083
+            "sign_p": 0.1745324493706008
           }
         },
         "pairwise_tb_76": {
@@ -5017,10 +5017,10 @@
           }
         },
         "pairwise_tb_45": {
-          "wins": 45,
+          "wins": 44,
           "losses": 37,
-          "ties": 218,
-          "sign_p": 0.439705,
+          "ties": 219,
+          "sign_p": 0.505236,
           "total_a": 83.45,
           "total_b": 83.35,
           "rate_a": 11.1267,
@@ -5060,7 +5060,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.43970542918579814
+            "sign_p": 0.5052364407669254
           }
         }
       },
@@ -6776,7 +6776,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "union20_45_old": {
@@ -6823,7 +6823,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "union20_45_new": {
@@ -6870,7 +6870,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "pairwise_45_all": {
@@ -6917,7 +6917,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "pairwise_45_old": {
@@ -6964,7 +6964,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "pairwise_45_new": {
@@ -7011,7 +7011,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "union20_severe_all": {
@@ -7058,7 +7058,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "union20_severe_old": {
@@ -7105,7 +7105,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         },
         "union20_severe_new": {
@@ -7152,7 +7152,7 @@
               "defined_draws": 10000,
               "undefined_frac": 0.0
             },
-            "sign_p": 0.7110711038112583
+            "sign_p": 0.7110711038112582
           }
         }
       },
@@ -7289,7 +7289,7 @@
               "est": 0.9302316792017837,
               "ci": [
                 0.8713096352895904,
-                0.9880993323590677
+                0.9880993323590678
               ],
               "undefined_draws": 0,
               "defined_draws": 10000,

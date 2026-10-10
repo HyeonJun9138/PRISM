@@ -1,6 +1,8 @@
 # Versioned downloads
 
 The v3.1 correction is a new asset; unchanged large inputs remain at v3.0.
+The v3.2 aggregation update reuses this exact v3.1 corrected-endpoints asset.
+No large model, dataset, or episode bundle needs to be duplicated.
 Download only the bundles needed for the analysis. Sizes below are compressed decimal MB.
 
 | Bundle | Files | MB | Download |

@@ -1,4 +1,4 @@
-# PRISM — evaluation correction v3.1
+# PRISM — numerical verification update v3.2
 
 **Probabilistic Risk Intelligence for Safe Mission Planning**
 
@@ -10,18 +10,33 @@ represented in training.
 
 ![PRISM overview](paper/figures/figure_01.png)
 
-This curated release contains the corrected evaluation used in the second manuscript revision. It covers **2D horizontal
+This curated source package contains the corrected evaluation with portable
+floating-statistic verification and integer-tick duration ties. It covers **2D horizontal
 motion in simulation**, not a validated operational collision-avoidance
 system. The contribution is the prediction-to-planning interface and its
 evaluation, not a new Transformer architecture. Predictive coverage, spatial
 risk scores and collision probabilities are different quantities.
 
 - Branch: **`PRISM-revision-version`**
-- Frozen release: **[PRISM-revision-v3.1](https://github.com/HyeonJun9138/PRISM/releases/tag/PRISM-revision-v3.1)**
+- Frozen input records: **[PRISM-revision-v3.1](https://github.com/HyeonJun9138/PRISM/releases/tag/PRISM-revision-v3.1)**
 - Revised headline checkpoint: **`20260926_141629_r3_k3_s1`** (current tracks).
 - The earlier `full5x_s4` model is only an **oracle-association audit**.
 
-## What changed in v3.1
+## What changed in v3.2
+
+Only numerical aggregation, verification, and affected reference summaries
+changed. Recorded dwell durations are summed in integer 0.05 s
+ticks. Exact tick equality determines ties. Computed floating statistics use
+absolute and relative verification tolerances of 1e-12; discrete fields and
+SHA-256 checks remain exact. All 20 analyses retain the same 12,300 rows,
+10,000 bootstrap draws, and seed 20260926. No model training or closed-loop
+simulation was repeated. See [the numerical verification guide](docs/NUMERIC_VERIFICATION.md).
+
+The corrected-endpoints asset remains checksum-pinned at v3.1; models and
+datasets remain at v3.0. Do not redownload unchanged large assets if they
+are already installed. Earlier releases are not replaced.
+
+## Evaluation corrections retained from v3.1
 
 The current-track event screen now requires an open track as of threshold
 entry, with no fallback to a closed track or future detection. Threshold

@@ -1,5 +1,11 @@
 # Corrected evaluation in v3.1
 
+The v3.2 source package retains these endpoint definitions and frozen v3.1
+input rows. Duration aggregation and numerical verification are updated as
+specified in [NUMERIC_VERIFICATION.md](NUMERIC_VERIFICATION.md). The current
+`results/round2/` summaries use integer-tick duration ties, not historical
+v3.1 floating-point ties.
+
 PRISM-revision-v3.1 is an additive successor to PRISM-revision-v3.0. The old
 tag, original logs, models and dataset assets are unchanged. The second
 revision does not require retraining. Model-input construction and planner
@@ -59,7 +65,7 @@ python modelVal/tests/test_corrected_endpoints.py
 python tools/reproduce.py prepare
 ```
 
-Download `PRISM-revision-v3.1-corrected-endpoints.zip` from this release into
+Download `PRISM-revision-v3.1-corrected-endpoints.zip` from the frozen v3.1 release into
 `downloads/`, then run:
 
 ```sh
@@ -72,6 +78,8 @@ The verifier validates all 12,300 rows and hashes, checks paired traffic and
 index ranges, then reconstructs every arm summary and paired contrast using
 10,000 bootstrap draws and seed 20260926. It compares complete numerical
 structures, including unrounded intervals, without overwriting references.
+Discrete fields and hashes remain exact; computed floating statistics use
+the stated absolute and relative tolerances of 1e-12.
 For one comparison use `--only core_ood40`. Reference figures in
 `paper/figures/` are the exact final manuscript images; their hashes and
 captions are in `manifest.json`. No claim is made that the historical

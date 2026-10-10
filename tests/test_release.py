@@ -31,7 +31,7 @@ class PublicationContract(unittest.TestCase):
                     self.assertTrue(relative in files, f'{p.name}: missing {relative}')
 
     def test_version_and_scope(self):
-        self.assertEqual((ROOT / 'VERSION').read_text().strip(), 'PRISM-revision-v3.1')
+        self.assertEqual((ROOT / 'VERSION').read_text().strip(), 'PRISM-revision-v3.2')
         for p in ROOT.rglob('*'):
             if not p.is_file() or any(x in p.parts for x in ('.git', '__pycache__', 'outputs', 'downloads', '.venv', 'venv')):
                 continue

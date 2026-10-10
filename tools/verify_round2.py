@@ -8,12 +8,47 @@ import hashlib
 import importlib.util
 import json
 import math
+import platform
 from pathlib import Path
 import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('round2_aggregate', ROOT/'modelVal/experiments/aggregate_r3.py')
 AGG = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(AGG)
+
+# Only computed floating statistics use these tolerances. Counts, indices,
+# hashes, booleans, nulls and structure are still exact.
+STAT_ABS_TOL = 1e-12
+STAT_REL_TOL = 1e-12
+
+
+def assert_statistics_match(got, want, path='result'):
+    def fail():
+        raise ValueError(f'{path}: statistics mismatch ({got!r} != {want!r})')
+    if type(got) is not type(want):
+        fail()
+    if isinstance(want, dict):
+        if got.keys() != want.keys():
+            fail()
+        for key in want:
+            assert_statistics_match(got[key], want[key], path + '/' + key)
+    elif isinstance(want, list):
+        if len(got) != len(want):
+            fail()
+        for i, (g, w) in enumerate(zip(got, want)):
+            assert_statistics_match(g, w, path + '/' + str(i))
+    elif isinstance(want, float):
+        # Count totals may be encoded as floats by downstream JSON producers.
+        event_count = '/events/' in path and path.rsplit('/', 1)[-1] in {'total', 'total_a', 'total_b'}
+        if not (math.isfinite(got) and math.isfinite(want)):
+            fail()
+        if event_count:
+            if got != want:
+                fail()
+        elif not math.isclose(got, want, abs_tol=STAT_ABS_TOL, rel_tol=STAT_REL_TOL):
+            fail()
+    elif got != want:
+        fail()
 
 def validate_row(r):
     if r.get('screen_version')!='open_asof_v2':raise ValueError('교정 선별 버전 누락')
@@ -65,8 +100,10 @@ def validate_strata_proof(r):
         raise ValueError('pairwise turning-at-track-start strata의 독립 복원/증명 누락')
 
 
-def unrounded_rate_stats(ca,cb,ha,hb,bidx):
+def unrounded_rate_stats(ca,cb,ha,hb,bidx,unit_scale=1.0):
     ca=np.asarray(ca,dtype=float);cb=np.asarray(cb,dtype=float)
+    sign_p=AGG.sign_test(int((ca<cb).sum()),int((ca>cb).sum()))
+    ca=ca/unit_scale;cb=cb/unit_scale
     ha=np.asarray(ha,dtype=float);hb=np.asarray(hb,dtype=float)
     def val(x):return float(x) if np.isfinite(x) else None
     def ci(x):
@@ -83,7 +120,7 @@ def unrounded_rate_stats(ca,cb,ha,hb,bidx):
        'rate_ratio':{'est':val(a/b) if b>0 else None,'ci':ci(ratio),
           'undefined_draws':undef,'defined_draws':int(len(ratio)-undef),
           'undefined_frac':undef/len(ratio)},
-       'sign_p':AGG.sign_test(int((ca<cb).sum()),int((ca>cb).sum()))}
+       'sign_p':sign_p}
 
 
 def add_unrounded(paired,ra,rb,boot):
@@ -93,17 +130,20 @@ def add_unrounded(paired,ra,rb,boot):
     bi=AGG.boot_indices(len(indices),boot,20260926)
     ha=[AGG.episode_exposure_s(r)/3600 for r in a]
     hb=[AGG.episode_exposure_s(r)/3600 for r in b]
-    for fam,fn in [('events',AGG.episode_endpoints),('time_below',AGG.episode_times)]:
+    for fam,fn in [('events',AGG.episode_endpoints),('time_below',AGG.episode_time_ticks)]:
         ea=[fn(r) for r in a];eb=[fn(r) for r in b]
         for k,v in paired[fam].items():
             if v is None:continue
-            v['unrounded']=unrounded_rate_stats([r[k] for r in ea],[r[k] for r in eb],ha,hb,bi)
+            v['unrounded']=unrounded_rate_stats([r[k] for r in ea],[r[k] for r in eb],ha,hb,bi,
+                                               AGG.DURATION_HZ if fam=='time_below' else 1.0)
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--root',type=Path,default=ROOT/'outputs/reproduction')
     ap.add_argument('--only',help='One aggregate name, otherwise all frozen comparisons')
     args=ap.parse_args()
+    print(f'Python {platform.python_version()}; NumPy {np.__version__}; float statistics: '
+          f'abs_tol={STAT_ABS_TOL:g}, rel_tol={STAT_REL_TOL:g}; integer duration ties at 20 Hz',flush=True)
     manifest=json.loads((ROOT/'results/round2/numbers_manifest_round2.json').read_text(encoding='utf-8'))
     cache={}
     for run, info in manifest['coverage']['inputs'].items():
@@ -128,14 +168,14 @@ def main():
             run=info['paths'][0].replace('\\','/').split('/rescored/',1)[1][:-6]
             lo,hi=info['indices'];rows={i:v for i,v in cache[run].items() if lo<=i<=hi}
             if set(rows)!=set(range(lo,hi+1)):raise ValueError('Index range mismatch')
-            if AGG.summarize(label,rows)!=expected['per_arm'][label]:raise ValueError(name+'/'+label+' arm statistics mismatch')
+            assert_statistics_match(AGG.summarize(label,rows),expected['per_arm'][label],name+'/'+label)
             conds[label]=rows
         for pair, want in expected['paired'].items():
             a,b=pair.split('|');ra,rb=conds[a],conds[b]
             if set(ra)!=set(rb) or any(not AGG.same_traffic(ra[i],rb[i]) for i in ra):raise ValueError('Unpaired traffic')
             got=AGG.compare(ra,rb,expected['B'],expected['seed']);add_unrounded(got,ra,rb,expected['B'])
-            if got!=want:raise ValueError(name+'/'+pair+' paired statistics mismatch')
-        count+=1;print(name+': exact arm and paired statistics match',flush=True)
+            assert_statistics_match(got,want,name+'/'+pair)
+        count+=1;print(name+': exact discrete fields; floating statistics within stated tolerances',flush=True)
     if not count:raise ValueError('No matching analysis')
     print('PASS:',count,'analyses; no reference files overwritten',flush=True)
 

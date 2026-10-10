@@ -1,20 +1,36 @@
 {
-  "version": "PRISM-revision-v3.1",
-  "baseline_tag": "PRISM-revision-v3.0",
-  "analysis_ledger_sha256": "6692b8558afba8b2a0b2b487ae7d19ce4bebc8c7a3973e29a29c5d0a7894fdc3",
-  "code": [
-    {
-      "path": "modelVal/experiments/batch.py",
-      "frozen_analysis_sha256": "12c3af77e012ed8842124f63c0443c815de3d79c54c5c63ef487250d41bfa0a3",
-      "release_adaptation": "PRISM_ROOT environment path portability and Git LF normalization"
-    },
-    {
-      "path": "modelVal/experiments/aggregate_r3.py",
-      "frozen_analysis_sha256": "512d2c194c1c04d8b2823fa93d053219d9e88a6f21873ef1aa234516e73f8bf3",
-      "release_adaptation": "Git LF normalization only"
-    }
-  ],
+  "version": "PRISM-revision-v3.2",
+  "input_release": "PRISM-revision-v3.1",
+  "previous_release_provenance": {
+    "version": "PRISM-revision-v3.1",
+    "baseline_tag": "PRISM-revision-v3.0",
+    "analysis_ledger_sha256": "6692b8558afba8b2a0b2b487ae7d19ce4bebc8c7a3973e29a29c5d0a7894fdc3",
+    "code": [
+      {
+        "path": "modelVal/experiments/batch.py",
+        "frozen_analysis_sha256": "12c3af77e012ed8842124f63c0443c815de3d79c54c5c63ef487250d41bfa0a3",
+        "release_adaptation": "PRISM_ROOT environment path portability and Git LF normalization"
+      },
+      {
+        "path": "modelVal/experiments/aggregate_r3.py",
+        "frozen_analysis_sha256": "512d2c194c1c04d8b2823fa93d053219d9e88a6f21873ef1aa234516e73f8bf3",
+        "release_adaptation": "Git LF normalization only"
+      }
+    ],
+    "weights_retrained": false,
+    "historical_inputs_changed": false,
+    "documents_published": false
+  },
+  "analysis_ledger_sha256": "7019a845955b5fdd68003cb8cc389757e676db5bf10799064cdc196a4c4ab353",
+  "aggregation_sha256": "0cdae934b167984f1e82efc76094d69b28756b34a06d3378941b6756eacd1d91",
+  "verification_sha256": "bf99f85a1996f549066828e21f78625926d129234b11e490c77b561ef97a9575",
   "weights_retrained": false,
-  "historical_inputs_changed": false,
-  "documents_published": false
+  "closed_loop_experiments_repeated": false,
+  "input_records_changed": false,
+  "scope": "integer-tick duration aggregation, floating-statistic verification, and reference summaries",
+  "tested_python": [
+    "3.10.9",
+    "3.12.14"
+  ],
+  "numpy": "2.2.6"
 }

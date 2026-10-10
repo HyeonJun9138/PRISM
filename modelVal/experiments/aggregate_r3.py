@@ -358,14 +358,44 @@ def episode_endpoints(r: dict) -> dict[str, float | None]:
     return out
 
 
-def episode_times(r: dict) -> dict[str, float | None]:
-    out: dict[str, float | None] = {"union2_tb_152": r.get("nmac_duration_s")}
+DURATION_HZ = 20
+GRID_ABS_TOL_TICKS = 1e-8
+
+
+def duration_ticks(value: float) -> int:
+    """Decode a recorded 0.05-s duration, rejecting off-grid values.
+
+    The 1e-8-tick bound (5e-10 s) only absorbs representation roundoff;
+    it is not a tolerance for wins/ties. Ties require equal integer ticks.
+    """
+    if isinstance(value, bool):
+        raise ValueError('boolean duration')
+    seconds = float(value)
+    if not math.isfinite(seconds) or seconds < 0:
+        raise ValueError('duration must be finite and nonnegative')
+    scaled = seconds * DURATION_HZ
+    if not math.isfinite(scaled) or scaled > 2**53 - 1:
+        raise ValueError('duration exceeds exact tick range')
+    ticks = round(scaled)
+    if abs(scaled - ticks) > GRID_ABS_TOL_TICKS:
+        raise ValueError('duration is not on the 20 Hz grid')
+    return ticks
+
+
+def episode_time_ticks(r: dict) -> dict[str, int | None]:
+    optional = lambda v: None if v is None else duration_ticks(v)
+    out = {"union2_tb_152": optional(r.get("nmac_duration_s"))}
     pw = r.get("pairwise")
     for lbl, _ in THR:
-        out[f"union20_tb_{lbl}"] = r.get(f"union20_time_below_{lbl}_s")
-        out[f"pairwise_tb_{lbl}"] = (sum(float(s[f"tb_{lbl}_s"]) for s in pw)
+        out[f"union20_tb_{lbl}"] = optional(r.get(f"union20_time_below_{lbl}_s"))
+        out[f"pairwise_tb_{lbl}"] = (sum(duration_ticks(s[f"tb_{lbl}_s"]) for s in pw)
                                      if pw is not None else None)
     return out
+
+
+def episode_times(r: dict) -> dict[str, float | None]:
+    return {k: None if v is None else v / DURATION_HZ
+            for k, v in episode_time_ticks(r).items()}
 
 
 def episode_exposure_s(r: dict) -> float:
@@ -496,7 +526,7 @@ def summarize(label: str, rows: dict[int, dict]) -> dict:
             "emergency_cycles": em,
             "emergency_frac": round(em / cyc, 5) if cyc else None,
             "causes": causes,
-            "pen_depth_mean_m": (round(sum(p * w for p, w in pens) / npen, 3)
+            "pen_depth_mean_m": (round(math.fsum(p * w for p, w in pens) / npen, 3)
                                  if npen else None),
             "pen_depth_max_m": (round(max(r["pen_depth_max_m"] for r in v
                                           if r.get("pen_depth_max_m")
@@ -623,8 +653,8 @@ def compare(ra: dict[int, dict], rb: dict[int, dict], B: int,
         evs[k] = d
     out["events"] = evs
 
-    ta = [episode_times(r) for r in A]
-    tb = [episode_times(r) for r in Bv]
+    ta = [episode_time_ticks(r) for r in A]
+    tb = [episode_time_ticks(r) for r in Bv]
     tms: dict = {}
     for k in ta[0]:
         a = _col(ta, lambda e, k=k: e[k])
@@ -633,7 +663,7 @@ def compare(ra: dict[int, dict], rb: dict[int, dict], B: int,
             tms[k] = None
             continue
         d = wlt(a, b, "low")
-        d.update(rate_boot(a, b, ha, hb, bidx))
+        d.update(rate_boot(a / DURATION_HZ, b / DURATION_HZ, ha, hb, bidx))
         tms[k] = d
     out["time_below"] = tms
 

@@ -11,7 +11,7 @@ import sys
 import zipfile
 
 REPO = Path(__file__).resolve().parents[1]
-VERSION = 'PRISM-revision-v3.1'
+VERSION = 'PRISM-revision-v3.2'
 
 
 def digest(path):
